@@ -1,5 +1,7 @@
 import BaseGame from '@games/BaseGame';
 import Phaser from 'phaser';
+import { ILauncherPayload } from './ILauncherPayload';
+import { IGameConfig } from '@gl/GameConfig';
 
 export interface IGameDefinition {
   gameClass: typeof BaseGame;
@@ -19,5 +21,8 @@ export interface IGameDefinition {
   };
 
   config?: Record<string, any>;
-  gameInitCb?(scene: Phaser.Scene, game: BaseGame): void;
+  gameInitCb?(scene: Phaser.Scene, game: BaseGame, payload: {
+    config: IGameConfig | null;
+    launcher_payload: ILauncherPayload;
+  }): void;
 }

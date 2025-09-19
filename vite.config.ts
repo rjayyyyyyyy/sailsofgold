@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
   const gameRootPosix = gameRoot.replace(/\\/g, '/');
 
     const isDebug = process.env.DEBUG === "true" ? true : false;
-    const queryParams = isDebug ? "?pid=888&gid=bookofdead&lang=en_GB&currency=CNY&practice=0&user=1513-984I62U184G763O&channel=mobile&brand=carnival&ctx=ipcelectron&embedmode=iframe&origin=https%3A%2F%2Flauncher.lydrst.com&debug=1" : "";
+    const queryParams = isDebug ? "?pid=100301&gid=bookofdead&lang=en_GB&currency=CNY&practice=0&user=1513-984I62U184G763O&channel=mobile&brand=carnival&ctx=ipcelectron&embedmode=iframe&origin=https%3A%2F%2Flauncher.lydrst.com&debug=1" : "";
   
   return {
     base: `./`,

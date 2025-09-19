@@ -1,3 +1,4 @@
+import Dispatcher, { EVENTS } from '@gl/events/Dispatcher';
 import Phaser from 'phaser';
 
 export class Preload extends Phaser.Scene {
@@ -12,6 +13,14 @@ export class Preload extends Phaser.Scene {
         this.load.on("progress", (value: number) => {
 			this.progressBar.width = width * value;
 		});
+
+		this.load.on('complete', () => {
+            console.log('loader-complete');
+            Dispatcher.emit(EVENTS.LOAD_COMPLETE);
+            setTimeout(() => {
+                this.scene.remove('Preload');
+            }, 1000);
+        });
     }
 
     createLoading() {

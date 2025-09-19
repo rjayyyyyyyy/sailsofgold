@@ -6,6 +6,8 @@ import Phaser from "phaser";
 import VideoSlot from "@games/videoslot/VideoSlot";
 import { container } from "./di/container";
 import { Logger } from "./Logger";
+import { SystemEvent } from "./events/Dispatcher";
+import NetworkManager from "./networking/NetworkManager";
 
 export class GameBootstrapper {
     private queryParams: URLSearchParams = new URLSearchParams(window.location.search);
@@ -19,19 +21,31 @@ export class GameBootstrapper {
         this.gameDefinition = gameDefinition;
         this.payload = this.readAllQueryParams();
 
+        // Set apiEndpoint on NetworkManager
+        const networkManager = container.get<NetworkManager>("NetworkManager");
+        networkManager.setApiEndpoint(this.gameDefinition.apiUrl);
     }
 
-    async loadGameConfig(): Promise<void> {
-        this.logger.debug(`Debug mode: ${this.payload.debug}`);
-        if(!this.payload.debug) {
-            const configUrl = `${this.gameDefinition.configUrl}?${this.queryParams.toString()}`;
-            const response = await fetch(configUrl);
-            if (!response.ok) {
-                throw new Error(`Failed to load game config from ${configUrl}`);
+    loadGameConfig(): Promise<void> {
+        return new Promise(async resolve => {
+
+            this.logger.debug(`Debug mode: ${this.payload.debug}`);
+            if(!this.payload.debug) {
+                const configUrl = `${this.gameDefinition.configUrl}?${this.queryParams.toString()}`;
+                const response = await fetch(configUrl);
+                if (!response.ok) {
+                    throw new Error(`Failed to load game config from ${configUrl}`);
+                }
+                const configJson = await response.json();
+                this.gameConfig = configJson as IGameConfig;
+
+                // Set gameHistory on NetworkManager
+                const networkManager = container.get<NetworkManager>("NetworkManager");
+                const historyUrl = this.payload.device === 'mobile' ? this.gameConfig.mobileGameHistoryUrl : this.gameConfig.desktopGameHistoryUrl;
+                networkManager.setGameHistory(historyUrl);
             }
-            const configJson = await response.json();
-            this.gameConfig = configJson as IGameConfig;
-        }
+            resolve();
+        })
     }
 
     private readAllQueryParams(): ILauncherPayload {
@@ -52,14 +66,14 @@ export class GameBootstrapper {
         };
     }
 
-    launch() {
+    async launch() {
         this.logger.info(`Launching game: ${this.gameDefinition.name}`);
         this.logger.debug(`Query Params: ${JSON.stringify(this.readAllQueryParams())}`);
-        this.loadGameConfig();
+        await this.loadGameConfig();
 
         const payload = this.payload; // Capture the payload for use in the nested class
         const gameDefinition = this.gameDefinition; // Capture gameDefinition for use in the nested class
-
+        const gameConfig = this.gameConfig; // Capture gameConfig for use in the nested class
         class PhaserBootstraper extends Phaser.Scene {
             private glGame: VideoSlot | null = null;
             private logger = new Logger();
@@ -80,7 +94,7 @@ export class GameBootstrapper {
                 this.logger.info("🎮 Creating game instance...");
                 try {
                     this.glGame = container.get(gameDefinition.gameClass) as VideoSlot;
-                    this.logger.info(`Game instance created successfully: ${this.glGame}`);
+                    this.logger.info(`Game instance created successfully`);
                     return true;
                 } catch (error) {
                     this.logger.error(`Failed to create game instance: ${error}`);
@@ -91,12 +105,19 @@ export class GameBootstrapper {
                 this.logger.info("🎮 Phaser create() method called!");
                 if(this.createGameInstance()) {
                     this.scene.launch('Preload');
-                    gameDefinition.gameInitCb?.(this, this.glGame!);
+                    gameDefinition.gameInitCb?.(this, this.glGame!, {
+                        config: gameConfig,
+                        launcher_payload: payload,
+                    });
                 }
+            }
+
+            update(time: number, delta: number): void {
+                this.glGame?.tick(time, delta);
             }
         }
 
-        const gameConfig: Phaser.Types.Core.GameConfig = {
+        const phaserConfig: Phaser.Types.Core.GameConfig = {
             type: Phaser.AUTO,
             width: this.gameDefinition.devices[this.payload.device]?.width || 800,
             height: this.gameDefinition.devices[this.payload.device]?.height || 600,
@@ -107,6 +128,6 @@ export class GameBootstrapper {
                 autoCenter: Phaser.Scale.CENTER_BOTH,
             },
         };
-        new Phaser.Game(gameConfig);
+        new Phaser.Game(phaserConfig);
     }
 }

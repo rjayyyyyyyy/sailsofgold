@@ -42,23 +42,27 @@ export class Logger {
         return callerLine.trim();
     }
 
-    trace(message: string) {
-        if (this.level <= LogLevel.TRACE) console.log(`TRACE [${this.getCaller()}]: ${message}`);
+    private formatMessage(message: any): string {
+        return typeof message === 'string' ? message : JSON.stringify(message);
     }
 
-    debug(message: string) {
-        if (this.level <= LogLevel.DEBUG) console.log(`DEBUG [${this.getCaller()}]: ${message}`);
+    trace(message: any) {
+        if (this.level <= LogLevel.TRACE) console.log(`TRACE [${this.getCaller()}]: ${this.formatMessage(message)}`);
     }
 
-    info(message: string) {
-        if (this.level <= LogLevel.INFO) console.log(`INFO [${this.getCaller()}]: ${message}`);
+    debug(message: any) {
+        if (this.level <= LogLevel.DEBUG) console.log(`DEBUG [${this.getCaller()}]: ${this.formatMessage(message)}`);
     }
 
-    warn(message: string) {
-        if (this.level <= LogLevel.WARN) console.warn(`WARN [${this.getCaller()}]: ${message}`);
+    info(message: any) {
+        if (this.level <= LogLevel.INFO) console.log(`INFO [${this.getCaller()}]: ${this.formatMessage(message)}`);
     }
 
-    error(message: string) {
-        if (this.level <= LogLevel.ERROR) console.error(`ERROR [${this.getCaller()}]: ${message}`);
+    warn(message: any) {
+        if (this.level <= LogLevel.WARN) console.warn(`WARN [${this.getCaller()}]: ${this.formatMessage(message)}`);
+    }
+
+    error(message: any) {
+        if (this.level <= LogLevel.ERROR) console.error(`ERROR [${this.getCaller()}]: ${this.formatMessage(message)}`);
     }
 }

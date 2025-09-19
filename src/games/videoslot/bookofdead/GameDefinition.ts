@@ -2,9 +2,11 @@ import { IGameDefinition } from '@gl/interfaces/IGameDefinition';
 import VideoSlot from '../VideoSlot';
 import { Logger } from '../../../framework/Logger';
 
+
+const gameId = "301";
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
-  id: '100300',
+  id: gameId,
   name: 'Book of Dead',
   apiUrl: 'https://ff.lydrst.com/',
   configUrl: 'https://cw.lydrst.com/Configuration/v2',
@@ -20,10 +22,15 @@ const BookOfDeadGameDefinition: IGameDefinition = {
     }
   },
   
-  gameInitCb: (scene, game: VideoSlot) => {
+  gameInitCb: (scene, game: VideoSlot, payload) => {
     const logger = new Logger();
     logger.info('Initializing Book of Dead game...');
-    game.initSession(); 
+    logger.info(payload);
+    
+    game.initSession("Book of Dead", 
+      payload.launcher_payload,
+      (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`),
+    );
   },
 
   config: {
