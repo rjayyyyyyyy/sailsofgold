@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MergeAudiodata>
+  <Settings StripSilence="False" ChannelFormat="SUMMED" TimeBetween="0.5" SilenceStart="1" isMegaton="True" />
+  <WaveFiles>
+    <Wave Path=".\sounds\Ambience_Stem1_1.wav" />
+    <Wave Path=".\sounds\Background_Stem_Layer_One1_1.wav" />
+    <Wave Path=".\sounds\Background_Stem_Layer_Three1_1.wav" />
+    <Wave Path=".\sounds\Background_Stem_Layer_Two1_1.wav" />
+    <Wave Path=".\sounds\Freespin_Theme_Loop1_4.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Eight1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Five1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Four1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Nine1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_One1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Seven1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Six1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Ten1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Three1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Display_Scatter_Line_Two1_2.wav" />
+    <Wave Path=".\sounds\Freespins_Intro_Animation1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Intro1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Retrigger1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Select_Symbol_Final1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Select_Symbol_Five1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Select_Symbol_Four1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Select_Symbol_One1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Select_Symbol_Three1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Select_Symbol_Two1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Summary1_1.wav" />
+    <Wave Path=".\sounds\Freespins_Transform_Symbol1_4.wav" />
+    <Wave Path=".\sounds\Gamble_Click1_1.wav" />
+    <Wave Path=".\sounds\Gamble_Collect1_1.wav" />
+    <Wave Path=".\sounds\Gamble_Loop1_1.wav" />
+    <Wave Path=".\sounds\Gamble_Lose1_1.wav" />
+    <Wave Path=".\sounds\Gamble_Win1_1.wav" />
+    <Wave Path=".\sounds\Pre_Gamble_Stem_Layer1_2.wav" />
+    <Wave Path=".\sounds\Reel_Loop1_1.wav" />
+    <Wave Path=".\sounds\Reel_Start1_1.wav" />
+    <Wave Path=".\sounds\Reel_Stop1_1.wav" />
+    <Wave Path=".\sounds\Reel_Wait1_2.wav" />
+    <Wave Path=".\sounds\Scatter_Land_Four1_1.wav" />
+    <Wave Path=".\sounds\Scatter_Land_One1_1.wav" />
+    <Wave Path=".\sounds\Scatter_Land_Three1_1.wav" />
+    <Wave Path=".\sounds\Scatter_Land_Two1_1.wav" />
+    <Wave Path=".\sounds\Win_Eight1_1.wav" />
+    <Wave Path=".\sounds\Win_Eleven1_1.wav" />
+    <Wave Path=".\sounds\Win_Five1_1.wav" />
+    <Wave Path=".\sounds\Win_Four1_1.wav" />
+    <Wave Path=".\sounds\Win_Nine1_1.wav" />
+    <Wave Path=".\sounds\Win_One1_1.wav" />
+    <Wave Path=".\sounds\Win_Seven1_1.wav" />
+    <Wave Path=".\sounds\Win_Six1_1.wav" />
+    <Wave Path=".\sounds\Win_Ten1_1.wav" />
+    <Wave Path=".\sounds\Win_Three1_1.wav" />
+    <Wave Path=".\sounds\Win_Two1_1.wav" />
+    <Wave Path=".\sounds\Scatters_Merge1_1.wav" />
+    <Wave Path=".\sounds\Sarcophagus_Break1_1.wav" />
+    <Wave Path=".\sounds\Sarcophagus_Zoom1_1.wav" />
+    <Wave Path=".\sounds\Book_Open1_1.wav" />
+  </WaveFiles>
+  <Sounds>
+    <Sound Name="ambience" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Ambience_Stem1_1.wav" />
+    </Sound>
+    <Sound Name="reelLoop" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Reel_Loop1_1.wav" />
+    </Sound>
+    <Sound Name="reelStart" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Reel_Start1_1.wav" />
+    </Sound>
+    <Sound Name="reelStop" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Reel_Stop1_1.wav" />
+    </Sound>
+    <Sound Name="reelWait" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Reel_Wait1_2.wav" />
+    </Sound>
+    <Sound Name="scatterLand1" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Scatter_Land_One1_1.wav" />
+    </Sound>
+    <Sound Name="scatterLand2" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Scatter_Land_Two1_1.wav" />
+    </Sound>
+    <Sound Name="scatterLand3" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Scatter_Land_Three1_1.wav" />
+    </Sound>
+    <Sound Name="scatterLand4" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Scatter_Land_Four1_1.wav" />
+    </Sound>
+    <Sound Name="freespinIntro" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Intro1_1.wav" />
+    </Sound>
+    <Sound Name="bookFlip" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Intro_Animation1_1.wav" />
+    </Sound>
+    <Sound Name="freespinAmbience" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespin_Theme_Loop1_4.wav" />
+    </Sound>
+    <Sound Name="freespinSummary" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Summary1_1.wav" />
+    </Sound>
+    <Sound Name="gambleWait" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Pre_Gamble_Stem_Layer1_2.wav" />
+    </Sound>
+    <Sound Name="gambleLoop" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Gamble_Loop1_1.wav" />
+    </Sound>
+    <Sound Name="gambleLose" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Gamble_Lose1_1.wav" />
+    </Sound>
+    <Sound Name="gambleWin" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Gamble_Win1_1.wav" />
+    </Sound>
+    <Sound Name="gambleCollect" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Gamble_Collect1_1.wav" />
+    </Sound>
+    <Sound Name="win1Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_One1_1.wav" />
+    </Sound>
+    <Sound Name="win2Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Two1_1.wav" />
+    </Sound>
+    <Sound Name="win3Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Three1_1.wav" />
+    </Sound>
+    <Sound Name="win4Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Four1_1.wav" />
+    </Sound>
+    <Sound Name="win5Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Five1_1.wav" />
+    </Sound>
+    <Sound Name="win6Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Six1_1.wav" />
+    </Sound>
+    <Sound Name="win7Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Seven1_1.wav" />
+    </Sound>
+    <Sound Name="win8Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Eight1_1.wav" />
+    </Sound>
+    <Sound Name="win9Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Nine1_1.wav" />
+    </Sound>
+    <Sound Name="win10Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Ten1_1.wav" />
+    </Sound>
+    <Sound Name="win11Snd" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Win_Eleven1_1.wav" />
+    </Sound>
+    <Sound Name="expandingLine1" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_One1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine2" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Two1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine3" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Three1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine4" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Four1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine5" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Five1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine6" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Six1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine7" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Seven1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine8" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Eight1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine9" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Nine1_2.wav" />
+    </Sound>
+    <Sound Name="expandingLine10" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Display_Scatter_Line_Ten1_2.wav" />
+    </Sound>
+    <Sound Name="ambienceStem1" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Background_Stem_Layer_One1_1.wav" />
+    </Sound>
+    <Sound Name="ambienceStem2" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Background_Stem_Layer_Two1_1.wav" />
+    </Sound>
+    <Sound Name="ambienceStem3" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Background_Stem_Layer_Three1_1.wav" />
+    </Sound>
+    <Sound Name="transformSymbol" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Transform_Symbol1_4.wav" />
+    </Sound>
+    <Sound Name="symbolSelect1" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_One1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect2" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Two1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect3" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_One1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect4" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Three1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect5" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Four1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect6" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Five1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect7" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Four1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect8" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Three1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect9" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_One1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect10" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Two1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect11" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_One1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect12" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Three1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect13" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Four1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect14" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Five1_1.wav" />
+    </Sound>
+    <Sound Name="symbolSelect15" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Select_Symbol_Final1_1.wav" />
+    </Sound>
+    <Sound Name="freespinRetrigger" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Freespins_Retrigger1_1.wav" />
+    </Sound>
+    <Sound Name="gambleClick" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Gamble_Click1_1.wav" />
+    </Sound>
+    <Sound Name="scatterMerge" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Scatters_Merge1_1.wav" />
+    </Sound>
+    <Sound Name="fsIntroSeq1" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Sarcophagus_Zoom1_1.wav" />
+    </Sound>
+    <Sound Name="fsIntroSeq2" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Sarcophagus_Break1_1.wav" />
+    </Sound>
+    <Sound Name="fsIntroSeq3" Gain="1" Priority="0" Unique="False" LoopStart="-1" LoopEnd="-1">
+      <Layer Path=".\sounds\Book_Open1_1.wav" />
+    </Sound>
+  </Sounds>
+</MergeAudiodata>

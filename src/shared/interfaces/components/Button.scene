@@ -1,0 +1,88 @@
+{
+    "id": "7b922375-5b4e-423b-b567-409c121449b0",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1600,
+        "borderHeight": 900
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "418bdb84-b9ea-4548-9f24-56d6bbd4eb38",
+            "label": "container_1",
+            "x": 619,
+            "y": 259,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "f7d74601-7a52-4baa-aaf3-16776945c5be",
+                    "label": "sprite_1",
+                    "scope": "CLASS",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 162,
+                    "hitArea.height": 67,
+                    "texture": {
+                        "key": "menu_texture1_level0",
+                        "frame": "RB.png"
+                    }
+                },
+                {
+                    "type": "Text",
+                    "id": "9becd113-af9e-498a-8465-df1529676b8c",
+                    "label": "text_1",
+                    "scope": "CLASS",
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "New text",
+                    "fontFamily": "FLANKER_GRIFFO",
+                    "fontSize": "22px"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "text",
+            "label": "text",
+            "tooltip": "Text inside button",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "buttonSprite",
+            "label": "buttonSprite",
+            "tooltip": "Replace sprite",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "texture-config"
+            }
+        },
+        {
+            "name": "event",
+            "label": "event",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "event"
+            }
+        }
+    ]
+}

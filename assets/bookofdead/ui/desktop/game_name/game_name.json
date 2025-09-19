@@ -1,0 +1,1 @@
+{"nm":"game_name","w":1600,"h":900,"fr":30,"bc":"#999999","cls":[{"nm":"AB","lcn":"GameName","d":1,"els":[{"c":"T","nm":"gameNameText","pr":0}],"tl":[{"fr": 0,"dl":[{"ei":0,"d":1,"x":-108.05,"y":16.05,"tfx":99.95,"tfy":15.05,"txt":"Game Name","fnt":"? ? 16px ROBOTO_CONDENSED_REGULAR","fc":"#FFFFFF","al":2,"str":"#000000","stt":1.5,"txw":200,"txh":30.15}]}]}],"tex":{}}

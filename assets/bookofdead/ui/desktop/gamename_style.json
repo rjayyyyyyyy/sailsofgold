@@ -1,0 +1,27 @@
+{
+  "fonts": [
+    {
+      "name": "ROBOTO_CONDENSED_REGULAR",
+      "font": "ROBOTO_CONDENSED_REGULAR",
+      "src": "../../../common/fonts/ROBOTO_CONDENSED_REGULAR.css"
+    }
+  ],
+  "layouts": {
+    "desktop": {
+      "widths": "1",
+      "heights": "1",
+      "content": {
+        "gameName": {
+          "col": "0",
+          "row": "0",
+          "colSpan": "1",
+          "rowSpan": "1",
+          "minBound": "-1200,0,1200,900",
+          "halign": "1",
+          "valign": "0",
+          "node": "game_name"
+        }
+      }
+    }
+  }
+}

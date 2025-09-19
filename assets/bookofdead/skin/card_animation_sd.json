@@ -1,0 +1,107 @@
+{
+    "anims": [
+        {
+            "key": "card_animation",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "PG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "QG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "RG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "SG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "TG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "UG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "VG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "WG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "XG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "YG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "ZG.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "AH.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "BH.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "skin_texture3_level2",
+                    "frame": "CH.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "randomFrame": false
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}

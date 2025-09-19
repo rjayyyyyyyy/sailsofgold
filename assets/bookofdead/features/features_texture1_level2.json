@@ -1,0 +1,130 @@
+{
+  "frames": {
+    "HB.png": {
+      "frame": {
+        "h": 117,
+        "w": 114,
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "rotated": false,
+      "sourceSize": {
+        "h": 120,
+        "w": 120
+      },
+      "spriteSourceSize": {
+        "h": 117,
+        "w": 114,
+        "x": 3,
+        "y": 3
+      },
+      "trimmed": true
+    },
+    "MB.png": {
+      "frame": {
+        "h": 30,
+        "w": 30,
+        "x": 0,
+        "y": 120
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "rotated": false,
+      "sourceSize": {
+        "h": 30,
+        "w": 30
+      },
+      "spriteSourceSize": {
+        "h": 30,
+        "w": 30,
+        "x": 0,
+        "y": 0
+      },
+      "trimmed": false
+    },
+    "NB.png": {
+      "frame": {
+        "h": 15,
+        "w": 15,
+        "x": 60,
+        "y": 120
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "rotated": false,
+      "sourceSize": {
+        "h": 24,
+        "w": 24
+      },
+      "spriteSourceSize": {
+        "h": 15,
+        "w": 15,
+        "x": 0,
+        "y": 0
+      },
+      "trimmed": true
+    },
+    "OB.png": {
+      "frame": {
+        "h": 9,
+        "w": 24,
+        "x": 33,
+        "y": 120
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "rotated": false,
+      "sourceSize": {
+        "h": 24,
+        "w": 24
+      },
+      "spriteSourceSize": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "trimmed": true
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "files": {
+      "level0": {
+        "size": 12980,
+        "url": "features_texture1_level0.jpg"
+      },
+      "level1": {
+        "size": 12980,
+        "url": "features_texture1_level1.jpg"
+      },
+      "level2": {
+        "size": 6990,
+        "url": "features_texture1_level2.jpg"
+      },
+      "level3": {
+        "size": 6990,
+        "url": "features_texture1_level3.jpg"
+      }
+    },
+    "format": "RGB888",
+    "image": "features_texture1_level2.jpg",
+    "scale": "0.600000,0.600000",
+    "size": {
+      "w": 114,
+      "h": 150
+    },
+    "smartupdate": "$TexturePacker:SmartUpdate:111a97c0c5bd9222f86678d16d44ab09:7e594140a52fcd33bc92187bad2a4c77:c1a94d9ba464abc816aa50d7e5cbe0b2$",
+    "version": "1.0"
+  }
+}
