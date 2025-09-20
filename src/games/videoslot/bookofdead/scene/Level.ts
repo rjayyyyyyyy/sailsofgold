@@ -16,6 +16,7 @@ export default class Level extends Phaser.Scene {
 		/* START-USER-CTR-CODE */
 		// this.audio = container.get<IAudioService>(TYPES.AudioService)
 		// Write your code here.
+		this.videoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState");
 		/* END-USER-CTR-CODE */
 	}
 
@@ -384,10 +385,15 @@ export default class Level extends Phaser.Scene {
 
 	// Write your code here
 	private toggleVfx!: any;
+	private videoSlotGameState: VideoSlotGameState;
 
 	create() {
 		this.editorCreate();
 		this.setupUI();
+		this.videoSlotGameState.coins.subscribe((value) => {
+			console.log("Coins updated:", value);
+			this.txtCoinsValue.text = `COINS: ${value.toFixed(2)}`;
+		});
 	}
 
 	private setupUI() {

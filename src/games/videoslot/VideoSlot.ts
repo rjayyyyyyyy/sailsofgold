@@ -13,7 +13,7 @@ class VideoSlot extends BaseGame {
     )
     {
         super(networkManager);
-
+        console.log("GameState coinValue", this.videoSlotGameState.coinValue);
     }   
     
 }

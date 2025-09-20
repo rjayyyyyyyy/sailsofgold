@@ -10,6 +10,10 @@ export class VideoSlotGameState {
         this.coinValue = new ObservableState(this.coinValueList[0]);
 
         console.log("GameState initialized");
+
+        setTimeout(() => {
+            this.coins.set(100); // Initial coins
+        }, 1000);
     }
 
 }
