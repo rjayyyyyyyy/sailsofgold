@@ -2,19 +2,15 @@
 
 /* START OF COMPILED CODE */
 
-import { inject, injectable } from "inversify";
+import Button from "../../../../shared/interfaces/components/Button";
 /* START-USER-IMPORTS */
-import Button from "@shared/interfaces/components/Button";
 import { container } from "@gl/di/container";
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 /* END-USER-IMPORTS */
 
-@injectable()
 export default class Level extends Phaser.Scene {
 
-	constructor(
-		@inject("GameState") private gameState: VideoSlotGameState
-	) {
+	constructor() {
 		super("Level");
 
 		/* START-USER-CTR-CODE */
@@ -70,13 +66,6 @@ export default class Level extends Phaser.Scene {
 		// prevLinesBtn
 		const prevLinesBtn = this.add.sprite(525, 659, "menu_texture1_level0", "VB.png");
 		prevLinesBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 54, 64), Phaser.Geom.Rectangle.Contains);
-
-		// txtSpin
-		const txtSpin = this.add.text(975, 647, "", {});
-		txtSpin.scaleX = 0.9;
-		txtSpin.setOrigin(0.5, 0.5);
-		txtSpin.text = "SPIN";
-		txtSpin.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "38px" });
 
 		// logo1
 		const logo1 = this.add.image(640, 48, "logo_texture0_level0", "AB.png");
@@ -311,7 +300,6 @@ export default class Level extends Phaser.Scene {
 		this.nextCoinsBtn = nextCoinsBtn;
 		this.prevCoinsBtn = prevCoinsBtn;
 		this.prevLinesBtn = prevLinesBtn;
-		this.txtSpin = txtSpin;
 		this.logo1 = logo1;
 		this.logo2 = logo2;
 		this.logo3 = logo3;
@@ -359,7 +347,6 @@ export default class Level extends Phaser.Scene {
 	private nextCoinsBtn!: Phaser.GameObjects.Sprite;
 	private prevCoinsBtn!: Phaser.GameObjects.Sprite;
 	private prevLinesBtn!: Phaser.GameObjects.Sprite;
-	private txtSpin!: Phaser.GameObjects.Text;
 	private logo1!: Phaser.GameObjects.Image;
 	private logo2!: Phaser.GameObjects.Image;
 	private logo3!: Phaser.GameObjects.Image;
@@ -399,8 +386,12 @@ export default class Level extends Phaser.Scene {
 	private toggleVfx!: any;
 
 	create() {
-
 		this.editorCreate();
+		this.setupUI();
+	}
+
+	private setupUI() {
+		console.log("Language data:", this.cache.json.get('language'));
 	}
 
 	/* END-USER-CODE */

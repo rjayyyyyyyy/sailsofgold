@@ -1,7 +1,7 @@
 import { IGameDefinition } from '@gl/interfaces/IGameDefinition';
 import VideoSlot from '../VideoSlot';
 import { Logger } from '../../../framework/Logger';
-
+import Level from './scene/Level';
 
 const gameId = "301";
 const BookOfDeadGameDefinition: IGameDefinition = {
@@ -13,24 +13,25 @@ const BookOfDeadGameDefinition: IGameDefinition = {
   
   devices: {
     desktop: {
-      width: 1600,
-      height: 900,
+      width: 1280,
+      height: 720,
     },
     mobile: {
-      width: 600,
-      height: 1300,
+      width: 720,
+      height: 1280,
     }
   },
   
-  gameInitCb: (scene, game: VideoSlot, payload) => {
+  gameInitCb: (game, gameInstance: VideoSlot, payload) => {
     const logger = new Logger();
     logger.info('Initializing Book of Dead game...');
     logger.info(payload);
     
-    game.initSession("Book of Dead", 
+    gameInstance.initSession("Book of Dead", 
       payload.launcher_payload,
-      (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`),
-    );
+      (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
+
+    game.scene.add('MainLevel', Level, true);
   },
 
   config: {

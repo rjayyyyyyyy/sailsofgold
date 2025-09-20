@@ -14,8 +14,7 @@ container.bind<NetworkManager>("NetworkManager").to(NetworkManager).inSingletonS
 container.bind<BaseGame>(BaseGame).to(BaseGame);
 
 // Bind VideoSlot (the actual game class being resolved)
-container.bind<VideoSlot>(VideoSlot).to(VideoSlot);
-
+container.bind<VideoSlot>(VideoSlot).to(VideoSlot).inSingletonScope();
 logger.info("Container bindings set up");
 
 export {container};

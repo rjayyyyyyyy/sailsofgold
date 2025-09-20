@@ -166,20 +166,6 @@
             "y": 659
         },
         {
-            "type": "Text",
-            "id": "ec3a4309-4de7-4bad-8906-99b0de35384e",
-            "label": "txtSpin",
-            "scope": "CLASS",
-            "x": 975,
-            "y": 647,
-            "scaleX": 0.9,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "SPIN",
-            "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "38px"
-        },
-        {
             "type": "Image",
             "id": "93ddf4d1-b7f6-45ca-8494-7e8d8f77a340",
             "label": "logo1",

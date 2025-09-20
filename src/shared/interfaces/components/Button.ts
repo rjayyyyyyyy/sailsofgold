@@ -30,11 +30,15 @@ export default class Button extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		
 		setTimeout(() => {
+			if(this.text != ""){
+				console.log("Setting button text:", this.text);
+				this.text_1.setText(scene.cache.json.get('language').texts[this.text] || this.text);
+			}
 			if(this.buttonSprite){
 				sprite_1.setTexture(this.buttonSprite.key, this.buttonSprite.frame)
 			}
-			text_1.text = "PLACEHOLDER"
 
 			if(this.event == 'spin'){
 				text_1.setStyle({"fontSize": "38px"})
@@ -83,6 +87,10 @@ export default class Button extends Phaser.GameObjects.Container {
 	public event: string = "";
 
 	/* START-USER-CODE */
+
+	setText(newText: string){
+		this.text_1.setText(newText);
+	}
 
 	// Write your code here.
 	update(){

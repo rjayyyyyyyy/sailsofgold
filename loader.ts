@@ -7,9 +7,10 @@ const logger = new Logger();
 logger.info(`Starting game: ${game} of type: ${gameType}`);
 
 // dynamically import the right game entrypoint
-import(/* @vite-ignore */ `/src/games/${gameType}/${game}/main.ts`)
-  .then(() => {
+const entry = import(/* @vite-ignore */ `/src/games/${gameType}/${game}/main.ts`)
+  .then((module) => {
     logger.info(`Loaded game: ${game}`);
+    module.start();
   })
   .catch((err) => {
     logger.error(`Failed to load game ${game}: ${err}`);

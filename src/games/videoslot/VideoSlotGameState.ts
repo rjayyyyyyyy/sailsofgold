@@ -1,11 +1,13 @@
 import { ObservableState } from "@gl/ObservableState";
 export class VideoSlotGameState {
-    public balance: ObservableState<number> = new ObservableState(0);
-    public coinBet: ObservableState<number> = new ObservableState(1); 
-    public linesBet: ObservableState<number> = new ObservableState(1); 
+    coins: ObservableState<number> = new ObservableState(0);
+    coinValueList: number[] = [];
+    coinValue: ObservableState<number>;
+    coinValueCurrency: ObservableState<string> = new ObservableState("USD");
 
-    public isSpinning: ObservableState<boolean> = new ObservableState(false);
-    public isAutoPlayRunning: ObservableState<boolean> = new ObservableState(false);
-
+    constructor() {
+        this.coinValueList = [0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0, 5.0]
+        this.coinValue = new ObservableState(this.coinValueList[0]);
+    }
 
 }

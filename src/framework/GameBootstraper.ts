@@ -8,6 +8,7 @@ import { container } from "./di/container";
 import { Logger } from "./Logger";
 import { SystemEvent } from "./events/Dispatcher";
 import NetworkManager from "./networking/NetworkManager";
+import { ISessionConfig } from "./interfaces/ISessionConfig";
 
 export class GameBootstrapper {
     private queryParams: URLSearchParams = new URLSearchParams(window.location.search);
@@ -66,10 +67,12 @@ export class GameBootstrapper {
         };
     }
 
-    async launch() {
+    async launch(config: ISessionConfig) {
         this.logger.info(`Launching game: ${this.gameDefinition.name}`);
         this.logger.debug(`Query Params: ${JSON.stringify(this.readAllQueryParams())}`);
         await this.loadGameConfig();
+
+        // TODO: Handle SessionConfig
 
         const payload = this.payload; // Capture the payload for use in the nested class
         const gameDefinition = this.gameDefinition; // Capture gameDefinition for use in the nested class
@@ -86,12 +89,13 @@ export class GameBootstrapper {
                 this.load.pack("pack", `assets/${payload.gid}/preload-asset-pack.json`);
                 const assetLevel = payload.device === "desktop" ? "hd" : "sd";
                 this.load.pack(`game-assets-pack`, `assets/${payload.gid}/asset-pack-${assetLevel}.json`);
+                this.load.json('language', `assets/${payload.gid}/lang/${payload.lang || 'en_US'}/locale.json`);
                 this.scene.add('Preload', Preload, false);
                 this.logger.info("Preload setup complete");
             }
 
             private createGameInstance() {
-                this.logger.info("🎮 Creating game instance...");
+                this.logger.info("Creating game instance...");
                 try {
                     this.glGame = container.get(gameDefinition.gameClass) as VideoSlot;
                     this.logger.info(`Game instance created successfully`);
@@ -102,7 +106,7 @@ export class GameBootstrapper {
                 }
             }
             create() {
-                this.logger.info("🎮 Phaser create() method called!");
+                this.logger.info("Phaser create() method called!");
                 if(this.createGameInstance()) {
                     this.scene.launch('Preload');
                     gameDefinition.gameInitCb?.(this, this.glGame!, {
