@@ -9,6 +9,7 @@ class VideoSlot extends BaseGame {
     public gameState = new VideoSlotGameState();
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
+        @inject("VideoSlotGameState") public videoSlotGameState: VideoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState")
     )
     {
         super(networkManager);
