@@ -31,7 +31,11 @@ const BookOfDeadGameDefinition: IGameDefinition = {
       payload.launcher_payload,
       (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
 
-    game.scene.add('MainLevel', Level, true);
+    if(payload.launcher_payload.device === "desktop") {
+      game.scene.add('MainLevel', Level, true);
+    } else {
+      // Load Mobile Scene
+    }
   },
 
   config: {
