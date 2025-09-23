@@ -1,0 +1,64 @@
+{
+    "id": "19ce1da9-f77e-486f-a6ba-2aecf4bf1ab6",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Reels",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1600,
+        "borderHeight": 900
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "ce15994b-d119-4689-b8ff-9d36d9c4aa6a",
+            "label": "machine",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "HG.png"
+            },
+            "x": 800,
+            "y": 410,
+            "scaleX": 0.85,
+            "scaleY": 0.85
+        },
+        {
+            "type": "Image",
+            "id": "4a215f12-4c85-4db1-b553-23bc43814298",
+            "label": "machineMobile",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "HG.png"
+            },
+            "x": 270,
+            "y": 395,
+            "scaleX": 0.7,
+            "scaleY": 0.7,
+            "visible": false
+        },
+        {
+            "prefabId": "334caecd-0d7c-4587-9013-1ff62fc90f63",
+            "id": "073ce06d-9ceb-415b-b49d-4ab5e3101224",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "reelPrefab",
+            "scope": "CLASS",
+            "x": -186,
+            "y": -70
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

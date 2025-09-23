@@ -1,0 +1,791 @@
+{
+    "id": "334caecd-0d7c-4587-9013-1ff62fc90f63",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1600,
+        "borderHeight": 900
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "3e5e4595-dfdb-43f7-9a71-59fe549a6bfd",
+            "label": "container_1",
+            "x": -280,
+            "y": 55,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "bba79277-cf4e-4f41-b027-ea34875f1684",
+                    "label": "symbol_0",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "PF.png"
+                    },
+                    "x": -942,
+                    "y": 53
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b6434e42-f2b7-46ba-be76-129ad8f44d31",
+                    "label": "symbol_1",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "NF.png"
+                    },
+                    "x": -933,
+                    "y": 245
+                },
+                {
+                    "type": "Sprite",
+                    "id": "d83d337f-3bf3-4cd8-b870-2570aab5f7f3",
+                    "label": "symbol_2",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "LF.png"
+                    },
+                    "x": -944,
+                    "y": 422
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c3e7e577-3832-4766-8448-e1987cad24f6",
+                    "label": "symbol_3",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "JF.png"
+                    },
+                    "x": -952,
+                    "y": 602
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0d338d63-0b7e-4515-8f4d-0e41168603b3",
+                    "label": "symbol_4",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "DF.png"
+                    },
+                    "x": -958,
+                    "y": 776
+                },
+                {
+                    "type": "Sprite",
+                    "id": "10184e44-47e9-4db3-8f67-aaa1b4961fe5",
+                    "label": "symbol_5",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "SE.png"
+                    },
+                    "x": -956,
+                    "y": 978
+                },
+                {
+                    "type": "Sprite",
+                    "id": "6ea9350b-6c83-4944-b823-a0689379629d",
+                    "label": "symbol_6",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "TE.png"
+                    },
+                    "x": -957,
+                    "y": 1209
+                },
+                {
+                    "type": "Sprite",
+                    "id": "2d54400c-50f2-42c4-8aca-97e8bf2d3554",
+                    "label": "symbol_7",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "VE.png"
+                    },
+                    "x": -956,
+                    "y": 1444
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1d55a944-d567-4c66-8c57-cda3269470a2",
+                    "label": "symbol_8",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "WE.png"
+                    },
+                    "x": -959,
+                    "y": 1648
+                },
+                {
+                    "type": "Sprite",
+                    "id": "06d1df8a-a6ae-46a2-ab8a-0720b7834842",
+                    "label": "symbol_9",
+                    "texture": {
+                        "key": "skin_texture4_level0",
+                        "frame": "XE.png"
+                    },
+                    "x": -952,
+                    "y": 1873
+                },
+                {
+                    "type": "Sprite",
+                    "id": "08c29491-093f-4549-b848-6f70de9854c3",
+                    "label": "win_symbol_0",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "OF.png"
+                    },
+                    "x": -376,
+                    "y": 72
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c150f33f-e897-4bbd-8ec3-1201b9dba819",
+                    "label": "win_symbol_1",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "MF.png"
+                    },
+                    "x": -376,
+                    "y": 252
+                },
+                {
+                    "type": "Sprite",
+                    "id": "db5560d1-abb3-4182-86bb-3c4db0458dff",
+                    "label": "win_symbol_2",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "KF.png"
+                    },
+                    "x": -380,
+                    "y": 435
+                },
+                {
+                    "type": "Text",
+                    "id": "48ab7e8c-4123-4a24-a440-aba4a2b6070f",
+                    "label": "text_1",
+                    "x": -1041,
+                    "y": -128,
+                    "text": "Default Symbol HD\n",
+                    "fontSize": "32px"
+                },
+                {
+                    "type": "Text",
+                    "id": "81df1708-8322-42f4-8818-f966b21fb7bc",
+                    "label": "text",
+                    "x": -429,
+                    "y": -100,
+                    "text": "Win Symbol HD",
+                    "fontSize": "32px"
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4fe86cd2-a028-40f2-a4a5-ba148fc10cee",
+                    "label": "win_symbol_3",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "IF.png"
+                    },
+                    "x": -381,
+                    "y": 602
+                },
+                {
+                    "type": "Sprite",
+                    "id": "a6e1dcaa-9fdf-44de-a44c-57cb14c63162",
+                    "label": "win_symbol_4",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "CF.png"
+                    },
+                    "x": -377,
+                    "y": 778
+                },
+                {
+                    "type": "Sprite",
+                    "id": "025f5c8b-b5a1-4a4e-b6ee-a8bc046d1ca4",
+                    "label": "win_symbol_5",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "TF.png"
+                    },
+                    "x": -389,
+                    "y": 993
+                },
+                {
+                    "type": "Sprite",
+                    "id": "02c8afdb-ac63-4b26-8a51-909c31e02772",
+                    "label": "win_symbol_6",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "VF.png"
+                    },
+                    "x": -376,
+                    "y": 1200
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b1fc6779-8275-4b01-a854-5867ec1cce83",
+                    "label": "win_symbol_7",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "ZF.png"
+                    },
+                    "x": -373,
+                    "y": 1429
+                },
+                {
+                    "type": "Sprite",
+                    "id": "10fb9893-060c-449f-8110-8838bbdfff36",
+                    "label": "win_symbol_8",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "BG.png"
+                    },
+                    "x": -383,
+                    "y": 1643
+                },
+                {
+                    "type": "Sprite",
+                    "id": "04bc4b57-8a87-4131-83ee-87cf58d377d6",
+                    "label": "win_symbol_9",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "FG.png"
+                    },
+                    "x": -377,
+                    "y": 1860
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9785ccef-6d4f-4a3a-980c-97348094b9ef",
+                    "label": "sd_symbol_0",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "PF.png"
+                    },
+                    "x": -2125,
+                    "y": -6
+                },
+                {
+                    "type": "Sprite",
+                    "id": "e1940be1-d010-48d0-80f4-648b3691d3ac",
+                    "label": "sd_symbol_1",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "NF.png"
+                    },
+                    "x": -2128,
+                    "y": 122
+                },
+                {
+                    "type": "Sprite",
+                    "id": "de57a89f-e6d5-4342-a580-2d1cbc8b7e00",
+                    "label": "sd_symbol_2",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "LF.png"
+                    },
+                    "x": -2126,
+                    "y": 240
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9b30ccf2-82e0-4fb8-aad0-5918443b0016",
+                    "label": "sd_symbol_3",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "JF.png"
+                    },
+                    "x": -2124,
+                    "y": 369
+                },
+                {
+                    "type": "Sprite",
+                    "id": "15119631-4748-4cbc-b8b2-965eabeb8b6b",
+                    "label": "sd_symbol_4",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "DF.png"
+                    },
+                    "x": -2124,
+                    "y": 496
+                },
+                {
+                    "type": "Sprite",
+                    "id": "816b3415-4709-4a2f-8000-4b38c652a5df",
+                    "label": "sd_symbol_5",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "SE.png"
+                    },
+                    "x": -2121,
+                    "y": 633
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1b594f41-665e-4468-b4dd-c0a15fd1e2f3",
+                    "label": "sd_symbol_6",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "TE.png"
+                    },
+                    "x": -2118,
+                    "y": 770
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c8b1f8ec-a90f-4e99-a269-48303646eb8f",
+                    "label": "sd_symbol_7",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "VE.png"
+                    },
+                    "x": -2119,
+                    "y": 904
+                },
+                {
+                    "type": "Sprite",
+                    "id": "63e62e06-5873-43ce-9132-0af815010e99",
+                    "label": "sd_symbol_8",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "WE.png"
+                    },
+                    "x": -2117,
+                    "y": 1036
+                },
+                {
+                    "type": "Sprite",
+                    "id": "ae27f37a-de2d-4a27-a3b0-952abae06d2c",
+                    "label": "sd_symbol_9",
+                    "texture": {
+                        "key": "skin_texture4_level2",
+                        "frame": "XE.png"
+                    },
+                    "x": -2116,
+                    "y": 1165
+                },
+                {
+                    "type": "Sprite",
+                    "id": "214217bf-d2ec-4c56-a0ab-8c29b775c067",
+                    "label": "sd_win_symbol_0",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "OF.png"
+                    },
+                    "x": -1898,
+                    "y": -10
+                },
+                {
+                    "type": "Sprite",
+                    "id": "ef954922-fe6b-4713-b2cd-0bc83d22c55b",
+                    "label": "sd_win_symbol_1",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "MF.png"
+                    },
+                    "x": -1896,
+                    "y": 122
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4d3dd318-8df6-417d-b08d-b8b71d52dd38",
+                    "label": "sd_win_symbol_2",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "KF.png"
+                    },
+                    "x": -1904,
+                    "y": 250
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9a14f6db-c5b2-4cc2-a204-96bad00ed5f2",
+                    "label": "sd_win_symbol_3",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "IF.png"
+                    },
+                    "x": -1904,
+                    "y": 371
+                },
+                {
+                    "type": "Sprite",
+                    "id": "8aabcf57-8ab7-4d47-9ea3-fff46a991a67",
+                    "label": "sd_win_symbol_4",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "CF.png"
+                    },
+                    "x": -1902,
+                    "y": 496
+                },
+                {
+                    "type": "Sprite",
+                    "id": "cc23ebee-c7e3-4115-8f79-e1878f5e071a",
+                    "label": "sd_win_symbol_5",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "TF.png"
+                    },
+                    "x": -1905,
+                    "y": 634
+                },
+                {
+                    "type": "Sprite",
+                    "id": "ed012137-04c2-42a8-b9aa-562b9a105de2",
+                    "label": "sd_win_symbol_6",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "VF.png"
+                    },
+                    "x": -1899,
+                    "y": 763
+                },
+                {
+                    "type": "Sprite",
+                    "id": "697ceddf-b462-4e47-bfc5-37a0e9617331",
+                    "label": "sd_win_symbol_7",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "ZF.png"
+                    },
+                    "x": -1894,
+                    "y": 897
+                },
+                {
+                    "type": "Sprite",
+                    "id": "edb39229-6011-45d0-b8d2-6f49a4512ea0",
+                    "label": "sd_win_symbol_8",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "BG.png"
+                    },
+                    "x": -1903,
+                    "y": 1030
+                },
+                {
+                    "type": "Sprite",
+                    "id": "50f0355d-e973-4d08-8ae1-247b63ea379a",
+                    "label": "sd_win_symbol_9",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "FG.png"
+                    },
+                    "x": -1900,
+                    "y": 1159
+                },
+                {
+                    "type": "Sprite",
+                    "id": "70858717-40c9-4baf-a001-38b8e6f42157",
+                    "label": "free_symbol_0",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "RI.png"
+                    },
+                    "x": -2940,
+                    "y": -5
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fb9fcea1-f30c-4564-b054-e4d0a09e43d6",
+                    "label": "free_symbol_1",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "SI.png"
+                    },
+                    "x": -2940,
+                    "y": 78
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c6c39ad8-40e5-4132-885a-e14cf6769179",
+                    "label": "free_symbol_2",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "TI.png"
+                    },
+                    "x": -2940,
+                    "y": 160
+                },
+                {
+                    "type": "Sprite",
+                    "id": "e9338604-0d3b-4b75-82e4-1e0160a11bc3",
+                    "label": "free_symbol_3",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "UI.png"
+                    },
+                    "x": -2940,
+                    "y": 242
+                },
+                {
+                    "type": "Sprite",
+                    "id": "d94c729a-ae12-4dfa-942d-276483b3187f",
+                    "label": "free_symbol_4",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "VI.png"
+                    },
+                    "x": -2940,
+                    "y": 326
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b711e4ea-2ade-4810-a3d1-f3f65168929e",
+                    "label": "free_symbol_5",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "WI.png"
+                    },
+                    "x": -2940,
+                    "y": 408
+                },
+                {
+                    "type": "Sprite",
+                    "id": "834a3922-7e1a-4f0b-ad93-511d05822e53",
+                    "label": "free_symbol_6",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "XI.png"
+                    },
+                    "x": -2940,
+                    "y": 491
+                },
+                {
+                    "type": "Sprite",
+                    "id": "f4462b50-8973-420c-9cff-8e1171ec199e",
+                    "label": "free_symbol_7",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "YI.png"
+                    },
+                    "x": -2940,
+                    "y": 576
+                },
+                {
+                    "type": "Sprite",
+                    "id": "5a36da13-80e3-4ec1-bc19-eacb433e1782",
+                    "label": "free_symbol_8",
+                    "texture": {
+                        "key": "skin_texture0_level0",
+                        "frame": "ZI.png"
+                    },
+                    "x": -2940,
+                    "y": 659
+                },
+                {
+                    "type": "Sprite",
+                    "id": "3f0db9c1-e555-4c55-a472-712c60357415",
+                    "label": "sd_free_symbol_0",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "RI.png"
+                    },
+                    "x": -2795,
+                    "y": -3
+                },
+                {
+                    "type": "Sprite",
+                    "id": "631b272f-1f39-4af1-a242-cbb347fa268b",
+                    "label": "sd_free_symbol_1",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "SI.png"
+                    },
+                    "x": -2795,
+                    "y": 45
+                },
+                {
+                    "type": "Sprite",
+                    "id": "2d0e8b76-fae2-4090-b2be-68089fd921c5",
+                    "label": "sd_free_symbol_2",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "TI.png"
+                    },
+                    "x": -2795,
+                    "y": 93
+                },
+                {
+                    "type": "Sprite",
+                    "id": "55d5f45d-7e9b-4a23-a841-1d7bbf2488db",
+                    "label": "sd_free_symbol_3",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "UI.png"
+                    },
+                    "x": -2795,
+                    "y": 142
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4473ee68-486b-46b6-9ec0-1db1d8929a3f",
+                    "label": "sd_free_symbol_4",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "VI.png"
+                    },
+                    "x": -2795,
+                    "y": 191
+                },
+                {
+                    "type": "Sprite",
+                    "id": "7da08ccc-bc4b-4a27-baaf-875e3a803862",
+                    "label": "sd_free_symbol_5",
+                    "useGameObjectName": true,
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "WI.png"
+                    },
+                    "x": -2795,
+                    "y": 239
+                },
+                {
+                    "type": "Sprite",
+                    "id": "5a496675-2ab1-452d-ad9b-4106621f000b",
+                    "label": "sd_free_symbol_6",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "XI.png"
+                    },
+                    "x": -2795,
+                    "y": 285
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1f9e8109-50a5-4f33-85a2-15e381df3b80",
+                    "label": "sd_free_symbol_7",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "YI.png"
+                    },
+                    "x": -2795,
+                    "y": 332
+                },
+                {
+                    "type": "Sprite",
+                    "id": "dd87a71b-0754-43f4-a5e1-3194b2e8ad5e",
+                    "label": "sd_free_symbol_8",
+                    "texture": {
+                        "key": "skin_texture0_level2",
+                        "frame": "ZI.png"
+                    },
+                    "x": -2795,
+                    "y": 381
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "6e8eefaa-0f2e-43f9-87e4-0de56ee5b493",
+            "label": "symbol_list",
+            "objectIds": [
+                "bba79277-cf4e-4f41-b027-ea34875f1684",
+                "b6434e42-f2b7-46ba-be76-129ad8f44d31",
+                "d83d337f-3bf3-4cd8-b870-2570aab5f7f3",
+                "c3e7e577-3832-4766-8448-e1987cad24f6",
+                "0d338d63-0b7e-4515-8f4d-0e41168603b3",
+                "10184e44-47e9-4db3-8f67-aaa1b4961fe5",
+                "6ea9350b-6c83-4944-b823-a0689379629d",
+                "2d54400c-50f2-42c4-8aca-97e8bf2d3554",
+                "1d55a944-d567-4c66-8c57-cda3269470a2",
+                "06d1df8a-a6ae-46a2-ab8a-0720b7834842"
+            ],
+            "scope": "PUBLIC"
+        },
+        {
+            "id": "cafdb97e-8c50-40e0-b007-92d44c63a935",
+            "label": "win_symbol_list",
+            "objectIds": [
+                "08c29491-093f-4549-b848-6f70de9854c3",
+                "c150f33f-e897-4bbd-8ec3-1201b9dba819",
+                "db5560d1-abb3-4182-86bb-3c4db0458dff",
+                "4fe86cd2-a028-40f2-a4a5-ba148fc10cee",
+                "a6e1dcaa-9fdf-44de-a44c-57cb14c63162",
+                "025f5c8b-b5a1-4a4e-b6ee-a8bc046d1ca4",
+                "02c8afdb-ac63-4b26-8a51-909c31e02772",
+                "b1fc6779-8275-4b01-a854-5867ec1cce83",
+                "10fb9893-060c-449f-8110-8838bbdfff36",
+                "04bc4b57-8a87-4131-83ee-87cf58d377d6"
+            ],
+            "scope": "PUBLIC"
+        },
+        {
+            "id": "ad1b0e30-2a8e-489d-a5a9-68862f21f1f3",
+            "label": "sd_symbol_list",
+            "objectIds": [
+                "9785ccef-6d4f-4a3a-980c-97348094b9ef",
+                "e1940be1-d010-48d0-80f4-648b3691d3ac",
+                "de57a89f-e6d5-4342-a580-2d1cbc8b7e00",
+                "9b30ccf2-82e0-4fb8-aad0-5918443b0016",
+                "15119631-4748-4cbc-b8b2-965eabeb8b6b",
+                "816b3415-4709-4a2f-8000-4b38c652a5df",
+                "1b594f41-665e-4468-b4dd-c0a15fd1e2f3",
+                "c8b1f8ec-a90f-4e99-a269-48303646eb8f",
+                "63e62e06-5873-43ce-9132-0af815010e99",
+                "ae27f37a-de2d-4a27-a3b0-952abae06d2c"
+            ],
+            "scope": "PUBLIC"
+        },
+        {
+            "id": "02858aed-ee1d-4373-86bb-94abff9ca17d",
+            "label": "sd_win_symbol_list",
+            "objectIds": [
+                "214217bf-d2ec-4c56-a0ab-8c29b775c067",
+                "ef954922-fe6b-4713-b2cd-0bc83d22c55b",
+                "4d3dd318-8df6-417d-b08d-b8b71d52dd38",
+                "9a14f6db-c5b2-4cc2-a204-96bad00ed5f2",
+                "8aabcf57-8ab7-4d47-9ea3-fff46a991a67",
+                "cc23ebee-c7e3-4115-8f79-e1878f5e071a",
+                "ed012137-04c2-42a8-b9aa-562b9a105de2",
+                "697ceddf-b462-4e47-bfc5-37a0e9617331",
+                "edb39229-6011-45d0-b8d2-6f49a4512ea0",
+                "50f0355d-e973-4d08-8ae1-247b63ea379a"
+            ],
+            "scope": "PUBLIC"
+        },
+        {
+            "id": "7d9574ea-d7a9-4c76-ba08-98d8033e4e62",
+            "label": "free_symbol_list",
+            "objectIds": [
+                "70858717-40c9-4baf-a001-38b8e6f42157",
+                "fb9fcea1-f30c-4564-b054-e4d0a09e43d6",
+                "c6c39ad8-40e5-4132-885a-e14cf6769179",
+                "e9338604-0d3b-4b75-82e4-1e0160a11bc3",
+                "d94c729a-ae12-4dfa-942d-276483b3187f",
+                "b711e4ea-2ade-4810-a3d1-f3f65168929e",
+                "834a3922-7e1a-4f0b-ad93-511d05822e53",
+                "f4462b50-8973-420c-9cff-8e1171ec199e",
+                "5a36da13-80e3-4ec1-bc19-eacb433e1782"
+            ],
+            "scope": "PUBLIC"
+        },
+        {
+            "id": "c4164b1a-af5b-41f1-9af8-8e2fcb244e3f",
+            "label": "sd_free_symbol_list",
+            "objectIds": [
+                "3f0db9c1-e555-4c55-a472-712c60357415",
+                "631b272f-1f39-4af1-a242-cbb347fa268b",
+                "2d0e8b76-fae2-4090-b2be-68089fd921c5",
+                "55d5f45d-7e9b-4a23-a841-1d7bbf2488db",
+                "4473ee68-486b-46b6-9ec0-1db1d8929a3f",
+                "7da08ccc-bc4b-4a27-baaf-875e3a803862",
+                "5a496675-2ab1-452d-ad9b-4106621f000b",
+                "1f9e8109-50a5-4f33-85a2-15e381df3b80",
+                "dd87a71b-0754-43f4-a5e1-3194b2e8ad5e"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

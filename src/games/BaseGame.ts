@@ -5,10 +5,12 @@ import Dispatcher, { SystemEvent } from "@gl/events/Dispatcher";
 import { ILauncherPayload } from "@gl/interfaces/ILauncherPayload";
 import { ClientCommand } from "@gl/networking/Commands";
 import { Logger } from "@gl/Logger";
+import { IGameConfig } from "@gl/GameConfig";
 
 @injectable()
 class BaseGame {
-    private logger = new Logger();
+    protected logger = new Logger();
+    public gameConfig: IGameConfig | null = null;
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
     ) {
@@ -38,6 +40,10 @@ class BaseGame {
     private getUserAgent(){
         const userAgent = navigator.userAgent;
         return userAgent;
+    }
+
+    setConfig(config: IGameConfig) {
+        this.gameConfig = config;
     }
 
     public tick(time: number, delta: number) {

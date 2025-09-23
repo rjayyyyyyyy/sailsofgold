@@ -4,12 +4,15 @@ import { Logger } from '../../../framework/Logger';
 import Level from './scene/Level';
 import { container } from '@gl/di/container';
 import { VideoSlotGameState } from '../VideoSlotGameState';
+import VideoSlotReelsManager from '../VideoSlotReelsManager';
 
-const gameId = "301";
+const gameId = "310";
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
+container.bind<VideoSlotReelsManager>("VideoSlotReelsManager").to(VideoSlotReelsManager).inSingletonScope();
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
+  gameSlug: "bookofdead",
   name: 'Book of Dead',
   apiUrl: 'https://ff.lydrst.com/',
   configUrl: 'https://cw.lydrst.com/Configuration/v2',
@@ -33,11 +36,20 @@ const BookOfDeadGameDefinition: IGameDefinition = {
     gameInstance.initSession("Book of Dead", 
       payload.launcher_payload,
       (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
-
+    if(payload.config === null) {
+      logger.error("Game config is null!");
+      gameInstance.networkManager.shutdown();
+      return;
+    }
+    gameInstance.networkManager.setGameId(payload.gameId);
+    gameInstance.setConfig(payload.config);
     if(payload.launcher_payload.device === "desktop") {
       game.scene.add('MainLevel', Level, true);
+      gameInstance.gameState.isMobile = false;
     } else {
       // Load Mobile Scene
+
+      gameInstance.gameState.isMobile = true;
     }
   },
 
