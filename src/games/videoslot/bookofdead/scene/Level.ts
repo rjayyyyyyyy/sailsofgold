@@ -14,7 +14,7 @@ import AutoplayScene from "@shared/scenes/AutoplayScene";
 import GambleScene from "./GambleScene";
 import ScatterScene from "./ScatterScene";
 
-container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
+// container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
 container.bind<PaytableScene>("PaytableScene").to(PaytableScene).inSingletonScope();
 container.bind<AutoplayScene>("AutoplayScene").to(AutoplayScene).inSingletonScope();
@@ -31,7 +31,6 @@ export default class Level extends Phaser.Scene {
 		/* START-USER-CTR-CODE */
 		// this.audio = container.get<IAudioService>(TYPES.AudioService)
 		// Write your code here.
-		this.videoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState");
 		/* END-USER-CTR-CODE */
 	}
 

@@ -188,10 +188,10 @@ export default class ScatterScene extends Phaser.Scene {
 	}
 
 	addScatter(){
-		//10, J, Q, K, A, Bird, Anubis, Pharaoh, Human
-		this.reelPrefab.symbol_list.forEach((sprite) => {
+		// 10, J, Q, K, A, Bird, Anubis, Pharaoh, Human
+		/*this.reelPrefab.symbol_list.forEach((sprite) => {
 			this.symbolList.push([sprite.texture.key, sprite.frame.name]);
-		});
+		});*/
 
         let repeatCounter = 0
         this.tweens.add({
@@ -204,19 +204,20 @@ export default class ScatterScene extends Phaser.Scene {
                 let randomNumber = Phaser.Math.RND.between(0, 8);
                 const symbol = this.selectedSymbol;
                 if(repeatCounter == 15){
-                    const winSymbol = (ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
+                    /*const winSymbol = (ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
 					const sym = this.symbolList[winSymbol]
 					symbol.setTexture(sym[0], sym[1]);
                     console.log(winSymbol)
-                    this.gameState.isSpinning.set(false)
+                    this.gameState.isSpinning.set(false)*/
+					
                     // Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, 'T4'+arraySymbols[winSymbol]+'B.png')
 
                     // if(winSymbol) {
                     // }
                 }
                 else{   
-					const sym = this.symbolList[randomNumber]
-					symbol.setTexture(sym[0], sym[1]);
+					/*const sym = this.symbolList[randomNumber]
+					symbol.setTexture(sym[0], sym[1]);*/
                 }
             },
             onComplete: function()  {
