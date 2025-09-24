@@ -22,8 +22,8 @@
                 {
                     "type": "Sprite",
                     "id": "f7d74601-7a52-4baa-aaf3-16776945c5be",
-                    "label": "sprite_1",
-                    "scope": "CLASS",
+                    "label": "btnButton",
+                    "scope": "PUBLIC",
                     "hitArea.shape": "RECTANGLE",
                     "hitArea.width": 162,
                     "hitArea.height": 67,

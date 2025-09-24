@@ -31,6 +31,9 @@ export class GameBootstrapper {
         return new Promise(async resolve => {
 
             this.logger.debug(`Debug mode: ${this.payload.debug}`);
+            const networkManager = container.get<NetworkManager>("NetworkManager");
+            networkManager.setGameId(this.gameDefinition.id);
+            networkManager.setGameConfig(this.gameConfig);
             if(!this.payload.debug) {
                 const configUrl = `${this.gameDefinition.configUrl}?${this.queryParams.toString()}`;
                 const response = await fetch(configUrl);
@@ -41,7 +44,6 @@ export class GameBootstrapper {
                 this.gameConfig = configJson as IGameConfig;
 
                 // Set gameHistory on NetworkManager
-                const networkManager = container.get<NetworkManager>("NetworkManager");
                 const historyUrl = this.payload.device === 'mobile' ? this.gameConfig.mobileGameHistoryUrl : this.gameConfig.desktopGameHistoryUrl;
                 networkManager.setGameHistory(historyUrl);
             }

@@ -33,6 +33,15 @@ class BaseGame {
             gameName,
             payload.device,
         ]);
+        setTimeout(() => {
+            this.networkManager.sendCommand(ClientCommand.Login, [
+                this.networkManager._ticket,
+                "",
+                "ipcelectron",
+                "",
+                "",
+            ]);
+        }, 100);
     }
 
     private getUserAgent(){

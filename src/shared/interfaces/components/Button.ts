@@ -13,10 +13,10 @@ export default class Button extends Phaser.GameObjects.Container {
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
 		super(scene, x ?? 619, y ?? 259);
 
-		// sprite_1
-		const sprite_1 = scene.add.sprite(0, 0, "menu_texture1_level0", "RB.png");
-		sprite_1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 162, 67), Phaser.Geom.Rectangle.Contains);
-		this.add(sprite_1);
+		// btnButton
+		const btnButton = scene.add.sprite(0, 0, "menu_texture1_level0", "RB.png");
+		btnButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 162, 67), Phaser.Geom.Rectangle.Contains);
+		this.add(btnButton);
 
 		// text_1
 		const text_1 = scene.add.text(0, 0, "", {});
@@ -25,19 +25,19 @@ export default class Button extends Phaser.GameObjects.Container {
 		text_1.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "22px" });
 		this.add(text_1);
 
-		this.sprite_1 = sprite_1;
+		this.btnButton = btnButton;
 		this.text_1 = text_1;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		
+
 		setTimeout(() => {
 			if(this.text != ""){
 				console.log("Setting button text:", this.text);
 				this.text_1.setText(scene.cache.json.get('language').texts[this.text] || this.text);
 			}
 			if(this.buttonSprite){
-				sprite_1.setTexture(this.buttonSprite.key, this.buttonSprite.frame)
+				btnButton.setTexture(this.buttonSprite.key, this.buttonSprite.frame)
 			}
 
 			if(this.event == 'spin'){
@@ -58,18 +58,18 @@ export default class Button extends Phaser.GameObjects.Container {
 			}
 
 
-			sprite_1.on('pointerdown', () => {
+			btnButton.on('pointerdown', () => {
 				scene.tweens.add({
-					targets: [sprite_1, text_1],
+					targets: [btnButton, text_1],
 					scale: 0.9,     // shrink a bit
 					duration: 100,
 					ease: 'Power2'
 				});
 			});
 			['pointerup', 'pointerout'].forEach(event => {
-				sprite_1.on(event, () => {
+				btnButton.on(event, () => {
 					scene.tweens.add({
-					targets: [sprite_1, text_1],
+					targets: [btnButton, text_1],
 					scale: 1,
 					duration: 100,
 					ease: 'Power2'
@@ -80,7 +80,7 @@ export default class Button extends Phaser.GameObjects.Container {
 		/* END-USER-CTR-CODE */
 	}
 
-	private sprite_1: Phaser.GameObjects.Sprite;
+	public btnButton: Phaser.GameObjects.Sprite;
 	private text_1: Phaser.GameObjects.Text;
 	public text: string = "";
 	public buttonSprite!: {key:string,frame?:string|number};

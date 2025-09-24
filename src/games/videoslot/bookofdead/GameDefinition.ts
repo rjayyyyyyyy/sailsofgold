@@ -3,7 +3,7 @@ import VideoSlot from '../VideoSlot';
 import { Logger } from '../../../framework/Logger';
 import Level from './scene/Level';
 
-const gameId = "301";
+const gameId = "310";
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,

@@ -3,9 +3,24 @@
 /* START OF COMPILED CODE */
 
 import Button from "../../../../shared/interfaces/components/Button";
+import BetPrefab from "../../../../shared/interfaces/components/BetPrefab";
+import FooterPrefab from "../../../../shared/interfaces/components/FooterPrefab";
 /* START-USER-IMPORTS */
+import MenuScene from "@shared/scenes/MenuScene";
 import { container } from "@gl/di/container";
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
+import PaytableScene from "./PaytableScene";
+import AutoplayScene from "@shared/scenes/AutoplayScene";
+import GambleScene from "./GambleScene";
+import ScatterScene from "./ScatterScene";
+
+container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
+container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
+container.bind<PaytableScene>("PaytableScene").to(PaytableScene).inSingletonScope();
+container.bind<AutoplayScene>("AutoplayScene").to(AutoplayScene).inSingletonScope();
+container.bind<GambleScene>("GambleScene").to(GambleScene).inSingletonScope();
+container.bind<ScatterScene>("ScatterScene").to(ScatterScene).inSingletonScope();
+
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -34,39 +49,6 @@ export default class Level extends Phaser.Scene {
 		const denominationBtn = this.add.sprite(150, 650, "menu_texture1_level0", "WB.png");
 		denominationBtn.setInteractive(this.input.makePixelPerfect());
 
-		// aB_png
-		const aB_png = this.add.sprite(650, 705, "statusbar_texture0_level0", "AB.png");
-
-		// t0AB_png_1
-		const t0AB_png_1 = this.add.image(365, 659, "menu_texture0_level0", "CB.png");
-
-		// t0AB_png_2
-		const t0AB_png_2 = this.add.image(600, 659, "menu_texture0_level0", "CB.png");
-
-		// nextLinesBtn
-		const nextLinesBtn = this.add.sprite(675, 659, "menu_texture1_level0", "TB.png");
-		nextLinesBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 54, 64), Phaser.Geom.Rectangle.Contains);
-		nextLinesBtn.tintTopLeft = 8947848;
-		nextLinesBtn.tintTopRight = 8947848;
-		nextLinesBtn.tintBottomLeft = 8947848;
-		nextLinesBtn.tintBottomRight = 8947848;
-
-		// nextCoinsBtn
-		const nextCoinsBtn = this.add.sprite(440, 659, "menu_texture1_level0", "TB.png");
-		nextCoinsBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 54, 64), Phaser.Geom.Rectangle.Contains);
-
-		// prevCoinsBtn
-		const prevCoinsBtn = this.add.sprite(290, 659, "menu_texture1_level0", "VB.png");
-		prevCoinsBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 54, 64), Phaser.Geom.Rectangle.Contains);
-		prevCoinsBtn.tintTopLeft = 8947848;
-		prevCoinsBtn.tintTopRight = 8947848;
-		prevCoinsBtn.tintBottomLeft = 8947848;
-		prevCoinsBtn.tintBottomRight = 8947848;
-
-		// prevLinesBtn
-		const prevLinesBtn = this.add.sprite(525, 659, "menu_texture1_level0", "VB.png");
-		prevLinesBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 54, 64), Phaser.Geom.Rectangle.Contains);
-
 		// logo1
 		const logo1 = this.add.image(640, 48, "logo_texture0_level0", "AB.png");
 
@@ -88,42 +70,21 @@ export default class Level extends Phaser.Scene {
 		txtBetValue.text = "BET: ";
 		txtBetValue.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "20px" });
 
-		// txtCoinsText
-		const txtCoinsText = this.add.text(365, 648, "", {});
-		txtCoinsText.setOrigin(0.5, 0.5);
-		txtCoinsText.text = "COINS";
-		txtCoinsText.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO" });
-
-		// txtLinesText
-		const txtLinesText = this.add.text(600, 648, "", {});
-		txtLinesText.setOrigin(0.5, 0.5);
-		txtLinesText.text = "LINES";
-		txtLinesText.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO" });
-
 		// txtCoinValueText
 		const txtCoinValueText = this.add.text(150, 634, "", {});
+		txtCoinValueText.scaleX = 0.5;
+		txtCoinValueText.scaleY = 0.5;
 		txtCoinValueText.setOrigin(0.5, 0.5);
 		txtCoinValueText.text = "COIN VALUE";
-		txtCoinValueText.setStyle({ "color": "#444444", "fontFamily": "FLANKER_GRIFFO", "fontSize": "14px" });
+		txtCoinValueText.setStyle({ "color": "#444444", "fontFamily": "FLANKER_GRIFFO", "fontSize": "28px" });
 
 		// txtDenomination
 		const txtDenomination = this.add.text(150, 660, "", {});
-		txtDenomination.scaleX = 0.8;
+		txtDenomination.scaleX = 0.4;
+		txtDenomination.scaleY = 0.5;
 		txtDenomination.setOrigin(0.5, 0.5);
 		txtDenomination.text = "CNY 2.00";
-		txtDenomination.setStyle({ "color": "#5a1500", "fontFamily": "FLANKER_GRIFFO", "fontSize": "30px" });
-
-		// txtCoinsBet
-		const txtCoinsBet = this.add.text(365, 670, "", {});
-		txtCoinsBet.setOrigin(0.5, 0.5);
-		txtCoinsBet.text = "1";
-		txtCoinsBet.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "26px" });
-
-		// txtLinesBet
-		const txtLinesBet = this.add.text(600, 670, "", {});
-		txtLinesBet.setOrigin(0.5, 0.5);
-		txtLinesBet.text = "1";
-		txtLinesBet.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "26px" });
+		txtDenomination.setStyle({ "color": "#5a1500", "fontFamily": "FLANKER_GRIFFO", "fontSize": "60px" });
 
 		// autoplayBtn
 		const autoplayBtn = new Button(this, 1155, 659);
@@ -154,44 +115,6 @@ export default class Level extends Phaser.Scene {
 		txtInformation.setOrigin(0.5, 0.5);
 		txtInformation.text = "Information";
 		txtInformation.setStyle({ "align": "center", "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "20px" });
-
-		// menuBtn
-		const menuBtn = this.add.image(30, 705, "statusbar_texture0_level0", "KB.png");
-		menuBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 25, 20), Phaser.Geom.Rectangle.Contains);
-
-		// soundBtn
-		const soundBtn = this.add.sprite(80, 705, "statusbar_texture0_level0", "IB.png");
-		soundBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 30, 30), Phaser.Geom.Rectangle.Contains);
-
-		// fastplayBtn
-		const fastplayBtn = this.add.sprite(120, 705, "statusbar_texture0_level0", "GB.png");
-		fastplayBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 15, 30), Phaser.Geom.Rectangle.Contains);
-
-		// helpBtn
-		const helpBtn = this.add.sprite(160, 705, "statusbar_texture0_level0", "DB.png");
-		helpBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 10, 20), Phaser.Geom.Rectangle.Contains);
-
-		// historyBtn
-		const historyBtn = this.add.sprite(200, 705, "statusbar_texture0_level0", "FB.png");
-		historyBtn.setInteractive(new Phaser.Geom.Rectangle(0, 0, 25, 20), Phaser.Geom.Rectangle.Contains);
-
-		// txtBalanceValue
-		const txtBalanceValue = this.add.text(493, 705, "", {});
-		txtBalanceValue.setOrigin(0, 0.5);
-		txtBalanceValue.text = "Balance: CNY 1100000.00";
-		txtBalanceValue.setStyle({ "color": "#aaaaaa", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
-
-		// txtBalanceBetValue
-		const txtBalanceBetValue = this.add.text(745, 705, "", {});
-		txtBalanceBetValue.setOrigin(0, 0.5);
-		txtBalanceBetValue.text = "Bet: CNY 20.00";
-		txtBalanceBetValue.setStyle({ "color": "#aaaaaa", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
-
-		// txtWinValue
-		const txtWinValue = this.add.text(1005, 705, "", {});
-		txtWinValue.setOrigin(0, 0.5);
-		txtWinValue.text = "Win: ";
-		txtWinValue.setStyle({ "color": "#aaaaaa", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
 
 		// gambleBtn
 		const gambleBtn = new Button(this, 795, 659);
@@ -259,6 +182,18 @@ export default class Level extends Phaser.Scene {
 		freeSpinHeader3.text = "Free Spin 3 of 10";
 		freeSpinHeader3.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "35px" });
 
+		// betCoins
+		const betCoins = new BetPrefab(this, 300, 660);
+		this.add.existing(betCoins);
+
+		// betLines
+		const betLines = new BetPrefab(this, 500, 660);
+		this.add.existing(betLines);
+
+		// footerPrefab
+		const footerPrefab = new FooterPrefab(this, 36, 707);
+		this.add.existing(footerPrefab);
+
 		// autoplayBtn (prefab fields)
 		autoplayBtn.text = "IDS_BTN_AUTOPLAY";
 		autoplayBtn.buttonSprite;
@@ -289,41 +224,28 @@ export default class Level extends Phaser.Scene {
 		collectBtn.buttonSprite;
 		collectBtn.event = "collect";
 
+		// betCoins (prefab fields)
+		betCoins.title = "IDS_VP_COINS";
+
+		// betLines (prefab fields)
+		betLines.title = "IDS_SLOT_LINES";
+
 		this.t0AB_png = t0AB_png;
 		this.t1BB_png_1 = t1BB_png_1;
 		this.informationImg = informationImg;
 		this.denominationBtn = denominationBtn;
-		this.aB_png = aB_png;
-		this.t0AB_png_1 = t0AB_png_1;
-		this.t0AB_png_2 = t0AB_png_2;
-		this.nextLinesBtn = nextLinesBtn;
-		this.nextCoinsBtn = nextCoinsBtn;
-		this.prevCoinsBtn = prevCoinsBtn;
-		this.prevLinesBtn = prevLinesBtn;
 		this.logo1 = logo1;
 		this.logo2 = logo2;
 		this.logo3 = logo3;
 		this.txtCoinsValue = txtCoinsValue;
 		this.txtBetValue = txtBetValue;
-		this.txtCoinsText = txtCoinsText;
-		this.txtLinesText = txtLinesText;
 		this.txtCoinValueText = txtCoinValueText;
 		this.txtDenomination = txtDenomination;
-		this.txtCoinsBet = txtCoinsBet;
-		this.txtLinesBet = txtLinesBet;
 		this.autoplayBtn = autoplayBtn;
 		this.paytableBtn = paytableBtn;
 		this.betmaxBtn = betmaxBtn;
 		this.spinBtn = spinBtn;
 		this.txtInformation = txtInformation;
-		this.menuBtn = menuBtn;
-		this.soundBtn = soundBtn;
-		this.fastplayBtn = fastplayBtn;
-		this.helpBtn = helpBtn;
-		this.historyBtn = historyBtn;
-		this.txtBalanceValue = txtBalanceValue;
-		this.txtBalanceBetValue = txtBalanceBetValue;
-		this.txtWinValue = txtWinValue;
 		this.gambleBtn = gambleBtn;
 		this.collectBtn = collectBtn;
 		this.bgAutoplay = bgAutoplay;
@@ -332,6 +254,9 @@ export default class Level extends Phaser.Scene {
 		this.freeSpinHeader1 = freeSpinHeader1;
 		this.freeSpinHeader2 = freeSpinHeader2;
 		this.freeSpinHeader3 = freeSpinHeader3;
+		this.betCoins = betCoins;
+		this.betLines = betLines;
+		this.footerPrefab = footerPrefab;
 
 		this.events.emit("scene-awake");
 	}
@@ -340,37 +265,18 @@ export default class Level extends Phaser.Scene {
 	private t1BB_png_1!: Phaser.GameObjects.Image;
 	private informationImg!: Phaser.GameObjects.Image;
 	private denominationBtn!: Phaser.GameObjects.Sprite;
-	private aB_png!: Phaser.GameObjects.Sprite;
-	private t0AB_png_1!: Phaser.GameObjects.Image;
-	private t0AB_png_2!: Phaser.GameObjects.Image;
-	private nextLinesBtn!: Phaser.GameObjects.Sprite;
-	private nextCoinsBtn!: Phaser.GameObjects.Sprite;
-	private prevCoinsBtn!: Phaser.GameObjects.Sprite;
-	private prevLinesBtn!: Phaser.GameObjects.Sprite;
 	private logo1!: Phaser.GameObjects.Image;
 	private logo2!: Phaser.GameObjects.Image;
 	private logo3!: Phaser.GameObjects.Image;
 	private txtCoinsValue!: Phaser.GameObjects.Text;
 	private txtBetValue!: Phaser.GameObjects.Text;
-	private txtCoinsText!: Phaser.GameObjects.Text;
-	private txtLinesText!: Phaser.GameObjects.Text;
 	private txtCoinValueText!: Phaser.GameObjects.Text;
 	private txtDenomination!: Phaser.GameObjects.Text;
-	private txtCoinsBet!: Phaser.GameObjects.Text;
-	private txtLinesBet!: Phaser.GameObjects.Text;
 	private autoplayBtn!: Button;
 	private paytableBtn!: Button;
 	private betmaxBtn!: Button;
 	private spinBtn!: Button;
 	private txtInformation!: Phaser.GameObjects.Text;
-	private menuBtn!: Phaser.GameObjects.Image;
-	private soundBtn!: Phaser.GameObjects.Sprite;
-	private fastplayBtn!: Phaser.GameObjects.Sprite;
-	private helpBtn!: Phaser.GameObjects.Sprite;
-	private historyBtn!: Phaser.GameObjects.Sprite;
-	private txtBalanceValue!: Phaser.GameObjects.Text;
-	private txtBalanceBetValue!: Phaser.GameObjects.Text;
-	private txtWinValue!: Phaser.GameObjects.Text;
 	private gambleBtn!: Button;
 	private collectBtn!: Button;
 	private bgAutoplay!: Phaser.GameObjects.Image;
@@ -379,21 +285,268 @@ export default class Level extends Phaser.Scene {
 	private freeSpinHeader1!: Phaser.GameObjects.Image;
 	private freeSpinHeader2!: Phaser.GameObjects.Image;
 	private freeSpinHeader3!: Phaser.GameObjects.Text;
+	private betCoins!: BetPrefab;
+	private betLines!: BetPrefab;
+	private footerPrefab!: FooterPrefab;
 
 	/* START-USER-CODE */
 
 	// Write your code here
 	private toggleVfx!: any;
+	private gameState!: VideoSlotGameState;
+
+	init() {
+		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
+	}
+
+	preload() {
+		this.scene.add('MenuScene', container.get<Phaser.Scene>('MenuScene'), true);
+		this.scene.add('PaytableScene', container.get<Phaser.Scene>('PaytableScene'), true);
+		this.scene.add('AutoplayScene', container.get<Phaser.Scene>('AutoplayScene'), true);
+		this.scene.add('GambleScene', container.get<Phaser.Scene>('GambleScene'), true);
+		this.scene.add('ScatterScene', container.get<Phaser.Scene>('ScatterScene'), true);
+
+		this.gameState.isShowingAutoplay.subscribe((val) => {
+			if (val) {
+				console.log("show Autoplay")
+				this.scene.launch("AutoplayScene");
+			} else {
+				console.log("hide Autoplay")
+				this.scene.stop("AutoplayScene");
+			}
+		});
+
+		this.gameState.isShowingMenu.subscribe((val) => {
+			if (val) {
+				console.log("show Menu")
+				this.scene.launch("MenuScene");
+			} else {
+				console.log("hide Menu")
+				this.scene.stop("MenuScene");
+			}
+		});
+
+		this.gameState.isShowingPaytable.subscribe((val) => {
+			if (val) {
+				console.log("show Paytable")
+				this.scene.launch("PaytableScene");
+			} else {
+				console.log("hide Paytable")
+				this.scene.stop("PaytableScene");
+			}
+		});
+
+		this.gameState.isShowingGamble.subscribe((val) => {
+			if (val) {
+				console.log("show Gamble")
+				this.scene.launch("GambleScene");
+			} else {
+				console.log("hide Gamble")
+				this.scene.stop("GambleScene");
+			}
+		});
+
+		this.gameState.isShowingScatter.subscribe((val) => {
+			if (val) {
+				console.log("show Scatter")
+				this.scene.launch("ScatterScene");
+			} else {
+				console.log("hide Scatter")
+				this.scene.stop("ScatterScene");
+			}
+		});
+	}
 
 	create() {
+
 		this.editorCreate();
 		this.setupUI();
+
 	}
 
 	private setupUI() {
 		console.log("Language data:", this.cache.json.get('language'));
+
+		setTimeout(() => {
+			const balance = this.gameState.balance;
+			const betCoins = this.gameState.betCoins;
+			const betLines = this.gameState.betLines;
+			const informationText = this.gameState.informationText;
+			const totalWinAmount = this.gameState.totalWinAmount;
+			const coinValueList = this.gameState.coinValueList;
+			const coinValue = this.gameState.coinValue;
+			const coinValueCurrency = this.gameState.coinValueCurrency;
+
+			// Initialize UI with current state values
+			this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * coinValue.get()}`);
+			this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
+			this.txtInformation.setText(informationText.get());
+			this.txtDenomination.setText(`${coinValueCurrency.get()} ${coinValue.get().toFixed(2)}`);
+			this.footerPrefab.txtBalanceValue.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${balance.get().toString()}`);
+			this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(coinValue.get() * betCoins.get() * betLines.get()).toFixed(2)}`);
+			this.footerPrefab.txtWinValue.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${coinValueCurrency.get()} ${totalWinAmount.get().toFixed(2)}`);
+			this.betCoins.txtBetValue.setText(betCoins.get().toString());
+			this.betLines.txtBetValue.setText(betLines.get().toString());
+			this.txtAutoplay.setText(this.cache.json.get('language').texts['IDS_AP_RUNNING']);
+
+			// Set button states based on initial values
+			if (betCoins.get() <= 1) {
+				this.betCoins.btnDecrease.disableInteractive();
+				this.betCoins.btnDecrease.setTint(0x666666);
+			}
+			if (betCoins.get() >= 5) {
+				this.betCoins.btnIncrease.disableInteractive();
+				this.betCoins.btnIncrease.setTint(0x666666);
+			}
+			if (betLines.get() <= 1) {
+				this.betLines.btnDecrease.disableInteractive();
+				this.betLines.btnDecrease.setTint(0x666666);
+			}
+			if (betLines.get() >= 10) {
+				this.betLines.btnIncrease.disableInteractive();
+				this.betLines.btnIncrease.setTint(0x666666);
+			}
+
+			// Subscribe to state changes to update UI reactively
+			balance.subscribe((val) => {
+				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${val * coinValue.get()}`);
+				this.footerPrefab.txtBalanceValue.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${val.toString()}`);
+			});
+
+			betCoins.subscribe((val) => {
+				this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
+				this.betCoins.txtBetValue.setText(val.toString());
+				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * coinValue.get() * betLines.get()).toFixed(2)}`);
+				this.updateBetButtons(val, this.betCoins, 1, 5);
+			});
+
+			betLines.subscribe((val) => {
+				this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
+				this.betLines.txtBetValue.setText(val.toString());
+				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * coinValue.get()).toFixed(2)}`);
+				this.updateBetButtons(val, this.betLines, 1, 10);
+			});
+
+			informationText.subscribe((val) => {
+				this.txtInformation.setText(val);
+			});
+
+			coinValue.subscribe((val) => {
+				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * val}`);
+				this.txtDenomination.setText(`${coinValueCurrency.get()} ${val.toFixed(2)}`);
+				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * betLines.get()).toFixed(2)}`);
+			});
+
+			totalWinAmount.subscribe((val) => {
+				this.footerPrefab.txtWinValue.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${coinValueCurrency.get()} ${val.toFixed(2)}`);
+			});
+		}, 0);
+
+		// Denomination (coin value)
+		this.denominationBtn.on('pointerdown', () => {
+			const currentIndex = this.gameState.coinValueList.indexOf(this.gameState.coinValue.get());
+			const nextIndex = (currentIndex + 1) % this.gameState.coinValueList.length;
+			this.gameState.coinValue.set(this.gameState.coinValueList[nextIndex]);
+			this.addButtonTween(this, this.denominationBtn, [ this.txtDenomination, this.txtCoinValueText ] );
+		});
+
+		// Paytable
+		this.paytableBtn.btnButton.on('pointerdown', () => {
+			const current = this.gameState.isShowingPaytable.get();
+      		this.gameState.isShowingPaytable.set(!current);
+		});
+
+
+		// Bet Coins
+		this.betCoins.btnDecrease.on('pointerdown', () => {
+			let currentBet = this.gameState.betCoins.get();
+			if (currentBet > 1) {
+				currentBet -= 1;
+				this.gameState.betCoins.set(currentBet);
+			}
+		});
+
+		this.betCoins.btnIncrease.on('pointerdown', () => {
+			let currentBet = this.gameState.betCoins.get();
+			currentBet += 1;
+			this.gameState.betCoins.set(currentBet);
+		});
+
+		// Bet Lines
+		this.betLines.btnDecrease.on('pointerdown', () => {
+			let currentBet = this.gameState.betLines.get();
+			if (currentBet > 1) {
+				currentBet -= 1;
+				this.gameState.betLines.set(currentBet);
+			}
+		});
+
+		this.betLines.btnIncrease.on('pointerdown', () => {
+			let currentBet = this.gameState.betLines.get();
+			currentBet += 1;
+			this.gameState.betLines.set(currentBet);
+		});
+
+		// Bet Max
+		this.betmaxBtn.btnButton.on('pointerdown', () => {
+			this.gameState.betLines.set(10);
+			this.gameState.betCoins.set(5);
+		});
+
+		// Spin
+		this.spinBtn.btnButton.on('pointerdown', () => {
+			this.gameState.startSpin();
+		});
+
+		// Autoplay
+		this.autoplayBtn.btnButton.on('pointerdown', () => {
+			const current = this.gameState.isShowingAutoplay.get();
+	  		this.gameState.isShowingAutoplay.set(!current);
+		});
+
+		// Footer menu
+		this.footerPrefab.btnMenu.on('pointerdown', () => {
+			const current = this.gameState.isShowingMenu.get();
+      		this.gameState.isShowingMenu.set(!current);
+		});
 	}
 
+	updateBetButtons(currentBet: number, controls: { btnIncrease: Phaser.GameObjects.Sprite; btnDecrease: Phaser.GameObjects.Sprite }, minBet = 1, maxBet = 5) {
+		// Decrease button
+		if (currentBet <= minBet) {
+			controls.btnDecrease.disableInteractive();
+			controls.btnDecrease.setTint(0x666666);
+		} else {
+			controls.btnDecrease.setInteractive();
+			controls.btnDecrease.clearTint();
+		}
+
+		// Increase button
+		if (currentBet >= maxBet) {
+			controls.btnIncrease.disableInteractive();
+			controls.btnIncrease.setTint(0x666666);
+		} else {
+			controls.btnIncrease.setInteractive();
+			controls.btnIncrease.clearTint();
+		}
+	}
+
+	addButtonTween(scene: Phaser.Scene, sprite: Phaser.GameObjects.Sprite, text: Phaser.GameObjects.Text[] = []) {
+		const targets = [sprite, ...text] as Phaser.GameObjects.GameObject[];
+
+		const playTween = (scale: number) => {
+			scene.tweens.add({
+				targets,
+				scale : (target: Phaser.GameObjects.GameObject) =>
+      				(target as any).scale + scale,
+				duration: 100,
+				ease: "Power2"
+			});
+		};
+
+		sprite.on("pointerdown", () => playTween(-0.1));
+		["pointerup"].forEach(evt => sprite.on(evt, () => playTween(0.1)));
+	}
 	/* END-USER-CODE */
 }
 

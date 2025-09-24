@@ -50,7 +50,7 @@ export class PacketHandler
 		this._separatorRe = /\r?\n|\r/;
 		this._typeRe = /^\d+/;
 		this._dataRe = /(?: ([^"\s]+|(?:"(?:[^"\\]|\\.)*")))/g;
-		this._packetId = 3; // We send two packets from GameLoader in CoreWeb so this should start at 3.
+		this._packetId = 1; // We send two packets from GameLoader in CoreWeb so this should start at 3.
 		this._sendQueue = "";
 		this._prevQueue = "";
 		this._sessionId = "0";
