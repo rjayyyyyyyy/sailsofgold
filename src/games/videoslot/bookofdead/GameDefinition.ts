@@ -2,8 +2,11 @@ import { IGameDefinition } from '@gl/interfaces/IGameDefinition';
 import VideoSlot from '../VideoSlot';
 import { Logger } from '../../../framework/Logger';
 import Level from './scene/Level';
+import { container } from '@gl/di/container';
+import { VideoSlotGameState } from '../VideoSlotGameState';
 
 const gameId = "310";
+container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,

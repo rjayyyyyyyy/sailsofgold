@@ -31,6 +31,7 @@ export default class Level extends Phaser.Scene {
 		/* START-USER-CTR-CODE */
 		// this.audio = container.get<IAudioService>(TYPES.AudioService)
 		// Write your code here.
+		this.videoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState");
 		/* END-USER-CTR-CODE */
 	}
 
