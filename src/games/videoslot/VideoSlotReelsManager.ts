@@ -40,6 +40,8 @@ class VideoSlotReelsManager {
 	scatterSymbolSprite: Phaser.GameObjects.Sprite[];
 
 
+	private symbolTextures: SymbolTextureSet[] = [];
+	private winSymbolTextures: SymbolTextureSet[] = [];
 	private freeSymbolTextures: SymbolTextureSet[] = [];
 
 	currentSpin: SpinQueue | null = null;
@@ -55,6 +57,26 @@ class VideoSlotReelsManager {
 	bindScene(scene: Reels) {
 		this.scene = scene;
 		this.logger.trace("ReelsManager bindScene");
+
+		const canvas = this.scene.textures.createCanvas('gradientTexture', 256, 256);
+		if(!canvas) {
+			throw new Error('Failed to create canvas');
+		}
+		const context = canvas.getContext();
+		
+		// Create vertical gradient (black-blue-black)
+		const gradient = context.createLinearGradient(0, 0, 0, 256);
+		gradient.addColorStop(0, '#0A1A2F');    // Bluish black at top
+		gradient.addColorStop(0.5, '#4D94FF');  // Lighter blue in middle  
+		gradient.addColorStop(1, '#0A1A2F');    // Bluish black at bottom
+		
+		context.fillStyle = gradient;
+		context.fillRect(0, 0, 256, 256);
+		
+		canvas.refresh();
+		this.symbolTextures = scene.symbolList;
+		this.winSymbolTextures = scene.winSymbolList;
+		this.freeSymbolTextures = scene.freeSymbolList;
 	}
 
 	public update() {

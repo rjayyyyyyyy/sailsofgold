@@ -305,6 +305,7 @@ export default class Reels extends Phaser.Scene {
 		this.machine2.setAlpha(0);
 
 		this.ReelsManager.bindScene(this)
+        this.initialize();
 	}
 
 	update(time: number, delta: number): void {
@@ -312,6 +313,7 @@ export default class Reels extends Phaser.Scene {
     }
 
 	initialize() {
+        this.logger.trace("Reels scene initialized");
         this.initialized = true;
         this.machineMobile.setVisible(this.GameState.isMobile ? true : false)
         this.containers?.forEach(container => {
