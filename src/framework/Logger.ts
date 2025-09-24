@@ -9,8 +9,9 @@ export enum LogLevel {
 export class Logger {
     private level: LogLevel;
 
-    constructor(level: LogLevel = LogLevel.INFO) {
-        this.level = level;
+    constructor() {
+        const level = import.meta.env.VITE_LOG_LEVEL?.toUpperCase() as keyof typeof LogLevel || 'INFO';
+        this.level = LogLevel[level];
     }
 
     setLevel(level: LogLevel) {

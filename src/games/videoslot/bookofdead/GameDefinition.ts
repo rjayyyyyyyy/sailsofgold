@@ -42,13 +42,16 @@ const BookOfDeadGameDefinition: IGameDefinition = {
       return;
     }
     gameInstance.networkManager.setGameId(payload.gameId);
+    gameInstance.bindScene(game);
     gameInstance.setConfig(payload.config);
     if(payload.launcher_payload.device === "desktop") {
-      game.scene.add('MainLevel', Level, true);
+      
+      logger.info("Loading desktop scene...");
       gameInstance.gameState.isMobile = false;
+      game.scene.add('MainLevel', Level, true);
     } else {
       // Load Mobile Scene
-
+      logger.info("Loading mobile scene...");
       gameInstance.gameState.isMobile = true;
     }
   },

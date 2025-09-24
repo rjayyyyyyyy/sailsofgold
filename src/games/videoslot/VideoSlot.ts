@@ -3,10 +3,11 @@ import { injectable, inject } from "inversify";
 import {container} from "@gl/di/container";
 import type NetworkManager from "../../framework/networking/NetworkManager";
 import { VideoSlotGameState } from "./VideoSlotGameState";
-import Dispatcher from "@gl/events/Dispatcher";
+import Dispatcher, { EVENTS } from "@gl/events/Dispatcher";
 import { CommandEvent } from "@gl/events/eventEnums";
 import { Command, ServerCommand } from "@gl/networking/Commands";
 import VideoSlotReelsManager from "./VideoSlotReelsManager";
+import Reels from "./components/Reels";
 
 @injectable()
 class VideoSlot extends BaseGame {
@@ -23,7 +24,6 @@ class VideoSlot extends BaseGame {
 
     private setupDispatchers() {
         Dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
-            console.log("GAME_IN", command);
             switch(command.type){
                 case ServerCommand.Setup:
                     this.logger.trace(`Received Setup commandline: ${command.getString(0)}`);
@@ -41,8 +41,15 @@ class VideoSlot extends BaseGame {
                     GameState.isAutoBet.set(this.gameConfig.defaultAutoAdjustBet as boolean);
                     GameState.isFastPlay.set(this.gameConfig.defaultFastPlay as boolean);
                     GameState.isSpaceSpin.set(this.gameConfig.defaultSpacebarToSpin as boolean);
+
+
+                    this.phaserScene.scene.add("Reels", Reels, false);
                     break;
             }
+        });
+
+        Dispatcher.addListener(EVENTS.GAME_READY, () => {
+            this.phaserScene.scene.launch("Reels");
         });
     }
    

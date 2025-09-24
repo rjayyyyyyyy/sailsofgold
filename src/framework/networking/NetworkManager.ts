@@ -58,7 +58,7 @@ class NetworkManager {
         });
 
         Dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
-            console.log("GAME_IN", command);
+            this.logger.trace(`GAME_IN: ${command.type}`);
             switch(command.type){
                 case ServerCommand.NewSessionId:
                     this.logger.info("New Session ID received");

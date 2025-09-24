@@ -175,18 +175,16 @@ class ReelsContainer extends Phaser.GameObjects.Container {
 }
 /* START OF COMPILED CODE */
 
-import ReelPrefab from "./ReelPrefab";
+import ReelPrefab from "../bookofdead/scene/prefab/ReelPrefab";
 import { VideoSlotGameState } from "../VideoSlotGameState";
 import VideoSlotReelsManager from "../VideoSlotReelsManager";
+import { Logger } from "@gl/Logger";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
 export default class Reels extends Phaser.Scene {
-    GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
-    ReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager");
 	constructor() {
 		super("Reels");
-
 		/* START-USER-CTR-CODE */
 		// Write your code here.
         this.machine2 = null;
@@ -194,6 +192,8 @@ export default class Reels extends Phaser.Scene {
         this.symbolList = [];
         this.winSymbolList = [];
         this.freeSymbolList = [];
+        this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
+        this.ReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager");
 		/* END-USER-CTR-CODE */
 	}
 
@@ -226,6 +226,9 @@ export default class Reels extends Phaser.Scene {
 	private reelPrefab!: ReelPrefab;
 
 	/* START-USER-CODE */
+    GameState: VideoSlotGameState;
+    ReelsManager: VideoSlotReelsManager;
+    logger = new Logger();
     symbolList: SymbolTextureSet[];
     winSymbolList: SymbolTextureSet[];
     freeSymbolList: SymbolTextureSet[];
@@ -238,9 +241,10 @@ export default class Reels extends Phaser.Scene {
     initialized = false;
 
 	create() {
-
 		this.editorCreate();
 
+        this.logger.trace("Reels scene created");
+        this.logger.trace("Is Mobile: " + this.GameState.isMobile);
 		this.machine2 = this.GameState.isMobile ? this.add.sprite(270, 395, "skin_texture1_level2", "HG.png") : this.add.sprite(800, 410, "skin_texture1_level0", "HG.png");
 		this.machine2.scaleX = this.GameState.isMobile ? 0.7 : 0.85;
 		this.machine2.scaleY = this.GameState.isMobile ? 0.7 : 0.85;
@@ -300,11 +304,11 @@ export default class Reels extends Phaser.Scene {
         this.machineMobile.setAlpha(0);
 		this.machine2.setAlpha(0);
 
-		// this.ReelsManager.bindScene(this)
+		this.ReelsManager.bindScene(this)
 	}
 
 	update(time: number, delta: number): void {
-        // this.ReelsManager.update();
+        this.ReelsManager.update();
     }
 
 	initialize() {

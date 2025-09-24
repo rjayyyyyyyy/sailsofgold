@@ -2,11 +2,13 @@ import { EVENTS } from './events';
 import { ACTION_EVENTS } from './actionEvents';
 import { AUDIO_EVENTS } from './audioEvents';
 import { CommandEvent, SystemEvent, NetworkEvent } from './eventEnums';
+import { Logger } from '@gl/Logger';
 
 export { EVENTS, ACTION_EVENTS, AUDIO_EVENTS, CommandEvent, SystemEvent, NetworkEvent };
 
 export class Dispatcher<EventType = string> {
     private static instance: Dispatcher;
+    private logger = new Logger();
     _listeners: Map<EventType, ((...args: any[]) => void)[]>;
 
     constructor() {
@@ -28,7 +30,8 @@ export class Dispatcher<EventType = string> {
 
     emit(event: EventType, ...args: any[]) {
         if(event !== SystemEvent.TICK) {
-            console.log('emit', event, args);
+            this.logger.trace(`Dispatcher emit: ${event}`);
+            this.logger.trace(args);
         }
 
         const callbacks = this._listeners.get(event) || [];

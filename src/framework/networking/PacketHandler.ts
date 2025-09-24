@@ -198,19 +198,19 @@ export class PacketHandler
 		for (let i: number = 0, j: number = cmd.length; i < j; i++)
 		{
 			let s = cmd.getString(i);
-			console.log(s);
-			console.log(s.indexOf(" "), s.indexOf("\""));
+			// console.log(s);
+			// console.log(s.indexOf(" "), s.indexOf("\""));
 			// Always quote string parameters
 			if (s.indexOf(" ") > -1 || s.indexOf("\"") > -1)
 			{
 				str += PacketHandler.JOINER + "\"" + encodeURIComponent(s) + "\"";
-				console.log("Encoded string:", str);
+				// console.log("Encoded string:", str);
 			}
 			else
 			{
-				// str += PacketHandler.JOINER + s;
-				str += PacketHandler.JOINER + "\"" + s + "\"";
-				console.log("Quoted string:", str);
+				str += PacketHandler.JOINER + s;
+				// str += PacketHandler.JOINER + "\"" + s + "\"";
+				// console.log("Quoted string:", str);
 			}
 		}
 
