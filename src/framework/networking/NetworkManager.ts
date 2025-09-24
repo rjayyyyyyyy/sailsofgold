@@ -5,6 +5,7 @@ import Dispatcher, { CommandEvent, EVENTS, NetworkEvent, SystemEvent } from "@gl
 import { ClientCommand, Command, ServerCommand } from "./Commands";
 import { Request } from "./Request";
 import { FeatureType, FeatureAwardType } from "./FeatureType";
+import { IGameConfig } from "@gl/GameConfig";
 
 @injectable()
 class NetworkManager {
@@ -16,6 +17,8 @@ class NetworkManager {
 
     private apiEndpoint: string = "";
     private gameHistory: string = "";
+
+    public gameConfig: IGameConfig | null = null;
 
     // DEBUG Properties
     public _token: string = "";
@@ -30,8 +33,21 @@ class NetworkManager {
         this.gameHistory = history;
     }
 
+    public getUserAgent(){
+        const userAgent = navigator.userAgent;
+        return userAgent;
+    }
+
     public setGameId(id: string) {
         this.gameId = id;
+    }
+
+    public setGameConfig(config: IGameConfig | null) {
+        this.gameConfig = config;
+    }
+
+    public getGameConfig(): IGameConfig | null {
+        return this.gameConfig;
     }
 
     constructor() {
@@ -118,6 +134,8 @@ class NetworkManager {
     public sendCommand(command: number, data: string[]) {
         Dispatcher.emit(CommandEvent.GAME_OUT, new Command(command, data));
     }
+
+    
 
     // DEBUG UTILS
     public async getToken() {
