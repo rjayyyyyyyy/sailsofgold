@@ -2,9 +2,9 @@
 
 /* START OF COMPILED CODE */
 
-import Button from "../../../../shared/interfaces/components/Button";
-import BetPrefab from "../../../../shared/interfaces/components/BetPrefab";
-import FooterPrefab from "../../../../shared/interfaces/components/FooterPrefab";
+import Button from "@shared/interfaces/components/Button";
+import BetPrefab from "@shared/interfaces/components/BetPrefab";
+import FooterPrefab from "@shared/interfaces/components/FooterPrefab";
 /* START-USER-IMPORTS */
 import MenuScene from "@shared/scenes/MenuScene";
 import { container } from "@gl/di/container";

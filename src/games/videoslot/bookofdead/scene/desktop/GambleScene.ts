@@ -3,7 +3,7 @@
 
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import { container } from "@gl/di/container";
-import { CardValue, ClientCardPicked } from "../types/gamble";
+import { CardValue, ClientCardPicked } from "../../types/gamble";
 
 /* START OF COMPILED CODE */
 

@@ -1,7 +1,7 @@
 import { IGameDefinition } from '@gl/interfaces/IGameDefinition';
 import VideoSlot from '../VideoSlot';
 import { Logger } from '../../../framework/Logger';
-import Level from './scene/Level';
+import Level from './scene/desktop/Level';
 import { container } from '@gl/di/container';
 import { VideoSlotGameState } from '../VideoSlotGameState';
 
