@@ -5,10 +5,12 @@ import Level from './scene/desktop/Level';
 import { container } from '@gl/di/container';
 import { VideoSlotGameState } from '../VideoSlotGameState';
 import VideoSlotReelsManager from '../VideoSlotReelsManager';
+import AudioManager from '@gl/AudioManager';
 
 const gameId = "310";
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<VideoSlotReelsManager>("VideoSlotReelsManager").to(VideoSlotReelsManager).inSingletonScope();
+container.bind<AudioManager>("AudioManager").to(AudioManager).inSingletonScope();
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
@@ -44,6 +46,8 @@ const BookOfDeadGameDefinition: IGameDefinition = {
     gameInstance.networkManager.setGameId(payload.gameId);
     gameInstance.bindScene(game);
     gameInstance.setConfig(payload.config);
+    const audiomgr = container.get<AudioManager>("AudioManager");
+    audiomgr.bindBootScene(game);
     if(payload.launcher_payload.device === "desktop") {
       
       logger.info("Loading desktop scene...");
