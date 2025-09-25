@@ -69,7 +69,7 @@ class VideoSlotReelsManager {
 		[5, 30, 100, 750], // Bird
 		[5, 30, 100, 750], // Anubis
 		[5, 40, 400, 2000], // Pharaoh
-		[10, 100, 1000, 5000], // People
+		[10, 100, 1350, 5000], // People
 		[0, 2, 20, 200], // Book
 	]
 
@@ -117,7 +117,10 @@ class VideoSlotReelsManager {
         Dispatcher.addListener(ACTION_EVENTS.SPIN_START, () => {
 			let GameState = this.GameState;
             console.log(GameState.isSpinning.get())
-            if(this.GameState.isSpinning.get()) return;
+            // if(this.GameState.isSpinning.get()) return;
+            if(this.activeAutoplay > 0) { // Autoplay Spin
+			}
+			else if(this.GameState.isSpinning.get()) return;
             console.log("Spin Start", GameState.coinBet.get(), GameState.linesBet.get(), GameState.coinValue.get());
             if(this.scatterInfo.isScatterSpin) {
                 if(this.scatterInfo.claimed) return;
@@ -136,14 +139,18 @@ class VideoSlotReelsManager {
                 ]);
                 this.hasDelayedSpinStarted = true;
             }
-        });        Dispatcher.addListener(EVENTS.SPIN_COMPLETE, () => {
+        });        
+		Dispatcher.addListener(EVENTS.SPIN_COMPLETE, () => {
             
+			console.log('currentSpin',this.currentSpin)
             if(this.currentSpin) {
                 Dispatcher.emit(AUDIO_EVENTS.REEL_STOP);
                 this.renderWinLines(this.currentSpin.winLines);
                 if(this.scatterInfo.isScatterSpin) {
                     if(this.scatterInfo.currentSpin === 10) {
-                        GameState.isSpinning.set(false);
+						// setTimeout(() => {
+						// 	GameState.isSpinning.set(false);
+						// }, 1350);
                         this.scatterInfo.isScatterSpin = false;
                         this.scatterInfo.claimed = false;
                         this.scatterInfo.currentSpin = 0;
@@ -152,13 +159,19 @@ class VideoSlotReelsManager {
                         this.currentSpin = null;
                         GameState.isScatterInfoShown.set(false);
                         GameState.isAutoSpinRunning.set(false);
-                        Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins)
+						
+                        Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins.get())
                         Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_STOP)  
                         Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO)
                         Dispatcher.emit(AUDIO_EVENTS.SWITCH_BGM_NORMAL);
                     }
                 }
-            } 
+            } else{
+				setTimeout(() => {
+					GameState.isSpinning.set(false);
+					this.GameState.informationText.set(this.scene.cache.json.get('language').texts['IDS_PRESSPIN']);
+				}, 1350);
+			}
             
         });
 
@@ -205,7 +218,7 @@ class VideoSlotReelsManager {
 					const coin = parseInt(command.getString(0));
 					const lines = parseInt(command.getString(1));
 					const denom = parseInt(command.getString(2));
-					if(GameState.isAutoPlayRunning){
+					if(GameState.isAutoPlayRunning.get()){
 						GameState.autoplayBalance.set(GameState.autoplayBalance.get() - coin * lines * denom);
 					}
 					GameState.coinValue.set(denom);
@@ -265,7 +278,7 @@ class VideoSlotReelsManager {
                     // Only render win lines on first load
                     if(isFirstLoad) {
                         // GameState.isSpinning = true
-                        GameState.isReward.set(true)
+                        // GameState.isReward.set(true)
                         this.setReelSymbols(symbols, topSymbol, bottomSymbol);
                         this.updateReelSymbols();
                         setTimeout(() => {
@@ -274,6 +287,7 @@ class VideoSlotReelsManager {
                             console.log(this.scatterInfo);
                             if(this.scatterInfo.isScatterSpin) {
                                 Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+								this.GameState.bookSprites = this.scatterSymbolSprite;
                             }
                             if(!this.scatterInfo.isScatterSpin) this.renderWinLines(winLines);
                         }, 3000);
@@ -286,7 +300,7 @@ class VideoSlotReelsManager {
                     GameState.winCoins.set(winCoins)
                     const totalWin = parseInt(command.getString(2));
                     this.logger.trace(`Total Win: ${totalWin}`);
-                    GameState.totalWin.set(totalWin);
+                    GameState.totalWin.set(totalWin / 100);
                     if(GameState.isAutoPlayRunning.get()){
                         GameState.autoplayBalance.set(GameState.autoplayBalance.get() + totalWin);
                     }
@@ -365,7 +379,7 @@ class VideoSlotReelsManager {
 			this.scene.initialized = true;
 			this.GameState.coinValue.set(denom);
 			this.GameState.winLines = winLines;
-			this.GameState.isReward.set(true);
+			
 			this.setReelSymbols(symbols, topSymbol, bottomSymbol);
 			this.updateReelSymbols();
 			setTimeout(() => {
@@ -373,6 +387,7 @@ class VideoSlotReelsManager {
 				console.log(this.scatterInfo);
 				if(this.scatterInfo.isScatterSpin) {
 					Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+					this.GameState.bookSprites = this.scatterSymbolSprite;
 				}
 				if(!this.scatterInfo.isScatterSpin) this.renderWinLines(winLines);
 			}, 3000);
@@ -409,11 +424,12 @@ class VideoSlotReelsManager {
 				this.setReelSymbols(spin.symbols, spin.topSymbol, spin.bottomSymbol);
 				this.updateReelSymbols();
 				this.activeAutoplay--
+				this.GameState.activeAutoplay.set(this.activeAutoplay);
 				this.currentSpin = spin;
 			}
 		}
 
-		if(this.scatterInfo.isScatterSpin && !GameState.isSpinning.get() && !GameState.isShowingScatterInfo.get()) {
+		if(this.scatterInfo.isScatterSpin && !GameState.isSpinning.get() && !GameState.isScatterInfoShown.get()) {
 			if(this.spinQueue.length > 0) {
 				if(this.spinQueue.length === 9) {
 					// NetworkManager.sendCommand(ClientCommand.FreeSpin, ["0"]);
@@ -433,12 +449,13 @@ class VideoSlotReelsManager {
 					const winSymbol = (this.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number)
 					const symbol = this.freeSymbolTextures[winSymbol]
 					Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, symbol , this.scatterInfo.currentSpin)
-					console.log(GameState.isAutoSpinRunning)
+					console.log(GameState.isAutoSpinRunning.get())
 				}
 			}
 		} 
-		else if(!GameState.isSpinning.get() && this.scatterInfo.isScatterSpin && !GameState.isShowingScatterInfo.get() && !GameState.isScatterInfoShown.get()) {
+		else if(!GameState.isSpinning.get() && this.scatterInfo.isScatterSpin && !GameState.isScatterInfoShown.get()) {
 			Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+			this.GameState.bookSprites = this.scatterSymbolSprite;
 			GameState.isScatterInfoShown.set(true);
 			Dispatcher.emit(AUDIO_EVENTS.SWITCH_BGM_FREE_SPIN);
 		}
@@ -527,7 +544,7 @@ class VideoSlotReelsManager {
 			}
 		}
 
-		if(GameState.isFastPlay) 
+		if(GameState.isFastplayOn.get()) 
 			this.duration = 35;
 		else
 			this.duration = 75;
@@ -575,6 +592,9 @@ class VideoSlotReelsManager {
 	}
 
 	renderWinLines(winLines: WinLineResult[]) {
+		// setTimeout(() => {
+		// 	GameState.isSpinning.set(false);
+		// }, 1350);
 		const GameState = this.GameState;
 		// const selectedSymbol = 0; // 
 		const selectedSymbol = (this.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
@@ -592,7 +612,7 @@ class VideoSlotReelsManager {
 				this.changeTintSymbol(true);
 				setTimeout(() => {
 					if(GameState.isAutoPlayRunning){
-						if(GameState.isStopFreeSpins.get() || GameState.isStopJackpot.get()){
+						if(GameState.isAutoplayFreeSpin.get() || GameState.isAutoplayJackpot.get()){
 							GameState.isAutoPlayRunning.set(false);
 							this.activeAutoplay = 0;
 							GameState.autoplayBalance.set(0);
@@ -601,6 +621,7 @@ class VideoSlotReelsManager {
 					}
 					this.scatterSymbolSprite.forEach(sprite => sprite.setTint(0xffffff));
 					Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+					this.GameState.bookSprites = this.scatterSymbolSprite;
 					GameState.isScatterInfoShown.set(true);
 					Dispatcher.emit(AUDIO_EVENTS.SWITCH_BGM_FREE_SPIN);
 				}, 1500);
@@ -609,16 +630,20 @@ class VideoSlotReelsManager {
 				console.log('Symbol render');
 				this.animateScatterSymbols(symbol, () => this.renderAllLines());
 			} 
-			else if (!GameState.isAutoSpinRunning) {
+			else if (!GameState.isAutoSpinRunning.get()) {
 				console.log('c');
+				setTimeout(() => {
+					GameState.isSpinning.set(false);
+					this.GameState.informationText.set(this.scene.cache.json.get('language').texts['IDS_PRESSPIN']);
+				}, 1350);
 				this.loopSingleLine([], winLines);
 			} 
 			else {
 				console.log('d');
 				setTimeout(() => {
 					GameState.isSpinning.set(false);
-					if(GameState.isReward){
-						GameState.isReward.set(false);
+					if(GameState.isReward.get()){
+						// GameState.isReward.set(false);
 						Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 					}
 					this.currentSpin = null;
@@ -636,22 +661,22 @@ class VideoSlotReelsManager {
 						GameState.isAutoSpinRunning.set(false);
 						
 						// Show scatter completion
-						Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins);
+						Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins.get());
 						Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO);
 						
 						// Handle autoplay continuation after scatter completion
-						if(GameState.isAutoPlayRunning && this.activeAutoplay > 0) {
+						if(GameState.isAutoPlayRunning.get() && this.activeAutoplay > 0) {
 							// Continue autoplay after scatter info is processed
 							setTimeout(() => {
-								if(GameState.isAutoPlayRunning && this.activeAutoplay > 0) {
+								if(GameState.isAutoPlayRunning.get() && this.activeAutoplay > 0) {
 									Dispatcher.emit(ACTION_EVENTS.SPIN_START);
 								}
-							}, 1000);
+							}, 1350);
 						} else {
 							Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
 						}
 					}
-					else if(GameState.isAutoPlayRunning){
+					else if(GameState.isAutoPlayRunning.get()){
 						if(this.activeAutoplay > 0) {
 							Dispatcher.emit(ACTION_EVENTS.SPIN_START)
 						}
@@ -660,13 +685,13 @@ class VideoSlotReelsManager {
 							Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
 						}
 					}
-					if(GameState.isReward){
-						GameState.isReward.set(false);
+					if(GameState.isReward.get()){
+						// GameState.isReward.set(false);
 						Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 					}
 					this.currentSpin = null;
 					console.log(this.activeAutoplay)
-				}, 1000);
+				}, 1350);
 			}
 			
 			return;
@@ -706,7 +731,8 @@ class VideoSlotReelsManager {
 					imageGroup.forEach(img => (img.visible = true));
 					this.winSymbol(line);
 					console.log(line)
-					if(i === 0) Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins);
+					
+					if(i === 0) Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins.get());
 				},
 				onComplete: () => {
 					imageGroup.forEach(img => {
@@ -719,7 +745,7 @@ class VideoSlotReelsManager {
 							this.changeTintSymbol(true);
 							setTimeout(() => {
 								if(GameState.isAutoPlayRunning.get()){
-									if(GameState.isStopFreeSpins.get() || GameState.isStopJackpot.get()){
+									if(GameState.isAutoplayFreeSpin.get() || GameState.isAutoplayJackpot.get()){
 										GameState.isAutoPlayRunning.set(false);
 										this.activeAutoplay = 0;
 										GameState.autoplayBalance.set(0);
@@ -728,6 +754,7 @@ class VideoSlotReelsManager {
 								}
 								this.scatterSymbolSprite.forEach(sprite => sprite.setTint(0xffffff));
 								Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+								this.GameState.bookSprites = this.scatterSymbolSprite;
 								GameState.isScatterInfoShown.set(true);
 								Dispatcher.emit(AUDIO_EVENTS.SWITCH_BGM_FREE_SPIN);
 							}, 1500);
@@ -737,14 +764,16 @@ class VideoSlotReelsManager {
 						} else {
 							if (GameState.isAutoPlayRunning.get()) {
 								// ✅ If Stop any Win Checked
-								if (GameState.isStopAnyWin.get()) {
-									GameState.isSpinning.set(false);
+								if (GameState.isAutoplayAnyWin.get()) {
+									setTimeout(() => {
+										GameState.isSpinning.set(false);
+									}, 1350);
 									this.currentSpin = null;
 									this.activeAutoplay = 0;
 									GameState.autoplayBalance.set(0);
 									GameState.isAutoPlayRunning.set(false);
 									if(GameState.isReward.get()){
-										GameState.isReward.set(false);
+										// GameState.isReward.set(false);
 										Dispatcher.emit(EVENTS.REWARD_COMPLETE);
 									}
 									Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
@@ -755,11 +784,11 @@ class VideoSlotReelsManager {
 							setTimeout(() => {
 								GameState.isSpinning.set(false);
 								if(GameState.isReward.get()){
-									GameState.isReward.set(false);
+									// GameState.isReward.set(false);
 									Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 								}
 								this.currentSpin = null;
-							}, 1000);
+							}, 1350);
 						}
 					}
 				},
@@ -799,7 +828,7 @@ class VideoSlotReelsManager {
 			const posY = symbol.parentContainer.y + symbol.y;
 
 			const symbolWinSprite = this.scene.add.sprite(posX, posY, symbolWin[0], symbolWin[1])
-				.setScale(1);
+				.setScale(GameState.isMobile ? 1 : .725);
 
 			let coinWin: Phaser.GameObjects.Text | null = null;
 			let coinWinBg: Phaser.GameObjects.Sprite | null = null;
@@ -813,17 +842,16 @@ class VideoSlotReelsManager {
 					GameState.isMobile ? 'skin_texture1_level2' : 'skin_texture1_level0', 
 					'GG.png')
 					.setDepth(2)
-					.setScale(GameState.isMobile ? 0.4 : 0.6, 1)
+					.setScale(GameState.isMobile ? 0.7 : 0.4, .8)
 					.setAlpha(0.8);
 				
 				const coinWon = line.coinWon
 				coinWin = this.scene.add.text(posX, posY, coinWon.toString(), {
-					font: '500 60px flanker',
+					font: GameState.isMobile ? '500 35px FLANKER_GRIFFO' : '500 50px FLANKER_GRIFFO',
 					color: '#fcd530',
 				})
 					.setDepth(2)
-					.setOrigin(0.5, 0.5)
-					.setScale(GameState.isMobile ? 0.75 : 1);
+					.setOrigin(0.5, 0.5);
 			}
 
 			let repeatCounter = 0;
@@ -855,7 +883,7 @@ class VideoSlotReelsManager {
 
 			// Adjust scale or alpha depending on symbolNum
 			if (symbolNum > 4) {
-				tweenConfig.scale = GameState.isMobile ? { from: .8, to: .9 } : { from: 1, to: 1.2 };
+				tweenConfig.scale = GameState.isMobile ? { from: 1.1, to: 1.2 } : { from: .725, to: .825 };
 			} else {
 				tweenConfig.alpha = { from: 0, to: 1, start: 0 };
 			}
@@ -954,7 +982,8 @@ class VideoSlotReelsManager {
 						imageGroup[j].visible = true;
 					}
 					
-					if(i === 0) Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins)
+					if(i === 0) Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins.get());
+					
 					// Dispatcher.emit(EVENTS.SPIN_REWARD, line.coinWon, line.paylineIndex)
 				},
 				onRepeat: () => {
@@ -965,9 +994,9 @@ class VideoSlotReelsManager {
 					
 					if(i === singleLineImages.length - 1){
 						setTimeout(() => {
-							GameState.isSpinning.set(false);
+							// GameState.isSpinning.set(false);
 							if(GameState.isReward.get()){
-								GameState.isReward.set(false);
+								// GameState.isReward.set(false);
 								Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 							}
 							this.currentSpin = null;
@@ -983,7 +1012,7 @@ class VideoSlotReelsManager {
 		this.changeTintSymbol(false);
 		if(singleLineImages){
 			setTimeout(() => {
-				GameState.isSpinning.set(false);
+				// GameState.isSpinning.set(false);
 
 				const stopAutoplay = () => {
 					GameState.isAutoPlayRunning.set(false);
@@ -992,7 +1021,7 @@ class VideoSlotReelsManager {
 					Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
 				};
 
-				if (GameState.isAutoPlayRunning) {
+				if (GameState.isAutoPlayRunning.get()) {
 					const hasAutoplay = this.activeAutoplay > 0;
 
 					// ✅ If autoplay can continue
@@ -1004,9 +1033,9 @@ class VideoSlotReelsManager {
 					// ✅ If autoplay should stop due to conditions
 					const shouldStop =
 						!hasAutoplay || // no more autoplay spins
-						GameState.totalWin.get() > GameState.autoplaySingleWin.get() || // stop if win exceeds limit
-						GameState.autoplayBalance.get() > GameState.autoplayBalanceIncreases.get() || // stop if balance too high
-						GameState.autoplayBalance.get() < GameState.autoplayBalanceDecreases.get(); // stop if balance too low
+						GameState.totalWin.get() > GameState.ifAutoplaySingleWin.get() || // stop if win exceeds limit
+						GameState.autoplayBalance.get() > GameState.ifAutoplayBalanceIncrease.get() || // stop if balance too high
+						GameState.autoplayBalance.get() < GameState.ifAutoplayBalanceDecrease.get(); // stop if balance too low
 
 					if (shouldStop) {
 						stopAutoplay();
@@ -1014,13 +1043,13 @@ class VideoSlotReelsManager {
 						stopAutoplay(); // default fallback
 					}
 				}
-				if(GameState.isReward){
-					GameState.isReward.set(false);
+				if(GameState.isReward.get()){
+					// GameState.isReward.set(false);
 					Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 				}
 				this.currentSpin = null;
 
-			}, 1000);
+			}, 1350);
 		}
 
 		for (let i = 0; i < singleLineImages.length; i++) {
@@ -1043,10 +1072,10 @@ class VideoSlotReelsManager {
 					GameState.isMobile ? 'skin_texture1_level2' : 'skin_texture1_level0', 
 					'GG.png')
 					.setDepth(2)
-					.setScale(GameState.isMobile ? 0.4 : 0.6, 1)
+					.setScale(GameState.isMobile ? 0.7 : 0.4, .8)
 					.setAlpha(0.8);
 				coinWin = this.scene.add.text(x, y, coinWon.toString(), {
-					font: GameState.isMobile ? '500 45px flanker' : '500 60px flanker',
+					font: GameState.isMobile ? '500 35px FLANKER_GRIFFO' : '500 50px FLANKER_GRIFFO',
 					color: '#fcd530',
 				}).setDepth(2).setOrigin(0.5, 0.5);
 			};
@@ -1076,7 +1105,9 @@ class VideoSlotReelsManager {
 						}
 					}
 					const coinWon = line.coinWon
+					console.log('coinWon ',coinWon)
 					Dispatcher.emit(EVENTS.SPIN_REWARD, coinWon, line.paylineIndex + 1);
+					
 				},
 
 				onRepeat: () => {
@@ -1094,22 +1125,24 @@ class VideoSlotReelsManager {
 					}
 					
 					setTimeout(() => {
-						GameState.isSpinning.set(false);
-						if(GameState.isReward){
-							GameState.isReward.set(false);
+						// GameState.isSpinning.set(false);
+						if(GameState.isReward.get()){
+							// GameState.isReward.set(false);
 							Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 						}
 						this.currentSpin = null;
-					}, 1000);
+					}, 1350);
 
 					const coinWon = line.coinWon
 					Dispatcher.emit(EVENTS.SPIN_REWARD, coinWon, line.paylineIndex + 1);
+					
 				},
 
 				onYoyo: () => {
 					if (i === singleLineImages.length - 1) {
 						this.changeTintSymbol(false);
-						Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins);
+						Dispatcher.emit(EVENTS.SPIN_REWARD, GameState.winCoins.get());
+						
 					}
 
 					if (coinWin && coinWinBg) {
@@ -1118,13 +1151,13 @@ class VideoSlotReelsManager {
 					}
 					
 					setTimeout(() => {
-						GameState.isSpinning.set(false);
-						if(GameState.isReward){
-							GameState.isReward.set(false);
+						// GameState.isSpinning.set(false);
+						if(GameState.isReward.get()){
+							// GameState.isReward.set(false);
 							Dispatcher.emit(EVENTS.REWARD_COMPLETE);
 						}
 						this.currentSpin = null;
-					}, 1000);
+					}, 1350);
 				},
 
 				onComplete: () => {
@@ -1133,13 +1166,13 @@ class VideoSlotReelsManager {
 					this.changeTintSymbol(false);
 					
 					setTimeout(() => {
-						GameState.isSpinning.set(false);
-						if(GameState.isReward){
-							GameState.isReward.set(false);
+						// GameState.isSpinning.set(false);
+						if(GameState.isReward.get()){
+							// GameState.isReward.set(false);
 							Dispatcher.emit(EVENTS.REWARD_COMPLETE)
 						}
 						this.currentSpin = null;
-					}, 1000);
+					}, 1350);
 				},
 
 				onStop: () => {

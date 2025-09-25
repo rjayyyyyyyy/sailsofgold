@@ -104,11 +104,13 @@
             "scope": "CLASS",
             "x": 150,
             "y": 585,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "COINS: ",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "22px",
+            "fontSize": "44px",
             "color": "#F7EDA1"
         },
         {
@@ -118,11 +120,13 @@
             "scope": "CLASS",
             "x": 975,
             "y": 585,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "BET: ",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "20px",
+            "fontSize": "40px",
             "color": "#F7EDA1"
         },
         {
@@ -268,12 +272,14 @@
             "scope": "CLASS",
             "x": 570,
             "y": 595,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "Information",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "20px",
+            "fontSize": "40px",
             "color": "#F7EDA1"
         },
         {

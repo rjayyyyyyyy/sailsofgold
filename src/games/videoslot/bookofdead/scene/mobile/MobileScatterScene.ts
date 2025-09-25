@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import { SymbolTextureSet } from "@games/videoslot/components/Reels";
 import ReelPrefab from "../prefab/ReelPrefab";
 /* START-USER-IMPORTS */
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
@@ -30,7 +29,6 @@ export default class MobileScatterScene extends Phaser.Scene {
 
 		// animation
 		const animation = this.add.sprite(360, 640, "skin_texture1_level2", "KH.png");
-		animation.play("book-animation-sd");
 
 		// bgBook
 		const bgBook = this.add.image(360, 640, "skin_texture1_level2", "JL.png");
@@ -120,10 +118,11 @@ export default class MobileScatterScene extends Phaser.Scene {
 
 	create() {
 		this.scene.bringToTop();
-		this.editorCreate();
+		// this.editorCreate();
 	}
 
 	bookAnimation(target: Phaser.GameObjects.Sprite[]){
+		this.animation.play("book-animation-sd");
 		for(let i = 0; i < target.length; i++){
 			const xTarget = target[i].x
 			const yTarget = target[i].y
@@ -238,7 +237,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 		// txtTotalWinValue
 		const txtTotalWinValue = this.add.text(270, 370, "", {});
 		txtTotalWinValue.setOrigin(0.5, 0.5);
-		txtTotalWinValue.text = this.GameState.gameWinAmount.get().toString();
+		txtTotalWinValue.text = this.GameState.winCoins.get().toString();
 		txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "50px" });
 
 		paper.add([

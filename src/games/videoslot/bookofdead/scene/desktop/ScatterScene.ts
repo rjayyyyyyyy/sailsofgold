@@ -1,8 +1,11 @@
 
 // You can write more code here
 
+import { SymbolTextureSet } from "@games/videoslot/components/Reels";
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
+import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
 import { container } from "@gl/di/container";
+import { FeatureAwardType } from "@gl/networking/FeatureType";
 
 /* START OF COMPILED CODE */
 
@@ -122,10 +125,13 @@ export default class ScatterScene extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-	private gameState!: VideoSlotGameState;
+	private GameState!: VideoSlotGameState;
+	private ReelsManager!: VideoSlotReelsManager;
+	symbolList: SymbolTextureSet[];
 
 	init() {
-		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
+		this.GameState = container.get<VideoSlotGameState>('VideoSlotGameState');
+		this.ReelsManager = container.get<VideoSlotReelsManager>('VideoSlotReelsManager');
 	}
 
 	create() {
@@ -135,6 +141,7 @@ export default class ScatterScene extends Phaser.Scene {
 	}
 
 	bookAnimation(target: Phaser.GameObjects.Sprite[]){
+		this.animation.play('bookAnimation');
 		for(let i = 0; i < target.length; i++){
 			const xTarget = target[i].x
 			const yTarget = target[i].y
@@ -148,8 +155,8 @@ export default class ScatterScene extends Phaser.Scene {
 				onComplete: () => {
 					this.tweens.add({
 						targets: target[i],
-                        x: (1600 / 2) - target[i].parentContainer.x,
-                        y: (900 / 2) - target[i].parentContainer.y,
+                        x: (this.scale.width / 2) - target[i].parentContainer.x,
+                        y: (this.scale.height / 2) - target[i].parentContainer.y,
                         duration: 400,
                         repeat: 0,
                         delay: 800,
@@ -204,11 +211,11 @@ export default class ScatterScene extends Phaser.Scene {
                 let randomNumber = Phaser.Math.RND.between(0, 8);
                 const symbol = this.selectedSymbol;
                 if(repeatCounter == 15){
-                    /*const winSymbol = (ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
+                    const winSymbol = (this.ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
 					const sym = this.symbolList[winSymbol]
 					symbol.setTexture(sym[0], sym[1]);
                     console.log(winSymbol)
-                    this.gameState.isSpinning.set(false)*/
+                    this.GameState.isSpinning.set(false)
 					
                     // Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, 'T4'+arraySymbols[winSymbol]+'B.png')
 
@@ -254,7 +261,7 @@ export default class ScatterScene extends Phaser.Scene {
 		// txtTotalWinValue
 		const txtTotalWinValue = this.add.text(800, 410, "", {});
 		txtTotalWinValue.setOrigin(0.5, 0.5);
-		txtTotalWinValue.text = this.gameState.gameWinAmount.get().toString();
+		txtTotalWinValue.text = this.GameState.winCoins.get().toString();
 		txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "60px" });
 
 		paper.add([
@@ -278,7 +285,7 @@ export default class ScatterScene extends Phaser.Scene {
                     duration: 500,
                     onComplete: () => {
                         paper.destroy();
-						this.gameState.isEndScatter.set(true);
+						this.GameState.isEndScatter.set(true);
                     }
                 })
             }

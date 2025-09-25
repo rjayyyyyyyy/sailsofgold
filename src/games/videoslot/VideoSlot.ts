@@ -38,15 +38,17 @@ class VideoSlot extends BaseGame {
                         this.logger.error("Game config is null!");
                         return;
                     }
-                    GameState.betLines.set(this.gameConfig.lines as number);
+                    GameState.linesBet.set(this.gameConfig.lines as number);
                     GameState.coinValue.set(parseInt(this.gameConfig.denom as string) * 10);
                     console.log('coin value ' + GameState.coinValue)
-                    GameState.betValue.set(GameState.betCoins.get() * GameState.betLines.get() * (GameState.coinValue.get() / 100));
+                    GameState.betValue.set(GameState.coinBet.get() * GameState.linesBet.get() * (GameState.coinValue.get() / 100));
 
                     GameState.isSoundingOn.set(this.gameConfig.defaultSound as boolean);
                     GameState.isAutoAdjustOn.set(this.gameConfig.defaultAutoAdjustBet as boolean);
                     GameState.isFastplayOn.set(this.gameConfig.defaultFastPlay as boolean);
                     GameState.isSpacebarSpinOn.set(this.gameConfig.defaultSpacebarToSpin as boolean);
+
+                    GameState.gameConfig = this.gameConfig;
 
 
                     this.phaserScene.scene.add("Reels", Reels, false);

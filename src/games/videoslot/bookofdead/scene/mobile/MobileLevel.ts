@@ -11,6 +11,8 @@ import MobileMenuScene from "@shared/scenes/Mobile/MobileMenuScene";
 import MobileGambleScene from "./MobileGambleScene";
 import MobileScatterScene from "./MobileScatterScene";
 import MobilePopupScene from "./MobilePopupScene";
+import Dispatcher, { ACTION_EVENTS, EVENTS } from "@gl/events/Dispatcher";
+import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
 
 container.bind<MobileMenuScene>("MobileMenuScene").to(MobileMenuScene).inSingletonScope();
 container.bind<MobileGambleScene>("MobileGambleScene").to(MobileGambleScene).inSingletonScope();
@@ -166,7 +168,7 @@ export default class MobileLevel extends Phaser.Scene {
 		txtCollect.setStyle({ "color": "#5A1600", "fontFamily": "ROBOTO_CONDENSED_BOLD", "fontSize": "48px", "fontStyle": "bold" });
 
 		// txtAutoplayValue
-		const txtAutoplayValue = this.add.text(270, 750, "", {});
+		const txtAutoplayValue = this.add.text(360, 955, "", {});
 		txtAutoplayValue.setOrigin(0.5, 0.5);
 		txtAutoplayValue.visible = false;
 		txtAutoplayValue.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "40px" });
@@ -255,9 +257,12 @@ export default class MobileLevel extends Phaser.Scene {
 
 	// Write your code here
 	private GameState!: VideoSlotGameState;
+	private ReelsManager!: VideoSlotReelsManager;
+	private toggleVfx!: any;
 
 	init() {
 		this.GameState = container.get<VideoSlotGameState>('VideoSlotGameState');
+		this.ReelsManager = container.get<VideoSlotReelsManager>('VideoSlotReelsManager');
 	}
 
 	preload() {
@@ -281,16 +286,18 @@ export default class MobileLevel extends Phaser.Scene {
 				if (val) {
 					console.log("show Gamble")
 					this.scene.launch("MobileGambleScene");
-					this.setButtonInteractive(this.gambleBtn, true);
+					this.setButtonInteractive(this.gambleBtn, false);
+					this.setButtonInteractive(this.collectBtn, true);
 				} else {
 					console.log("hide Gamble")
 					this.scene.stop("MobileGambleScene");
 					this.setButtonInteractive(this.gambleBtn, false);
 					this.setButtonInteractive(this.collectBtn, false);
+                	this.GameState.isReward.set(false);
 				}
 			});
 
-			this.GameState.isShowingScatter.subscribe((val) => {
+			this.GameState.isScatterInfoShown.subscribe((val) => {
 				if (val) {
 					console.log("show Scatter")
 					this.scene.launch("MobileScatterScene");
@@ -311,19 +318,67 @@ export default class MobileLevel extends Phaser.Scene {
 			});
 
 			this.GameState.isReward.subscribe((val) => {
+				if(this.GameState.isAutoPlayRunning.get()) return;
+				if(this.toggleVfx) this.toggleVfx.destroy();
 				if (val) {
 					console.log("show Reward")
-					this.setButtonInteractive(this.gambleBtn, true);
+					const grayTint = 0x888888;
+					const whiteTint = 0xFFFFFF;
+					const firstColor = Phaser.Display.Color.ValueToColor(grayTint);
+					const secondColor = Phaser.Display.Color.ValueToColor(whiteTint);
+					this.toggleVfx = this.tweens.addCounter({
+						from: 0,
+						to: 100,
+						hold: 300,
+						repeatDelay: 300,
+						duration: 10,
+						repeat: -1,
+						yoyo: true,
+						onUpdate: tween => {
+							const value = tween.getValue() as number;
+							const color1 = Phaser.Display.Color.Interpolate.ColorWithColor(firstColor, secondColor, 100, value);
+							const color2 = Phaser.Display.Color.Interpolate.ColorWithColor(secondColor, firstColor, 100, value);
+							(this.gambleBtn as Phaser.GameObjects.Sprite).setTint(Phaser.Display.Color.GetColor(color1.r, color1.g, color1.b));
+							(this.collectBtn as Phaser.GameObjects.Sprite).setTint(Phaser.Display.Color.GetColor(color2.r, color2.g, color2.b));
+						}
+					});
 					this.setButtonInteractive(this.collectBtn, true);
+					this.setButtonInteractive(this.gambleBtn, true);
 				} else {
 					console.log("hide Reward")
+					this.setButtonInteractive(this.collectBtn, false);
 					this.setButtonInteractive(this.gambleBtn, false);
-					this.setButtonInteractive(this.collectBtn, false); 
+            		this.ReelsManager.removePayLineImages()
 				}
 			});
+			Dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
+				if(!this.GameState.isReward.get()) {
+					this.GameState.isReward.set(true);
+				} else{
+					return;
+				}
+				const wonLine = this.cache.json.get('language').texts['IDS_MENU_WON'];
+				const totalWin = wonLine.replace('%d', this.GameState.winCoins.get().toString());
+				if (paylineIndex) {
+					let txtCoinWon = this.cache.json.get('language').texts["IDS_MENU_WONMONEY_LINE"];
+					txtCoinWon = txtCoinWon.replace('%d', coinWon.toString()).replace('%l', paylineIndex.toString())
+					this.GameState.informationText.set(`${totalWin}\n${txtCoinWon}`);
+				} else if (coinWon) {
+					this.GameState.informationText.set(`${totalWin}`);
+				} else {
+					this.GameState.informationText.set(this.cache.json.get('language').texts["IDS_PRESSPIN"]);
+				}
+			})
 
 			this.GameState.isSpinning.subscribe((val) => {
 				if (val) {
+					if(this.toggleVfx) this.toggleVfx.destroy();
+					this.ReelsManager.removePayLineImages();
+					this.GameState.isReward.set(false);
+					this.GameState.informationText.set(this.cache.json.get('language').texts['IDS_VP_SPINNING']);
+					if(this.GameState.isShowingGamble.get()){
+						this.GameState.isShowingGamble.set(false);
+					}
 					console.log("show Spin")
 					this.setButtonInteractive(this.spinBtn, false);
 					this.setButtonInteractive(this.denominationBtn, false);
@@ -339,27 +394,49 @@ export default class MobileLevel extends Phaser.Scene {
 					this.setButtonInteractive(this.spinBtn, true);
 					this.setButtonInteractive(this.denominationBtn, true);
 					this.setButtonInteractive(this.mobileInfoPrefab.btnMenu, true);
-					
-					if (this.GameState.betCoins.get() <= 1) {
+
+					if (this.GameState.coinBet.get() <= 1) {
 						this.setButtonInteractive(this.prevCoinsBtn, false);
 					} else {
 						this.setButtonInteractive(this.prevCoinsBtn, true);
 					}
-					if (this.GameState.betCoins.get() >= 5) {
+					if (this.GameState.coinBet.get() >= 5) {
 						this.setButtonInteractive(this.nextCoinsBtn, false);
 					} else {
 						this.setButtonInteractive(this.nextCoinsBtn, true);
 					}
-					if (this.GameState.betLines.get() <= 1) {
+					if (this.GameState.linesBet.get() <= 1) {
 						this.setButtonInteractive(this.prevLinesBtn, false);
 					} else {
 						this.setButtonInteractive(this.prevLinesBtn, true);
 					}
-					if (this.GameState.betLines.get() >= 10) {
+					if (this.GameState.linesBet.get() >= 10) {
 						this.setButtonInteractive(this.nextLinesBtn, false);
 					} else {
 						this.setButtonInteractive(this.nextLinesBtn, true);
 					}
+				}
+			});
+
+			// Autoplay state
+			this.GameState.isAutoPlayRunning.subscribe((isAutoPlayRunning) => {
+				console.log("isAutoPlayRunning", isAutoPlayRunning);
+				console.log("activeAutoplay", this.GameState.activeAutoplay.get());
+				if (isAutoPlayRunning) {
+					this.spinBtn.setFrame('stopBtn.png');
+					this.txtAutoplayValue.setVisible(true);
+				} else if(!isAutoPlayRunning && this.GameState.activeAutoplay.get() === 0) {
+					this.spinBtn.setVisible(true)
+					this.spinBtn.setFrame('spinBtnBaseHi.png');
+					this.spinBtn.setInteractive();
+					this.txtAutoplayValue.setVisible(false);
+				}
+			});
+			this.GameState.activeAutoplay.subscribe((val) => {
+				console.log("activeAutoplay", val);
+				this.txtAutoplayValue.setText((this.GameState.activeAutoplay.get()).toString());
+				if(val === 0) {
+					this.GameState.isAutoPlayRunning.set(false);
 				}
 			});
 
@@ -370,7 +447,7 @@ export default class MobileLevel extends Phaser.Scene {
 					this.mobileInfoPrefab.btnMenu.setX(440);
 				}
 			});
-		},0);
+		}, 0);
 	}
 
 	create() {
@@ -381,6 +458,7 @@ export default class MobileLevel extends Phaser.Scene {
 
 	setupUI() {
 		this.txtInformation.setText(this.cache.json.get('language').texts[this.txtInformation.text]);
+		this.GameState.informationText.set(this.cache.json.get('language').texts[this.GameState.informationText.get()]);
 		this.txtGamble.setText(this.cache.json.get('language').texts[this.txtGamble.text]);
 		this.txtCollect.setText(this.cache.json.get('language').texts[this.txtCollect.text]);
 		this.mobileInfoPrefab.txtCoinsText.setText(this.cache.json.get('language').texts[this.mobileInfoPrefab.txtCoinsText.text]);
@@ -390,10 +468,10 @@ export default class MobileLevel extends Phaser.Scene {
 		this.mobileInfoPrefab.txtBalanceBetText.setText(this.cache.json.get('language').texts[this.mobileInfoPrefab.txtBalanceBetText.text]);
 
 		const balance = this.GameState.balance;
-		const betCoins = this.GameState.betCoins;
-		const betLines = this.GameState.betLines;
+		const betCoins = this.GameState.coinBet;
+		const betLines = this.GameState.linesBet;
 		const informationText = this.GameState.informationText;
-		const totalWinAmount = this.GameState.totalWinAmount;
+		const totalWin = this.GameState.totalWin;
 		const coinValueList = this.GameState.coinValueList;
 		const coinValue = this.GameState.coinValue;
 		const coinValueCurrency = this.GameState.coinValueCurrency;
@@ -468,13 +546,15 @@ export default class MobileLevel extends Phaser.Scene {
 			this.mobileInfoPrefab.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${((val / 100) * betCoins.get() * betLines.get()).toFixed(2)}`);
 		});
 
-		totalWinAmount.subscribe((val) => {
+		totalWin.subscribe((val) => {
 			this.mobileInfoPrefab.txtWinText.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${val.toFixed(2)}`);
 		});
 
 		// Spin
 		this.spinBtn.on('pointerdown', () => {
-			this.GameState.isSpinning.set(true);
+			if(this.GameState.isSpinning && !this.GameState.isAutoPlayRunning) return;
+			this.setButtonInteractive(this.spinBtn, false);
+			Dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
 
 		// Bet Coins
@@ -520,6 +600,7 @@ export default class MobileLevel extends Phaser.Scene {
 		// Gamble
 		this.gambleBtn.on('pointerdown', () => {
 			this.GameState.isShowingGamble.set(true);
+			if(this.toggleVfx) this.toggleVfx.destroy();
 			this.addButtonTween(this.gambleBtn)
 		});
 
@@ -527,13 +608,14 @@ export default class MobileLevel extends Phaser.Scene {
 		this.collectBtn.on('pointerdown', () => {
 			this.GameState.playerPick.set(0);
 			this.GameState.isShowingGamble.set(false);
-			this.GameState.isReward.set(false);
+			if(this.toggleVfx) this.toggleVfx.destroy();
 			this.addButtonTween(this.collectBtn)
 		});
 
 		// Menu
 		this.mobileInfoPrefab.btnMenu.on('pointerdown', () => {
 			this.GameState.isShowingMenu.set(true);
+			Dispatcher.emit(ACTION_EVENTS.OPEN_MENU);
 			this.tweens.add({
 				targets: [this.mobileInfoPrefab.btnMenu],
 				scale: .9,
@@ -550,6 +632,62 @@ export default class MobileLevel extends Phaser.Scene {
 					ease: 'Power2'
 				});
 			});
+		});
+
+		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
+			this.GameState.isAutoSpinRunning.set(true);
+			if(this.logo1.alpha == 1){
+				this.tweens.add({
+					targets: [this.logo1, this.logo2, this.logo3],
+					alpha: { from: 1, to: 0, start: 1},
+					duration: 500,
+				})
+				this.tweens.add({
+					targets: [this.freeSpinHeader1, this.freeSpinHeader2, this.freeSpinHeader3],
+					alpha: { from: 0, to: 1, start: 0},
+					delay: 500,
+					duration: 500,
+				})
+			}
+			if(symbol !== null){
+				this.freeSpinHeader2.setTexture(symbol[0], symbol[1])
+			}
+			const textFreeSpin = this.cache.json.get('language').texts["IDS_FREESPIN_X_OF_Y"].replace("%d", freeSpinCounter).replace("%t", "10")
+			this.freeSpinHeader3.setText(textFreeSpin)
+		})
+
+		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
+
+			this.tweens.add({
+				targets: [this.logo1, this.logo2, this.logo3],
+				alpha: { from: 0, to: 1, start: 0},
+				duration: 500,
+			})
+			this.tweens.add({
+				targets: [this.freeSpinHeader1, this.freeSpinHeader2, this.freeSpinHeader3],
+				alpha: { from: 1, to: 0, start: 1},
+				delay: 500,
+				duration: 500,
+			})
+		})
+
+		Dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
+			this.GameState.isShowingScatter.set(true);
+			console.log(scatterSymbolSprite)
+			this.scene.launch('MobileScatterScene');
+			if(scatterSymbolSprite){
+				(this.scene.get('MobileScatterScene') as MobileScatterScene)?.bookAnimation(scatterSymbolSprite);
+			}
+			else{
+				(this.scene.get('MobileScatterScene') as MobileScatterScene)?.paperScatter();
+			}
+		});
+
+		Dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
+			this.GameState.isShowingScatter.set(false);
+			this.GameState.isSpinning.set(false);
+			this.ReelsManager.currentSpin = null;
+			this.scene.stop('MobileScatterScene');
 		});
 	}
 

@@ -160,6 +160,10 @@ export default class MobileGambleScene extends Phaser.Scene {
 		this.txtBlack.setText(this.cache.json.get('language').texts['IDS_INFO_BLACK']);
 		this.txtPrevCard.setText(this.cache.json.get('language').texts['IDS_PREVIOUSCARDS']);
 
+		const coinsWon = this.gameState.winCoins.get();
+		this.txtColorpaysValue.setText((coinsWon * 2).toString());
+		this.txtSuitpaysValue.setText((coinsWon * 4).toString());
+		
 		this.btnRed.on('pointerdown', () =>{
 			this.pickCards(ClientCardPicked.Red)
 			this.addButtonTween(this.btnRed, [this.txtRed]);
@@ -283,7 +287,7 @@ export default class MobileGambleScene extends Phaser.Scene {
 				break; 
 			}
 
-			const coinsWon = this.gameState.gameWinAmount.get();
+			const coinsWon = this.gameState.winCoins.get();
 			if(coinsWon != 0){
 				this.txtColorpaysValue.setText('' + coinsWon * 2)
 				this.txtSuitpaysValue.setText('' + coinsWon * 4)

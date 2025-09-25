@@ -92,6 +92,7 @@ export default class PopupScene extends Phaser.Scene {
 		this.editorCreate();
 		this.txtTitleTimeout.setText(this.cache.json.get('language').texts[this.txtTitleTimeout.text])
 		this.txtTimeout.setText(this.cache.json.get('language').texts[this.txtTimeout.text])
+		this.txtExit.setText(this.cache.json.get('language').texts[this.txtExit.text])
 		this.btnExit.on('pointerdown', () => {
 			window.location.reload();
 			this.tweens.add({

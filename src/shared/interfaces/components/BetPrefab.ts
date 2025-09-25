@@ -27,16 +27,20 @@ export default class BetPrefab extends Phaser.GameObjects.Container {
 
 		// txtBetTitle
 		const txtBetTitle = scene.add.text(85, -12, "", {});
+		txtBetTitle.scaleX = 0.5;
+		txtBetTitle.scaleY = 0.5;
 		txtBetTitle.setOrigin(0.5, 0.5);
 		txtBetTitle.text = "COINS";
-		txtBetTitle.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO" });
+		txtBetTitle.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "32px" });
 		this.add(txtBetTitle);
 
 		// txtBetValue
 		const txtBetValue = scene.add.text(85, 10, "", {});
+		txtBetValue.scaleX = 0.5;
+		txtBetValue.scaleY = 0.5;
 		txtBetValue.setOrigin(0.5, 0.5);
 		txtBetValue.text = "1";
-		txtBetValue.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "26px" });
+		txtBetValue.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "52px" });
 		this.add(txtBetValue);
 
 		this.bgBet = bgBet;

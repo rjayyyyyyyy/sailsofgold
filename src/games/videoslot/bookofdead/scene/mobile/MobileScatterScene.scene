@@ -35,7 +35,6 @@
             },
             "x": 360,
             "y": 640,
-            "animationPlayMethod": 1,
             "animationKey": "book-animation-sd"
         },
         {

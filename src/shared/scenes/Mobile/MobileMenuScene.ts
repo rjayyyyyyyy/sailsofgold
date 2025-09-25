@@ -8,6 +8,8 @@ import Dispatcher, { ACTION_EVENTS, NetworkEvent } from "@gl/events/Dispatcher";
 
 
 export default class MobileMenuScene extends Phaser.Scene{
+    snapValues: number[];
+    totalSteps: number;
     constructor(){
         super("MobileMenuScene")
     }
@@ -20,11 +22,6 @@ export default class MobileMenuScene extends Phaser.Scene{
 	private txtBalanceText!: Phaser.GameObjects.Text;
 	private txtBalanceBetText!: Phaser.GameObjects.Text;
 	private txtWinText!: Phaser.GameObjects.Text;
-	private txtCoinsValue!: Phaser.GameObjects.Text;
-	private txtBetValue!: Phaser.GameObjects.Text;
-	private txtBalanceValue!: Phaser.GameObjects.Text;
-	private txtBalanceBetValue!: Phaser.GameObjects.Text;
-	private txtWinValue!: Phaser.GameObjects.Text;
 	private defaultAutoSpins!: number;
     private activeAutoplay: number = 10;
 	private btnMenu!: Phaser.GameObjects.Image;
@@ -392,43 +389,42 @@ export default class MobileMenuScene extends Phaser.Scene{
             gap: 0.25,
             valuechangeCallback: (newValue: number) => {
                 let mapped = Math.round(1 + newValue * 4);
-                this.GameState.betCoins.set(mapped)
+                this.GameState.coinBet.set(mapped)
                 // setTimeout(() => {
                 if(slider1){
                     const thumb = slider1.getElement('thumb');
                     txtSlider1.setPosition(thumb.x - 5, thumb.y - 25)
                     txtSlider1.setText(mapped.toString())
-                    this.GameState.betValue.set(this.GameState.betCoins.get() * this.GameState.betLines.get() * (this.GameState.coinValue.get() / 100))
-                    this.txtBalanceBetValue.setText(`${this.GameState.coinValueCurrency} ${this.GameState.betValue.get().toFixed(1)}`)
-                    this.txtBetValue.setText((this.GameState.betCoins.get() * this.GameState.betLines.get()).toString())
+                    this.GameState.betValue.set(this.GameState.coinBet.get() * this.GameState.linesBet.get() * (this.GameState.coinValue.get() / 100))
+                    this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${this.GameState.coinValueCurrency.get()} ${(this.GameState.betValue.get()).toFixed(2)}`)
                     console.log(this.GameState.coinValue)
                 }
                 // }, 100)
                 // txtSlider1.setText(mapped.toFixed(2));
             }
         }).layout();
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     slider1.setValue((this.GameState.betCoins.get() - 1) / 4)
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            slider1.setValue((this.GameState.coinBet.get() - 1) / 4)
+        })
         let txtCon1 = this.add.container(0, 0, [txtCoins, txtSlider1, slider1]).setSize(0, 75);
         sizer.add(txtCon1, { align: 'left' })
 
 
-        const snapValues = this.GameState.coinValueList;
-        const totalSteps = snapValues.length - 1;
+        this.snapValues = this.GameState.coinValueList;
+        this.totalSteps = this.snapValues.length - 1;
         // const snapValues = this.GameState.coinValueList;
-        let txtCoinValue = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_COINVALUE_CAPTION"] + ' ('+ this.GameState.coinValueCurrency+')', {
+        let txtCoinValue = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_COINVALUE_CAPTION"] + ' ('+ this.GameState.coinValueCurrency.get()+')', {
             fontSize : '26px',
             color : '#000000',
             fontFamily : 'OSWALD-REGULAR',
             // fontStyle : 'BOLD',
             align: 'left'
         }).setOrigin(0, .5);
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     txtCoinValue.setText(this.cache.json.get('language').texts["IDS_COINVALUE_CAPTION"] + ' ('+ this.GameState.coinValueCurrency+')')
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            txtCoinValue.setText(this.cache.json.get('language').texts["IDS_COINVALUE_CAPTION"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
+        })
         const txtSlider2 = this.add.text(275, -25, '0.10', {
             fontSize : '24px',
             color : '#000000',
@@ -453,30 +449,34 @@ export default class MobileMenuScene extends Phaser.Scene{
             // easeValue: { duration: 250 },
             enable: true,
             value: 0, // initial value (0~1)
-            gap: 1 / totalSteps,
+            gap: 1 / this.totalSteps,
             valuechangeCallback: (newValue: number) => {
-                let mapped = Math.round(newValue * totalSteps);
-                this.GameState.coinValue.set(snapValues[mapped] * 100)
+                let mapped = Math.round(newValue * this.totalSteps);
+                this.GameState.coinValue.set(this.snapValues[mapped])
                 // setTimeout(() => {
                 if(slider2){
                     const thumb = slider2.getElement('thumb');
                     txtSlider2.setPosition(thumb.x - 15, thumb.y - 25)
                     txtSlider2.setText(((this.GameState.coinValue.get() / 100).toFixed(2)))
-                    this.GameState.betValue.set(this.GameState.betCoins.get() * this.GameState.betLines.get() * (this.GameState.coinValue.get() / 100))
+                    this.GameState.betValue.set(this.GameState.coinBet.get() * this.GameState.linesBet.get() * (this.GameState.coinValue.get() / 100))
                     console.log(mapped)
-                    this.txtBalanceBetValue.setText(`${this.GameState.coinValueCurrency} ${this.GameState.betValue.get().toFixed(1)}`)
-                    this.txtCoinsValue.setText(((this.GameState.balance.get() / (this.GameState.coinValue.get() / 100) / 100)).toFixed(0));
+                    this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${this.GameState.coinValueCurrency.get()} ${(this.GameState.betValue.get()).toFixed(2)}`)
+                    let valueMoney = ((this.GameState.balance.get() / (this.GameState.coinValue.get() / 100) / 100).toFixed(0));
+                    this.txtCoinsText.setText(`${this.cache.json.get('language').texts['IDS_COINS_CAPTION']} ${valueMoney}`);
+                    // this.txtCoinsText.setText(((this.GameState.balance.get() / (this.GameState.coinValue.get() / 100) / 100)).toFixed(0));
                 }
                 // }, 100)
                 // txtSlider1.setText(mapped.toFixed(2));
             }
         }).layout();
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     const index = snapValues.indexOf(this.GameState.coinValue.get() / 100)
-        //     slider2.setValue(index / (totalSteps))
-        //     console.log(snapValues)
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            this.snapValues = this.GameState.coinValueList;
+            this.totalSteps = this.snapValues.length - 1;
+            const index = this.snapValues.indexOf(this.GameState.coinValue.get() / 100)
+            slider2.setValue(index / (this.totalSteps))
+            console.log(this.snapValues)
+        })
         let txtCon2 = this.add.container(0, 0, [txtCoinValue, txtSlider2, slider2]).setSize(0, 75);
         sizer.add(txtCon2, { align: 'left' })
 
@@ -515,24 +515,23 @@ export default class MobileMenuScene extends Phaser.Scene{
             gap: 1 / 9,
             valuechangeCallback: (newValue: number) => {
                 let mapped = Math.round(newValue * 9) + 1;
-                this.GameState.betLines.set(mapped)
+                this.GameState.linesBet.set(mapped)
                 // setTimeout(() => {
                 if(slider3){
                     const thumb = slider3.getElement('thumb');
                     txtSlider3.setPosition(thumb.x - 5, thumb.y - 25)
                     txtSlider3.setText(mapped.toString())
-                    this.GameState.betValue.set(this.GameState.betCoins.get() * this.GameState.betLines.get() * (this.GameState.coinValue.get() / 100))
-                    this.txtBalanceBetValue.setText(`${this.GameState.coinValueCurrency} ${this.GameState.betValue.get().toFixed(1)}`)
-                    this.txtBetValue.setText((this.GameState.betCoins.get() * this.GameState.betLines.get()).toString())
+                    this.GameState.betValue.set(this.GameState.coinBet.get() * this.GameState.linesBet.get() * (this.GameState.coinValue.get() / 100))
+                    this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${this.GameState.coinValueCurrency.get()} ${(this.GameState.betValue.get()).toFixed(2)}`)
                 }
                 // }, 100)
                 // txtSlider1.setText(mapped.toFixed(2));
             }
         }).layout();
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     slider3.setValue((this.GameState.betLines.get() - 1) / 9)
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            slider3.setValue((this.GameState.linesBet.get() - 1) / 9)
+        })
         let txtCon3 = this.add.container(0, 0, [txtLines, txtSlider3, slider3]).setSize(0, 75);
         sizer.add(txtCon3, { align: 'left' })
 
@@ -571,9 +570,11 @@ export default class MobileMenuScene extends Phaser.Scene{
         let btnAutoplay = this.add.sprite(600, 0, 'uiElements', 'settingsAutoPlayBtn.png').setInteractive()
         btnAutoplay.on('pointerdown', () => {
 			this.GameState.activeAutoplay.set(this.activeAutoplay)
+            this.GameState.isAutoPlayRunning.set(true);
             this.GameState.isShowingAutoplay.set(false);
+            this.GameState.isShowingMenu.set(false);
             // Dispatcher.emit(ACTION_EVENTS.CLOSE_MENU)
-            // Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay)
+            Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay)
         })
         let txtAutoplayValue = this.add.text(600, 0, '10', {
             fontSize : '30px',
@@ -620,15 +621,15 @@ export default class MobileMenuScene extends Phaser.Scene{
         }).layout();
         let txtCon6 = this.add.container(0, 0, [txtSlider4, slider4, btnAutoplay, txtAutoplayValue]).setSize(0, 75);
         sizer.add(txtCon6, { align: 'left' })
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     slider4.value = this.defaultAutoSpins / 100
-        //     if(slider4){
-        //         const thumb = slider4.getElement('thumb');
-        //         txtSlider4.setPosition(thumb.x, thumb.y - 25)
-        //         txtSlider4.setText(this.defaultAutoSpins.toString())
-        //         txtAutoplayValue.setText(this.defaultAutoSpins.toString())
-        //     }
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            slider4.value = this.defaultAutoSpins / 100
+            if(slider4){
+                const thumb = slider4.getElement('thumb');
+                txtSlider4.setPosition(thumb.x, thumb.y - 25)
+                txtSlider4.setText(this.defaultAutoSpins.toString())
+                txtAutoplayValue.setText(this.defaultAutoSpins.toString())
+            }
+        })
 
         let txtStopAutoplay = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_STOPAUTOPLAY"], {
             fontSize : '30px',
@@ -641,7 +642,7 @@ export default class MobileMenuScene extends Phaser.Scene{
         sizer.add(txtCon7, { align: 'left-bottom' })
 
 
-        let txtSingleWin = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_WINEXCEEDS"] + '('+ this.GameState.coinValueCurrency+')', {
+        let txtSingleWin = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_WINEXCEEDS"] + '('+ this.GameState.coinValueCurrency.get()+')', {
             fontSize : '26px',
             color : '#000000',
             fontFamily : 'OSWALD-REGULAR',
@@ -649,10 +650,10 @@ export default class MobileMenuScene extends Phaser.Scene{
             align: 'left'
         }).setOrigin(0, .5);
         
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     txtSingleWin.setText(this.cache.json.get('language').texts["IDS_AP_WINEXCEEDS"] + ' ('+ this.GameState.coinValueCurrency+')')
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            txtSingleWin.setText(this.cache.json.get('language').texts["IDS_AP_WINEXCEEDS"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
+        })
         let txtCon8 = this.add.container(0, 0, [txtSingleWin]).setSize(0, 75);
         sizer.add(txtCon8, { align: 'left' })
 
@@ -713,17 +714,17 @@ export default class MobileMenuScene extends Phaser.Scene{
         sizer.add(txtCon9, { align: 'left' })
 
 
-        let txtBalanceIncrease = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_BALANCEINC"] + '('+ this.GameState.coinValueCurrency+')', {
+        let txtBalanceIncrease = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_BALANCEINC"] + '('+ this.GameState.coinValueCurrency.get()+')', {
             fontSize : '26px',
             color : '#000000',
             fontFamily : 'OSWALD-REGULAR',
             // fontStyle : 'BOLD',
             align: 'left'
         }).setOrigin(0, .5);
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     txtBalanceIncrease.setText(this.cache.json.get('language').texts["IDS_AP_BALANCEINC"] + ' ('+ this.GameState.coinValueCurrency+')')
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            txtBalanceIncrease.setText(this.cache.json.get('language').texts["IDS_AP_BALANCEINC"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
+        })
         let txtCon10 = this.add.container(0, 0, [txtBalanceIncrease]).setSize(0, 75);
         sizer.add(txtCon10, { align: 'left' })
 
@@ -784,17 +785,17 @@ export default class MobileMenuScene extends Phaser.Scene{
         sizer.add(txtCon11, { align: 'left' })
 
 
-        let txtBalanceDecrease = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_BALANCEDEC"] + '('+ this.GameState.coinValueCurrency+')', {
+        let txtBalanceDecrease = this.add.text(0, 0, this.cache.json.get('language').texts["IDS_AP_BALANCEDEC"] + '('+ this.GameState.coinValueCurrency.get()+')', {
             fontSize : '26px',
             color : '#000000',
             fontFamily : 'OSWALD-REGULAR',
             // fontStyle : 'BOLD',
             align: 'left'
         }).setOrigin(0, .5);
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     txtBalanceDecrease.setText(this.cache.json.get('language').texts["IDS_AP_BALANCEDEC"] + ' ('+ this.GameState.coinValueCurrency+')')
-        // })
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            txtBalanceDecrease.setText(this.cache.json.get('language').texts["IDS_AP_BALANCEDEC"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
+        })
         let txtCon12 = this.add.container(0, 0, [txtBalanceDecrease]).setSize(0, 75);
         sizer.add(txtCon12, { align: 'left' })
 
@@ -1538,57 +1539,60 @@ export default class MobileMenuScene extends Phaser.Scene{
 
     addSubscribe(){
 		const balance = this.GameState.balance;
-		const betCoins = this.GameState.betCoins;
-		const betLines = this.GameState.betLines;
+		const betCoins = this.GameState.coinBet;
+		const betLines = this.GameState.linesBet;
 		const informationText = this.GameState.informationText;
-		const totalWinAmount = this.GameState.totalWinAmount;
+		const totalWin = this.GameState.totalWin;
 		const coinValueList = this.GameState.coinValueList;
 		const coinValue = this.GameState.coinValue;
 		const coinValueCurrency = this.GameState.coinValueCurrency;
-		// Subscribe to state changes to update UI reactively
-		balance.subscribe((val) => {
-			// if(!this.scene.isActive('MobileMenuScene')) return;
-			let valueMoney = ((val / (this.GameState.coinValue.get() / 100) / 100).toFixed(0));
-			this.txtCoinsText.setText(`${this.cache.json.get('language').texts['IDS_COINS_CAPTION']} ${valueMoney}`);
-			this.txtBalanceText.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${(val / 100).toFixed(2)}`);
-		});
-
-		betCoins.subscribe((val) => {
-			// if(!this.scene.isActive('MobileMenuScene')) return;
-			this.txtBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${betCoins.get() * betLines.get()}`);
-			this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * (coinValue.get() / 100) * betLines.get()).toFixed(2)}`);
-		});
-
-		betLines.subscribe((val) => {
-			// if(!this.scene.isActive('MobileMenuScene')) return;
-			this.txtBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${betCoins.get() * betLines.get()}`);
-			this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * (coinValue.get() / 100)).toFixed(2)}`);
-			
-		});
-
-		coinValue.subscribe((val) => {
-			// if(!this.scene.isActive('MobileMenuScene')) return;
-			let valueMoney = ((this.GameState.balance.get() / (val / 100) / 100).toFixed(0));
-			this.txtCoinsText.setText(`${this.cache.json.get('language').texts['IDS_COINS_CAPTION']} ${valueMoney}`);
-			this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${((val / 100) * betCoins.get() * betLines.get()).toFixed(2)}`);
-		});
-
-		totalWinAmount.subscribe((val) => {
-			// if(!this.scene.isActive('MobileMenuScene')) return;
-			this.txtWinText.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${coinValueCurrency.get()} ${val.toFixed(2)}`);
-		});
-        // Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
-        //     if(!this.GameState.isMobile) return;
-        //     this.defaultAutoSpins = parseInt(GameSettings.defaultAutoSpins as string)
+        
+        // Subscribe to state changes to update UI reactively
+        setTimeout(() => {    
+            balance.subscribe((val) => {
+                // if(!this.scene.isActive('MobileMenuScene')) return;
+                let valueMoney = ((val / (this.GameState.coinValue.get() / 100) / 100).toFixed(0));
+                this.txtCoinsText.setText(`${this.cache.json.get('language').texts['IDS_COINS_CAPTION']} ${valueMoney}`);
+                this.txtBalanceText.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${(val / 100).toFixed(2)}`);
+            });
+    
+            betCoins.subscribe((val) => {
+                // if(!this.scene.isActive('MobileMenuScene')) return;
+                this.txtBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${betCoins.get() * betLines.get()}`);
+                this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * (coinValue.get() / 100) * betLines.get()).toFixed(2)}`);
+            });
+    
+            betLines.subscribe((val) => {
+                // if(!this.scene.isActive('MobileMenuScene')) return;
+                this.txtBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${betCoins.get() * betLines.get()}`);
+                this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * (coinValue.get() / 100)).toFixed(2)}`);
+                
+            });
+    
+            coinValue.subscribe((val) => {
+                // if(!this.scene.isActive('MobileMenuScene')) return;
+                let valueMoney = ((this.GameState.balance.get() / (val / 100) / 100).toFixed(0));
+                this.txtCoinsText.setText(`${this.cache.json.get('language').texts['IDS_COINS_CAPTION']} ${valueMoney}`);
+                this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${((val / 100) * betCoins.get() * betLines.get()).toFixed(2)}`);
+            });
+    
+            totalWin.subscribe((val) => {
+                // if(!this.scene.isActive('MobileMenuScene')) return;
+                this.txtWinText.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${val.toFixed(2)}`);
+            });
+        }, 10);
+        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+            if(!this.GameState.isMobile) return;
+            this.defaultAutoSpins = parseInt(this.GameState.gameConfig.defaultAutoSpins as string)
         //     this.txtCoinsValue.setText(((this.GameState.balance / (this.GameState.coinValue / 100) / 100)).toFixed(0));
-        //     this.txtBetText.setText((this.GameState.betCoins * this.GameState.betLines).toString())
-        //     this.txtBalanceBetValue.setText(`${this.GameState.coinValueCurrency} ${(this.GameState.betValue).toFixed(1)}`)
+        //     this.txtBetText.setText((this.GameState.coinBet * this.GameState.linesBet).toString())
+        //     this.txtBalanceBetText.setText(`${this.GameState.coinValueCurrency} ${(this.GameState.betValue).toFixed(1)}`)
         //     this.txtBalanceValue.setText(`${this.GameState.coinValueCurrency} ${(this.GameState.balance / 100).toFixed(2)}`);
         //     this.txtWinValue.setText(this.GameState.winCoins.toFixed(1))
-        //     if(this.menuPage === 3){
-        //         this.createIframe('https://cw.lydrst.com/CasinoHistoryMobile?pid=888&lang=en_US&gameid=100310&custid=642&nocache=1754390935388&method=open')
-        //     }
-        // })
+            if(this.menuPage === 3){
+                this.createIframe('https://cw.lydrst.com/CasinoHistoryMobile?pid=888&lang=en_US&gameid=100310&custid=642&nocache=1754390935388&method=open')
+            }
+        })
         
     }
 }
