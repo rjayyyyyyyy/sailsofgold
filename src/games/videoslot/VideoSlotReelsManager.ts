@@ -6,6 +6,7 @@ import { inject, injectable } from "inversify";
 import NetworkManager from "@gl/networking/NetworkManager";
 import Dispatcher, { ACTION_EVENTS, AUDIO_EVENTS, CommandEvent, EVENTS } from "@gl/events/Dispatcher";
 import { ClientCommand, Command, ServerCommand } from "@gl/networking/Commands";
+import { log } from "console";
 type ScatterInfo = {
 	collections: Partial<Record<FeatureAwardType, {amount: number, name: string}>>;
 	isScatterSpin: boolean;	
@@ -14,6 +15,16 @@ type ScatterInfo = {
 }
 
 type SpinQueue = {
+	symbols: number[];
+	winLines: WinLineResult[];
+	topSymbol: number[];
+	bottomSymbol: number[];
+}
+
+type PendingSpin = {
+	coin: number;
+	lines: number;
+	denom: number;
 	symbols: number[];
 	winLines: WinLineResult[];
 	topSymbol: number[];
@@ -70,6 +81,8 @@ class VideoSlotReelsManager {
 		currentSpin: 0,
 		claimed: false,
 	};
+
+	pendingSpin: PendingSpin | null = null;
 
 	spinQueue: SpinQueue[] = [];
 	scatterSymbolSprite: Phaser.GameObjects.Sprite[];
@@ -189,56 +202,62 @@ class VideoSlotReelsManager {
 				// End Feature case
 				case ServerCommand.Spin:
 					this.logger.info("Spin command received");
-                    const isFirstLoad = !this.scene.initialized;
-                    if(this.scene.initialized){
-                        // ReelsManager.doSpin();
-                    } else {
-                        this.scene.initialized = true;
-                    }
+					const coin = parseInt(command.getString(0));
+					const lines = parseInt(command.getString(1));
+					const denom = parseInt(command.getString(2));
+					if(GameState.isAutoPlayRunning){
+						GameState.autoplayBalance.set(GameState.autoplayBalance.get() - coin * lines * denom);
+					}
+					GameState.coinValue.set(denom);
+					// console.log(`Coin: ${coin} Lines: ${lines} Denom: ${denom}`);
+					let symbols = [];
+					for(let i = 3; i < 18; i++){
+						symbols.push(parseInt(command.getString(i)));
+					}
+
+					// console.log("Symbols :", symbols.length);
+					// console.log(symbols);
+					// const feature = parseInt(command.getString(18));
+					const winLine = parseInt(command.getString(19));
+					// console.log(`Feature: ${feature} WinLine: ${winLine}`);
+					let winLines: WinLineResult[] = [];
+					for(let i = 20; i < 20 + winLine*5; i++){
+						winLines.push({
+							paylineIndex: parseInt(command.getString(i)),
+							symbol: parseInt(command.getString(i+1)),
+							totalSymbol: parseInt(command.getString(i+2)),
+							flags: parseInt(command.getString(i+3)),
+							coinWon: parseInt(command.getString(i+4)),
+						});
+						i += 4;
+					}
+					GameState.winLines = winLines
+					console.log("Win Lines :", winLines);
+					let topSymbol = [];
+					for(let i = 20 + winLine*5; i < 20 + winLine*5 + 5; i++){
+						topSymbol.push(parseInt(command.getString(i)));
+					}
+					// console.log("Top Symbol :", topSymbol);
+					let bottomSymbol: number[] = [];
+					for(let i = 20 + winLine*5 + 5; i < 20 + winLine*5 + 10; i++){
+						bottomSymbol.push(parseInt(command.getString(i)));
+					}
+					// console.log("Bottom Symbol :", bottomSymbol);
+					if (!this.scene) {
+						this.logger.info("Scene not initialized, queuing spin command");
+						this.pendingSpin = { coin, lines, denom, symbols, winLines, topSymbol, bottomSymbol };
+						return;
+					}
+					const isFirstLoad = !this.scene.initialized;
+					this.logger.info(`Processing Spin command, first load: ${isFirstLoad}`);
+					if(this.scene.initialized){
+						// ReelsManager.doSpin();
+					} else {
+						this.scene.initialized = true;
+					}
                     // console.clear();
                     // console.log("Spin Length", command.length);
                     
-                    const coin = parseInt(command.getString(0));
-                    const lines = parseInt(command.getString(1));
-                    const denom = parseInt(command.getString(2));
-                    if(GameState.isAutoPlayRunning){
-                        GameState.autoplayBalance.set(GameState.autoplayBalance.get() - coin * lines * denom);
-                    }
-                    GameState.coinValue.set(denom);
-                    // console.log(`Coin: ${coin} Lines: ${lines} Denom: ${denom}`);
-                    let symbols = [];
-                    for(let i = 3; i < 18; i++){
-                        symbols.push(parseInt(command.getString(i)));
-                    }
-
-                    // console.log("Symbols :", symbols.length);
-                    // console.log(symbols);
-                    // const feature = parseInt(command.getString(18));
-                    const winLine = parseInt(command.getString(19));
-                    // console.log(`Feature: ${feature} WinLine: ${winLine}`);
-                    let winLines: WinLineResult[] = [];
-                    for(let i = 20; i < 20 + winLine*5; i++){
-                        winLines.push({
-                            paylineIndex: parseInt(command.getString(i)),
-                            symbol: parseInt(command.getString(i+1)),
-                            totalSymbol: parseInt(command.getString(i+2)),
-                            flags: parseInt(command.getString(i+3)),
-                            coinWon: parseInt(command.getString(i+4)),
-                        });
-                        i += 4;
-                    }
-                    GameState.winLines = winLines
-                    console.log("Win Lines :", winLines);
-                    let topSymbol = [];
-                    for(let i = 20 + winLine*5; i < 20 + winLine*5 + 5; i++){
-                        topSymbol.push(parseInt(command.getString(i)));
-                    }
-                    // console.log("Top Symbol :", topSymbol);
-                    let bottomSymbol: number[] = [];
-                    for(let i = 20 + winLine*5 + 5; i < 20 + winLine*5 + 10; i++){
-                        bottomSymbol.push(parseInt(command.getString(i)));
-                    }
-                    // console.log("Bottom Symbol :", bottomSymbol);
                     if(!isFirstLoad){
                         this.enqueueSpin(symbols, winLines, topSymbol, bottomSymbol);
                     }
@@ -263,18 +282,49 @@ class VideoSlotReelsManager {
 				// END Spin case
 				case ServerCommand.SpinEnd:
                     const winCoins = parseInt(command.getString(1));
-                    console.log('Win Coins :' + winCoins)
+					this.logger.trace(`Win Coins: ${winCoins}`);
                     GameState.winCoins.set(winCoins)
-
                     const totalWin = parseInt(command.getString(2));
-                    console.log('Total Win :' + totalWin)
+                    this.logger.trace(`Total Win: ${totalWin}`);
                     GameState.totalWin.set(totalWin);
-
-                    if(GameState.isAutoPlayRunning){
+                    if(GameState.isAutoPlayRunning.get()){
                         GameState.autoplayBalance.set(GameState.autoplayBalance.get() + totalWin);
                     }
                     break;
 				// End SpinEnd case
+
+
+				case ServerCommand.Gamble:
+                    const pickCard = parseInt(command.getString(0))
+                    this.logger.trace(`Gamble Pick Card: ${pickCard}`);
+                    const winCode = parseInt(command.getString(1))
+                    this.logger.trace(`Win Code: ${winCode}`);
+                    const coinsWon = parseInt(command.getString(2))
+					this.logger.trace(`Coins Won: ${coinsWon}`);
+                    const cardWon = parseInt(command.getString(3))
+					this.logger.trace(`Card Won: ${cardWon}`);
+                    const bonusFinished = parseInt(command.getString(4))
+                    this.logger.trace(`Bonus Finished: ${bonusFinished}`);
+
+                    GameState.winCoins.set(coinsWon)
+
+                    const suiteCard = Math.floor(cardWon / 13 + 1)
+                    this.logger.trace(`Suite Card: ${suiteCard}`);
+                    GameState.winCard.set(suiteCard)
+                    break;
+                
+                case ServerCommand.Payout:
+                    this.logger.trace(`Payout Length: ${command.length}`);
+                    break;
+
+				case ServerCommand.BuyinStatus:
+                    this.logger.trace(`Buyin Status: ${command.getString(0)}`);
+                    const balance = parseInt(command.getString(0));
+                    this.logger.trace(`Balance: ${balance}`);
+                    if(balance > 0){
+                        this.GameState.balance.set(balance);
+                    }
+                    break;
 			}
 		});	
     }
@@ -306,6 +356,27 @@ class VideoSlotReelsManager {
 		this.symbolTextures = scene.symbolList;
 		this.winSymbolTextures = scene.winSymbolList;
 		this.freeSymbolTextures = scene.freeSymbolList;
+
+		// Process pending spin if exists
+		if (this.pendingSpin) {
+			this.logger.info("Processing queued spin command");
+			const { coin, lines, denom, symbols, winLines, topSymbol, bottomSymbol } = this.pendingSpin;
+			this.pendingSpin = null;
+			this.scene.initialized = true;
+			this.GameState.coinValue.set(denom);
+			this.GameState.winLines = winLines;
+			this.GameState.isReward.set(true);
+			this.setReelSymbols(symbols, topSymbol, bottomSymbol);
+			this.updateReelSymbols();
+			setTimeout(() => {
+				console.log("FirstLoad Scatter Info");
+				console.log(this.scatterInfo);
+				if(this.scatterInfo.isScatterSpin) {
+					Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+				}
+				if(!this.scatterInfo.isScatterSpin) this.renderWinLines(winLines);
+			}, 3000);
+		}
 	}
 
 	// This need to be refactored using event based
@@ -319,7 +390,6 @@ class VideoSlotReelsManager {
 		// this.logger.debug(`DEBUG: Game State hasDelayedSpinStarted: ${this.hasDelayedSpinStarted}`);
 		if(!this.hasDelayedSpinStarted) return;
 
-		this.logger.debug("DEBUG: Update Reels Manager");
 		
 		if(!this.scatterInfo.isScatterSpin && !GameState.isAutoPlayRunning.get() && this.spinQueue.length == 1) { // Basic Spin
 			const spin = this.spinQueue.shift();
@@ -794,25 +864,25 @@ class VideoSlotReelsManager {
 			this.payLineImagesRepeat.push(tween);
 		}
 	}
-	
+
 	renderSingleLine(payline: number) {
 		const GameState = this.GameState;
-		const lineStartXOffset = GameState.isMobile ? 15 : 275;
-		const lineStartYOffset = GameState.isMobile ? 300 : 235;
-		const yGap = GameState.isMobile ? 100 : 190;
-		const halfDistance = GameState.isMobile ? 50 : 105;
-		const lineEndXOffset = GameState.isMobile ? 540 - lineStartXOffset : 1600 - lineStartXOffset;
+		const lineStartXOffset = GameState.isMobile ? 30 : 260;
+		const lineStartYOffset = GameState.isMobile ? 430 : 175;
+		const yGap = GameState.isMobile ? 127 : 160;
+		const halfDistance = GameState.isMobile ? 67 : 75;
+		const lineEndXOffset = GameState.isMobile ? this.scene.scale.width - lineStartXOffset : this.scene.scale.width - lineStartXOffset;
 		const lineEndYOffset = lineStartYOffset;
 		const points = [
-			{x: lineStartXOffset, y: lineStartYOffset + (this.PayLines[payline][0][1] * yGap)},
+		{x: lineStartXOffset, y: lineStartYOffset + (this.PayLines[payline][0][1] * yGap)},
 		]
 		for(let i =0; i<5;i++) {
-			let innerXGap = halfDistance;
-			if(i > 0) {
-				innerXGap *= 2;
-			}
-			points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.PayLines[payline][i][1] * yGap)});
-			// this.scene.add.circle(lineStartXOffset + halfDistance +(innerXGap * i), lineStartYOffset, 10, color, 1);
+		let innerXGap = halfDistance;
+		if(i > 0) {
+			innerXGap *= 2;
+		}
+		points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.PayLines[payline][i][1] * yGap)});
+		// this.scene.add.circle(lineStartXOffset + halfDistance +(innerXGap * i), lineStartYOffset, 10, color, 1);
 		}
 		points.push({x: lineEndXOffset, y: lineEndYOffset + (this.PayLines[payline][4][1] * yGap)});
 
@@ -820,29 +890,27 @@ class VideoSlotReelsManager {
 		const circleMask = this.scene.make.graphics({});
 
 		for(let i=0;i<points.length;i++) {
-			// Create a circular image with the gradient texture
-			const circleImg = this.scene.add.image(points[i].x, points[i].y, 'gradientTexture');
-			circleImg.setScale(0.1);
-			circleImg.setOrigin(0.5, 0.5); // Center the origin
-			
-			// Clear and redraw for each point instead of creating new objects
-			circleMask.clear();
-			circleMask.fillCircle(points[i].x, points[i].y, 12);
-			const mask = circleMask.createGeometryMask();
-			circleImg.setMask(mask);
-			this.payLineImages.push(circleImg);
+		// Create a circular image with the gradient texture
+		const circleImg = this.scene.add.image(points[i].x, points[i].y, 'gradientTexture');
+		circleImg.setScale(0.1);
+		circleImg.setOrigin(0.5, 0.5); // Center the origin
+		
+		// Clear and redraw for each point instead of creating new objects
+		circleMask.clear();
+		circleMask.fillCircle(points[i].x, points[i].y, 12);
+		const mask = circleMask.createGeometryMask();
+		circleImg.setMask(mask);
+		this.payLineImages.push(circleImg);
 		}
 
 		// Clean up the graphics object
 		circleMask.destroy();
 
 		for(let i = 0; i < points.length-1; i++) {
-			const lineImage = this.drawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, GameState.isMobile ? 10 : 20);
-			lineImage.setDepth(1)
-			this.payLineImages.push(lineImage);
+		const lineImage = this.drawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, GameState.isMobile ? 13 : 17);
+		lineImage.setDepth(1)
+		this.payLineImages.push(lineImage);
 		}
-
-		
 	}
 
 	drawLine(x1: number, y1: number, x2: number, y2: number, thickness: number) {

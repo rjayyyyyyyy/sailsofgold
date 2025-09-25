@@ -8,9 +8,11 @@ import { CommandEvent } from "@gl/events/eventEnums";
 import { Command, ServerCommand } from "@gl/networking/Commands";
 import VideoSlotReelsManager from "./VideoSlotReelsManager";
 import Reels from "./components/Reels";
+import { IGameConfig } from "@gl/GameConfig";
 
 @injectable()
 class VideoSlot extends BaseGame {
+    gameConfig: IGameConfig | null = null;
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
         @inject("VideoSlotGameState") public gameState: VideoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState"),
@@ -20,6 +22,10 @@ class VideoSlot extends BaseGame {
         super(networkManager);
         console.log("GameState coinValue", this.gameState.coinValue);
         this.setupDispatchers();
+    }
+
+    setGameConfig(config: IGameConfig | null) {
+        this.gameConfig = config;
     }
 
     private setupDispatchers() {
@@ -44,6 +50,16 @@ class VideoSlot extends BaseGame {
 
 
                     this.phaserScene.scene.add("Reels", Reels, false);
+                    break;
+                case ServerCommand.Denominations:
+                    console.log("Denominations length", command.length);
+                    let denoms = [];
+                    for(let i = 1; i < command.length - 1; i++){
+                        denoms.push(parseInt(command.getString(i)));
+                    }
+                    this.gameState.coinValueList = denoms;
+                    const coinValueIndex = denoms.indexOf(parseInt(this.gameConfig?.denom as string) * 10)
+                    this.gameState.coinValue.set(denoms[coinValueIndex]);
                     break;
             }
         });
