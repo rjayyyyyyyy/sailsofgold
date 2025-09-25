@@ -189,6 +189,7 @@ export default class Reels extends Phaser.Scene {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+
         // this.machine2 = null;
         // this.containers = null;
         this.symbolList = [];

@@ -1,9 +1,12 @@
 import { container } from "@gl/di/container";
 import { IGameConfig } from "@gl/GameConfig";
+import Dispatcher from "@gl/events/Dispatcher";
+import { EVENTS } from "@gl/events/events";
 import { ClientCommand } from "@gl/networking/Commands";
 import NetworkManager from "@gl/networking/NetworkManager";
 import { ObservableState } from "@gl/ObservableState";
 import { inject, injectable } from "inversify";
+import { WinLineResult } from "./interfaces/reels";
 
 @injectable()
 export class VideoSlotGameState {
@@ -27,19 +30,20 @@ export class VideoSlotGameState {
     isSpinning: ObservableState<boolean>;
     isReward: ObservableState<boolean> = new ObservableState(false);
     isAutoPlayRunning: ObservableState<boolean> = new ObservableState(false);
-    isShowingScatterInfo: boolean = false;
-    isScatterInfoShown: boolean = false;
     isIllegalSession: ObservableState<boolean> = new ObservableState(false);
+    isShowingScatterInfo: ObservableState<boolean> = new ObservableState(false);
+    isScatterInfoShown: ObservableState<boolean> = new ObservableState(false);
 
-    isAutoSpinRunning: boolean = false;
+    isAutoSpinRunning: ObservableState<boolean> = new ObservableState(false);
     // Game states
     balance: ObservableState<number>;
     betCoins: ObservableState<number>;
     betLines: ObservableState<number>;
     informationText: ObservableState<string>;
-    gameWinAmount: ObservableState<number>;
     totalWinAmount: ObservableState<number>;
-   
+    totalWin: ObservableState<number> = new ObservableState(0);
+
+    winLines: WinLineResult[];
 
     // Scene states
     isShowingPaytable: ObservableState<boolean>;
@@ -72,7 +76,7 @@ export class VideoSlotGameState {
     isScatterSpinning: ObservableState<boolean>;
     isEndScatter: ObservableState<boolean>;
 
-
+    winCoins: ObservableState<number>;
     constructor(
         @inject("NetworkManager") private networkManager: NetworkManager
     ) {
@@ -83,7 +87,6 @@ export class VideoSlotGameState {
         this.betCoins = new ObservableState(1);
         this.betLines = new ObservableState(1);
         this.informationText = new ObservableState("PRESS SPIN TO START");
-        this.gameWinAmount = new ObservableState(0);
         this.totalWinAmount = new ObservableState(0);
         this.coinValueList = [10, 20, 30, 40, 50, 100, 200, 500]
         this.coinValue = new ObservableState(this.coinValueList[0]);
@@ -127,29 +130,34 @@ export class VideoSlotGameState {
             // if (val === 0) return;
             this.networkManager.sendCommand(ClientCommand.Gamble, [val.toString()]);
         });
-    }
 
-    startSpin() {
-        if (this.isSpinning.get()) {
-            console.warn("Already spinning!");
-            return;
-        }
-        const totalBet = this.betCoins.get() * this.betLines.get() * (this.coinValue.get() * 100);
-        if (this.balance.get() < totalBet) {
-            console.warn("Insufficient balance!");
-            this.informationText.set("INSUFFICIENT BALANCE");
-            return;
-        }
-        this.isSpinning.set(true);
-        this.informationText.set("GOOD LUCK!");
-        this.balance.set(this.balance.get() - totalBet);
-        this.gameWinAmount.set(0);
-        this.totalWinAmount.set(0);
-        this.networkManager.sendCommand(ClientCommand.Spin, [
-            this.betCoins.get().toString(),
-            this.betLines.get().toString(),
-            (this.coinValue.get()).toString(),
-            "1"
-        ])
+        this.winCoins = new ObservableState(0);
+        this.winCoins.subscribe((val) => {
+            Dispatcher.emit(EVENTS.WIN_LINES);
+        });
     }
+    // startSpin() {
+    //     if (this.isSpinning.get()) {
+    //         console.warn("Already spinning!");
+    //         return;
+    //     }
+    //     const totalBet = this.betCoins.get() * this.betLines.get() * (this.coinValue.get() * 100);
+    //     if (this.balance.get() < totalBet) {
+    //         console.warn("Insufficient balance!");
+    //         this.informationText.set("INSUFFICIENT BALANCE");
+    //         return;
+    //     }
+    //     this.isSpinning.set(true);
+    //     this.informationText.set("GOOD LUCK!");
+    //     this.balance.set(this.balance.get() - totalBet);
+    //     this.gameWinAmount.set(0);
+    //     this.totalWinAmount.set(0);
+    //     const network = container.get<NetworkManager>('NetworkManager');
+    //     network.sendCommand(ClientCommand.Spin, [
+    //         this.betCoins.get().toString(),
+    //         this.betLines.get().toString(),
+    //         (this.coinValue.get() * 100).toString(),
+    //         "1"
+    //     ])
+    // }
 }
