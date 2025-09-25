@@ -21,6 +21,16 @@ type SpinQueue = {
 	bottomSymbol: number[];
 }
 
+type PendingSpin = {
+	coin: number;
+	lines: number;
+	denom: number;
+	symbols: number[];
+	winLines: WinLineResult[];
+	topSymbol: number[];
+	bottomSymbol: number[];
+}
+
 @injectable()
 class VideoSlotReelsManager {
 	private logger = new Logger();
@@ -71,6 +81,8 @@ class VideoSlotReelsManager {
 		currentSpin: 0,
 		claimed: false,
 	};
+
+	pendingSpin: PendingSpin | null = null;
 
 	spinQueue: SpinQueue[] = [];
 	scatterSymbolSprite: Phaser.GameObjects.Sprite[];
@@ -190,57 +202,62 @@ class VideoSlotReelsManager {
 				// End Feature case
 				case ServerCommand.Spin:
 					this.logger.info("Spin command received");
-                    const isFirstLoad = !this.scene.initialized;
+					const coin = parseInt(command.getString(0));
+					const lines = parseInt(command.getString(1));
+					const denom = parseInt(command.getString(2));
+					if(GameState.isAutoPlayRunning){
+						GameState.autoplayBalance.set(GameState.autoplayBalance.get() - coin * lines * denom);
+					}
+					GameState.coinValue.set(denom);
+					// console.log(`Coin: ${coin} Lines: ${lines} Denom: ${denom}`);
+					let symbols = [];
+					for(let i = 3; i < 18; i++){
+						symbols.push(parseInt(command.getString(i)));
+					}
+
+					// console.log("Symbols :", symbols.length);
+					// console.log(symbols);
+					// const feature = parseInt(command.getString(18));
+					const winLine = parseInt(command.getString(19));
+					// console.log(`Feature: ${feature} WinLine: ${winLine}`);
+					let winLines: WinLineResult[] = [];
+					for(let i = 20; i < 20 + winLine*5; i++){
+						winLines.push({
+							paylineIndex: parseInt(command.getString(i)),
+							symbol: parseInt(command.getString(i+1)),
+							totalSymbol: parseInt(command.getString(i+2)),
+							flags: parseInt(command.getString(i+3)),
+							coinWon: parseInt(command.getString(i+4)),
+						});
+						i += 4;
+					}
+					GameState.winLines = winLines
+					console.log("Win Lines :", winLines);
+					let topSymbol = [];
+					for(let i = 20 + winLine*5; i < 20 + winLine*5 + 5; i++){
+						topSymbol.push(parseInt(command.getString(i)));
+					}
+					// console.log("Top Symbol :", topSymbol);
+					let bottomSymbol: number[] = [];
+					for(let i = 20 + winLine*5 + 5; i < 20 + winLine*5 + 10; i++){
+						bottomSymbol.push(parseInt(command.getString(i)));
+					}
+					// console.log("Bottom Symbol :", bottomSymbol);
+					if (!this.scene) {
+						this.logger.info("Scene not initialized, queuing spin command");
+						this.pendingSpin = { coin, lines, denom, symbols, winLines, topSymbol, bottomSymbol };
+						return;
+					}
+					const isFirstLoad = !this.scene.initialized;
 					this.logger.info(`Processing Spin command, first load: ${isFirstLoad}`);
-                    if(this.scene.initialized){
-                        // ReelsManager.doSpin();
-                    } else {
-                        this.scene.initialized = true;
-                    }
+					if(this.scene.initialized){
+						// ReelsManager.doSpin();
+					} else {
+						this.scene.initialized = true;
+					}
                     // console.clear();
                     // console.log("Spin Length", command.length);
                     
-                    const coin = parseInt(command.getString(0));
-                    const lines = parseInt(command.getString(1));
-                    const denom = parseInt(command.getString(2));
-                    if(GameState.isAutoPlayRunning){
-                        GameState.autoplayBalance.set(GameState.autoplayBalance.get() - coin * lines * denom);
-                    }
-                    GameState.coinValue.set(denom);
-                    // console.log(`Coin: ${coin} Lines: ${lines} Denom: ${denom}`);
-                    let symbols = [];
-                    for(let i = 3; i < 18; i++){
-                        symbols.push(parseInt(command.getString(i)));
-                    }
-
-                    // console.log("Symbols :", symbols.length);
-                    // console.log(symbols);
-                    // const feature = parseInt(command.getString(18));
-                    const winLine = parseInt(command.getString(19));
-                    // console.log(`Feature: ${feature} WinLine: ${winLine}`);
-                    let winLines: WinLineResult[] = [];
-                    for(let i = 20; i < 20 + winLine*5; i++){
-                        winLines.push({
-                            paylineIndex: parseInt(command.getString(i)),
-                            symbol: parseInt(command.getString(i+1)),
-                            totalSymbol: parseInt(command.getString(i+2)),
-                            flags: parseInt(command.getString(i+3)),
-                            coinWon: parseInt(command.getString(i+4)),
-                        });
-                        i += 4;
-                    }
-                    GameState.winLines = winLines
-                    console.log("Win Lines :", winLines);
-                    let topSymbol = [];
-                    for(let i = 20 + winLine*5; i < 20 + winLine*5 + 5; i++){
-                        topSymbol.push(parseInt(command.getString(i)));
-                    }
-                    // console.log("Top Symbol :", topSymbol);
-                    let bottomSymbol: number[] = [];
-                    for(let i = 20 + winLine*5 + 5; i < 20 + winLine*5 + 10; i++){
-                        bottomSymbol.push(parseInt(command.getString(i)));
-                    }
-                    // console.log("Bottom Symbol :", bottomSymbol);
                     if(!isFirstLoad){
                         this.enqueueSpin(symbols, winLines, topSymbol, bottomSymbol);
                     }
@@ -339,6 +356,27 @@ class VideoSlotReelsManager {
 		this.symbolTextures = scene.symbolList;
 		this.winSymbolTextures = scene.winSymbolList;
 		this.freeSymbolTextures = scene.freeSymbolList;
+
+		// Process pending spin if exists
+		if (this.pendingSpin) {
+			this.logger.info("Processing queued spin command");
+			const { coin, lines, denom, symbols, winLines, topSymbol, bottomSymbol } = this.pendingSpin;
+			this.pendingSpin = null;
+			this.scene.initialized = true;
+			this.GameState.coinValue.set(denom);
+			this.GameState.winLines = winLines;
+			this.GameState.isReward.set(true);
+			this.setReelSymbols(symbols, topSymbol, bottomSymbol);
+			this.updateReelSymbols();
+			setTimeout(() => {
+				console.log("FirstLoad Scatter Info");
+				console.log(this.scatterInfo);
+				if(this.scatterInfo.isScatterSpin) {
+					Dispatcher.emit(EVENTS.SHOW_SCATTER_INFO, this.scatterSymbolSprite);
+				}
+				if(!this.scatterInfo.isScatterSpin) this.renderWinLines(winLines);
+			}, 3000);
+		}
 	}
 
 	// This need to be refactored using event based
@@ -352,7 +390,6 @@ class VideoSlotReelsManager {
 		// this.logger.debug(`DEBUG: Game State hasDelayedSpinStarted: ${this.hasDelayedSpinStarted}`);
 		if(!this.hasDelayedSpinStarted) return;
 
-		this.logger.debug("DEBUG: Update Reels Manager");
 		
 		if(!this.scatterInfo.isScatterSpin && !GameState.isAutoPlayRunning.get() && this.spinQueue.length == 1) { // Basic Spin
 			const spin = this.spinQueue.shift();
