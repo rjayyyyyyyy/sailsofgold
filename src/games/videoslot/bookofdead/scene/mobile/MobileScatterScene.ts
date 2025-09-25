@@ -9,6 +9,7 @@ import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import { container } from "@gl/di/container";
 import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
 import { FeatureAwardType } from "@gl/networking/FeatureType";
+import { SymbolTextureSet } from "@games/videoslot/components/Reels";
 /* END-USER-IMPORTS */
 
 export default class MobileScatterScene extends Phaser.Scene {
