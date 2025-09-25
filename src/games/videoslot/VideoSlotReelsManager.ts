@@ -794,25 +794,25 @@ class VideoSlotReelsManager {
 			this.payLineImagesRepeat.push(tween);
 		}
 	}
-	
+
 	renderSingleLine(payline: number) {
 		const GameState = this.GameState;
-		const lineStartXOffset = GameState.isMobile ? 15 : 275;
-		const lineStartYOffset = GameState.isMobile ? 300 : 235;
-		const yGap = GameState.isMobile ? 100 : 190;
-		const halfDistance = GameState.isMobile ? 50 : 105;
-		const lineEndXOffset = GameState.isMobile ? 540 - lineStartXOffset : 1600 - lineStartXOffset;
+		const lineStartXOffset = GameState.isMobile ? 30 : 260;
+		const lineStartYOffset = GameState.isMobile ? 430 : 175;
+		const yGap = GameState.isMobile ? 127 : 160;
+		const halfDistance = GameState.isMobile ? 67 : 75;
+		const lineEndXOffset = GameState.isMobile ? this.scene.scale.width - lineStartXOffset : this.scene.scale.width - lineStartXOffset;
 		const lineEndYOffset = lineStartYOffset;
 		const points = [
-			{x: lineStartXOffset, y: lineStartYOffset + (this.PayLines[payline][0][1] * yGap)},
+		{x: lineStartXOffset, y: lineStartYOffset + (this.PayLines[payline][0][1] * yGap)},
 		]
 		for(let i =0; i<5;i++) {
-			let innerXGap = halfDistance;
-			if(i > 0) {
-				innerXGap *= 2;
-			}
-			points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.PayLines[payline][i][1] * yGap)});
-			// this.scene.add.circle(lineStartXOffset + halfDistance +(innerXGap * i), lineStartYOffset, 10, color, 1);
+		let innerXGap = halfDistance;
+		if(i > 0) {
+			innerXGap *= 2;
+		}
+		points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.PayLines[payline][i][1] * yGap)});
+		// this.scene.add.circle(lineStartXOffset + halfDistance +(innerXGap * i), lineStartYOffset, 10, color, 1);
 		}
 		points.push({x: lineEndXOffset, y: lineEndYOffset + (this.PayLines[payline][4][1] * yGap)});
 
@@ -820,30 +820,77 @@ class VideoSlotReelsManager {
 		const circleMask = this.scene.make.graphics({});
 
 		for(let i=0;i<points.length;i++) {
-			// Create a circular image with the gradient texture
-			const circleImg = this.scene.add.image(points[i].x, points[i].y, 'gradientTexture');
-			circleImg.setScale(0.1);
-			circleImg.setOrigin(0.5, 0.5); // Center the origin
-			
-			// Clear and redraw for each point instead of creating new objects
-			circleMask.clear();
-			circleMask.fillCircle(points[i].x, points[i].y, 12);
-			const mask = circleMask.createGeometryMask();
-			circleImg.setMask(mask);
-			this.payLineImages.push(circleImg);
+		// Create a circular image with the gradient texture
+		const circleImg = this.scene.add.image(points[i].x, points[i].y, 'gradientTexture');
+		circleImg.setScale(0.1);
+		circleImg.setOrigin(0.5, 0.5); // Center the origin
+		
+		// Clear and redraw for each point instead of creating new objects
+		circleMask.clear();
+		circleMask.fillCircle(points[i].x, points[i].y, 12);
+		const mask = circleMask.createGeometryMask();
+		circleImg.setMask(mask);
+		this.payLineImages.push(circleImg);
 		}
 
 		// Clean up the graphics object
 		circleMask.destroy();
 
 		for(let i = 0; i < points.length-1; i++) {
-			const lineImage = this.drawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, GameState.isMobile ? 10 : 20);
-			lineImage.setDepth(1)
-			this.payLineImages.push(lineImage);
+		const lineImage = this.drawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, GameState.isMobile ? 13 : 17);
+		lineImage.setDepth(1)
+		this.payLineImages.push(lineImage);
 		}
+	}
+	// renderSingleLine(payline: number) {
+	// 	const GameState = this.GameState;
+	// 	const lineStartXOffset = GameState.isMobile ? 15 : 275;
+	// 	const lineStartYOffset = GameState.isMobile ? 300 : 235;
+	// 	const yGap = GameState.isMobile ? 100 : 190;
+	// 	const halfDistance = GameState.isMobile ? 50 : 105;
+	// 	const lineEndXOffset = GameState.isMobile ? 540 - lineStartXOffset : 1600 - lineStartXOffset;
+	// 	const lineEndYOffset = lineStartYOffset;
+	// 	const points = [
+	// 		{x: lineStartXOffset, y: lineStartYOffset + (this.PayLines[payline][0][1] * yGap)},
+	// 	]
+	// 	for(let i =0; i<5;i++) {
+	// 		let innerXGap = halfDistance;
+	// 		if(i > 0) {
+	// 			innerXGap *= 2;
+	// 		}
+	// 		points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.PayLines[payline][i][1] * yGap)});
+	// 		// this.scene.add.circle(lineStartXOffset + halfDistance +(innerXGap * i), lineStartYOffset, 10, color, 1);
+	// 	}
+	// 	points.push({x: lineEndXOffset, y: lineEndYOffset + (this.PayLines[payline][4][1] * yGap)});
+
+	// 	// Create graphics object once outside the loop to avoid memory allocation
+	// 	const circleMask = this.scene.make.graphics({});
+
+	// 	for(let i=0;i<points.length;i++) {
+	// 		// Create a circular image with the gradient texture
+	// 		const circleImg = this.scene.add.image(points[i].x, points[i].y, 'gradientTexture');
+	// 		circleImg.setScale(0.1);
+	// 		circleImg.setOrigin(0.5, 0.5); // Center the origin
+			
+	// 		// Clear and redraw for each point instead of creating new objects
+	// 		circleMask.clear();
+	// 		circleMask.fillCircle(points[i].x, points[i].y, 12);
+	// 		const mask = circleMask.createGeometryMask();
+	// 		circleImg.setMask(mask);
+	// 		this.payLineImages.push(circleImg);
+	// 	}
+
+	// 	// Clean up the graphics object
+	// 	circleMask.destroy();
+
+	// 	for(let i = 0; i < points.length-1; i++) {
+	// 		const lineImage = this.drawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y, GameState.isMobile ? 10 : 20);
+	// 		lineImage.setDepth(1)
+	// 		this.payLineImages.push(lineImage);
+	// 	}
 
 		
-	}
+	// }
 
 	drawLine(x1: number, y1: number, x2: number, y2: number, thickness: number) {
 		const lineImage = this.scene.add.image(x1, y1, 'gradientTexture');
