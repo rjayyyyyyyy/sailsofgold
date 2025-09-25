@@ -8,7 +8,7 @@ import { container } from "./di/container";
 import { Logger } from "./Logger";
 import { SystemEvent } from "./events/Dispatcher";
 import NetworkManager from "./networking/NetworkManager";
-import { ISessionConfig } from "./interfaces/ISessionConfig";
+import { ILauncherConfig } from "./interfaces/ILauncherConfig";
 
 export class GameBootstrapper {
     private queryParams: URLSearchParams = new URLSearchParams(window.location.search);
@@ -69,7 +69,7 @@ export class GameBootstrapper {
         };
     }
 
-    async launch(config: ISessionConfig) {
+    async launch(config: ILauncherConfig) {
         this.logger.info(`Launching game: ${this.gameDefinition.name}`);
         this.logger.debug(`Query Params: ${JSON.stringify(this.readAllQueryParams())}`);
         await this.loadGameConfig();
@@ -100,6 +100,7 @@ export class GameBootstrapper {
                 this.logger.info("Creating game instance...");
                 try {
                     this.glGame = container.get(gameDefinition.gameClass) as VideoSlot;
+                    this.glGame.setGameConfig(gameConfig);
                     this.logger.info(`Game instance created successfully`);
                     return true;
                 } catch (error) {
