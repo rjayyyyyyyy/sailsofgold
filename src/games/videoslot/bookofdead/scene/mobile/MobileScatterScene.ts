@@ -8,6 +8,8 @@ import ReelPrefab from "../prefab/ReelPrefab";
 /* START-USER-IMPORTS */
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import { container } from "@gl/di/container";
+import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
+import { FeatureAwardType } from "@gl/networking/FeatureType";
 /* END-USER-IMPORTS */
 
 export default class MobileScatterScene extends Phaser.Scene {
@@ -109,9 +111,11 @@ export default class MobileScatterScene extends Phaser.Scene {
 	// Write your code here
 	symbolList: SymbolTextureSet[];
 	private GameState!: VideoSlotGameState;
+	private ReelsManager!: VideoSlotReelsManager;
 
 	init() {
 		this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
+		this.ReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager");
 	}
 
 	create() {
@@ -185,7 +189,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 				let randomNumber = Phaser.Math.RND.between(0, 8);
 				const symbol = this.selectedSymbol;
 				if(repeatCounter == 15){
-					const winSymbol = (ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
+					const winSymbol = (this.ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
 					const sym = this.symbolList[winSymbol]
 					symbol.setTexture(sym[0], sym[1]);
 					console.log(winSymbol)
