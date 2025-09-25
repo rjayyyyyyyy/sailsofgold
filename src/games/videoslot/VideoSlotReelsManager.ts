@@ -74,6 +74,9 @@ class VideoSlotReelsManager {
 	spinQueue: SpinQueue[] = [];
 	scatterSymbolSprite: Phaser.GameObjects.Sprite[];
 	scatterSymbolColumn: number[];
+
+
+	reelSymbols: number[] = [];
 	multiReelSymbols: number[][] = [];
 
 	private symbolTextures: SymbolTextureSet[] = [];
@@ -84,6 +87,8 @@ class VideoSlotReelsManager {
 	payLineImages: Phaser.GameObjects.Image[] = [];
 	payLineImagesRepeat: Phaser.Tweens.Tween[] = [];
 
+	topSymbol: number[];
+	bottomSymbol: number[];
 	currentSpin: SpinQueue | null = null;
 	activeAutoplay: number = 0;
 
@@ -223,7 +228,7 @@ class VideoSlotReelsManager {
                         i += 4;
                     }
                     GameState.winLines = winLines
-                    // console.log("Win Lines :", winLines);
+                    console.log("Win Lines :", winLines);
                     let topSymbol = [];
                     for(let i = 20 + winLine*5; i < 20 + winLine*5 + 5; i++){
                         topSymbol.push(parseInt(command.getString(i)));
@@ -307,9 +312,14 @@ class VideoSlotReelsManager {
 	public update() {
 		const GameState = this.GameState;
 		const NetworkManager = this.NetworkManager;
+		// this.logger.debug(`DEBUG: Game State isSpinning: ${GameState.isSpinning.get()}`);
 		if(GameState.isSpinning.get()) return;
-		
+	
+
+		// this.logger.debug(`DEBUG: Game State hasDelayedSpinStarted: ${this.hasDelayedSpinStarted}`);
 		if(!this.hasDelayedSpinStarted) return;
+
+		this.logger.debug("DEBUG: Update Reels Manager");
 		
 		if(!this.scatterInfo.isScatterSpin && !GameState.isAutoPlayRunning.get() && this.spinQueue.length == 1) { // Basic Spin
 			const spin = this.spinQueue.shift();
@@ -365,7 +375,65 @@ class VideoSlotReelsManager {
 
 	}
 	updateReelSymbols() {
-		throw new Error("Method not implemented.");
+		const GameState = this.GameState;
+		if(this.reelSymbols.length == 0) return;
+		let column = 0;
+		let row = 1;
+		this.scatterSymbolColumn = [];
+		let prevcolumn = -1
+		this.multiReelSymbols = []
+		this.scatterSymbolSprite = []
+		for(let i = 0; i < 15;i++) {
+			const symbol = this.symbolTextures[this.reelSymbols[i]];
+			if (!this.multiReelSymbols[column]) {
+				this.multiReelSymbols[column] = [];
+			}
+			this.multiReelSymbols[column].push(this.reelSymbols[i]);
+			(this.scene.containers[column].list[row] as Phaser.GameObjects.Sprite).setTexture(symbol[0], symbol[1]);
+			
+			let btnSprite = (this.scene.containers[column].list[row] as Phaser.GameObjects.Sprite);
+			let x = btnSprite.parentContainer.x;
+			let y = btnSprite.parentContainer.y + btnSprite.y;
+			let container = this.scene.add.container(x - 125, y + 25).setVisible(false);
+			this.paytable(container, symbol[1]);
+			btnSprite.removeAllListeners();
+			btnSprite.setInteractive();
+			btnSprite.on('pointerdown', () => {
+				container.visible ? container.setVisible(false) : container.setVisible(true);
+				if(GameState.isMobile) container.setVisible(false)
+			})
+			.on('pointerout', () => {
+				if(container.visible) container.setVisible(false)
+			});
+			
+			if(this.reelSymbols[i] == 9){
+				this.scatterSymbolSprite.push(this.scene.containers[column].list[row] as Phaser.GameObjects.Sprite)
+				console.log(this.scatterSymbolSprite);
+			}
+
+			if(this.reelSymbols[i] == this.scatterInfo.collections[FeatureAwardType.Feature]?.amount){
+			// if(this.reelSymbols[i] == 0){
+				if(prevcolumn !== column){	
+					console.log('column :' + column)
+					this.scatterSymbolColumn.push(column)
+					prevcolumn = column
+				}
+			}
+
+			row++;
+			if(row == 4) {
+				row = 1;
+				column++;
+			}
+			
+			
+		}
+
+		for(let i = 0; i < 5; i++) {
+			(this.scene.containers[i].list[0] as Phaser.GameObjects.Sprite).setTexture(this.symbolTextures[this.topSymbol[i]][0], this.symbolTextures[this.topSymbol[i]][1]);
+			(this.scene.containers[i].list[4] as Phaser.GameObjects.Sprite).setTexture(this.symbolTextures[this.bottomSymbol[i]][0], this.symbolTextures[this.bottomSymbol[i]][1]);
+		}
+
 	}
 
 	doSpin() {
@@ -374,7 +442,7 @@ class VideoSlotReelsManager {
 		Dispatcher.emit(AUDIO_EVENTS.REEL_START);
 
 		this.removePayLineImages();
-		this.GameState.isSpinning.set(true);
+		GameState.isSpinning.set(true);
 		for(let i = 0; i < 5; i++) {
 			const container = this.scene.containers![i];
 			if(container) {
@@ -1062,6 +1130,73 @@ class VideoSlotReelsManager {
 			}
 		}
 	}
+
+	paytable(container: Phaser.GameObjects.Container, frame: string){
+		const GameState = this.GameState;
+        let bgSymbol = this.scene.add.sprite(0, 0, GameState.isMobile ? 'skin_texture2_level2' : 'skin_texture2_level0', 'ZH.png')
+        let txtPaytable1 = this.scene.add.text(-100, -10, 'x5\nx4\nx3\nx2', {
+            // fontSize : '50px',
+            color : '#5c2c17',
+            // fontFamily : 'flanker',
+            font: '100 30px britannicBold',
+            align: 'center',
+            stroke: '#FFDD40',
+            strokeThickness: 3,
+        }).setOrigin(0, .5)
+        let txtPaytable2 = this.scene.add.text(-50, -10, '5000\n1000\n100\n10', {
+            // fontSize : '50px',
+            color : '#FFDD40',
+            // fontFamily : 'flanker',
+            font: '100 30px britannicBold',
+            align: 'left',
+            stroke: '#5c2c17',
+            strokeThickness: 3,
+        }).setOrigin(0, .5)
+        
+        switch(frame){
+            case 'WE.png':
+                txtPaytable1.setText('x5\nx4\nx3\nx2')
+                txtPaytable2.setText('5000\n1000\n100\n10')
+                break;
+
+            case 'VE.png':
+                txtPaytable1.setText('x5\nx4\nx3\nx2')
+                txtPaytable2.setText('2000\n400\n40\n5')
+                break;
+
+            case 'SE.png':
+            case 'TE.png':
+                txtPaytable1.setText('x5\nx4\nx3\nx2')
+                txtPaytable2.setText('750\n100\n30\n5')
+                break;
+
+            case 'DF.png':
+            case 'JF.png':
+            case 'CF.png':
+            case 'IF.png':
+                txtPaytable1.setText('x5\nx4\nx3')
+                txtPaytable2.setText('150\n40\n5')
+                break;
+
+            case 'LF.png':
+            case 'NF.png':
+            case 'PF.png':
+            case 'KF.png':
+            case 'MF.png':
+            case 'OF.png':
+                txtPaytable1.setText('x5\nx4\nx3')
+                txtPaytable2.setText('100\n25\n5')
+                break;
+
+            default:
+                txtPaytable1.setText('Three symbols\nactivate the FREE\nSPIN feature.')
+                txtPaytable1.setStroke('', 0)
+                txtPaytable1.setFont('500 22px OSWALD-REGULAR')
+                txtPaytable2.setVisible(false)
+        }
+        
+        container.add([bgSymbol, txtPaytable1, txtPaytable2])
+    }
 
 }
 
