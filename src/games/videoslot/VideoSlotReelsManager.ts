@@ -101,7 +101,7 @@ class VideoSlotReelsManager {
 	) {
         console.log("ReelsManager initialized");
 
-		Dispatcher.addListener(ACTION_EVENTS.SPIN_START, () => {
+        Dispatcher.addListener(ACTION_EVENTS.SPIN_START, () => {
 			let GameState = this.GameState;
             console.log(GameState.isSpinning.get())
             if(this.GameState.isSpinning.get()) return;
@@ -111,6 +111,7 @@ class VideoSlotReelsManager {
                 GameState.isScatterInfoShown.set(false);
                 NetworkManager.sendCommand(ClientCommand.Feature, ["6"]);
                 Dispatcher.emit(EVENTS.HIDE_SCATTER_INFO);
+                this.hasDelayedSpinStarted = true;
             }
             else{
                 GameState.balance.set(GameState.balance.get() - GameState.coinBet.get() * GameState.linesBet.get() * GameState.coinValue.get());
@@ -120,10 +121,9 @@ class VideoSlotReelsManager {
                     GameState.linesBet.get().toString(),
                     GameState.coinValue.get().toString()
                 ]);
+                this.hasDelayedSpinStarted = true;
             }
-        });
-
-        Dispatcher.addListener(EVENTS.SPIN_COMPLETE, () => {
+        });        Dispatcher.addListener(EVENTS.SPIN_COMPLETE, () => {
             
             if(this.currentSpin) {
                 Dispatcher.emit(AUDIO_EVENTS.REEL_STOP);
@@ -488,7 +488,9 @@ class VideoSlotReelsManager {
 	}
 
 	setReelSymbols(symbols: number[], topSymbol: number[], bottomSymbol: number[]) {
-		// TODO: Set symbols to reels
+		this.reelSymbols = symbols;
+		this.topSymbol = topSymbol;
+		this.bottomSymbol = bottomSymbol;
 	}
 
 	removePayLineImages() {
