@@ -1,0 +1,456 @@
+{
+    "id": "24363102-a673-48e7-8469-f23fc01aac16",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 90,
+        "snapHeight": 80,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MobileLevel",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 720,
+        "borderHeight": 1280
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "cb5814e9-3fbc-40ff-ad2f-94e34040d752",
+            "label": "aB_png",
+            "texture": {
+                "key": "background_texture0_level2",
+                "frame": "AB.png"
+            },
+            "x": 360,
+            "y": 591
+        },
+        {
+            "type": "Image",
+            "id": "c68df7e3-5b2b-4222-86c4-43b0c67c9aed",
+            "label": "logo1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level2",
+                "frame": "AB.png"
+            },
+            "x": 360,
+            "y": 314
+        },
+        {
+            "type": "Image",
+            "id": "5673bf70-fb89-4c5a-b90e-591665cbeb46",
+            "label": "logo2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level2",
+                "frame": "DB.png"
+            },
+            "x": 360,
+            "y": 324
+        },
+        {
+            "type": "Image",
+            "id": "2822b5c1-e2ac-4e68-8e46-dda47e633520",
+            "label": "logo3",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level2",
+                "frame": "BB.png"
+            },
+            "x": 360,
+            "y": 294
+        },
+        {
+            "type": "Text",
+            "id": "4bd8d48b-72fe-42d7-80d1-af799bc1582b",
+            "label": "txtInformation",
+            "scope": "CLASS",
+            "x": 360,
+            "y": 800,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_PRESSPIN",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "48px",
+            "color": "#FFFFFF",
+            "stroke": "#000000",
+            "strokeThickness": 3
+        },
+        {
+            "type": "Sprite",
+            "id": "4d493fef-3d57-4939-9654-ec1402a4457d",
+            "label": "spinBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 170,
+            "hitArea.height": 170,
+            "texture": {
+                "key": "uiElements",
+                "frame": "spinBtnBaseHi.png"
+            },
+            "x": 360,
+            "y": 955
+        },
+        {
+            "type": "Image",
+            "id": "05042d18-931d-46ff-a3ca-3f0e7ecc78a6",
+            "label": "bgCoins",
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "bar01.png"
+            },
+            "x": 130,
+            "y": 910,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Image",
+            "id": "882c6d2f-fe8e-4b19-ae80-19d7ed64497b",
+            "label": "imgCoins",
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "coins.png"
+            },
+            "x": 130,
+            "y": 868,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Text",
+            "id": "f274d1c8-8278-4b55-9a4f-27b2da310f36",
+            "label": "txtCoinsBet",
+            "scope": "CLASS",
+            "x": 130,
+            "y": 910,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "1",
+            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "60px",
+            "color": "#F7EDA1"
+        },
+        {
+            "type": "Sprite",
+            "id": "72f07b6f-9d61-46a8-8a51-1cd937313606",
+            "label": "prevCoinsBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 90,
+            "hitArea.height": 80,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "minus01.png"
+            },
+            "x": 30,
+            "y": 910,
+            "scaleX": 0.6,
+            "scaleY": 0.6,
+            "angle": -90
+        },
+        {
+            "type": "Sprite",
+            "id": "ab6eed49-64a9-4bcf-b4ad-c3a701596bd8",
+            "label": "nextCoinsBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 90,
+            "hitArea.height": 80,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "plus01.png"
+            },
+            "x": 232,
+            "y": 910,
+            "scaleX": 0.6,
+            "scaleY": 0.6,
+            "angle": 90
+        },
+        {
+            "type": "Image",
+            "id": "69b03cee-97d8-4ae4-893c-9b3313f18abd",
+            "label": "bgLines",
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "bar01.png"
+            },
+            "x": 130,
+            "y": 995,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Text",
+            "id": "6e93ec51-434c-443f-9bd8-4080294a2639",
+            "label": "txtLinesBet",
+            "scope": "CLASS",
+            "x": 130,
+            "y": 995,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "1",
+            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "60px",
+            "color": "#F7EDA1"
+        },
+        {
+            "type": "Sprite",
+            "id": "70b049e1-3b5c-46d0-b94a-a2deee16ed09",
+            "label": "prevLinesBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 90,
+            "hitArea.height": 80,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "minus01.png"
+            },
+            "x": 30,
+            "y": 995,
+            "scaleX": 0.6,
+            "scaleY": 0.6,
+            "angle": -90
+        },
+        {
+            "type": "Image",
+            "id": "931f0697-33c3-4ec8-a5b7-e4b5b7cc6ab5",
+            "label": "imgLines",
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "lines.png"
+            },
+            "x": 130,
+            "y": 953,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Sprite",
+            "id": "4f7f5962-7f7b-4ea0-b35e-7a4c3a85fd5a",
+            "label": "nextLinesBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 90,
+            "hitArea.height": 80,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "plus01.png"
+            },
+            "x": 232,
+            "y": 995,
+            "scaleX": 0.6,
+            "scaleY": 0.6,
+            "angle": 90
+        },
+        {
+            "type": "Image",
+            "id": "39ed8ee1-46db-4128-b7f1-5178fe71d177",
+            "label": "imgDenomination",
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "coins value.png"
+            },
+            "x": 580,
+            "y": 894,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Sprite",
+            "id": "a2b714f5-d8b2-4a7d-a1ea-0a3652287701",
+            "label": "denominationBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 417,
+            "hitArea.height": 92,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "btn01.png"
+            },
+            "x": 580,
+            "y": 935,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Text",
+            "id": "57b744f4-bbf4-4611-a570-cd81e22717fe",
+            "label": "txtDenominationValue",
+            "scope": "CLASS",
+            "x": 580,
+            "y": 935,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "CNY 2.00",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "48px",
+            "fontStyle": "bold",
+            "color": "#5A1600"
+        },
+        {
+            "type": "Sprite",
+            "id": "9789a215-ddcd-4e87-b22c-36e70167fbe1",
+            "label": "gambleBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 207,
+            "hitArea.height": 97,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "btn02.png"
+            },
+            "x": 517,
+            "y": 995,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Text",
+            "id": "59c82597-08b8-48db-96e0-01f7586bc42e",
+            "label": "txtGamble",
+            "scope": "CLASS",
+            "x": 517,
+            "y": 995,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_BTN_GAMBLE",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "48px",
+            "fontStyle": "bold",
+            "color": "#5A1600"
+        },
+        {
+            "type": "Sprite",
+            "id": "265e1973-2ff9-462d-ac56-6defcaa5e6d3",
+            "label": "collectBtn",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 207,
+            "hitArea.height": 97,
+            "texture": {
+                "key": "ui_mobile01",
+                "frame": "btn02.png"
+            },
+            "x": 645,
+            "y": 995,
+            "scaleX": 0.6,
+            "scaleY": 0.6
+        },
+        {
+            "type": "Text",
+            "id": "3abccef7-3a64-4150-b7c2-503994eac9ff",
+            "label": "txtCollect",
+            "scope": "CLASS",
+            "x": 645,
+            "y": 995,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_BTN_COLLECT",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "48px",
+            "fontStyle": "bold",
+            "color": "#5A1600"
+        },
+        {
+            "type": "Text",
+            "id": "eb0e3212-f1f6-4e1e-a26a-96876f379d6e",
+            "label": "txtAutoplayValue",
+            "scope": "CLASS",
+            "x": 270,
+            "y": 750,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "40px",
+            "color": "#F7EDA1"
+        },
+        {
+            "type": "Image",
+            "id": "d4214c64-eda9-411c-9c24-f9dc940ce62b",
+            "label": "freeSpinHeader1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture0_level2",
+                "frame": "LL.png"
+            },
+            "x": 360,
+            "y": 313,
+            "alpha": 0,
+            "alphaTopLeft": 0,
+            "alphaTopRight": 0,
+            "alphaBottomLeft": 0,
+            "alphaBottomRight": 0
+        },
+        {
+            "type": "Image",
+            "id": "51038645-523c-4e86-908c-d7e310c3a642",
+            "label": "freeSpinHeader2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture0_level2",
+                "frame": "VI.png"
+            },
+            "x": 230,
+            "y": 313,
+            "alpha": 0,
+            "alphaTopLeft": 0,
+            "alphaTopRight": 0,
+            "alphaBottomLeft": 0,
+            "alphaBottomRight": 0
+        },
+        {
+            "type": "Text",
+            "id": "462c447e-9e91-4868-b92e-f92c7c0c8432",
+            "label": "freeSpinHeader3",
+            "scope": "CLASS",
+            "x": 410,
+            "y": 313,
+            "originX": 0.5,
+            "originY": 0.5,
+            "alpha": 0,
+            "alphaTopLeft": 0,
+            "alphaTopRight": 0,
+            "alphaBottomLeft": 0,
+            "alphaBottomRight": 0,
+            "text": "Free Spin 3 of 10",
+            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "25px",
+            "color": "#F7EDA1"
+        },
+        {
+            "prefabId": "c7715e6a-351e-4b83-9848-103955f95a08",
+            "id": "1f464ac1-8f39-4bbb-9a8e-5aeb49a8a904",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mobileInfoPrefab",
+            "scope": "CLASS",
+            "x": 235,
+            "y": 1250
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

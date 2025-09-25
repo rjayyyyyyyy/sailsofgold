@@ -18,15 +18,15 @@ export default class Button extends Phaser.GameObjects.Container {
 		btnButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 162, 67), Phaser.Geom.Rectangle.Contains);
 		this.add(btnButton);
 
-		// text_1
-		const text_1 = scene.add.text(0, 0, "", {});
-		text_1.setOrigin(0.5, 0.5);
-		text_1.text = "New text";
-		text_1.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "22px" });
-		this.add(text_1);
+		// txtButton
+		const txtButton = scene.add.text(0, 0, "", {});
+		txtButton.setOrigin(0.5, 0.5);
+		txtButton.text = "New text";
+		txtButton.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "22px" });
+		this.add(txtButton);
 
 		this.btnButton = btnButton;
-		this.text_1 = text_1;
+		this.txtButton = txtButton;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -81,7 +81,7 @@ export default class Button extends Phaser.GameObjects.Container {
 	}
 
 	public btnButton: Phaser.GameObjects.Sprite;
-	private text_1: Phaser.GameObjects.Text;
+	public txtButton: Phaser.GameObjects.Text;
 	public text: string = "";
 	public buttonSprite!: {key:string,frame?:string|number};
 	public event: string = "";

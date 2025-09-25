@@ -1,0 +1,192 @@
+{
+    "id": "6e5f7e43-b786-4fe4-9082-edee611f1cab",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MobileScatterScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 720,
+        "borderHeight": 1280
+    },
+    "displayList": [
+        {
+            "prefabId": "334caecd-0d7c-4587-9013-1ff62fc90f63",
+            "id": "95e2e170-c2d4-4b69-92ea-8c5a6e93b440",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "reelPrefab",
+            "scope": "CLASS",
+            "x": -348,
+            "y": 109
+        },
+        {
+            "type": "Sprite",
+            "id": "f38876ab-9de6-4189-8ee9-a6aa4335f1ca",
+            "label": "animation",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "KH.png"
+            },
+            "x": 360,
+            "y": 640,
+            "animationPlayMethod": 1,
+            "animationKey": "book-animation-sd"
+        },
+        {
+            "type": "Image",
+            "id": "85659b9c-601b-4de7-928b-55e8c51d5646",
+            "label": "bgBook",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "JL.png"
+            },
+            "x": 360,
+            "y": 640,
+            "scaleX": 0.2,
+            "scaleY": 0.2,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "ead808d2-2e8d-43c9-a6eb-884981aee517",
+            "label": "imgDeco1",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "KL.png"
+            },
+            "x": 215,
+            "y": 450,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "5d220dca-c4dd-4a4e-acea-70da02c1d759",
+            "label": "imgDeco2",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "KL.png"
+            },
+            "x": 215,
+            "y": 725,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "f536f7e3-4d56-4fad-8b8f-9eee578c09e5",
+            "label": "imgDeco3",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "KL.png"
+            },
+            "x": 510,
+            "y": 450,
+            "flipX": true,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "1d174b78-cb42-4f84-ac58-81073a2bb6ec",
+            "label": "imgDeco4",
+            "texture": {
+                "key": "skin_texture1_level2",
+                "frame": "KL.png"
+            },
+            "x": 510,
+            "y": 725,
+            "flipX": true,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "3612dcc6-7d1d-419b-8785-8ea42fc51433",
+            "label": "selectedSymbol",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture4_level2",
+                "frame": "DF.png"
+            },
+            "x": 215,
+            "y": 582,
+            "visible": false
+        },
+        {
+            "type": "Text",
+            "id": "078405a2-8f1b-471a-90db-9fb8ac000bce",
+            "label": "txtCongrats",
+            "scope": "CLASS",
+            "x": 510,
+            "y": 518,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_CONGRATULATIONS",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "18px",
+            "color": "#5c2c17"
+        },
+        {
+            "type": "Text",
+            "id": "e78a3d7f-305c-4884-8176-3ea1cd2e3456",
+            "label": "txtYouWon",
+            "scope": "CLASS",
+            "x": 510,
+            "y": 590,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_X_FREESPINS",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "25px",
+            "color": "#5c2c17",
+            "wordWrapWidth": 150,
+            "wordWrapUseAdvanced": true
+        },
+        {
+            "type": "Text",
+            "id": "5c774215-cce1-43b2-af2d-9732f67d63ae",
+            "label": "txtSpinBegin",
+            "scope": "CLASS",
+            "x": 510,
+            "y": 668,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_PRESSPIN",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "color": "#5c2c17"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "8a313ee6-e670-4973-b327-3b23432e2e66",
+            "label": "bookContent",
+            "objectIds": [
+                "ead808d2-2e8d-43c9-a6eb-884981aee517",
+                "5c774215-cce1-43b2-af2d-9732f67d63ae",
+                "e78a3d7f-305c-4884-8176-3ea1cd2e3456",
+                "078405a2-8f1b-471a-90db-9fb8ac000bce",
+                "3612dcc6-7d1d-419b-8785-8ea42fc51433",
+                "1d174b78-cb42-4f84-ac58-81073a2bb6ec",
+                "f536f7e3-4d56-4fad-8b8f-9eee578c09e5",
+                "5d220dca-c4dd-4a4e-acea-70da02c1d759"
+            ]
+        }
+    ]
+}

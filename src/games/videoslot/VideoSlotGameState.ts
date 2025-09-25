@@ -1,4 +1,5 @@
 import { container } from "@gl/di/container";
+import { IGameConfig } from "@gl/GameConfig";
 import { ClientCommand } from "@gl/networking/Commands";
 import NetworkManager from "@gl/networking/NetworkManager";
 import { ObservableState } from "@gl/ObservableState";
@@ -7,25 +8,28 @@ import { inject, injectable } from "inversify";
 @injectable()
 export class VideoSlotGameState {
     isMobile: boolean = false;
+    gameConfig: IGameConfig;
 
-    coins: ObservableState<number> = new ObservableState(0);
-    coinBet: ObservableState<number> = new ObservableState(1);
+    // coins: ObservableState<number> = new ObservableState(0);
+    // coinBet: ObservableState<number> = new ObservableState(1);
     coinValueList: number[] = [];
     coinValue: ObservableState<number>;
     coinValueCurrency: ObservableState<string> = new ObservableState("USD");
     betValue: ObservableState<number> = new ObservableState(0);
 
-    linesBet: ObservableState<number> = new ObservableState(10);
+    // linesBet: ObservableState<number> = new ObservableState(10);
 
-    isSound: ObservableState<boolean> = new ObservableState(true);
-    isAutoBet: ObservableState<boolean> = new ObservableState(false);
-    isFastPlay: ObservableState<boolean> = new ObservableState(false)
-    isSpaceSpin: ObservableState<boolean> = new ObservableState(false)
+    // isSound: ObservableState<boolean> = new ObservableState(true);
+    // isAutoBet: ObservableState<boolean> = new ObservableState(false);
+    // isFastPlay: ObservableState<boolean> = new ObservableState(false)
+    // isSpaceSpin: ObservableState<boolean> = new ObservableState(false)
 
-    isSpinning: ObservableState<boolean> = new ObservableState(false);
+    isSpinning: ObservableState<boolean>;
+    isReward: ObservableState<boolean> = new ObservableState(false);
     isAutoPlayRunning: ObservableState<boolean> = new ObservableState(false);
     isShowingScatterInfo: boolean = false;
     isScatterInfoShown: boolean = false;
+    isIllegalSession: ObservableState<boolean> = new ObservableState(false);
 
     isAutoSpinRunning: boolean = false;
     // Game states
@@ -58,6 +62,7 @@ export class VideoSlotGameState {
     isFastplayOn: ObservableState<boolean>;
     isAutoAdjustOn: ObservableState<boolean>;
     isSpacebarSpinOn: ObservableState<boolean>;
+    isLeftHand: ObservableState<boolean>;
 
     // Gamble state
     winCard: ObservableState<number>;
@@ -71,6 +76,8 @@ export class VideoSlotGameState {
     constructor(
         @inject("NetworkManager") private networkManager: NetworkManager
     ) {
+        this.gameConfig = networkManager.getGameConfig() as IGameConfig;
+
         // Initialize game states
         this.balance = new ObservableState(1000);
         this.betCoins = new ObservableState(1);
@@ -78,7 +85,7 @@ export class VideoSlotGameState {
         this.informationText = new ObservableState("PRESS SPIN TO START");
         this.gameWinAmount = new ObservableState(0);
         this.totalWinAmount = new ObservableState(0);
-        this.coinValueList = [0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0, 5.0]
+        this.coinValueList = [10, 20, 30, 40, 50, 100, 200, 500]
         this.coinValue = new ObservableState(this.coinValueList[0]);
         this.coinValueCurrency = new ObservableState("CNY");
 
@@ -103,6 +110,7 @@ export class VideoSlotGameState {
         this.isFastplayOn = new ObservableState(false);
         this.isAutoAdjustOn = new ObservableState(false);
         this.isSpacebarSpinOn = new ObservableState(false);
+        this.isLeftHand = new ObservableState(false);
 
         // Initialize gamble states
         this.winCard = new ObservableState(0);
@@ -116,7 +124,7 @@ export class VideoSlotGameState {
 
         // Subscribe to network events and update game states
         this.playerPick.subscribe((val) => {
-            if (val === 0) return;
+            // if (val === 0) return;
             this.networkManager.sendCommand(ClientCommand.Gamble, [val.toString()]);
         });
     }
@@ -137,11 +145,10 @@ export class VideoSlotGameState {
         this.balance.set(this.balance.get() - totalBet);
         this.gameWinAmount.set(0);
         this.totalWinAmount.set(0);
-        const network = container.get<NetworkManager>('NetworkManager');
-        network.sendCommand(ClientCommand.Spin, [
+        this.networkManager.sendCommand(ClientCommand.Spin, [
             this.betCoins.get().toString(),
             this.betLines.get().toString(),
-            (this.coinValue.get() * 100).toString(),
+            (this.coinValue.get()).toString(),
             "1"
         ])
     }

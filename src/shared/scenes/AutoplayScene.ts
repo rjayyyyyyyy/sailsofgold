@@ -244,6 +244,8 @@ export default class AutoplayScene extends Phaser.Scene {
 	private gameConfig!: IGameConfig;
 
 	create() {
+		
+		this.scene.bringToTop()
 		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
 
 		this.editorCreate();

@@ -6,6 +6,8 @@ import { ClientCommand, Command, ServerCommand } from "./Commands";
 import { Request } from "./Request";
 import { FeatureType, FeatureAwardType } from "./FeatureType";
 import { IGameConfig } from "@gl/GameConfig";
+import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
+import { container } from "@gl/di/container";
 
 @injectable()
 class NetworkManager {
@@ -19,6 +21,7 @@ class NetworkManager {
     private gameHistory: string = "";
 
     public gameConfig: IGameConfig | null = null;
+    private GameState: VideoSlotGameState;
 
     // DEBUG Properties
     public _token: string = "";
@@ -75,6 +78,7 @@ class NetworkManager {
 
         Dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
             this.logger.trace(`GAME_IN: ${command.type}`);
+            this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
             switch(command.type){
                 case ServerCommand.NewSessionId:
                     this.logger.info("New Session ID received");
@@ -113,7 +117,24 @@ class NetworkManager {
 
                 case ServerCommand.IllegalSessionId:
                     console.log("Illegal Session Id", command.getString(0));
+                    this.GameState.isIllegalSession.set(true);
                     Dispatcher.emit(EVENTS.ILLEGAL_SESSION_ID);
+                    break;
+
+                case ServerCommand.BuyinStatus:
+                    console.log("BuyinStatus", command.getString(0));
+                    this.GameState.balance.set(parseInt(command.getString(0)));
+                    console.log(this.GameState.balance.get())
+                    break
+
+                case ServerCommand.Denominations:
+                    console.log("Denominations length", command.length);
+                    let denoms = [];
+                    for(let i = 1; i < command.length - 1; i++){
+                        denoms.push(parseInt(command.getString(i)));
+                    }
+                    this.GameState.coinValueList = denoms;
+                    console.log(this.GameState.coinValueList)
                     break;
             }
         });

@@ -35,8 +35,8 @@
                 {
                     "type": "Text",
                     "id": "9becd113-af9e-498a-8465-df1529676b8c",
-                    "label": "text_1",
-                    "scope": "CLASS",
+                    "label": "txtButton",
+                    "scope": "PUBLIC",
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "New text",

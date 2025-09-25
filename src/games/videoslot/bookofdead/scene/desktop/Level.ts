@@ -13,6 +13,7 @@ import PaytableScene from "./PaytableScene";
 import AutoplayScene from "@shared/scenes/AutoplayScene";
 import GambleScene from "./GambleScene";
 import ScatterScene from "./ScatterScene";
+import PopupScene from "./PopupScene";
 
 // container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
@@ -20,6 +21,7 @@ container.bind<PaytableScene>("PaytableScene").to(PaytableScene).inSingletonScop
 container.bind<AutoplayScene>("AutoplayScene").to(AutoplayScene).inSingletonScope();
 container.bind<GambleScene>("GambleScene").to(GambleScene).inSingletonScope();
 container.bind<ScatterScene>("ScatterScene").to(ScatterScene).inSingletonScope();
+container.bind<PopupScene>("PopupScene").to(PopupScene).inSingletonScope();
 
 /* END-USER-IMPORTS */
 
@@ -293,10 +295,10 @@ export default class Level extends Phaser.Scene {
 
 	// Write your code here
 	private toggleVfx!: any;
-	private gameState!: VideoSlotGameState;
+	private GameState!: VideoSlotGameState;
 
 	init() {
-		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
+		this.GameState = container.get<VideoSlotGameState>('VideoSlotGameState');
 	}
 
 	preload() {
@@ -305,56 +307,153 @@ export default class Level extends Phaser.Scene {
 		this.scene.add('AutoplayScene', container.get<Phaser.Scene>('AutoplayScene'), true);
 		this.scene.add('GambleScene', container.get<Phaser.Scene>('GambleScene'), true);
 		this.scene.add('ScatterScene', container.get<Phaser.Scene>('ScatterScene'), true);
+		this.scene.add('PopupScene', container.get<Phaser.Scene>('PopupScene'), true);
 
-		this.gameState.isShowingAutoplay.subscribe((val) => {
-			if (val) {
-				console.log("show Autoplay")
-				this.scene.launch("AutoplayScene");
-			} else {
-				console.log("hide Autoplay")
-				this.scene.stop("AutoplayScene");
-			}
-		});
+		setTimeout(() => {
+			this.GameState.isShowingAutoplay.subscribe((val) => {
+				if (val) {
+					console.log("show Autoplay")
+					this.scene.launch("AutoplayScene");
+				} else {
+					console.log("hide Autoplay")
+					this.scene.stop("AutoplayScene");
+				}
+			});
+	
+			this.GameState.isShowingMenu.subscribe((val) => {
+				if (val) {
+					console.log("show Menu")
+					this.scene.launch("MenuScene");
+				} else {
+					console.log("hide Menu")
+					this.scene.stop("MenuScene");
+				}
+			});
+	
+			this.GameState.isShowingPaytable.subscribe((val) => {
+				if (val) {
+					console.log("show Paytable")
+					this.scene.launch("PaytableScene");
+				} else {
+					console.log("hide Paytable")
+					this.scene.stop("PaytableScene");
+				}
+			});
+	
+			this.GameState.isShowingGamble.subscribe((val) => {
+				if (val) {
+					console.log("show Gamble")
+					this.scene.launch("GambleScene");
+				} else {
+					console.log("hide Gamble")
+					this.scene.stop("GambleScene");
+				}
+			});
+	
+			this.GameState.isShowingScatter.subscribe((val) => {
+				if (val) {
+					console.log("show Scatter")
+					this.scene.launch("ScatterScene");
+				} else {
+					console.log("hide Scatter")
+					this.scene.stop("ScatterScene");
+				}
+			});
+			
+			this.GameState.isIllegalSession.subscribe((val) => {
+				if (val) {
+					console.log("show Popup")
+					this.scene.launch("PopupScene");
+				} else {
+					console.log("hide Popup")
+					this.scene.stop("PopupScene");
+				}
+			});
+	
+			this.GameState.isSpinning.subscribe((val) => {
+				if (val) {
+					console.log("show Spin")
+					this.setButtonInteractive(this.spinBtn.btnButton, false);
+					this.setButtonInteractive(this.denominationBtn, false);
+					this.setButtonInteractive(this.gambleBtn.btnButton, false);
+					this.setButtonInteractive(this.collectBtn.btnButton, false);
+					this.setButtonInteractive(this.betCoins.btnDecrease, false);
+					this.setButtonInteractive(this.betCoins.btnIncrease, false);
+					this.setButtonInteractive(this.betLines.btnDecrease, false);
+					this.setButtonInteractive(this.betLines.btnIncrease, false);
+					this.setButtonInteractive(this.betmaxBtn.btnButton, false);
+					this.setButtonInteractive(this.autoplayBtn.btnButton, false);
+					this.setButtonInteractive(this.paytableBtn.btnButton, false);
+					setTimeout(	() => {
+						this.GameState.isSpinning.set(false);
+					}, 1000);
+				} else {
+					console.log("hide Spin")
+					this.setButtonInteractive(this.spinBtn.btnButton, true);
+					this.setButtonInteractive(this.denominationBtn, true);
+					this.setButtonInteractive(this.betmaxBtn.btnButton, true);
+					this.setButtonInteractive(this.autoplayBtn.btnButton, true);
+					this.setButtonInteractive(this.paytableBtn.btnButton, true);
+					
+					if (this.GameState.betCoins.get() <= 1) {
+						this.setButtonInteractive(this.betCoins.btnDecrease, false);
+					} else {
+						this.setButtonInteractive(this.betCoins.btnDecrease, true);
+					}
+					if (this.GameState.betCoins.get() >= 5) {
+						this.setButtonInteractive(this.betCoins.btnIncrease, false);
+					} else {
+						this.setButtonInteractive(this.betCoins.btnIncrease, true);
+					}
+					if (this.GameState.betLines.get() <= 1) {
+						this.setButtonInteractive(this.betLines.btnDecrease, false);
+					} else {
+						this.setButtonInteractive(this.betLines.btnDecrease, true);
+					}
+					if (this.GameState.betLines.get() >= 10) {
+						this.setButtonInteractive(this.betLines.btnIncrease, false);
+					} else {
+						this.setButtonInteractive(this.betLines.btnIncrease, true);
+					} 
+				}
+			});
 
-		this.gameState.isShowingMenu.subscribe((val) => {
-			if (val) {
-				console.log("show Menu")
-				this.scene.launch("MenuScene");
-			} else {
-				console.log("hide Menu")
-				this.scene.stop("MenuScene");
-			}
-		});
+			this.GameState.isReward.subscribe((val) => {
+				if (val) {
+					console.log("show Reward")
+					this.gambleBtn.setVisible(true);
+					this.collectBtn.setVisible(true);
+					this.betmaxBtn.setVisible(false);
+					this.autoplayBtn.setVisible(false);
+				} else {
+					console.log("hide Reward")
+					this.gambleBtn.setVisible(false);
+					this.collectBtn.setVisible(false);
+					this.betmaxBtn.setVisible(true);
+					this.autoplayBtn.setVisible(true);
+				}
+			});
 
-		this.gameState.isShowingPaytable.subscribe((val) => {
-			if (val) {
-				console.log("show Paytable")
-				this.scene.launch("PaytableScene");
-			} else {
-				console.log("hide Paytable")
-				this.scene.stop("PaytableScene");
-			}
-		});
-
-		this.gameState.isShowingGamble.subscribe((val) => {
-			if (val) {
-				console.log("show Gamble")
-				this.scene.launch("GambleScene");
-			} else {
-				console.log("hide Gamble")
-				this.scene.stop("GambleScene");
-			}
-		});
-
-		this.gameState.isShowingScatter.subscribe((val) => {
-			if (val) {
-				console.log("show Scatter")
-				this.scene.launch("ScatterScene");
-			} else {
-				console.log("hide Scatter")
-				this.scene.stop("ScatterScene");
-			}
-		});
+			// Autoplay state
+			this.GameState.isAutoPlayRunning.subscribe((isAutoPlayRunning) => {
+				if (isAutoPlayRunning) {
+					this.spinBtn.setVisible(false);
+					this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_STOP'])
+					this.bgAutoplay.setVisible(true);
+					this.txtAutoplay.setVisible(true);
+					this.txtAutoplayValue.setVisible(true);
+				} else {
+					this.autoplayBtn.setVisible(true);
+					this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
+					this.bgAutoplay.setVisible(false);
+					this.txtAutoplay.setVisible(false);
+					this.txtAutoplayValue.setVisible(false);
+				}
+			});
+			this.GameState.activeAutoplay.subscribe((val) => {
+				this.txtAutoplayValue.setText(val.toString());
+			});
+		}, 0);
 	}
 
 	create() {
@@ -368,14 +467,14 @@ export default class Level extends Phaser.Scene {
 		console.log("Language data:", this.cache.json.get('language'));
 
 		setTimeout(() => {
-			const balance = this.gameState.balance;
-			const betCoins = this.gameState.betCoins;
-			const betLines = this.gameState.betLines;
-			const informationText = this.gameState.informationText;
-			const totalWinAmount = this.gameState.totalWinAmount;
-			const coinValueList = this.gameState.coinValueList;
-			const coinValue = this.gameState.coinValue;
-			const coinValueCurrency = this.gameState.coinValueCurrency;
+			const balance = this.GameState.balance;
+			const betCoins = this.GameState.betCoins;
+			const betLines = this.GameState.betLines;
+			const informationText = this.GameState.informationText;
+			const totalWinAmount = this.GameState.totalWinAmount;
+			const coinValueList = this.GameState.coinValueList;
+			const coinValue = this.GameState.coinValue;
+			const coinValueCurrency = this.GameState.coinValueCurrency;
 
 			// Initialize UI with current state values
 			this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * coinValue.get()}`);
@@ -409,21 +508,22 @@ export default class Level extends Phaser.Scene {
 
 			// Subscribe to state changes to update UI reactively
 			balance.subscribe((val) => {
-				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${val * coinValue.get()}`);
-				this.footerPrefab.txtBalanceValue.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${val.toString()}`);
+				let valueMoney = ((val / (this.GameState.coinValue.get() / 100) / 100).toFixed(0));
+				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${valueMoney}`);
+				this.footerPrefab.txtBalanceValue.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${(val / 100).toString()}`);
 			});
 
 			betCoins.subscribe((val) => {
 				this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
 				this.betCoins.txtBetValue.setText(val.toString());
-				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * coinValue.get() * betLines.get()).toFixed(2)}`);
+				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * (coinValue.get() / 100) * betLines.get()).toFixed(2)}`);
 				this.updateBetButtons(val, this.betCoins, 1, 5);
 			});
 
 			betLines.subscribe((val) => {
 				this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
 				this.betLines.txtBetValue.setText(val.toString());
-				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * coinValue.get()).toFixed(2)}`);
+				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * (coinValue.get() / 100)).toFixed(2)}`);
 				this.updateBetButtons(val, this.betLines, 1, 10);
 			});
 
@@ -432,9 +532,10 @@ export default class Level extends Phaser.Scene {
 			});
 
 			coinValue.subscribe((val) => {
-				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * val}`);
-				this.txtDenomination.setText(`${coinValueCurrency.get()} ${val.toFixed(2)}`);
-				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * betLines.get()).toFixed(2)}`);
+				let valueMoney = ((this.GameState.balance.get() / (val / 100) / 100).toFixed(0));
+				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${valueMoney}`);
+				this.txtDenomination.setText(`${coinValueCurrency.get()} ${(val / 100).toFixed(2)}`);
+				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${((val / 100) * betCoins.get() * betLines.get()).toFixed(2)}`);
 			});
 
 			totalWinAmount.subscribe((val) => {
@@ -444,70 +545,84 @@ export default class Level extends Phaser.Scene {
 
 		// Denomination (coin value)
 		this.denominationBtn.on('pointerdown', () => {
-			const currentIndex = this.gameState.coinValueList.indexOf(this.gameState.coinValue.get());
-			const nextIndex = (currentIndex + 1) % this.gameState.coinValueList.length;
-			this.gameState.coinValue.set(this.gameState.coinValueList[nextIndex]);
+			const currentIndex = this.GameState.coinValueList.indexOf(this.GameState.coinValue.get());
+			const nextIndex = (currentIndex + 1) % this.GameState.coinValueList.length;
+			this.GameState.coinValue.set(this.GameState.coinValueList[nextIndex]);
 			this.addButtonTween(this, this.denominationBtn, [ this.txtDenomination, this.txtCoinValueText ] );
 		});
 
 		// Paytable
 		this.paytableBtn.btnButton.on('pointerdown', () => {
-			const current = this.gameState.isShowingPaytable.get();
-      		this.gameState.isShowingPaytable.set(!current);
+			const current = this.GameState.isShowingPaytable.get();
+      		this.GameState.isShowingPaytable.set(!current);
 		});
 
 
 		// Bet Coins
 		this.betCoins.btnDecrease.on('pointerdown', () => {
-			let currentBet = this.gameState.betCoins.get();
+			let currentBet = this.GameState.betCoins.get();
 			if (currentBet > 1) {
 				currentBet -= 1;
-				this.gameState.betCoins.set(currentBet);
+				this.GameState.betCoins.set(currentBet);
 			}
 		});
 
 		this.betCoins.btnIncrease.on('pointerdown', () => {
-			let currentBet = this.gameState.betCoins.get();
+			let currentBet = this.GameState.betCoins.get();
 			currentBet += 1;
-			this.gameState.betCoins.set(currentBet);
+			this.GameState.betCoins.set(currentBet);
 		});
 
 		// Bet Lines
 		this.betLines.btnDecrease.on('pointerdown', () => {
-			let currentBet = this.gameState.betLines.get();
+			let currentBet = this.GameState.betLines.get();
 			if (currentBet > 1) {
 				currentBet -= 1;
-				this.gameState.betLines.set(currentBet);
+				this.GameState.betLines.set(currentBet);
 			}
 		});
 
 		this.betLines.btnIncrease.on('pointerdown', () => {
-			let currentBet = this.gameState.betLines.get();
+			let currentBet = this.GameState.betLines.get();
 			currentBet += 1;
-			this.gameState.betLines.set(currentBet);
+			this.GameState.betLines.set(currentBet);
 		});
 
 		// Bet Max
 		this.betmaxBtn.btnButton.on('pointerdown', () => {
-			this.gameState.betLines.set(10);
-			this.gameState.betCoins.set(5);
+			this.GameState.betLines.set(10);
+			this.GameState.betCoins.set(5);
 		});
 
 		// Spin
 		this.spinBtn.btnButton.on('pointerdown', () => {
-			this.gameState.startSpin();
+			this.GameState.startSpin();
 		});
 
 		// Autoplay
 		this.autoplayBtn.btnButton.on('pointerdown', () => {
-			const current = this.gameState.isShowingAutoplay.get();
-	  		this.gameState.isShowingAutoplay.set(!current);
+			if(this.GameState.isShowingAutoplay.get()) {
+				this.GameState.isShowingAutoplay.set(false);
+			}
+			const current = this.GameState.isShowingAutoplay.get();
+	  		this.GameState.isShowingAutoplay.set(!current);
+		});
+
+		// Gamble
+		this.gambleBtn.btnButton.on('pointerdown', () => {
+			this.GameState.isShowingGamble.set(true);
+		});
+
+		// Collect
+		this.collectBtn.btnButton.on('pointerdown', () => {
+			this.GameState.playerPick.set(0);
+			this.GameState.isShowingGamble.set(false);
 		});
 
 		// Footer menu
 		this.footerPrefab.btnMenu.on('pointerdown', () => {
-			const current = this.gameState.isShowingMenu.get();
-      		this.gameState.isShowingMenu.set(!current);
+			const current = this.GameState.isShowingMenu.get();
+      		this.GameState.isShowingMenu.set(!current);
 		});
 	}
 
@@ -546,6 +661,16 @@ export default class Level extends Phaser.Scene {
 
 		sprite.on("pointerdown", () => playTween(-0.1));
 		["pointerup"].forEach(evt => sprite.on(evt, () => playTween(0.1)));
+	}
+
+	setButtonInteractive(btn: Phaser.GameObjects.Sprite, isInteractive: boolean){
+		if(isInteractive){
+			btn.setInteractive();
+			btn.setTint(0xffffff);
+		} else {
+			btn.disableInteractive();
+			btn.setTint(0x888888);
+		}
 	}
 	/* END-USER-CODE */
 }

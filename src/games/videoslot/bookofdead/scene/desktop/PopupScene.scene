@@ -1,0 +1,117 @@
+{
+    "id": "fd42a5e0-2565-412e-bc41-7aa567d628ec",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "PopupScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "d88b3914-1fad-4d78-8c68-d51c88cd5634",
+            "label": "backgroundBlack",
+            "x": 640,
+            "y": 360,
+            "scaleX": 13,
+            "scaleY": 8,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 0.5,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "3b517551-2ec8-4407-9c2f-87744b92a2c6",
+            "label": "fB_png",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "FB.png"
+            },
+            "x": 640,
+            "y": 360,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "8886d8bb-8111-43d8-8b84-ebb796fdbe40",
+            "label": "txtTitleTimeout",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 236,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_SERVER_NOSESSION",
+            "align": "center",
+            "fontFamily": "ROBOTO-CONDENSED-BOLD",
+            "fontSize": "48px",
+            "fontStyle": "bold",
+            "color": "#EBB122"
+        },
+        {
+            "type": "Text",
+            "id": "d15e570d-6fe8-4d03-9d8e-6e73d1483883",
+            "label": "txtTimeout",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 359,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_SERVER_NOSESSIONTEXT",
+            "align": "center",
+            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontSize": "36px",
+            "color": "#ffffff",
+            "wordWrapWidth": 850,
+            "wordWrapUseAdvanced": true
+        },
+        {
+            "type": "Image",
+            "id": "d96d7f67-cf8d-4304-950e-c947f3052815",
+            "label": "btnExit",
+            "scope": "CLASS",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "OB.png"
+            },
+            "x": 639,
+            "y": 485,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "aaab4774-b9fa-4941-9a49-69674b6171c0",
+            "label": "txtExit",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 485,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_BTN_EXIT",
+            "align": "center",
+            "fontFamily": "ROBOTO-CONDENSED-BOLD",
+            "fontSize": "32px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

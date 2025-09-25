@@ -5,6 +5,7 @@ import Level from './scene/desktop/Level';
 import { container } from '@gl/di/container';
 import { VideoSlotGameState } from '../VideoSlotGameState';
 import VideoSlotReelsManager from '../VideoSlotReelsManager';
+import MobileLevel from './scene/mobile/MobileLevel';
 
 const gameId = "310";
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
@@ -53,6 +54,7 @@ const BookOfDeadGameDefinition: IGameDefinition = {
       // Load Mobile Scene
       logger.info("Loading mobile scene...");
       gameInstance.gameState.isMobile = true;
+      game.scene.add('MobileLevel', MobileLevel, true);
     }
   },
 

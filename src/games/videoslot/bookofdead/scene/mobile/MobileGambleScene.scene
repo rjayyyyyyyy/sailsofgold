@@ -1,0 +1,241 @@
+{
+    "id": "0a3ada1d-c102-4f36-8807-6250b17506b6",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MobileGambleScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 720,
+        "borderHeight": 1280
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "3ec8fa68-cd32-4c3d-8811-90b60bb4a2c2",
+            "label": "aF_png",
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "AF.png"
+            },
+            "x": 360,
+            "y": 560
+        },
+        {
+            "type": "Text",
+            "id": "81899807-d117-456c-9bdb-c3eaa6170719",
+            "label": "txtInformation",
+            "scope": "CLASS",
+            "x": 361,
+            "y": 448,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_VP_BONUS2",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Text",
+            "id": "4bb043b3-999f-4a00-8bab-7d52c47e4d50",
+            "label": "txtColorpays",
+            "scope": "CLASS",
+            "x": 197,
+            "y": 479,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_COLORPAYS",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "12px",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Text",
+            "id": "dc8e996c-c8a7-478b-8932-362f833af98b",
+            "label": "txtSuitpays",
+            "scope": "CLASS",
+            "x": 525,
+            "y": 480,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_SUITPAYS",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "12px",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Text",
+            "id": "66131cc7-7d79-432b-8599-a1d26d5084eb",
+            "label": "txtColorpaysValue",
+            "scope": "CLASS",
+            "x": 197,
+            "y": 507,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Text",
+            "id": "5027a497-9437-44bb-a987-b6af77e055fe",
+            "label": "txtSuitpaysValue",
+            "scope": "CLASS",
+            "x": 525,
+            "y": 507,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Text",
+            "id": "8b6741d4-b96c-4d68-91f3-cc979ba4667d",
+            "label": "txtPrevCard",
+            "scope": "CLASS",
+            "x": 175,
+            "y": 672,
+            "originY": 0.5,
+            "text": "IDS_PREVIOUSCARDS",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Sprite",
+            "id": "bd4872d5-c494-4d73-a378-1f3c12d1a061",
+            "label": "btnRed",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 217,
+            "hitArea.height": 96,
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "II.png"
+            },
+            "x": 197,
+            "y": 561
+        },
+        {
+            "type": "Text",
+            "id": "da30a128-4ea7-4b12-98cd-35127262ab72",
+            "label": "txtRed",
+            "scope": "CLASS",
+            "x": 197,
+            "y": 561,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_INFO_RED",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Sprite",
+            "id": "38f43b1e-d37b-4c42-ab92-a6e5d47b0dc4",
+            "label": "btnBlack",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 217,
+            "hitArea.height": 96,
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "GI.png"
+            },
+            "x": 197,
+            "y": 616
+        },
+        {
+            "type": "Text",
+            "id": "4fc481d3-3ebd-40d8-8bb7-fa83be697e74",
+            "label": "txtBlack",
+            "scope": "CLASS",
+            "x": 197,
+            "y": 616,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_INFO_BLACK",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "color": "#FFF59F"
+        },
+        {
+            "type": "Sprite",
+            "id": "82b4dfc2-71a5-484c-95ae-51d100ee2e95",
+            "label": "cardReveal",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "PG.png"
+            },
+            "x": 360,
+            "y": 560
+        },
+        {
+            "type": "Sprite",
+            "id": "60fc420d-d71b-43da-8c70-4e6c92ecd50b",
+            "label": "btnHeart",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 97,
+            "hitArea.height": 98,
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "OG.png"
+            },
+            "x": 495,
+            "y": 562
+        },
+        {
+            "type": "Sprite",
+            "id": "74163e90-8122-4bd2-bebd-87fd921a997a",
+            "label": "btnDiamond",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 97,
+            "hitArea.height": 98,
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "NG.png"
+            },
+            "x": 555,
+            "y": 562
+        },
+        {
+            "type": "Sprite",
+            "id": "77cbdd62-6fb8-4220-8fd7-002017c20cb2",
+            "label": "btnClub",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 97,
+            "hitArea.height": 98,
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "MG.png"
+            },
+            "x": 495,
+            "y": 617
+        },
+        {
+            "type": "Sprite",
+            "id": "0d7f5fb3-d1c4-4456-8735-05076e21703b",
+            "label": "btnSpade",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 97,
+            "hitArea.height": 98,
+            "texture": {
+                "key": "skin_texture3_level2",
+                "frame": "LG.png"
+            },
+            "x": 555,
+            "y": 617
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

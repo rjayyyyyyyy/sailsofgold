@@ -1,0 +1,148 @@
+{
+    "id": "c7715e6a-351e-4b83-9848-103955f95a08",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 720,
+        "borderHeight": 1280
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "a9e2972f-667d-4d64-a9fd-9d1dc4ad722a",
+            "label": "container_1",
+            "x": 238,
+            "y": 193.7062544272801,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "fb6fbf0a-e1ae-49cd-bcfe-52d652b69220",
+                    "label": "bottomBg_png",
+                    "texture": {
+                        "key": "ui_mobile01",
+                        "frame": "bottomBg.png"
+                    },
+                    "x": 125,
+                    "y": -31,
+                    "scaleX": 1.15,
+                    "scaleY": 0.7,
+                    "tintTopLeft": "#444444",
+                    "tintTopRight": "#444444"
+                },
+                {
+                    "type": "Image",
+                    "id": "c1c2c235-6396-43d8-8226-adb5692294c4",
+                    "label": "bottomBg_png_1",
+                    "texture": {
+                        "key": "ui_mobile01",
+                        "frame": "bottomBg.png"
+                    },
+                    "x": 125,
+                    "y": -140,
+                    "scaleX": 1.15,
+                    "scaleY": 0.6
+                },
+                {
+                    "type": "Text",
+                    "id": "0240c089-80d5-47af-ad7e-da375eec9265",
+                    "label": "txtCoinsText",
+                    "scope": "PUBLIC",
+                    "x": -135,
+                    "y": -139,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originY": 0.5,
+                    "text": "IDS_COINS_CAPTION",
+                    "fontFamily": "OSWALD-REGULAR",
+                    "fontSize": "48px"
+                },
+                {
+                    "type": "Text",
+                    "id": "3ff15ddd-5170-48af-9000-b69328d564aa",
+                    "label": "txtBetText",
+                    "scope": "PUBLIC",
+                    "x": 215,
+                    "y": -139,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originY": 0.5,
+                    "text": "IDS_BET_CAPTION",
+                    "fontFamily": "OSWALD-REGULAR",
+                    "fontSize": "48px"
+                },
+                {
+                    "type": "Text",
+                    "id": "501c2527-19f5-4ef1-83df-37bf6fa1c300",
+                    "label": "txtBalanceText",
+                    "scope": "PUBLIC",
+                    "x": -215,
+                    "y": -49,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originY": 0.5,
+                    "text": "IDS_BALANCE_CAPTION",
+                    "fontFamily": "OSWALD-REGULAR",
+                    "fontSize": "48px",
+                    "color": "#AAAAAA"
+                },
+                {
+                    "type": "Text",
+                    "id": "e6aa6c86-0cfb-45b5-99c1-9ce7a755503e",
+                    "label": "txtBalanceBetText",
+                    "scope": "PUBLIC",
+                    "x": -215,
+                    "y": -9,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originY": 0.5,
+                    "text": "IDS_BET_CAPTION",
+                    "fontFamily": "OSWALD-REGULAR",
+                    "fontSize": "48px",
+                    "color": "#AAAAAA"
+                },
+                {
+                    "type": "Text",
+                    "id": "7de0e625-9a7d-400d-b4c2-09337d902bab",
+                    "label": "txtWinText",
+                    "scope": "PUBLIC",
+                    "x": 315,
+                    "y": -9,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originY": 0.5,
+                    "text": "IDS_WIN_CAPTION",
+                    "fontFamily": "OSWALD-REGULAR",
+                    "fontSize": "48px",
+                    "color": "#AAAAAA"
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0cecacd0-857d-42de-a7a6-ad2d920bf064",
+                    "label": "btnMenu",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 93,
+                    "hitArea.height": 93,
+                    "texture": {
+                        "key": "ui_elements",
+                        "frame": "menuImg.png"
+                    },
+                    "x": 440,
+                    "y": -139
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
