@@ -190,7 +190,7 @@ export default class Reels extends Phaser.Scene {
 		/* START-USER-CTR-CODE */
 		// Write your code here.
         this.machine2 = null;
-        this.containers = null;
+        this.containers = [];
         this.symbolList = [];
         this.winSymbolList = [];
         this.freeSymbolList = [];
@@ -236,7 +236,7 @@ export default class Reels extends Phaser.Scene {
     freeSymbolList: SymbolTextureSet[];
 	// Write your code here
     machine2: Phaser.GameObjects.Sprite | null;
-    containers: ReelsContainer[] | null;
+    containers: ReelsContainer[];
     containerBlur: Phaser.FX.Blur[] = [];
     columnTween: Phaser.Tweens.Tween[] = [];
     blurTween: Phaser.Tweens.Tween[] = [];

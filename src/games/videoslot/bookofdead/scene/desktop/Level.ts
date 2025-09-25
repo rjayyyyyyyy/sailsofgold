@@ -13,6 +13,7 @@ import PaytableScene from "./PaytableScene";
 import AutoplayScene from "@shared/scenes/AutoplayScene";
 import GambleScene from "./GambleScene";
 import ScatterScene from "./ScatterScene";
+import Dispatcher, { ACTION_EVENTS } from "@gl/events/Dispatcher";
 
 // container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
@@ -495,7 +496,8 @@ export default class Level extends Phaser.Scene {
 
 		// Spin
 		this.spinBtn.btnButton.on('pointerdown', () => {
-			this.gameState.startSpin();
+			if(this.gameState.isSpinning && !this.gameState.isAutoPlayRunning) return;
+            Dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
 
 		// Autoplay

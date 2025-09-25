@@ -108,7 +108,7 @@ class NetworkManager {
 
                 case ServerCommand.CriticalError:
                     console.log("Critical Error", command.getString(0));
-                    this.packetHandler.disable();
+                    // this.packetHandler.disable();
                     break;
 
                 case ServerCommand.IllegalSessionId:
