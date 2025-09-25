@@ -2,14 +2,17 @@
     "id": "19ce1da9-f77e-486f-a6ba-2aecf4bf1ab6",
     "sceneType": "SCENE",
     "settings": {
+        "snapEnabled": true,
+        "snapWidth": 1296,
+        "snapHeight": 751,
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
         "sceneKey": "Reels",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 1600,
-        "borderHeight": 900
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
@@ -21,10 +24,10 @@
                 "key": "skin_texture1_level0",
                 "frame": "HG.png"
             },
-            "x": 800,
-            "y": 410,
-            "scaleX": 0.85,
-            "scaleY": 0.85
+            "x": 640,
+            "y": 320,
+            "scaleX": 0.625,
+            "scaleY": 0.625
         },
         {
             "type": "Image",

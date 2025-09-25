@@ -55,12 +55,12 @@ class ReelsContainer extends Phaser.GameObjects.Container {
         //     options.symbolHeight = 110
         //     console.log(options.symbolHeight)
         // }
-        
+
         let symbols = [];
 
         for(let i=0;i<5;i++) {
             const symbol = this.GameState.isMobile ? symbolTexturesMobile[i] : scene.symbolList[i];
-            this.ReelsManager.symbolHeight = this.GameState.isMobile ? 100 : 200
+            this.ReelsManager.symbolHeight = this.GameState.isMobile ? 125 : 150
 
             symbols.push(this.symbolSprite(0, this.ReelsManager.symbolHeight * i, symbol[0], symbol[1], x, this.ReelsManager.symbolHeight * i))
         }
@@ -96,7 +96,7 @@ class ReelsContainer extends Phaser.GameObjects.Container {
         let container = this.scene.add.container(xCon - 125, yCon + 25).setVisible(false).setDepth(2)
         this.paytable(container, frame)
         return this.scene.add.sprite(x, y, texture, frame)
-                .setScale(this.GameState.isMobile ? .8 : 1)
+                .setScale(this.GameState.isMobile ? 1 : .725)
                 .setInteractive()
                 .on('pointerdown', () => {
                     container.visible ? container.setVisible(false) : container.setVisible(true);
@@ -176,15 +176,17 @@ class ReelsContainer extends Phaser.GameObjects.Container {
 /* START OF COMPILED CODE */
 
 import ReelPrefab from "../bookofdead/scene/prefab/ReelPrefab";
+/* START-USER-IMPORTS */
 import { VideoSlotGameState } from "../VideoSlotGameState";
 import VideoSlotReelsManager from "../VideoSlotReelsManager";
 import { Logger } from "@gl/Logger";
-/* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
 export default class Reels extends Phaser.Scene {
+
 	constructor() {
 		super("Reels");
+
 		/* START-USER-CTR-CODE */
 		// Write your code here.
         this.machine2 = null;
@@ -200,9 +202,9 @@ export default class Reels extends Phaser.Scene {
 	editorCreate(): void {
 
 		// machine
-		const machine = this.add.image(800, 410, "skin_texture1_level0", "HG.png");
-		machine.scaleX = 0.85;
-		machine.scaleY = 0.85;
+		const machine = this.add.image(640, 320, "skin_texture1_level0", "HG.png");
+		machine.scaleX = 0.625;
+		machine.scaleY = 0.625;
 
 		// machineMobile
 		const machineMobile = this.add.image(270, 395, "skin_texture1_level2", "HG.png");
@@ -245,9 +247,9 @@ export default class Reels extends Phaser.Scene {
 
         this.logger.trace("Reels scene created");
         this.logger.trace("Is Mobile: " + this.GameState.isMobile);
-		this.machine2 = this.GameState.isMobile ? this.add.sprite(270, 395, "skin_texture1_level2", "HG.png") : this.add.sprite(800, 410, "skin_texture1_level0", "HG.png");
-		this.machine2.scaleX = this.GameState.isMobile ? 0.7 : 0.85;
-		this.machine2.scaleY = this.GameState.isMobile ? 0.7 : 0.85;
+		this.machine2 = this.GameState.isMobile ? this.add.sprite(360, 550, "skin_texture1_level2", "HG.png") : this.add.sprite(640, 320, "skin_texture1_level0", "HG.png");
+		this.machine2.scaleX = this.GameState.isMobile ? 0.9 : 0.625;
+		this.machine2.scaleY = this.GameState.isMobile ? 0.9 : 0.625;
 		this.machine2.setCrop(0, this.GameState.isMobile ? 25 : 40, 1500, this.GameState.isMobile ? 415 : 695)
 		let mach = this.machine2.createBitmapMask();
         for(let i = 0; i < 5; i++) {
@@ -277,12 +279,12 @@ export default class Reels extends Phaser.Scene {
             this.reelPrefab.sd_win_symbol_list.forEach((sprite) => {
                 this.winSymbolList.push([sprite.texture.key, sprite.frame.name]);
             });
-            
+
             this.reelPrefab.sd_free_symbol_list.forEach((sprite) => {
                 this.freeSymbolList.push([sprite.texture.key, sprite.frame.name]);
             });
         }
-        
+
 
 
         console.log("Reels SymbolList");
@@ -290,11 +292,11 @@ export default class Reels extends Phaser.Scene {
         console.log("Reels WinSymbolList");
         console.log(this.winSymbolList);
 		this.containers = [
-			new ReelsContainer(this, this.GameState.isMobile ? 270 - 210 : 800 - 424, this.GameState.isMobile ? 200 : 20),
-            new ReelsContainer(this, this.GameState.isMobile ? 270 - 105 : 800 - 212, this.GameState.isMobile ? 200 : 20),
-            new ReelsContainer(this, this.GameState.isMobile ? 270 : 800, this.GameState.isMobile ? 200 : 20),
-            new ReelsContainer(this, this.GameState.isMobile ? 270 + 105 : 800 + 212, this.GameState.isMobile ? 200 : 20),
-            new ReelsContainer(this, this.GameState.isMobile ? 270 + 210 : 800 + 424, this.GameState.isMobile ? 200 : 20)
+			new ReelsContainer(this, this.GameState.isMobile ? this.scale.width / 2 - 270 : this.scale.width / 2 - 310, this.GameState.isMobile ? 310 : 30),
+            new ReelsContainer(this, this.GameState.isMobile ? this.scale.width / 2 - 135 : this.scale.width / 2 - 155, this.GameState.isMobile ? 310 : 30),
+            new ReelsContainer(this, this.GameState.isMobile ? this.scale.width / 2 : this.scale.width / 2, this.GameState.isMobile ? 310 : 30),
+            new ReelsContainer(this, this.GameState.isMobile ? this.scale.width / 2 + 135 : this.scale.width / 2 + 155, this.GameState.isMobile ? 310 : 30),
+            new ReelsContainer(this, this.GameState.isMobile ? this.scale.width / 2 + 270 : this.scale.width / 2 + 310, this.GameState.isMobile ? 310 : 30)
 		]
 		this.containers.forEach(container => {
             container.setMask(mach);

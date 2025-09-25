@@ -23,7 +23,7 @@ type SpinQueue = {
 @injectable()
 class VideoSlotReelsManager {
 	private logger = new Logger();
-	symbolHeight: number = 200;
+	symbolHeight: number = 150;
 
 	scene: Reels;
 
