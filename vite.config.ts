@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
   const gameRootPosix = gameRoot.replace(/\\/g, '/');
 
     const isDebug = process.env.DEBUG === "true" ? true : false;
-    const queryParams = isDebug ? "?pid=100301&gid=bookofdead&lang=en_GB&currency=CNY&practice=0&user=1513-984I62U184G763O&channel=mobile&brand=carnival&ctx=ipcelectron&embedmode=iframe&origin=https%3A%2F%2Flauncher.lydrst.com&debug=1" : "";
+    const queryParams = isDebug ? "?pid=8872&gameid=100310&lang=en_GB&practice=0&brand=&ctx=&jurisdiction=&platform=megaton&currency=EUR&country=&channel=mobile&debug=1" : "";
   
   return {
     base: `./`,
@@ -53,7 +53,12 @@ export default defineConfig(({ mode }) => {
       outDir: `dist/${game}`,
       rollupOptions: {
         // input: resolve(__dirname, `/src/games/slotgame/${game}/index.html`)
-        input: resolve(__dirname, `index.html`)
+        input: resolve(__dirname, `index.html`),
+        output: {
+          manualChunks: {
+            phaser: ['phaser']
+          }
+        }
       }
     },
   };

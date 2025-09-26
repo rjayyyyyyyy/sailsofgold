@@ -1,0 +1,121 @@
+{
+    "id": "1701e847-8c04-41ca-acec-f3ccd85c051d",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1600,
+        "borderHeight": 900
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "f53228b6-7628-497f-b628-9a1c01461c88",
+            "label": "container_1",
+            "x": 15,
+            "y": 30,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "4d17e0d1-6bd6-4838-8a84-522f064bef60",
+                    "label": "bgBet",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "menu_texture0_level0",
+                        "frame": "CB.png"
+                    },
+                    "x": 85
+                },
+                {
+                    "type": "Sprite",
+                    "id": "17bfc6b3-834a-41eb-9397-26da93f16083",
+                    "label": "btnDecrease",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "PIXEL_PERFECT",
+                    "texture": {
+                        "key": "menu_texture1_level0",
+                        "frame": "VB.png"
+                    },
+                    "x": 10
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0180199b-975f-463a-8b58-ffd3d07528af",
+                    "label": "btnIncrease",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "PIXEL_PERFECT",
+                    "texture": {
+                        "key": "menu_texture1_level0",
+                        "frame": "TB.png"
+                    },
+                    "x": 160
+                },
+                {
+                    "type": "Text",
+                    "id": "50021c3d-9c9d-4bd3-991a-8f3ed7533ca4",
+                    "label": "txtBetTitle",
+                    "scope": "CLASS",
+                    "x": 85,
+                    "y": -12,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "COINS",
+                    "fontFamily": "FLANKER_GRIFFO",
+                    "fontSize": "32px",
+                    "color": "#F7EDA1"
+                },
+                {
+                    "type": "Text",
+                    "id": "f148bbe9-6a10-49fc-bdb0-35d550c4d2a4",
+                    "label": "txtBetValue",
+                    "scope": "PUBLIC",
+                    "x": 85,
+                    "y": 10,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "1",
+                    "fontFamily": "FLANKER_GRIFFO",
+                    "fontSize": "52px",
+                    "color": "#F7EDA1"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "title",
+            "label": "title",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "value",
+            "label": "value",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

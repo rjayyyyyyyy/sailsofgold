@@ -1,0 +1,529 @@
+{
+    "id": "5ee4020f-b492-4ae2-9888-2f05c3982c11",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MenuScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "a82c820e-aa8d-4667-a5a7-f13246cd1889",
+            "label": "backgroundBlack",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 128,
+            "hitArea.height": 128,
+            "x": 640,
+            "y": 360,
+            "scaleX": 12.5,
+            "scaleY": 7,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 0.5,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "4b1d05f6-47a7-490e-9e19-54f38468c6c1",
+            "label": "fB_png",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "FB.png"
+            },
+            "x": 640,
+            "y": 360,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "ff367f9e-caa5-40c1-a008-4b4881219a44",
+            "label": "txtTitle",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 218,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_M_SETTINGS_TITLE",
+            "fontFamily": "ROBOTO-CONDENSED-BOLD",
+            "fontSize": "40px",
+            "fontStyle": "bold",
+            "color": "#EBB122"
+        },
+        {
+            "type": "Image",
+            "id": "28f3379a-5008-4c3f-b485-52a1f90cecaa",
+            "label": "bgDenomination",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "KB.png"
+            },
+            "x": 539,
+            "y": 295,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "60e7d139-950f-4e8d-8e5c-80ae91bcbd7a",
+            "label": "plusDenomination",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 38,
+            "hitArea.height": 31,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "ZB.png"
+            },
+            "x": 540,
+            "y": 255,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "c66c8af0-be16-4ce8-8c28-3fdcf21be0ef",
+            "label": "minusDenomination",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 38,
+            "hitArea.height": 31,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "YB.png"
+            },
+            "x": 540,
+            "y": 335,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "879cbfca-6c86-4f9c-8716-557377ca0b8e",
+            "label": "txtDenominationTitle",
+            "scope": "CLASS",
+            "x": 540,
+            "y": 280,
+            "scaleX": 0.5,
+            "scaleY": 0.6,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_COINVALUE",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "22px"
+        },
+        {
+            "type": "Text",
+            "id": "79b161c3-5866-479d-bebe-2b9cf132caeb",
+            "label": "txtDenominationValue",
+            "scope": "CLASS",
+            "x": 540,
+            "y": 305,
+            "scaleX": 0.5,
+            "scaleY": 0.6,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "CNY 0.10",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "35px",
+            "color": "#e6ae22"
+        },
+        {
+            "type": "Image",
+            "id": "51bc9c99-dc0b-4bf0-9a03-82c2ab607bb5",
+            "label": "bgCoins",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "KB.png"
+            },
+            "x": 640,
+            "y": 295,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "1b485dd4-76b0-4b80-a2cd-f5d0bc8ebea0",
+            "label": "plusCoins",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 38,
+            "hitArea.height": 31,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "ZB.png"
+            },
+            "x": 640,
+            "y": 255,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "aee5ed8a-740f-474f-911f-b617c360d9a5",
+            "label": "minusCoins",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 38,
+            "hitArea.height": 31,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "YB.png"
+            },
+            "x": 640,
+            "y": 335,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "37d2bc99-19fa-42c3-b2de-aced8ecf1205",
+            "label": "txtCoinsTitle",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 280,
+            "scaleX": 0.5,
+            "scaleY": 0.6,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_SLOT_COINS",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "22px"
+        },
+        {
+            "type": "Text",
+            "id": "e0c81ce7-6d64-4912-8f05-5a0e92742699",
+            "label": "txtCoinsValue",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 305,
+            "scaleX": 0.5,
+            "scaleY": 0.6,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "35px",
+            "color": "#e6ae22"
+        },
+        {
+            "type": "Image",
+            "id": "6af3df1b-11b3-4b46-a775-f87a0fbbb195",
+            "label": "bgLines",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "KB.png"
+            },
+            "x": 740,
+            "y": 295,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "10abf9d2-ab95-4959-9d20-564ba78112b4",
+            "label": "plusLines",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 38,
+            "hitArea.height": 31,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "ZB.png"
+            },
+            "x": 740,
+            "y": 255,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "1abb2553-d80f-4ecf-8332-b94c8517201b",
+            "label": "minusLines",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 38,
+            "hitArea.height": 31,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "YB.png"
+            },
+            "x": 740,
+            "y": 335,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "4aee2d0e-94f6-4d0e-991d-62c76e3cac90",
+            "label": "txtLinesTitle",
+            "scope": "CLASS",
+            "x": 740,
+            "y": 280,
+            "scaleX": 0.5,
+            "scaleY": 0.6,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_SLOT_LINES",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "22px"
+        },
+        {
+            "type": "Text",
+            "id": "d423808b-19fc-4374-866b-69cb1267f288",
+            "label": "txtLinesValue",
+            "scope": "CLASS",
+            "x": 740,
+            "y": 305,
+            "scaleX": 0.5,
+            "scaleY": 0.6,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "35px",
+            "color": "#e6ae22"
+        },
+        {
+            "type": "Image",
+            "id": "1e8bbc9b-857a-4bec-8c14-ef487e25f98a",
+            "label": "valueSound1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 18,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 500,
+            "y": 380,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "3182dece-70b8-4c66-8cab-7e11c5195e82",
+            "label": "valueSound2",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 35,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 490,
+            "y": 380,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "675bbd9c-b67f-4cff-a53b-bbb608c60953",
+            "label": "txtSound",
+            "scope": "CLASS",
+            "x": 520,
+            "y": 380,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_M_SETTINGS_L1",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "36px"
+        },
+        {
+            "type": "Image",
+            "id": "c02dd3f3-22ab-4c0e-a22f-cd3f21820d2f",
+            "label": "valueFastPlay1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 18,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 500,
+            "y": 425,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "fa334893-c528-4590-9458-cb2007eef346",
+            "label": "valueFastPlay2",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 35,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 490,
+            "y": 425,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "f883a7cc-ec2e-4f0c-a190-54d68de462af",
+            "label": "txtFastPlay",
+            "scope": "CLASS",
+            "x": 520,
+            "y": 426,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_M_SETTINGS_L12",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "36px"
+        },
+        {
+            "type": "Image",
+            "id": "171f5b0e-0418-49c2-90b5-05b81fd4c731",
+            "label": "valueAutoAdjust1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 18,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 690,
+            "y": 380,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "af89c9a2-4045-47c6-9c43-d67ecd41f730",
+            "label": "valueAutoAdjust2",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 35,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 680,
+            "y": 380,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "d6afb78b-d587-4f2d-b4c8-a675a87b6f30",
+            "label": "txtAutoAdjust",
+            "scope": "CLASS",
+            "x": 710,
+            "y": 380,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_M_SETTINGS_L9",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "36px"
+        },
+        {
+            "type": "Image",
+            "id": "d1b4dd81-ccc0-462a-9aff-9e8c78d412c8",
+            "label": "valueSpacebar1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 18,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 690,
+            "y": 425,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "cc184b94-28f2-4e04-b14c-230129e926cc",
+            "label": "valueSpacebar2",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 36,
+            "hitArea.height": 35,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 680,
+            "y": 425,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "a127f2b5-19e4-4743-bc1a-eb7b48cf8024",
+            "label": "txtSpacebar",
+            "scope": "CLASS",
+            "x": 710,
+            "y": 425,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_M_SETTINGS_L13",
+            "fontFamily": "OSWALD-REGULAR",
+            "fontSize": "36px"
+        },
+        {
+            "type": "Image",
+            "id": "bc2d7692-61b0-4a73-a73f-2f4dd7c8874e",
+            "label": "btnOk",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 128,
+            "hitArea.height": 51,
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "MB.png"
+            },
+            "x": 640,
+            "y": 480,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "ebe85788-451d-43d3-9b16-16098a3a2356",
+            "label": "txtOk",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 480,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_BTN_OK",
+            "align": "center",
+            "fontFamily": "ROBOTO-CONDENSED-BOLD",
+            "fontSize": "40px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

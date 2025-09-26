@@ -1,0 +1,217 @@
+{
+    "id": "436ea4cd-42d8-4be1-9586-9f967ec6a255",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "5ca5a06d-7f6c-4104-95e8-790c14dc52a4",
+            "label": "container_1",
+            "x": 38,
+            "y": 14,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "e3e9c10e-6c77-402e-9975-9cc7058121c6",
+                    "label": "aB_png_1",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "statusbar_texture0_level0",
+                        "frame": "AB.png"
+                    },
+                    "x": 620
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0b18f1fe-c4d5-40d0-be17-2aa9986a7322",
+                    "label": "btnMenu",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 25,
+                    "hitArea.height": 20,
+                    "texture": {
+                        "key": "statusbar_texture0_level0",
+                        "frame": "KB.png"
+                    }
+                },
+                {
+                    "type": "Sprite",
+                    "id": "6a8de3a3-c885-4558-9953-d21919a30bf9",
+                    "label": "btnSound",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 30,
+                    "hitArea.height": 30,
+                    "texture": {
+                        "key": "statusbar_texture0_level0",
+                        "frame": "IB.png"
+                    },
+                    "x": 50
+                },
+                {
+                    "type": "Sprite",
+                    "id": "155a11f0-ca9c-416d-bfb5-5f2c8125ad3e",
+                    "label": "btnFast",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 15,
+                    "hitArea.height": 30,
+                    "texture": {
+                        "key": "statusbar_texture0_level0",
+                        "frame": "GB.png"
+                    },
+                    "x": 90
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1a7a14bb-479c-4a87-a7fb-d23d5d1a2b90",
+                    "label": "btnHelp",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 10,
+                    "hitArea.height": 20,
+                    "texture": {
+                        "key": "statusbar_texture0_level0",
+                        "frame": "DB.png"
+                    },
+                    "x": 130
+                },
+                {
+                    "type": "Sprite",
+                    "id": "aee0175a-5f17-4108-970d-e6f552b5a67e",
+                    "label": "btnHistory",
+                    "scope": "PUBLIC",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 25,
+                    "hitArea.height": 20,
+                    "texture": {
+                        "key": "statusbar_texture0_level0",
+                        "frame": "FB.png"
+                    },
+                    "x": 170
+                },
+                {
+                    "type": "Text",
+                    "id": "3063bc1f-cde9-45ef-8b48-6da95a640ece",
+                    "label": "txtBalanceValue",
+                    "scope": "PUBLIC",
+                    "x": 463.00000000000006,
+                    "originY": 0.5,
+                    "text": "Balance: CNY 1100000.00",
+                    "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+                    "color": "#aaaaaa"
+                },
+                {
+                    "type": "Text",
+                    "id": "87bcdbba-9524-4114-9a89-5037f3778b78",
+                    "label": "txtBalanceBetValue",
+                    "scope": "PUBLIC",
+                    "x": 715,
+                    "originY": 0.5,
+                    "text": "Bet: CNY 20.00",
+                    "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+                    "color": "#aaaaaa"
+                },
+                {
+                    "type": "Text",
+                    "id": "e4f5a2d0-b3a7-4196-8a3d-c00030cebf6e",
+                    "label": "txtWinValue",
+                    "scope": "PUBLIC",
+                    "x": 975,
+                    "originY": 0.5,
+                    "text": "Win: ",
+                    "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+                    "color": "#aaaaaa"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "balanceText",
+            "label": "balanceText",
+            "tooltip": "Balance",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "balanceCurrency",
+            "label": "balanceCurrency",
+            "tooltip": "CNY, USD",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "balanceValue",
+            "label": "balanceValue",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "betText",
+            "label": "betText",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "betValue",
+            "label": "betValue",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "winText",
+            "label": "winText",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "winValue",
+            "label": "winValue",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

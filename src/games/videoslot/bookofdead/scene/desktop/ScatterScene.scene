@@ -1,0 +1,200 @@
+{
+    "id": "bb018c0e-f09d-496f-b5c6-9401c8f65edd",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "ScatterScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "8c06039a-025a-40d4-9bb9-4aafdcba07e1",
+            "label": "animation",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "KH.png"
+            },
+            "x": 640,
+            "y": 360,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "animationKey": "animationBook"
+        },
+        {
+            "type": "Image",
+            "id": "f422adab-b8bf-4bf3-9bde-8ea38791d0d5",
+            "label": "bgBook",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "JL.png"
+            },
+            "x": 640,
+            "y": 360,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "8c5b02d3-b6c0-4db2-8e57-f2022dd963a3",
+            "label": "imgDeco1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "KL.png"
+            },
+            "x": 435,
+            "y": 100,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "48173fbd-51d4-4b26-b431-de8ea7abc8e1",
+            "label": "imgDeco2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "KL.png"
+            },
+            "x": 435,
+            "y": 475,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "be6447bd-963f-4a7f-b1e6-d003adbad689",
+            "label": "imgDeco3",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "KL.png"
+            },
+            "x": 855,
+            "y": 100,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "flipX": true,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "b9b43961-0868-4f21-b4aa-181f657e15c4",
+            "label": "imgDeco4",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture1_level0",
+                "frame": "KL.png"
+            },
+            "x": 855,
+            "y": 475,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "flipX": true,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "4fe6fe75-5098-4cbc-9bfe-3365873c4ec4",
+            "label": "selectedSymbol",
+            "scope": "CLASS",
+            "texture": {
+                "key": "skin_texture4_level0",
+                "frame": "DF.png"
+            },
+            "x": 435,
+            "y": 290,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "visible": false
+        },
+        {
+            "type": "Text",
+            "id": "d62cae40-f4e3-458c-839c-935e5a90ffab",
+            "label": "txtCongrats",
+            "scope": "CLASS",
+            "x": 855,
+            "y": 192,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_CONGRATULATIONS",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "22px",
+            "color": "#5c2c17"
+        },
+        {
+            "type": "Text",
+            "id": "fb40e3f8-aa44-44e5-9c37-7ad22de00949",
+            "label": "txtYouWon",
+            "scope": "CLASS",
+            "x": 855,
+            "y": 302,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_X_FREESPINS",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "40px",
+            "color": "#5c2c17",
+            "wordWrapWidth": 300,
+            "wordWrapUseAdvanced": true
+        },
+        {
+            "type": "Text",
+            "id": "ed603655-aa44-43be-a9b4-866560145c9e",
+            "label": "txtSpinBegin",
+            "scope": "CLASS",
+            "x": 855,
+            "y": 401,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_PRESSPIN",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "22px",
+            "color": "#5c2c17"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "d00a0f1e-066d-489b-946a-f0be3abc8b0c",
+            "label": "bookContent",
+            "objectIds": [
+                "8c5b02d3-b6c0-4db2-8e57-f2022dd963a3",
+                "ed603655-aa44-43be-a9b4-866560145c9e",
+                "fb40e3f8-aa44-44e5-9c37-7ad22de00949",
+                "d62cae40-f4e3-458c-839c-935e5a90ffab",
+                "4fe6fe75-5098-4cbc-9bfe-3365873c4ec4",
+                "b9b43961-0868-4f21-b4aa-181f657e15c4",
+                "be6447bd-963f-4a7f-b1e6-d003adbad689",
+                "48173fbd-51d4-4b26-b431-de8ea7abc8e1"
+            ]
+        },
+        {
+            "id": "2046d29a-598b-4bfa-a7f0-10ef579d3ebb",
+            "label": "endScatter"
+        }
+    ]
+}

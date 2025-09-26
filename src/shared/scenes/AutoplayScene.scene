@@ -1,0 +1,400 @@
+{
+    "id": "a32f970e-54d5-4309-938a-538238c9b72a",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "AutoplayScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "e50e8743-f20c-416b-9bb5-ea57a6dc1764",
+            "label": "backgroundBlack",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 128,
+            "hitArea.height": 128,
+            "x": 640,
+            "y": 360,
+            "scaleX": 12.5,
+            "scaleY": 7,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 0.5,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "01478e11-2145-4428-9446-036e240a1b81",
+            "label": "bgAutoplay",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "DB.png"
+            },
+            "x": 640,
+            "y": 360,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "e423b400-acd3-43f6-85a6-a960ba612511",
+            "label": "txtTitle",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 162,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_CAPTION",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "40px",
+            "color": "#EBB122"
+        },
+        {
+            "type": "Text",
+            "id": "3a97af2d-7ebf-4ecd-bef1-747f71f0bc65",
+            "label": "txtStopAutoplay",
+            "scope": "CLASS",
+            "x": 460,
+            "y": 237,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_STOPAUTOPLAY",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "30px"
+        },
+        {
+            "type": "Image",
+            "id": "70e10402-8b8c-4213-b9fa-539b30707f1a",
+            "label": "valueAnyWin1",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 480,
+            "y": 270
+        },
+        {
+            "type": "Image",
+            "id": "cecfc7f7-117f-41b3-9de1-63cda7eea734",
+            "label": "valueAnyWin2",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 470,
+            "y": 270
+        },
+        {
+            "type": "Text",
+            "id": "6dca7270-0aa8-487f-a669-daedeee7dc9d",
+            "label": "txtAnyWin",
+            "scope": "CLASS",
+            "x": 507,
+            "y": 270,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_ONANYWIN",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "30px"
+        },
+        {
+            "type": "Image",
+            "id": "f8bcb667-9465-4d4a-8654-c43fa0657d9d",
+            "label": "valueFreeSpins1",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 670,
+            "y": 270
+        },
+        {
+            "type": "Image",
+            "id": "e954e7d0-badb-4d5a-b3b3-4456f1f1cbbe",
+            "label": "valueFreeSpins2",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 660,
+            "y": 270
+        },
+        {
+            "type": "Text",
+            "id": "c2301b10-d41e-4ea1-82c6-9b474256060e",
+            "label": "txtFreeSpins",
+            "scope": "CLASS",
+            "x": 700,
+            "y": 270,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_ONFREESPINS",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "30px"
+        },
+        {
+            "type": "Image",
+            "id": "8491083a-41b2-47b0-a123-882ee81a72b0",
+            "label": "valueJackpotWon1",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "GB.png"
+            },
+            "x": 480,
+            "y": 309
+        },
+        {
+            "type": "Image",
+            "id": "33dafafb-375e-4d3b-b9f5-25f6595966fd",
+            "label": "valueJackpotWon2",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "IB.png"
+            },
+            "x": 470,
+            "y": 309
+        },
+        {
+            "type": "Text",
+            "id": "e4592c49-e417-40b0-b120-f004cd3da8f8",
+            "label": "txtJackpotWon",
+            "scope": "CLASS",
+            "x": 505,
+            "y": 310,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_ONJACKPOT",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "30px"
+        },
+        {
+            "type": "Image",
+            "id": "8bb0ac44-f6c1-4522-b283-2111a533824d",
+            "label": "qB_png",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "QB.png"
+            },
+            "x": 775,
+            "y": 340,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "e5e297cf-262f-44e1-b1c2-8bb1032b4354",
+            "label": "txtIfSingleWin",
+            "scope": "CLASS",
+            "x": 460,
+            "y": 365,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_WINEXCEEDS",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "32px"
+        },
+        {
+            "type": "Text",
+            "id": "a6f00825-0172-4ff1-aab4-8261a19ae512",
+            "label": "txtSlider1",
+            "scope": "CLASS",
+            "x": 780,
+            "y": 340,
+            "scaleX": 0.85,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0.00",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "15px",
+            "color": "#EBB122"
+        },
+        {
+            "type": "Image",
+            "id": "c7d69a88-7067-44e0-9a2f-6a4c26037228",
+            "label": "qB_png_1",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "QB.png"
+            },
+            "x": 775,
+            "y": 400,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "1c5cd0b4-45ac-43ad-aab1-9011f61e80f0",
+            "label": "txtBalanceInc",
+            "scope": "CLASS",
+            "x": 460,
+            "y": 425,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_BALANCEINC",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "32px"
+        },
+        {
+            "type": "Text",
+            "id": "992bf2f3-1a1d-4f83-ada4-4fc9c3456139",
+            "label": "txtSlider2",
+            "scope": "CLASS",
+            "x": 780,
+            "y": 400,
+            "scaleX": 0.85,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0.00",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "15px",
+            "color": "#EBB122"
+        },
+        {
+            "type": "Image",
+            "id": "b0370a9d-53ee-4863-8f54-f06cc82d41eb",
+            "label": "qB_png_2",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "QB.png"
+            },
+            "x": 775,
+            "y": 460,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "6877164e-fa9e-4cfe-8e9e-5bf23a708e06",
+            "label": "txtBalanceDec",
+            "scope": "CLASS",
+            "x": 460,
+            "y": 485,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
+            "originY": 0.5,
+            "text": "IDS_AP_BALANCEDEC",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_BOLD",
+            "fontSize": "32px"
+        },
+        {
+            "type": "Text",
+            "id": "43f3dae7-6a13-4187-bc69-87d9ab271f24",
+            "label": "txtSlider3",
+            "scope": "CLASS",
+            "x": 780,
+            "y": 460,
+            "scaleX": 0.85,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0.00",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "15px",
+            "color": "#EBB122"
+        },
+        {
+            "type": "Sprite",
+            "id": "9c110a5a-e57b-4c26-bbf0-cd45988b2606",
+            "label": "btnOk",
+            "scope": "PUBLIC",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "MB.png"
+            },
+            "x": 726,
+            "y": 543,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Sprite",
+            "id": "71be13f8-c63a-4755-947d-0a74262a6578",
+            "label": "btnCancel",
+            "scope": "PUBLIC",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "videoslot_popup_texture0_level0",
+                "frame": "OB.png"
+            },
+            "x": 540,
+            "y": 543,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Text",
+            "id": "b63c8d6e-84f6-4adb-a2af-68274c494494",
+            "label": "txtOk",
+            "scope": "CLASS",
+            "x": 725,
+            "y": 543,
+            "scaleX": 0.85,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_BTN_OK",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "15px"
+        },
+        {
+            "type": "Text",
+            "id": "09832aff-4353-49f7-af48-e8729ccc2793",
+            "label": "txtCancel",
+            "scope": "CLASS",
+            "x": 540,
+            "y": 543,
+            "scaleX": 0.85,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "IDS_BTN_CANCEL",
+            "align": "center",
+            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "15px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

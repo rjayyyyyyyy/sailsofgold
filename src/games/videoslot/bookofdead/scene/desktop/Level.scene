@@ -62,110 +62,6 @@
             "y": 650
         },
         {
-            "type": "Sprite",
-            "id": "5e7aa7aa-c2ff-4fe1-a5a1-4d9e0cefa5c0",
-            "label": "aB_png",
-            "scope": "CLASS",
-            "texture": {
-                "key": "statusbar_texture0_level0",
-                "frame": "AB.png"
-            },
-            "x": 650,
-            "y": 705
-        },
-        {
-            "type": "Image",
-            "id": "0e9504a1-4665-42c1-8ead-d6795c027db0",
-            "label": "t0AB_png_1",
-            "scope": "CLASS",
-            "texture": {
-                "key": "menu_texture0_level0",
-                "frame": "CB.png"
-            },
-            "x": 365,
-            "y": 659
-        },
-        {
-            "type": "Image",
-            "id": "16ff7fe8-ca2a-4fad-af07-a72bcb62fcd3",
-            "label": "t0AB_png_2",
-            "scope": "CLASS",
-            "texture": {
-                "key": "menu_texture0_level0",
-                "frame": "CB.png"
-            },
-            "x": 600,
-            "y": 659
-        },
-        {
-            "type": "Sprite",
-            "id": "6aa432e9-db8e-40cb-afa2-c344fab4b7bd",
-            "label": "nextLinesBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 54,
-            "hitArea.height": 64,
-            "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "TB.png"
-            },
-            "x": 675,
-            "y": 659,
-            "tintTopLeft": "#888888",
-            "tintTopRight": "#888888",
-            "tintBottomLeft": "#888888",
-            "tintBottomRight": "#888888"
-        },
-        {
-            "type": "Sprite",
-            "id": "f19dbae5-479e-48e1-9d24-2336b98ddde4",
-            "label": "nextCoinsBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 54,
-            "hitArea.height": 64,
-            "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "TB.png"
-            },
-            "x": 440,
-            "y": 659
-        },
-        {
-            "type": "Sprite",
-            "id": "ae386d11-0790-4cf1-ab9e-9a52ed70e434",
-            "label": "prevCoinsBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 54,
-            "hitArea.height": 64,
-            "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "VB.png"
-            },
-            "x": 290,
-            "y": 659,
-            "tintTopLeft": "#888888",
-            "tintTopRight": "#888888",
-            "tintBottomLeft": "#888888",
-            "tintBottomRight": "#888888"
-        },
-        {
-            "type": "Sprite",
-            "id": "5534e44f-be62-4f42-8434-f55687dfa607",
-            "label": "prevLinesBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 54,
-            "hitArea.height": 64,
-            "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "VB.png"
-            },
-            "x": 525,
-            "y": 659
-        },
-        {
             "type": "Image",
             "id": "93ddf4d1-b7f6-45ca-8494-7e8d8f77a340",
             "label": "logo1",
@@ -208,11 +104,13 @@
             "scope": "CLASS",
             "x": 150,
             "y": 585,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "COINS: ",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "22px",
+            "fontSize": "44px",
             "color": "#F7EDA1"
         },
         {
@@ -222,37 +120,13 @@
             "scope": "CLASS",
             "x": 975,
             "y": 585,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "BET: ",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "20px",
-            "color": "#F7EDA1"
-        },
-        {
-            "type": "Text",
-            "id": "a3f32414-6870-48bb-85f5-ee2e78ee5e59",
-            "label": "txtCoinsText",
-            "scope": "CLASS",
-            "x": 365,
-            "y": 648,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "COINS",
-            "fontFamily": "FLANKER_GRIFFO",
-            "color": "#F7EDA1"
-        },
-        {
-            "type": "Text",
-            "id": "559feda4-6d88-4f80-a5f5-143a614d6f79",
-            "label": "txtLinesText",
-            "scope": "CLASS",
-            "x": 600,
-            "y": 648,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "LINES",
-            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "40px",
             "color": "#F7EDA1"
         },
         {
@@ -262,11 +136,13 @@
             "scope": "CLASS",
             "x": 150,
             "y": 634,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "COIN VALUE",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "14px",
+            "fontSize": "28px",
             "color": "#444444"
         },
         {
@@ -276,41 +152,14 @@
             "scope": "CLASS",
             "x": 150,
             "y": 660,
-            "scaleX": 0.8,
+            "scaleX": 0.4,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "CNY 2.00",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "30px",
+            "fontSize": "60px",
             "color": "#5a1500"
-        },
-        {
-            "type": "Text",
-            "id": "aced1c27-37ba-4065-b69d-9eeb2f8ee579",
-            "label": "txtCoinsBet",
-            "scope": "CLASS",
-            "x": 365,
-            "y": 670,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "1",
-            "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "26px",
-            "color": "#F7EDA1"
-        },
-        {
-            "type": "Text",
-            "id": "ff39d573-b464-4d1d-b71f-b7ca18360b3b",
-            "label": "txtLinesBet",
-            "scope": "CLASS",
-            "x": 600,
-            "y": 670,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "1",
-            "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "26px",
-            "color": "#F7EDA1"
         },
         {
             "prefabId": "7b922375-5b4e-423b-b567-409c121449b0",
@@ -423,124 +272,15 @@
             "scope": "CLASS",
             "x": 570,
             "y": 595,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "Information",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "20px",
+            "fontSize": "40px",
             "color": "#F7EDA1"
-        },
-        {
-            "type": "Image",
-            "id": "563a1077-09d3-4956-bc22-e7d38770d4c0",
-            "label": "menuBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 25,
-            "hitArea.height": 20,
-            "texture": {
-                "key": "statusbar_texture0_level0",
-                "frame": "KB.png"
-            },
-            "x": 30,
-            "y": 705
-        },
-        {
-            "type": "Sprite",
-            "id": "c13a6017-9d22-407e-88a3-a068d9101890",
-            "label": "soundBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 30,
-            "hitArea.height": 30,
-            "texture": {
-                "key": "statusbar_texture0_level0",
-                "frame": "IB.png"
-            },
-            "x": 80,
-            "y": 705
-        },
-        {
-            "type": "Sprite",
-            "id": "8e083ab0-1c16-4407-81c6-02becfe0b872",
-            "label": "fastplayBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 15,
-            "hitArea.height": 30,
-            "texture": {
-                "key": "statusbar_texture0_level0",
-                "frame": "GB.png"
-            },
-            "x": 120,
-            "y": 705
-        },
-        {
-            "type": "Sprite",
-            "id": "8b44a76f-6143-40c4-97cd-f04bebb5f720",
-            "label": "helpBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 10,
-            "hitArea.height": 20,
-            "texture": {
-                "key": "statusbar_texture0_level0",
-                "frame": "DB.png"
-            },
-            "x": 160,
-            "y": 705
-        },
-        {
-            "type": "Sprite",
-            "id": "c2dc70b4-3b66-4150-836e-4b84d7537f91",
-            "label": "historyBtn",
-            "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 25,
-            "hitArea.height": 20,
-            "texture": {
-                "key": "statusbar_texture0_level0",
-                "frame": "FB.png"
-            },
-            "x": 200,
-            "y": 705
-        },
-        {
-            "type": "Text",
-            "id": "1b8eaccf-e739-44a6-b910-39b80de6c5b2",
-            "label": "txtBalanceValue",
-            "scope": "CLASS",
-            "x": 493,
-            "y": 705,
-            "originY": 0.5,
-            "text": "Balance: CNY 1100000.00",
-            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
-            "color": "#aaaaaa"
-        },
-        {
-            "type": "Text",
-            "id": "5c631b70-8934-4dce-af71-2fc629a8eb08",
-            "label": "txtBalanceBetValue",
-            "scope": "CLASS",
-            "x": 745,
-            "y": 705,
-            "originY": 0.5,
-            "text": "Bet: CNY 20.00",
-            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
-            "color": "#aaaaaa"
-        },
-        {
-            "type": "Text",
-            "id": "a73de1a9-27cc-4ae5-9c37-321b581c6bdd",
-            "label": "txtWinValue",
-            "scope": "CLASS",
-            "x": 1005,
-            "y": 705,
-            "originY": 0.5,
-            "text": "Win: ",
-            "fontFamily": "ROBOTO_CONDENSED_REGULAR",
-            "color": "#aaaaaa"
         },
         {
             "prefabId": "7b922375-5b4e-423b-b567-409c121449b0",
@@ -700,6 +440,46 @@
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "35px",
             "color": "#F7EDA1"
+        },
+        {
+            "prefabId": "1701e847-8c04-41ca-acec-f3ccd85c051d",
+            "id": "9f5aac31-dcef-429e-9b01-b283830bf0ee",
+            "unlock": [
+                "x",
+                "y",
+                "title"
+            ],
+            "label": "betCoins",
+            "scope": "CLASS",
+            "title": "IDS_VP_COINS",
+            "x": 300,
+            "y": 660
+        },
+        {
+            "prefabId": "1701e847-8c04-41ca-acec-f3ccd85c051d",
+            "id": "7a1d1ebd-618e-4307-bd40-f6eb23f46531",
+            "unlock": [
+                "x",
+                "y",
+                "title"
+            ],
+            "label": "betLines",
+            "scope": "CLASS",
+            "title": "IDS_SLOT_LINES",
+            "x": 500,
+            "y": 660
+        },
+        {
+            "prefabId": "436ea4cd-42d8-4be1-9586-9f967ec6a255",
+            "id": "e89f9c46-2329-486d-9a85-cd5942a809fd",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "footerPrefab",
+            "scope": "CLASS",
+            "x": 36,
+            "y": 707
         }
     ],
     "plainObjects": [],

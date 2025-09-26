@@ -8,7 +8,7 @@ import { container } from "./di/container";
 import { Logger } from "./Logger";
 import { SystemEvent } from "./events/Dispatcher";
 import NetworkManager from "./networking/NetworkManager";
-import { ISessionConfig } from "./interfaces/ISessionConfig";
+import { ILauncherConfig } from "./interfaces/ILauncherConfig";
 
 export class GameBootstrapper {
     private queryParams: URLSearchParams = new URLSearchParams(window.location.search);
@@ -29,22 +29,24 @@ export class GameBootstrapper {
 
     loadGameConfig(): Promise<void> {
         return new Promise(async resolve => {
-
             this.logger.debug(`Debug mode: ${this.payload.debug}`);
+            const networkManager = container.get<NetworkManager>("NetworkManager");
+            networkManager.setGameId(this.gameDefinition.id);
+            networkManager.setGameConfig(this.gameConfig);
             if(!this.payload.debug) {
-                const configUrl = `${this.gameDefinition.configUrl}?${this.queryParams.toString()}`;
-                const response = await fetch(configUrl);
-                if (!response.ok) {
-                    throw new Error(`Failed to load game config from ${configUrl}`);
-                }
-                const configJson = await response.json();
-                this.gameConfig = configJson as IGameConfig;
-
-                // Set gameHistory on NetworkManager
-                const networkManager = container.get<NetworkManager>("NetworkManager");
-                const historyUrl = this.payload.device === 'mobile' ? this.gameConfig.mobileGameHistoryUrl : this.gameConfig.desktopGameHistoryUrl;
-                networkManager.setGameHistory(historyUrl);
+                // resolve();
             }
+            const configUrl = `${this.gameDefinition.configUrl}?${this.queryParams.toString()}`;
+            const response = await fetch(configUrl);
+            if (!response.ok) {
+                throw new Error(`Failed to load game config from ${configUrl}`);
+            }
+            const configJson = await response.json();
+            this.gameConfig = configJson as IGameConfig;
+
+            // Set gameHistory on NetworkManager
+            const historyUrl = this.payload.device === 'mobile' ? this.gameConfig.mobileGameHistoryUrl : this.gameConfig.desktopGameHistoryUrl;
+            networkManager.setGameHistory(historyUrl);
             resolve();
         })
     }
@@ -52,7 +54,7 @@ export class GameBootstrapper {
     private readAllQueryParams(): ILauncherPayload {
         return {
             pid: parseInt(this.queryParams.get('pid') || '0'),
-            gid: this.queryParams.get('gid') || '',
+            gameid: this.queryParams.get('gameid') || '',
             lang: this.queryParams.get('lang') || '',
             currency: this.queryParams.get('currency') || '',
             practice: parseInt(this.queryParams.get('practice') || '0'),
@@ -67,7 +69,7 @@ export class GameBootstrapper {
         };
     }
 
-    async launch(config: ISessionConfig) {
+    async launch(config: ILauncherConfig) {
         this.logger.info(`Launching game: ${this.gameDefinition.name}`);
         this.logger.debug(`Query Params: ${JSON.stringify(this.readAllQueryParams())}`);
         await this.loadGameConfig();
@@ -86,10 +88,10 @@ export class GameBootstrapper {
             preload() {
                 this.logger.info("Starting preload...");
 
-                this.load.pack("pack", `assets/${payload.gid}/preload-asset-pack.json`);
+                this.load.pack("pack", `assets/${gameDefinition.gameSlug}/preload-asset-pack.json`);
                 const assetLevel = payload.device === "desktop" ? "hd" : "sd";
-                this.load.pack(`game-assets-pack`, `assets/${payload.gid}/asset-pack-${assetLevel}.json`);
-                this.load.json('language', `assets/${payload.gid}/lang/${payload.lang || 'en_US'}/locale.json`);
+                this.load.pack(`game-assets-pack`, `assets/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
+                this.load.json('language', `assets/${gameDefinition.gameSlug}/lang/${payload.lang || 'en_US'}/locale.json`);
                 this.scene.add('Preload', Preload, false);
                 this.logger.info("Preload setup complete");
             }
@@ -98,6 +100,7 @@ export class GameBootstrapper {
                 this.logger.info("Creating game instance...");
                 try {
                     this.glGame = container.get(gameDefinition.gameClass) as VideoSlot;
+                    this.glGame.setGameConfig(gameConfig);
                     this.logger.info(`Game instance created successfully`);
                     return true;
                 } catch (error) {
@@ -110,6 +113,7 @@ export class GameBootstrapper {
                 if(this.createGameInstance()) {
                     this.scene.launch('Preload');
                     gameDefinition.gameInitCb?.(this, this.glGame!, {
+                        gameId: payload.gameid,
                         config: gameConfig,
                         launcher_payload: payload,
                     });

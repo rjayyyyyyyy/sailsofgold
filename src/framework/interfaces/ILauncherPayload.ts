@@ -2,7 +2,7 @@
 
 export interface ILauncherPayload {
   pid: number;
-  gid: string;
+  gameid: string;
   lang: string;
   currency: string;
   practice: number;

@@ -22,8 +22,8 @@
                 {
                     "type": "Sprite",
                     "id": "f7d74601-7a52-4baa-aaf3-16776945c5be",
-                    "label": "sprite_1",
-                    "scope": "CLASS",
+                    "label": "btnButton",
+                    "scope": "PUBLIC",
                     "hitArea.shape": "RECTANGLE",
                     "hitArea.width": 162,
                     "hitArea.height": 67,
@@ -35,13 +35,15 @@
                 {
                     "type": "Text",
                     "id": "9becd113-af9e-498a-8465-df1529676b8c",
-                    "label": "text_1",
-                    "scope": "CLASS",
+                    "label": "txtButton",
+                    "scope": "PUBLIC",
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "New text",
                     "fontFamily": "FLANKER_GRIFFO",
-                    "fontSize": "22px"
+                    "fontSize": "44px"
                 }
             ]
         }

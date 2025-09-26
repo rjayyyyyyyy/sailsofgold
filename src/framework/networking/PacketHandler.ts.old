@@ -50,7 +50,7 @@ export class PacketHandler
 		this._separatorRe = /\r?\n|\r/;
 		this._typeRe = /^\d+/;
 		this._dataRe = /(?: ([^"\s]+|(?:"(?:[^"\\]|\\.)*")))/g;
-		this._packetId = 1; // We send two packets from GameLoader in CoreWeb so this should start at 3.
+		this._packetId = 3; // We send two packets from GameLoader in CoreWeb so this should start at 3.
 		this._sendQueue = "";
 		this._prevQueue = "";
 		this._sessionId = "0";
@@ -198,24 +198,17 @@ export class PacketHandler
 		for (let i: number = 0, j: number = cmd.length; i < j; i++)
 		{
 			let s = cmd.getString(i);
-			// console.log(s);
-			// console.log(s.indexOf(" "), s.indexOf("\""));
-			// Always quote string parameters
 			if (s.indexOf(" ") > -1 || s.indexOf("\"") > -1)
 			{
 				str += PacketHandler.JOINER + "\"" + encodeURIComponent(s) + "\"";
-				// console.log("Encoded string:", str);
 			}
 			else
 			{
 				str += PacketHandler.JOINER + s;
-				// str += PacketHandler.JOINER + "\"" + s + "\"";
-				// console.log("Quoted string:", str);
 			}
 		}
 
 		str += PacketHandler.END;
-		console.log("Queueing command:", str);
 		this._sendQueue += str;
 	}
 
@@ -370,10 +363,6 @@ export class PacketHandler
 				// }
 			}
 		}
-	}
-
-	public disable() {
-		this._enabled = false;
 	}
 
 	/** Reconnect end listener. Sending data to the server is prevented while in reconnect mode. */

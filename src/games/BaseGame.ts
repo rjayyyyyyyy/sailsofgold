@@ -5,10 +5,13 @@ import Dispatcher, { SystemEvent } from "@gl/events/Dispatcher";
 import { ILauncherPayload } from "@gl/interfaces/ILauncherPayload";
 import { ClientCommand } from "@gl/networking/Commands";
 import { Logger } from "@gl/Logger";
+import { IGameConfig } from "@gl/GameConfig";
 
 @injectable()
 class BaseGame {
-    private logger = new Logger();
+    protected logger = new Logger();
+    public gameConfig: IGameConfig | null = null;
+    public phaserScene: Phaser.Scene;
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
     ) {
@@ -19,11 +22,11 @@ class BaseGame {
         this.logger.info("VideoSlot session initialized.");
         console.log(payload)
         if(payload.debug) {
-            console.log("Initiating game session");
+            this.logger.info("Initiating game session");
             const token = await this.networkManager.getToken();
-            console.log("Token", token);
+            this.logger.trace(`Token: ${token}`);
             const ticket = await this.networkManager.createSession();
-            console.log("Ticket", ticket);
+            this.logger.trace(`Ticket: ${ticket}`);
         }
         this.networkManager.sendCommand(ClientCommand.RequestSession, [
             payload.pid.toString(),
@@ -33,6 +36,15 @@ class BaseGame {
             gameName,
             payload.device,
         ]);
+        // setTimeout(() => {
+        //     this.networkManager.sendCommand(ClientCommand.Login, [
+        //         this.networkManager._ticket,
+        //         "",
+        //         "ipcelectron",
+        //         "",
+        //         "",
+        //     ]);
+        // }, 100);
     }
 
     private getUserAgent(){
@@ -40,8 +52,17 @@ class BaseGame {
         return userAgent;
     }
 
+    setConfig(config: IGameConfig) {
+        this.gameConfig = config;
+    }
+
     public tick(time: number, delta: number) {
         Dispatcher.emit(SystemEvent.TICK, time, delta);
+    }
+
+    bindScene(scene: Phaser.Scene) {
+        this.phaserScene = scene;
+        this.logger.trace("BaseGame bindScene");
     }
 }
 
