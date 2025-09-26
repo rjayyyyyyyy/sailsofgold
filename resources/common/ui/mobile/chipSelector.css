@@ -1,0 +1,472 @@
+﻿/* lhmode means left hand mode */
+
+/* chip selector */
+
+.lhmode #chipSelector
+{
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.pt #chipSelector
+{
+    width: 100%;
+    height: 100%;
+}
+
+.ls #chipSelector
+{
+    position: absolute;
+    top: 3%;
+    left: 0;
+    right: auto;
+    width: 10%;
+    height: 70%;
+}
+
+.ls.lhmode #chipSelector
+{
+    left: auto;
+    right: 0;
+}
+
+/* chip content */
+
+#chipContent
+{
+    position: absolute;
+    display: inline-block;
+}
+
+.pt #chipContent
+{
+    bottom: 0;
+    width: 460px;
+    height: 100px;
+
+    -webkit-transform-origin: 0% 100%;
+    -moz-transform-origin: 0% 100%;
+    -ms-transform-origin: 0% 100%;
+    -o-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+
+    background-size: 122.10526315789474% 881.0344827586207%;
+    background-position: 0% 0%; background-image: url('./uiElements2.png');
+}
+
+.ls #chipContent
+{
+    top: 10px;
+    left: 0;
+    right: auto;
+    width: 100px;
+    height: 460px;
+
+    -webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+
+    background-size: 500% 215.15789473684214%;
+    background-position: 0% 21.755027422303474%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+
+/* chip pages */
+
+#page
+{
+    position: absolute;
+    width: 66px;
+    height: 66px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lhmode #page
+{
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+/* ls chip pages */
+
+.ls #page
+{
+    left: 16px;
+}
+
+
+.ls #page:nth-child(1)
+{
+    top: 23px;
+}
+
+.ls #page:nth-child(2)
+{
+    top: 93px;
+}
+
+.ls #page:nth-child(3)
+{
+    top: 163px;
+}
+
+.ls #page:nth-child(4)
+{
+    top: 232px;
+}
+
+.ls #page:nth-child(5)
+{
+    top: 302px;
+}
+
+.ls #page:nth-child(6)
+{
+    top: 372px;
+}
+
+.ls #page.selected
+{
+    left: 50px;
+}
+
+/* pt chip pages */
+
+.pt #page
+{
+    bottom: 16px;
+}
+
+.pt #page:nth-child(1)
+{
+    left: 23px;
+}
+
+.pt #page:nth-child(2)
+{
+    left: 93px;
+}
+
+.pt #page:nth-child(3)
+{
+    left: 163px;
+}
+
+.pt #page:nth-child(4)
+{
+    left: 233px;
+}
+
+.pt #page:nth-child(5)
+{
+    left: 303px;
+}
+
+.pt #page:nth-child(6)
+{
+    left: 372px;
+}
+
+.pt #page.selected
+{
+    top: -15px;
+}
+#page.selected::after
+{
+	opacity: 0.0;
+}
+
+#page::after
+{
+	content: "";
+	background-size: contain;
+	background-repeat: no-repeat;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	opacity: 0.3;
+}
+
+
+#page.enabled
+{
+
+}
+#page.enabled::after
+{
+	opacity: 0.1;
+}
+#page.disabled
+{
+
+}
+#page.disabled::after
+{
+	opacity: 0.6;
+}
+
+/* chip images */
+
+
+
+#page.chip0
+{
+    /*.chip0*/
+    background-size: 725% 1277.5%;
+    background-position: 31.8% 100%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+
+}
+#page.chip0::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip1
+{
+    /*.chip1*/
+    background-size: 725% 1277.5%;
+    background-position: 48.4% 100%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip1::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip2
+{
+    /*.chip2*/
+    background-size: 725% 1277.5%;
+    background-position: 100% 53.397027600849256%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip2::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip5
+{
+    /*.chip5*/
+    background-size: 725% 1277.5%;
+    background-position: 100% 71.01910828025477%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip5::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip10
+{
+    /*.chip10*/
+    background-size: 725% 1277.5%;
+    background-position: 54% 82.37791932059449%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip10::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip25
+{
+    /*.chip25*/
+    background-size: 725% 1277.5%;
+    background-position: 100% 62.20806794055201%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip25::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip50
+{
+    /*.chip50*/
+    background-size: 725% 1277.5%;
+    background-position: 70.6% 78.87473460721868%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip50::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip100
+{
+    /*.chip100*/
+    background-size: 725% 1277.5%;
+    background-position: 56.39999999999999% 91.18895966029724%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip100::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip500
+{
+    /*.chip500*/
+    background-size: 725% 1277.5%;
+    background-position: 73% 87.68577494692144%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip500::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip1000
+{
+    /*.chip1000*/
+    background-size: 725% 1277.5%;
+    background-position: 65% 100%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip1000::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip2500
+{
+    /*.chip2500*/
+    background-size: 725% 1277.5%;
+    background-position: 83.39999999999999% 66.7728237791932%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip2500::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip5000
+{
+    /*.chip5000*/
+    background-size: 725% 1277.5%;
+    background-position: 81.6% 96.4968152866242%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip5000::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip10000
+{
+    /*.chip10000*/
+    background-size: 725% 1277.5%;
+    background-position: 83.39999999999999% 57.961783439490446%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip10000::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip50000
+{
+    /*.chip50000*/
+    background-size: 725% 1277.5%;
+    background-position: 98% 79.83014861995754%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip50000::after
+{
+	/*.chip_round_black*/
+	background-size: 725% 1277.5%;
+    background-position: 98.2% 88.6411889596603%; background-image: url('./uiElements2.png');
+}
+
+#page.chip200000
+{
+    /*.chip200000*/
+    background-size: 483.3333333333333% 1277.5%;
+    background-position: 63.91304347826087% 59.447983014862%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip200000::after
+{
+	/*.chip_rectangle_black*/
+	background-size: 483.3333333333333% 1277.5%;
+    background-position: 34.56521739130435% 91.18895966029724%; background-image: url('./uiElements2.png');
+}
+
+#page.chip1000000
+{
+    background-size: 483.3333333333333% 1277.5%;
+    background-position: 31.956521739130434% 82.37791932059449%; background-image: url('./uiElements2.png');
+    background-repeat: no-repeat;
+}
+#page.chip1000000::after
+{
+	/*.chip_rectangle_black*/
+	background-size: 483.3333333333333% 1277.5%;
+    background-position: 34.56521739130435% 91.18895966029724%; background-image: url('./uiElements2.png');
+}
+
+.ls #page.chip200000,
+.ls #page.chip1000000 {
+
+    height: 44px;
+    margin-top: 11px;
+}
+
+.pt #page.chip200000,
+.pt #page.chip1000000 {
+
+    height: 44px;
+    margin-bottom: 11px;
+}

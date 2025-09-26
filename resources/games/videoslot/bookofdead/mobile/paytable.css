@@ -1,0 +1,4230 @@
+.desktop.gj.landscape #paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 1.25vw;
+    padding: 5% 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.desktop.wide.gj.landscape #paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 0.8vw;
+    padding: 5% 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.desktop.ultra.wide.gj.landscape #paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 0.5vw;
+    padding: 5% 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile.gj.portrait #paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 5vw;
+    padding: 5% 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile.gj.landscape #paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 4.1vw;
+    padding: 5% 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile.gj.landscape.notch #paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 3.600vw;
+    padding: 5% 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#paytable
+{
+    color: black;
+    display: block;
+    font-family: Oswald-Regular;
+    font-size: 5vw;
+    padding: 5% 5%;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.background {
+	background: url(paytable_bg.jpg) no-repeat center/cover;
+
+}
+
+.desktop.gj.landscape #paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.05vw 0.05vw 0.075vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.wide.gj.landscape #paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.64vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.032vw 0.032vw 0.048vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.4vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.020vw 0.020vw 0.03vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.portrait #paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 4vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape #paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3.28vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.164vw 0.164vw 0.246vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape.notch #paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2.88vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.144vw 0.144vw 0.216vw rgba(0, 0, 0, 0.7);
+}
+
+#paytable .caption
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 4vw;
+    color: rgb(255, 174, 29);
+	text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.gj.landscape #paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: bold;
+    margin-bottom: 0.75vw;
+    margin-top: 0.75vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.05vw 0.05vw 0.075vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.wide.gj.landscape #paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.64vw;
+    font-weight: bold;
+    margin-bottom: 0.48vw;
+    margin-top: 0.48vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.032vw 0.032vw 0.048vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.4vw;
+    font-weight: bold;
+    margin-bottom: 0.300vw;
+    margin-top: 0.300vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.020vw 0.020vw 0.03vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.portrait #paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 3vw;
+    margin-top: 3vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape #paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 3.28vw;
+    font-weight: bold;
+    margin-bottom: 2.46vw;
+    margin-top: 2.46vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.164vw 0.164vw 0.246vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape.notch #paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 2.88vw;
+    font-weight: bold;
+    margin-bottom: 2.16vw;
+    margin-top: 2.16vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.144vw 0.144vw 0.216vw rgba(0, 0, 0, 0.7);
+}
+
+#paytable .headline
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 3vw;
+    margin-top: 3vw;
+    color: rgb(255, 174, 29);
+	text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.gj.landscape #paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: bold;
+    margin-top: 0.75vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.05vw 0.05vw 0.075vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.wide.gj.landscape #paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.64vw;
+    font-weight: bold;
+    margin-top: 0.48vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.032vw 0.032vw 0.048vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.4vw;
+    font-weight: bold;
+    margin-top: 0.300vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.020vw 0.020vw 0.03vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.portrait #paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    margin-top: 3vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape #paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 3.28vw;
+    font-weight: bold;
+    margin-top: 2.46vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.164vw 0.164vw 0.246vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape.notch #paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 2.88vw;
+    font-weight: bold;
+    margin-top: 2.16vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.144vw 0.144vw 0.216vw rgba(0, 0, 0, 0.7);
+}
+
+#paytable .wildTXT
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    margin-top: 3vw;
+    color: rgb(255, 174, 29);
+	text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.gj.landscape #paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.75vw;
+    margin-bottom: 0.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.48vw;
+    margin-bottom: 0.32vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.300vw;
+    margin-bottom: 0.2vw;
+}
+
+.mobile.gj.portrait #paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+}
+
+.mobile.gj.landscape #paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 2.46vw;
+    margin-bottom: 1.64vw;
+}
+
+.mobile.gj.landscape.notch #paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 2.16vw;
+    margin-bottom: 1.44vw;
+}
+
+#paytable .normal_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+}
+
+.desktop.gj.landscape #paytable .disclaimer
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.75vw;
+    margin-bottom: 0.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .disclaimer
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.48vw;
+    margin-bottom: 0.32vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .disclaimer
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.300vw;
+    margin-bottom: 0.2vw;
+}
+
+.mobile.gj.portrait #paytable .disclaimer
+{
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+}
+
+.mobile.gj.landscape #paytable .disclaimer
+{
+    width: 100%;
+    text-align: center;
+    font-size: 2.46vw;
+    margin-bottom: 1.64vw;
+}
+
+.mobile.gj.landscape.notch #paytable .disclaimer
+{
+    width: 100%;
+    text-align: center;
+    font-size: 2.16vw;
+    margin-bottom: 1.44vw;
+}
+
+#paytable .disclaimer {
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+}
+
+.desktop.gj.landscape #paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.75vw;
+    margin-bottom: 0.5vw;
+    position: relative;
+}
+
+.desktop.wide.gj.landscape #paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.48vw;
+    margin-bottom: 0.32vw;
+    position: relative;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.300vw;
+    margin-bottom: 0.2vw;
+    position: relative;
+}
+
+.mobile.gj.portrait #paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+    position: relative;
+}
+
+.mobile.gj.landscape #paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 2.46vw;
+    margin-bottom: 1.64vw;
+    position: relative;
+}
+
+.mobile.gj.landscape.notch #paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 2.16vw;
+    margin-bottom: 1.44vw;
+    position: relative;
+}
+
+#paytable .special_txt
+{
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+	position: relative;
+}
+
+#paytable .how_to_play
+{
+    display: block;
+    width: 100%;
+}
+
+.desktop.gj.landscape #paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 1vw;
+    margin-bottom: 0.5vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.05vw 0.05vw 0.075vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.wide.gj.landscape #paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 0.64vw;
+    margin-bottom: 0.32vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.032vw 0.032vw 0.048vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 0.4vw;
+    margin-bottom: 0.2vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.020vw 0.020vw 0.03vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.portrait #paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 4vw;
+    margin-bottom: 2vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape #paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 3.28vw;
+    margin-bottom: 1.64vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.164vw 0.164vw 0.246vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape.notch #paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 2.88vw;
+    margin-bottom: 1.44vw;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.144vw 0.144vw 0.216vw rgba(0, 0, 0, 0.7);
+}
+
+#paytable .max_win_txt
+{
+    width: 100%;
+    text-align: center;
+    font-family: Oswald-Regular;
+    font-size: 4vw;
+    margin-bottom: 2vw;
+    color: rgb(255, 174, 29);
+	text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.gj.landscape #paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 17.5vw;
+    width: 100%;
+}
+
+.desktop.wide.gj.landscape #paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 11.200vw;
+    width: 100%;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 7vw;
+    width: 100%;
+}
+
+.mobile.gj.portrait #paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 70vw;
+    width: 100%;
+}
+
+.mobile.gj.landscape #paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 57.4vw;
+    width: 100%;
+}
+
+.mobile.gj.landscape.notch #paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 50.4vw;
+    width: 100%;
+}
+
+#paytable .win_patterns
+{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 70vw;
+    width: 100%;
+}
+
+.desktop.gj.landscape #paytable .bookIMG1, .desktop.gj.landscape #paytable .bookIMG2, .desktop.gj.landscape #paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 5vw;
+    height: 5vw;
+    top: 0.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .bookIMG1, .desktop.wide.gj.landscape #paytable .bookIMG2, .desktop.wide.gj.landscape #paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 3.2vw;
+    height: 3.2vw;
+    top: 0.32vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .bookIMG1, .desktop.ultra.wide.gj.landscape #paytable .bookIMG2, .desktop.ultra.wide.gj.landscape #paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 2vw;
+    height: 2vw;
+    top: 0.2vw;
+}
+
+.mobile.gj.portrait #paytable .bookIMG1, .mobile.gj.portrait #paytable .bookIMG2, .mobile.gj.portrait #paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 20vw;
+    height: 20vw;
+    top: 2vw;
+}
+
+.mobile.gj.landscape #paytable .bookIMG1, .mobile.gj.landscape #paytable .bookIMG2, .mobile.gj.landscape #paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 16.4vw;
+    height: 16.4vw;
+    top: 1.64vw;
+}
+
+.mobile.gj.landscape.notch #paytable .bookIMG1, .mobile.gj.landscape.notch #paytable .bookIMG2, .mobile.gj.landscape.notch #paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 14.400vw;
+    height: 14.400vw;
+    top: 1.44vw;
+}
+
+#paytable .bookIMG1,
+#paytable .bookIMG2,
+#paytable .bookIMG3
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: 20vw;
+    height: 20vw;
+    top: 2vw;
+}
+
+#paytable .bookIMG1
+{
+    left: 20%;
+}
+
+#paytable .bookIMG2
+{
+
+    left: 80%;
+}
+
+#paytable .bookIMG3
+{
+    left: 50%;
+}
+
+.desktop.gj.landscape #paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 0.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 3.2vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 0.48vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 2vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 0.300vw;
+}
+
+.mobile.gj.portrait #paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 20vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 3vw;
+}
+
+.mobile.gj.landscape #paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 16.4vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 2.46vw;
+}
+
+.mobile.gj.landscape.notch #paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 14.400vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 2.16vw;
+}
+
+#paytable .bookIMGRow
+{
+    position: relative;
+    width: 80%;
+    height: 20vw;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 3vw;
+}
+
+
+.desktop.gj.landscape #paytable .wildTextCNT
+{
+    position: absolute;
+    width: 5vw;
+    left: 7.5vw;
+}
+
+
+.desktop.wide.gj.landscape #paytable .wildTextCNT
+{
+    position: absolute;
+    width: 3.2vw;
+    left: 4.8vw;
+}
+
+
+.desktop.ultra.wide.gj.landscape #paytable .wildTextCNT
+{
+    position: absolute;
+    width: 2vw;
+    left: 3vw;
+}
+
+
+.mobile.gj.portrait #paytable .wildTextCNT
+{
+    position: absolute;
+    width: 20vw;
+    left: 30vw;
+}
+
+
+.mobile.gj.landscape #paytable .wildTextCNT
+{
+    position: absolute;
+    width: 16.4vw;
+    left: 24.600vw;
+}
+
+
+.mobile.gj.landscape.notch #paytable .wildTextCNT
+{
+    position: absolute;
+    width: 14.400vw;
+    left: 21.600vw;
+}
+
+
+#paytable .wildTextCNT
+{
+    position: absolute;
+    width: 20vw;
+    left: 30vw;
+}
+
+.desktop.gj.landscape #paytable .fiveTXT, .desktop.gj.landscape #paytable .fiveTXTExt, .desktop.gj.landscape #paytable .fourTXT, .desktop.gj.landscape #paytable .fourTXTExt, .desktop.gj.landscape #paytable .threeTXT, .desktop.gj.landscape #paytable .threeTXTExt, .desktop.gj.landscape #paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.05vw 0.05vw 0.075vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.wide.gj.landscape #paytable .fiveTXT, .desktop.wide.gj.landscape #paytable .fiveTXTExt, .desktop.wide.gj.landscape #paytable .fourTXT, .desktop.wide.gj.landscape #paytable .fourTXTExt, .desktop.wide.gj.landscape #paytable .threeTXT, .desktop.wide.gj.landscape #paytable .threeTXTExt, .desktop.wide.gj.landscape #paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.032vw 0.032vw 0.048vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .fiveTXT, .desktop.ultra.wide.gj.landscape #paytable .fiveTXTExt, .desktop.ultra.wide.gj.landscape #paytable .fourTXT, .desktop.ultra.wide.gj.landscape #paytable .fourTXTExt, .desktop.ultra.wide.gj.landscape #paytable .threeTXT, .desktop.ultra.wide.gj.landscape #paytable .threeTXTExt, .desktop.ultra.wide.gj.landscape #paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.020vw 0.020vw 0.03vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.portrait #paytable .fiveTXT, .mobile.gj.portrait #paytable .fiveTXTExt, .mobile.gj.portrait #paytable .fourTXT, .mobile.gj.portrait #paytable .fourTXTExt, .mobile.gj.portrait #paytable .threeTXT, .mobile.gj.portrait #paytable .threeTXTExt, .mobile.gj.portrait #paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape #paytable .fiveTXT, .mobile.gj.landscape #paytable .fiveTXTExt, .mobile.gj.landscape #paytable .fourTXT, .mobile.gj.landscape #paytable .fourTXTExt, .mobile.gj.landscape #paytable .threeTXT, .mobile.gj.landscape #paytable .threeTXTExt, .mobile.gj.landscape #paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.164vw 0.164vw 0.246vw rgba(0, 0, 0, 0.7);
+}
+
+.mobile.gj.landscape.notch #paytable .fiveTXT, .mobile.gj.landscape.notch #paytable .fiveTXTExt, .mobile.gj.landscape.notch #paytable .fourTXT, .mobile.gj.landscape.notch #paytable .fourTXTExt, .mobile.gj.landscape.notch #paytable .threeTXT, .mobile.gj.landscape.notch #paytable .threeTXTExt, .mobile.gj.landscape.notch #paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+    text-shadow: 0.144vw 0.144vw 0.216vw rgba(0, 0, 0, 0.7);
+}
+
+#paytable .fiveTXT,
+#paytable .fiveTXTExt,
+#paytable .fourTXT,
+#paytable .fourTXTExt,
+#paytable .threeTXT,
+#paytable .threeTXTExt,
+#paytable .twoTXT
+{
+    position: absolute;
+    left: 0vw;
+    text-align: left;
+    color: rgb(255, 174, 29);
+	text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+.desktop.gj.landscape #paytable .fourTXT
+{
+    top: 1.375vw;
+}
+
+.desktop.wide.gj.landscape #paytable .fourTXT
+{
+    top: 0.88vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .fourTXT
+{
+    top: 0.55vw;
+}
+
+.mobile.gj.portrait #paytable .fourTXT
+{
+    top: 5.5vw;
+}
+
+.mobile.gj.landscape #paytable .fourTXT
+{
+    top: 4.51vw;
+}
+
+.mobile.gj.landscape.notch #paytable .fourTXT
+{
+    top: 3.96vw;
+}
+
+#paytable .fourTXT
+{
+    top: 5.5vw;
+}
+
+.desktop.gj.landscape #paytable .threeTXT
+{
+    top: 2.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .threeTXT
+{
+    top: 1.76vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .threeTXT
+{
+    top: 1.1vw;
+}
+
+.mobile.gj.portrait #paytable .threeTXT
+{
+    top: 11vw;
+}
+
+.mobile.gj.landscape #paytable .threeTXT
+{
+    top: 9.02vw;
+}
+
+.mobile.gj.landscape.notch #paytable .threeTXT
+{
+    top: 7.92vw;
+}
+
+#paytable .threeTXT
+{
+    top: 11vw;
+}
+
+.desktop.gj.landscape #paytable .fourTXTExt
+{
+    top: 0.875vw;
+}
+
+.desktop.wide.gj.landscape #paytable .fourTXTExt
+{
+    top: 0.56vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .fourTXTExt
+{
+    top: 0.350vw;
+}
+
+.mobile.gj.portrait #paytable .fourTXTExt
+{
+    top: 3.5vw;
+}
+
+.mobile.gj.landscape #paytable .fourTXTExt
+{
+    top: 2.870vw;
+}
+
+.mobile.gj.landscape.notch #paytable .fourTXTExt
+{
+    top: 2.52vw;
+}
+
+#paytable .fourTXTExt
+{
+    top: 3.5vw;
+}
+
+.desktop.gj.landscape #paytable .threeTXTExt
+{
+    top: 1.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .threeTXTExt
+{
+    top: 1.12vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .threeTXTExt
+{
+    top: 0.700vw;
+}
+
+.mobile.gj.portrait #paytable .threeTXTExt
+{
+    top: 7vw;
+}
+
+.mobile.gj.landscape #paytable .threeTXTExt
+{
+    top: 5.740vw;
+}
+
+.mobile.gj.landscape.notch #paytable .threeTXTExt
+{
+    top: 5.04vw;
+}
+
+#paytable .threeTXTExt
+{
+    top: 7vw;
+}
+
+.desktop.gj.landscape #paytable .twoTXT
+{
+    top: 2.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .twoTXT
+{
+    top: 1.76vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .twoTXT
+{
+    top: 1.1vw;
+}
+
+.mobile.gj.portrait #paytable .twoTXT
+{
+    top: 11vw;
+}
+
+.mobile.gj.landscape #paytable .twoTXT
+{
+    top: 9.02vw;
+}
+
+.mobile.gj.landscape.notch #paytable .twoTXT
+{
+    top: 7.92vw;
+}
+
+#paytable .twoTXT
+{
+    top: 11vw;
+}
+
+#paytable .fiveValue,
+#paytable .fiveValueExt,
+#paytable .fourValue,
+#paytable .fourValueExt,
+#paytable .threeValue,
+#paytable .threeValueExt,
+#paytable .twoValue
+{
+    position: absolute;
+    left: 0;
+    text-align: left;
+}
+
+.desktop.gj.landscape #paytable .fourValue
+{
+    top: 1.375vw;
+}
+
+.desktop.wide.gj.landscape #paytable .fourValue
+{
+    top: 0.88vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .fourValue
+{
+    top: 0.55vw;
+}
+
+.mobile.gj.portrait #paytable .fourValue
+{
+    top: 5.5vw;
+}
+
+.mobile.gj.landscape #paytable .fourValue
+{
+    top: 4.51vw;
+}
+
+.mobile.gj.landscape.notch #paytable .fourValue
+{
+    top: 3.96vw;
+}
+
+#paytable .fourValue
+{
+    top: 5.5vw;
+}
+
+.desktop.gj.landscape #paytable .threeValue
+{
+    top: 2.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .threeValue
+{
+    top: 1.76vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .threeValue
+{
+    top: 1.1vw;
+}
+
+.mobile.gj.portrait #paytable .threeValue
+{
+    top: 11vw;
+}
+
+.mobile.gj.landscape #paytable .threeValue
+{
+    top: 9.02vw;
+}
+
+.mobile.gj.landscape.notch #paytable .threeValue
+{
+    top: 7.92vw;
+}
+
+#paytable .threeValue
+{
+    top: 11vw;
+}
+
+.desktop.gj.landscape #paytable .fourValueExt
+{
+    top: 0.875vw;
+}
+
+.desktop.wide.gj.landscape #paytable .fourValueExt
+{
+    top: 0.56vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .fourValueExt
+{
+    top: 0.350vw;
+}
+
+.mobile.gj.portrait #paytable .fourValueExt
+{
+    top: 3.5vw;
+}
+
+.mobile.gj.landscape #paytable .fourValueExt
+{
+    top: 2.870vw;
+}
+
+.mobile.gj.landscape.notch #paytable .fourValueExt
+{
+    top: 2.52vw;
+}
+
+#paytable .fourValueExt
+{
+    top: 3.5vw;
+}
+
+.desktop.gj.landscape #paytable .threeValueExt
+{
+    top: 1.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .threeValueExt
+{
+    top: 1.12vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .threeValueExt
+{
+    top: 0.700vw;
+}
+
+.mobile.gj.portrait #paytable .threeValueExt
+{
+    top: 7vw;
+}
+
+.mobile.gj.landscape #paytable .threeValueExt
+{
+    top: 5.740vw;
+}
+
+.mobile.gj.landscape.notch #paytable .threeValueExt
+{
+    top: 5.04vw;
+}
+
+#paytable .threeValueExt
+{
+    top: 7vw;
+}
+
+.desktop.gj.landscape #paytable .twoValue
+{
+    top: 2.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .twoValue
+{
+    top: 1.76vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .twoValue
+{
+    top: 1.1vw;
+}
+
+.mobile.gj.portrait #paytable .twoValue
+{
+    top: 11vw;
+}
+
+.mobile.gj.landscape #paytable .twoValue
+{
+    top: 9.02vw;
+}
+
+.mobile.gj.landscape.notch #paytable .twoValue
+{
+    top: 7.92vw;
+}
+
+#paytable .twoValue
+{
+    top: 11vw;
+}
+
+#paytable .wildContainer
+{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+
+.desktop.gj.landscape #paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 3.75vw;
+    height: 3.75vw;
+    margin-right: 1.25vw;
+    margin-left: 1vw;
+}
+
+
+.desktop.wide.gj.landscape #paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 2.4vw;
+    height: 2.4vw;
+    margin-right: 0.8vw;
+    margin-left: 0.64vw;
+}
+
+
+.desktop.ultra.wide.gj.landscape #paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-right: 0.5vw;
+    margin-left: 0.4vw;
+}
+
+
+.mobile.gj.portrait #paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 15vw;
+    height: 15vw;
+    margin-right: 5vw;
+    margin-left: 4vw;
+}
+
+
+.mobile.gj.landscape #paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 12.300vw;
+    height: 12.300vw;
+    margin-right: 4.1vw;
+    margin-left: 3.28vw;
+}
+
+
+.mobile.gj.landscape.notch #paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 10.800vw;
+    height: 10.800vw;
+    margin-right: 3.600vw;
+    margin-left: 2.88vw;
+}
+
+
+#paytable .scatterIMG
+{
+    background-position: 74.74747474747475% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 15vw;
+    height: 15vw;
+    margin-right: 5vw;
+    margin-left: 4vw;
+}
+
+#paytable .splitContainer
+{
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#paytable .leftSide
+{
+    width: 49%;
+    float: left;
+}
+
+#paytable .rightSide
+{
+    width: 49%;
+    float: right;
+    position: relative;
+}
+
+.desktop.gj.landscape .winPatternContainer
+{
+    width: 3.5vw;
+    height: 1.5vw;
+    position: relative;
+    font-size: 0.625vw;
+    margin-left: 0.75vw;
+}
+
+.desktop.wide.gj.landscape .winPatternContainer
+{
+    width: 2.24vw;
+    height: 0.96vw;
+    position: relative;
+    font-size: 0.4vw;
+    margin-left: 0.48vw;
+}
+
+.desktop.ultra.wide.gj.landscape .winPatternContainer
+{
+    width: 1.400vw;
+    height: 0.600vw;
+    position: relative;
+    font-size: 0.25vw;
+    margin-left: 0.300vw;
+}
+
+.mobile.gj.portrait .winPatternContainer
+{
+    width: 14vw;
+    height: 6vw;
+    position: relative;
+    font-size: 2.5vw;
+    margin-left: 3vw;
+}
+
+.mobile.gj.landscape .winPatternContainer
+{
+    width: 11.480vw;
+    height: 4.92vw;
+    position: relative;
+    font-size: 2.05vw;
+    margin-left: 2.46vw;
+}
+
+.mobile.gj.landscape.notch .winPatternContainer
+{
+    width: 10.08vw;
+    height: 4.32vw;
+    position: relative;
+    font-size: 1.800vw;
+    margin-left: 2.16vw;
+}
+
+.winPatternContainer
+{
+    width: 14vw;
+    height: 6vw;
+    position: relative;
+    font-size: 2.5vw;
+    margin-left: 3vw;
+}
+
+#paytable .winPattern
+{
+    position: absolute;
+    width: 25%;
+    text-align: center;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    top: 50%;
+    left: 0%;
+}
+
+#paytable table
+{
+    margin: auto;
+    text-align: center;
+    width: 75%;
+    height: 100%;
+    float: right;
+    border-spacing: 0px;
+}
+
+#paytable td
+{
+    border: solid 1px;
+}
+
+.desktop.gj.landscape #paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 22vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 0.5vw;
+    margin-top: 0.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 14.08vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 0.32vw;
+    margin-top: 0.48vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 8.8vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 0.2vw;
+    margin-top: 0.300vw;
+}
+
+.mobile.gj.portrait #paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 88vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 2vw;
+    margin-top: 3vw;
+}
+
+.mobile.gj.landscape #paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 72.16vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 1.64vw;
+    margin-top: 2.46vw;
+}
+
+.mobile.gj.landscape.notch #paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 63.36vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 1.44vw;
+    margin-top: 2.16vw;
+}
+
+#paytable .winPatterns
+{
+    margin: auto;
+    text-align: left;
+    width: 88vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-bottom: 2vw;
+    margin-top: 3vw;
+}
+
+.desktop.gj.landscape #paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 7.5vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 1.25vw;
+}
+
+.desktop.wide.gj.landscape #paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 4.8vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 0.8vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 3vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 0.5vw;
+}
+
+.mobile.gj.portrait #paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 30vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 5vw;
+}
+
+.mobile.gj.landscape #paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 24.600vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 4.1vw;
+}
+
+.mobile.gj.landscape.notch #paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 21.600vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 3.600vw;
+}
+
+#paytable .hpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    height: 30vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 5vw;
+}
+
+.desktop.gj.landscape #paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 6.5vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 1.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 4.16vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 1.12vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 2.6vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 0.700vw;
+}
+
+.mobile.gj.portrait #paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 26vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 7vw;
+}
+
+.mobile.gj.landscape #paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 21.32vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 5.740vw;
+}
+
+.mobile.gj.landscape.notch #paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 18.72vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 5.04vw;
+}
+
+#paytable .lpSymbols
+{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    height: 26vw;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 7vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainer
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: relative;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainer
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: relative;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainer
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: relative;
+}
+
+.mobile.gj.portrait #paytable .symbolContainer
+{
+    width: 15vw;
+    height: 30vw;
+    position: relative;
+}
+
+.mobile.gj.landscape #paytable .symbolContainer
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: relative;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainer
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: relative;
+}
+
+#paytable .symbolContainer
+{
+    width: 15vw;
+    height: 30vw;
+    position: relative;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerhp4
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerhp4
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerhp4
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerhp4
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerhp4
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerhp4
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 0vw;
+}
+
+#paytable .symbolContainerhp4
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerhp3
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 4.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerhp3
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 3.04vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerhp3
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 1.900vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerhp3
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 19vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerhp3
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 15.580vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerhp3
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 13.68vw;
+}
+
+#paytable .symbolContainerhp3
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 19vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerhp2
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 9.375vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerhp2
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 6vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerhp2
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 3.75vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerhp2
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 37.5vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerhp2
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 30.750vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerhp2
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 27vw;
+}
+
+#paytable .symbolContainerhp2
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 37.5vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerhp1
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 14vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerhp1
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 8.96vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerhp1
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 5.600vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerhp1
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 56vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerhp1
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 45.920vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerhp1
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 40.32vw;
+}
+
+#paytable .symbolContainerhp1
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 56vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerlp1
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 16vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerlp1
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 10.24vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerlp1
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 6.4vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerlp1
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 64vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerlp1
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 52.48vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerlp1
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 46.08vw;
+}
+
+#paytable .symbolContainerlp1
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 64vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerlp2
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 12vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerlp2
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 7.68vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerlp2
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 4.800vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerlp2
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 48vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerlp2
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 39.36vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerlp2
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 34.56vw;
+}
+
+#paytable .symbolContainerlp2
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 48vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerlp3
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 8vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerlp3
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 5.12vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerlp3
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 3.2vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerlp3
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 32vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerlp3
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 26.24vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerlp3
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 23.04vw;
+}
+
+#paytable .symbolContainerlp3
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 32vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerlp4
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 4vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerlp4
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 2.56vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerlp4
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 1.6vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerlp4
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 16vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerlp4
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 13.12vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerlp4
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 11.52vw;
+}
+
+#paytable .symbolContainerlp4
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 16vw;
+}
+
+.desktop.gj.landscape #paytable .symbolContainerlp5
+{
+    width: 3.75vw;
+    height: 7.5vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolContainerlp5
+{
+    width: 2.4vw;
+    height: 4.8vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolContainerlp5
+{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.mobile.gj.portrait #paytable .symbolContainerlp5
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.mobile.gj.landscape #paytable .symbolContainerlp5
+{
+    width: 12.300vw;
+    height: 24.600vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolContainerlp5
+{
+    width: 10.800vw;
+    height: 21.600vw;
+    position: absolute;
+    left: 0vw;
+}
+
+#paytable .symbolContainerlp5
+{
+    width: 15vw;
+    height: 30vw;
+    position: absolute;
+    left: 0vw;
+}
+
+.desktop.gj.landscape #paytable .symbolTextContainer
+{
+    position: relative;
+    width: 4.25vw;
+    height: 3.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbolTextContainer
+{
+    position: relative;
+    width: 2.72vw;
+    height: 2.4vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbolTextContainer
+{
+    position: relative;
+    width: 1.700vw;
+    height: 1.5vw;
+}
+
+.mobile.gj.portrait #paytable .symbolTextContainer
+{
+    position: relative;
+    width: 17vw;
+    height: 15vw;
+}
+
+.mobile.gj.landscape #paytable .symbolTextContainer
+{
+    position: relative;
+    width: 13.94vw;
+    height: 12.300vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbolTextContainer
+{
+    position: relative;
+    width: 12.24vw;
+    height: 10.800vw;
+}
+
+#paytable .symbolTextContainer
+{
+    position: relative;
+    width: 17vw;
+    height: 15vw;
+}
+
+#paytable .symbolNumberContainer
+{
+    position: relative;
+    width: 20%;
+    height: 100%;
+    float:left;
+}
+
+#paytable .symbolValueContainerCoin
+{
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    left: 27%;
+}
+
+#paytable .symbolValueContainerCurrency
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 19%;
+}
+
+.desktop.gj.landscape #paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 3.75vw;
+    height: 3.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 2.4vw;
+    height: 2.4vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.mobile.gj.portrait #paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 15vw;
+    height: 15vw;
+}
+
+.mobile.gj.landscape #paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 12.300vw;
+    height: 12.300vw;
+}
+
+.mobile.gj.landscape.notch #paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 10.800vw;
+    height: 10.800vw;
+}
+
+#paytable .symbol
+{
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    width: 15vw;
+    height: 15vw;
+}
+
+.desktop.gj.landscape #paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 2.88vw;
+    height: 2.88vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.mobile.gj.portrait #paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.mobile.gj.landscape #paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 14.76vw;
+    height: 14.76vw;
+}
+
+.mobile.gj.landscape.notch #paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 12.960vw;
+    height: 12.960vw;
+}
+
+#paytable .hp1
+{
+    background-position: 0.1264222503160556% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.desktop.gj.landscape #paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 2.88vw;
+    height: 2.88vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.mobile.gj.portrait #paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.mobile.gj.landscape #paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 14.76vw;
+    height: 14.76vw;
+}
+
+.mobile.gj.landscape.notch #paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 12.960vw;
+    height: 12.960vw;
+}
+
+#paytable .hp2
+{
+    background-position: 75% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.desktop.gj.landscape #paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 2.88vw;
+    height: 2.88vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.mobile.gj.portrait #paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.mobile.gj.landscape #paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 14.76vw;
+    height: 14.76vw;
+}
+
+.mobile.gj.landscape.notch #paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 12.960vw;
+    height: 12.960vw;
+}
+
+#paytable .hp3
+{
+    background-position: 25.15802781289507% 0.5025125628140703%;
+    background-size: 501.52284263959393% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.desktop.gj.landscape #paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 2.88vw;
+    height: 2.88vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.mobile.gj.portrait #paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.mobile.gj.landscape #paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 14.76vw;
+    height: 14.76vw;
+}
+
+.mobile.gj.landscape.notch #paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 12.960vw;
+    height: 12.960vw;
+}
+
+#paytable .hp4
+{
+    background-position: 50.12626262626262% 0.5025125628140703%;
+    background-size: 504.0816326530612% 201.01522842639594%;
+    background-image: url(paytable.png);
+    width: 18vw;
+    height: 18vw;
+}
+
+.desktop.gj.landscape #paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 4vw;
+    height: 3.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 2.56vw;
+    height: 2.4vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 1.6vw;
+    height: 1.5vw;
+}
+
+.mobile.gj.portrait #paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 16vw;
+    height: 15vw;
+}
+
+.mobile.gj.landscape #paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 13.12vw;
+    height: 12.300vw;
+}
+
+.mobile.gj.landscape.notch #paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 11.52vw;
+    height: 10.800vw;
+}
+
+#paytable .lp1
+{
+    background-position: 0.12626262626262627% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 16vw;
+    height: 15vw;
+}
+
+.desktop.gj.landscape #paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 3.5vw;
+    height: 3.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 2.24vw;
+    height: 2.4vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 1.400vw;
+    height: 1.5vw;
+}
+
+.mobile.gj.portrait #paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 15vw;
+}
+
+.mobile.gj.landscape #paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 11.480vw;
+    height: 12.300vw;
+}
+
+.mobile.gj.landscape.notch #paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 10.08vw;
+    height: 10.800vw;
+}
+
+#paytable .lp2
+{
+    background-position: 99.87373737373737% 99%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 15vw;
+}
+
+.desktop.gj.landscape #paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 3.5vw;
+    height: 3.5vw;
+    margin-bottom: 0.125vw;
+    margin-top: 0.125vw;
+}
+
+.desktop.wide.gj.landscape #paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 2.24vw;
+    height: 2.24vw;
+    margin-bottom: 0.08vw;
+    margin-top: 0.08vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 1.400vw;
+    height: 1.400vw;
+    margin-bottom: 0.05vw;
+    margin-top: 0.05vw;
+}
+
+.mobile.gj.portrait #paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 14vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.mobile.gj.landscape #paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 11.480vw;
+    height: 11.480vw;
+    margin-bottom: 0.41vw;
+    margin-top: 0.41vw;
+}
+
+.mobile.gj.landscape.notch #paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 10.08vw;
+    height: 10.08vw;
+    margin-bottom: 0.36vw;
+    margin-top: 0.36vw;
+}
+
+#paytable .lp3
+{
+    background-position: 99.87373737373737% 0.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 14vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.desktop.gj.landscape #paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 3.5vw;
+    height: 3.5vw;
+    margin-bottom: 0.125vw;
+    margin-top: 0.125vw;
+}
+
+.desktop.wide.gj.landscape #paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 2.24vw;
+    height: 2.24vw;
+    margin-bottom: 0.08vw;
+    margin-top: 0.08vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 1.400vw;
+    height: 1.400vw;
+    margin-bottom: 0.05vw;
+    margin-top: 0.05vw;
+}
+
+.mobile.gj.portrait #paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 14vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.mobile.gj.landscape #paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 11.480vw;
+    height: 11.480vw;
+    margin-bottom: 0.41vw;
+    margin-top: 0.41vw;
+}
+
+.mobile.gj.landscape.notch #paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 10.08vw;
+    height: 10.08vw;
+    margin-bottom: 0.36vw;
+    margin-top: 0.36vw;
+}
+
+#paytable .lp4
+{
+    background-position: 25% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 14vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.desktop.gj.landscape #paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 3.5vw;
+    height: 3.5vw;
+    margin-bottom: 0.125vw;
+    margin-top: 0.125vw;
+}
+
+.desktop.wide.gj.landscape #paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 2.24vw;
+    height: 2.24vw;
+    margin-bottom: 0.08vw;
+    margin-top: 0.08vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 1.400vw;
+    height: 1.400vw;
+    margin-bottom: 0.05vw;
+    margin-top: 0.05vw;
+}
+
+.mobile.gj.portrait #paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 14vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.mobile.gj.landscape #paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 11.480vw;
+    height: 11.480vw;
+    margin-bottom: 0.41vw;
+    margin-top: 0.41vw;
+}
+
+.mobile.gj.landscape.notch #paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 10.08vw;
+    height: 10.08vw;
+    margin-bottom: 0.36vw;
+    margin-top: 0.36vw;
+}
+
+#paytable .lp5
+{
+    background-position: 49.87373737373738% 99.5%;
+    background-size: 504.0816326530612% 202.0408163265306%;
+    background-image: url(paytable.png);
+    width: 14vw;
+    height: 14vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.desktop.gj.landscape #paytable .winupto
+{
+    width: 100%;
+    font-size: 1.25vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.05vw 0.05vw 0.075vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.desktop.wide.gj.landscape #paytable .winupto
+{
+    width: 100%;
+    font-size: 0.8vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.032vw 0.032vw 0.048vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .winupto
+{
+    width: 100%;
+    font-size: 0.5vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.020vw 0.020vw 0.03vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.mobile.gj.portrait #paytable .winupto
+{
+    width: 100%;
+    font-size: 5vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.mobile.gj.landscape #paytable .winupto
+{
+    width: 100%;
+    font-size: 4.1vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.164vw 0.164vw 0.246vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.mobile.gj.landscape.notch #paytable .winupto
+{
+    width: 100%;
+    font-size: 3.600vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.144vw 0.144vw 0.216vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+#paytable .winupto
+{
+    width: 100%;
+    font-size: 5vw;
+    color: rgb(255, 174, 29);
+    font-weight: bold;
+    text-shadow: 0.2vw 0.2vw 0.3vw rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+#paytable .winContainer
+{
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.desktop.gj.landscape #paytable .wildSection, .desktop.gj.landscape #paytable .scatterSection, .desktop.gj.landscape #paytable .freeSpinSection, .desktop.gj.landscape #paytable .bonusSection, .desktop.gj.landscape #paytable .winSection
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.75vw;
+}
+
+.desktop.wide.gj.landscape #paytable .wildSection, .desktop.wide.gj.landscape #paytable .scatterSection, .desktop.wide.gj.landscape #paytable .freeSpinSection, .desktop.wide.gj.landscape #paytable .bonusSection, .desktop.wide.gj.landscape #paytable .winSection
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.48vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .wildSection, .desktop.ultra.wide.gj.landscape #paytable .scatterSection, .desktop.ultra.wide.gj.landscape #paytable .freeSpinSection, .desktop.ultra.wide.gj.landscape #paytable .bonusSection, .desktop.ultra.wide.gj.landscape #paytable .winSection
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.300vw;
+}
+
+.mobile.gj.portrait #paytable .wildSection, .mobile.gj.portrait #paytable .scatterSection, .mobile.gj.portrait #paytable .freeSpinSection, .mobile.gj.portrait #paytable .bonusSection, .mobile.gj.portrait #paytable .winSection
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 3vw;
+}
+
+.mobile.gj.landscape #paytable .wildSection, .mobile.gj.landscape #paytable .scatterSection, .mobile.gj.landscape #paytable .freeSpinSection, .mobile.gj.landscape #paytable .bonusSection, .mobile.gj.landscape #paytable .winSection
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.46vw;
+}
+
+.mobile.gj.landscape.notch #paytable .wildSection, .mobile.gj.landscape.notch #paytable .scatterSection, .mobile.gj.landscape.notch #paytable .freeSpinSection, .mobile.gj.landscape.notch #paytable .bonusSection, .mobile.gj.landscape.notch #paytable .winSection
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.16vw;
+}
+
+#paytable .wildSection,
+#paytable .scatterSection,
+#paytable .freeSpinSection,
+#paytable .bonusSection,
+#paytable .winSection
+{
+    position: relative;
+    width: 100%;
+	margin-bottom: 3vw;
+}
+
+
+@-webkit-keyframes xfade {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes xfade {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.desktop.gj.landscape #paytable .slideDiv
+{
+    position: relative;
+    height: 7vw;
+    width: 100%;
+}
+
+.desktop.wide.gj.landscape #paytable .slideDiv
+{
+    position: relative;
+    height: 4.48vw;
+    width: 100%;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideDiv
+{
+    position: relative;
+    height: 2.800vw;
+    width: 100%;
+}
+
+.mobile.gj.portrait #paytable .slideDiv
+{
+    position: relative;
+    height: 28vw;
+    width: 100%;
+}
+
+.mobile.gj.landscape #paytable .slideDiv
+{
+    position: relative;
+    height: 22.960vw;
+    width: 100%;
+}
+
+.mobile.gj.landscape.notch #paytable .slideDiv
+{
+    position: relative;
+    height: 20.16vw;
+    width: 100%;
+}
+
+#paytable .slideDiv {
+    position: relative;
+    height: 28vw;
+    width: 100%;
+}
+
+.desktop.gj.landscape .slideDiv div
+{
+    position: absolute;
+    max-width: 100%;
+    height: 10vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.desktop.wide.gj.landscape .slideDiv div
+{
+    position: absolute;
+    max-width: 100%;
+    height: 6.4vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.desktop.ultra.wide.gj.landscape .slideDiv div
+{
+    position: absolute;
+    max-width: 100%;
+    height: 4vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mobile.gj.portrait .slideDiv div
+{
+    position: absolute;
+    max-width: 100%;
+    height: 40vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mobile.gj.landscape .slideDiv div
+{
+    position: absolute;
+    max-width: 100%;
+    height: 32.8vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mobile.gj.landscape.notch .slideDiv div
+{
+    position: absolute;
+    max-width: 100%;
+    height: 28.800vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.slideDiv div {
+    position: absolute;
+    max-width: 100%;
+    height: 40vw;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.slideDiv div:nth-child(10) {
+    -webkit-animation: xfade 12s 0s infinite;
+    animation: xfade 12s 0s infinite;
+}
+
+.slideDiv div:nth-child(9) {
+    -webkit-animation: xfade 12s 1s infinite;
+    animation: xfade 12s 1s infinite;
+}
+
+.slideDiv div:nth-child(8) {
+    -webkit-animation: xfade 12s 2s infinite;
+    animation: xfade 12s 2s infinite;
+}
+
+.slideDiv div:nth-child(7) {
+    -webkit-animation: xfade 12s 3s infinite;
+    animation: xfade 12s 3s infinite;
+}
+
+.slideDiv div:nth-child(6) {
+    -webkit-animation: xfade 12s 4s infinite;
+    animation: xfade 12s 4s infinite;
+}
+
+.slideDiv div:nth-child(5) {
+    -webkit-animation: xfade 12s 4s infinite;
+    animation: xfade 12s 5s infinite;
+}
+
+.slideDiv div:nth-child(4) {
+    -webkit-animation: xfade 12s 6s infinite;
+    animation: xfade 12s 6s infinite;
+}
+
+.slideDiv div:nth-child(3) {
+    -webkit-animation: xfade 12s 7s infinite;
+    animation: xfade 12s 7s infinite;
+}
+
+.slideDiv div:nth-child(2) {
+    -webkit-animation: xfade 12s 8s infinite;
+    animation: xfade 12s 8s infinite;
+}
+
+.slideDiv div:nth-child(1) {
+    -webkit-animation: xfade 12s 9s infinite;
+    animation: xfade 12s 9s infinite;
+}
+
+.desktop.gj.landscape #paytable .slideImg1
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg1
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg1
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg1
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg1
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg1
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg1 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg2
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg2
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg2
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg2
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg2
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg2
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg2 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg3
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg3
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg3
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg3
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg3
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg3
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg3 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 25.047984644913626%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg4
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg4
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg4
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg4
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg4
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg4
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg4 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg5
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg5
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg5
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg5
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg5
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg5
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg5 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 50%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg6
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg6
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg6
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg6
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg6
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg6
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg6 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg7
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg7
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg7
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg7
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg7
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg7
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg7 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 74.95201535508637%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg8
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg8
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg8
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg8
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg8
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg8
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg8 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 0.26246719160104987% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg9
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg9
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg9
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg9
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg9
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg9
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg9 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 99.90403071017275%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.desktop.gj.landscape #paytable .slideImg10
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 17vw;
+    height: 11.25vw;
+    position: absolute;
+}
+
+.desktop.wide.gj.landscape #paytable .slideImg10
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 10.88vw;
+    height: 7.2vw;
+    position: absolute;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable .slideImg10
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 6.800vw;
+    height: 4.5vw;
+    position: absolute;
+}
+
+.mobile.gj.portrait #paytable .slideImg10
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape #paytable .slideImg10
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 55.76vw;
+    height: 36.9vw;
+    position: absolute;
+}
+
+.mobile.gj.landscape.notch #paytable .slideImg10
+{
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 48.96vw;
+    height: 32.4vw;
+    position: absolute;
+}
+
+#paytable .slideImg10 {
+    background-image: url("slideshow/slideshow.png");
+    background-position: 99.73753280839895% 0.09596928982725528%;
+    background-size: 200.79365079365078% 502.3166023166023%;
+    width: 68vw;
+    height: 45vw;
+    position: absolute;
+}
+
+
+.desktop.gj.landscape #paytable #coinInfoContainer
+{
+    left: 0.375vw;
+    font-size: 0.625vw;
+}
+
+
+.desktop.wide.gj.landscape #paytable #coinInfoContainer
+{
+    left: 0.24vw;
+    font-size: 0.4vw;
+}
+
+
+.desktop.ultra.wide.gj.landscape #paytable #coinInfoContainer
+{
+    left: 0.150vw;
+    font-size: 0.25vw;
+}
+
+
+.mobile.gj.portrait #paytable #coinInfoContainer
+{
+    left: 1.5vw;
+    font-size: 2.5vw;
+}
+
+
+.mobile.gj.landscape #paytable #coinInfoContainer
+{
+    left: 1.23vw;
+    font-size: 2.05vw;
+}
+
+
+.mobile.gj.landscape.notch #paytable #coinInfoContainer
+{
+    left: 1.08vw;
+    font-size: 1.800vw;
+}
+
+
+#paytable #coinInfoContainer
+{
+    left: 1.5vw;
+    font-size: 2.5vw;
+}
+
+.desktop.gj.landscape #paytable #creditInfoContainer
+{
+    left: 0.125vw;
+    font-size: 0.5vw;
+}
+
+.desktop.wide.gj.landscape #paytable #creditInfoContainer
+{
+    left: 0.08vw;
+    font-size: 0.32vw;
+}
+
+.desktop.ultra.wide.gj.landscape #paytable #creditInfoContainer
+{
+    left: 0.05vw;
+    font-size: 0.2vw;
+}
+
+.mobile.gj.portrait #paytable #creditInfoContainer
+{
+    left: 0.5vw;
+    font-size: 2vw;
+}
+
+.mobile.gj.landscape #paytable #creditInfoContainer
+{
+    left: 0.41vw;
+    font-size: 1.64vw;
+}
+
+.mobile.gj.landscape.notch #paytable #creditInfoContainer
+{
+    left: 0.36vw;
+    font-size: 1.44vw;
+}
+
+#paytable #creditInfoContainer
+{
+    left: 0.5vw;
+    font-size: 2vw;
+}

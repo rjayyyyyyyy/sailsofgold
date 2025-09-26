@@ -16,6 +16,7 @@ const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
   gameSlug: "bookofdead",
+  gameType: "videoslot",
   name: 'Book of Dead',
   apiUrl: 'https://ff.lydrst.com/',
   configUrl: 'https://cw.lydrst.com/Configuration/v2',

@@ -1,0 +1,6 @@
+{
+	"css": [
+		{ "name": "mobile_tablegame", "src": "../../../../gamelibs/videoslot/mobile/mobile_videoslot.css" },
+		{ "name": "paytable", "src": "paytable.css"	}
+	]
+}
