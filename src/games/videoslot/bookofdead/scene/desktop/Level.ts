@@ -453,6 +453,7 @@ export default class Level extends Phaser.Scene {
 			this.GameState.isReward.subscribe((val) => {
 				console.log("isReward", val);
 				if(this.GameState.isAutoPlayRunning.get()) return;
+				if(this.GameState.isAutoSpinRunning.get()) return;
 				if(this.toggleVfx) this.toggleVfx.destroy();
 				if (val) {
 					console.log("show Reward")
@@ -499,6 +500,7 @@ export default class Level extends Phaser.Scene {
 				} else{
 					return;
 				}
+				if(this.GameState.isAutoSpinRunning.get()) return;
 				const wonLine = this.cache.json.get('language').texts['IDS_MENU_WON'];
 				const totalWin = wonLine.replace('%d', this.GameState.winCoins.get().toString());
 				if (paylineIndex) {
@@ -542,6 +544,19 @@ export default class Level extends Phaser.Scene {
 					this.GameState.isAutoPlayRunning.set(false);
 				}
 			});
+
+			this.GameState.isEndScatter.subscribe((val) => {
+				if (!val) {
+					if(this.GameState.isAutoPlayRunning.get()) {
+						this.spinBtn.setVisible(false);
+						this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_STOP'])
+						this.bgAutoplay.setVisible(true);
+						this.txtAutoplay.setVisible(true);
+						this.txtAutoplayValue.setVisible(true);
+						Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
+					}
+				}
+			})
 		}, 0);
 
 		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
@@ -583,6 +598,14 @@ export default class Level extends Phaser.Scene {
 
 		Dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
 			this.GameState.isShowingScatter.set(true);
+			
+			this.spinBtn.setVisible(true)
+			this.autoplayBtn.setVisible(true);
+			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
+			this.bgAutoplay.setVisible(false);
+			this.txtAutoplay.setVisible(false);
+			this.txtAutoplayValue.setVisible(false);
+
 			console.log(scatterSymbolSprite)
 			this.scene.launch('ScatterScene');
 			if(scatterSymbolSprite){
@@ -599,6 +622,15 @@ export default class Level extends Phaser.Scene {
 			this.ReelsManager.currentSpin = null;
 			this.scene.stop('ScatterScene');
 		});
+
+		Dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
+			this.spinBtn.setVisible(true)
+			this.autoplayBtn.setVisible(true);
+			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
+			this.bgAutoplay.setVisible(false);
+			this.txtAutoplay.setVisible(false);
+			this.txtAutoplayValue.setVisible(false);
+		})
 	}
 
 	create() {
@@ -773,8 +805,7 @@ export default class Level extends Phaser.Scene {
 
 		// Footer menu
 		this.footerPrefab.btnMenu.on('pointerdown', () => {
-			const current = this.GameState.isShowingMenu.get();
-      		this.GameState.isShowingMenu.set(!current);
+      		this.GameState.isShowingMenu.set(true);
 		});
 	}
 

@@ -124,8 +124,9 @@ class VideoSlotReelsManager {
             console.log("Spin Start", GameState.coinBet.get(), GameState.linesBet.get(), GameState.coinValue.get());
             if(this.scatterInfo.isScatterSpin) {
                 if(this.scatterInfo.claimed) return;
-                GameState.isScatterInfoShown.set(false);
+				if(this.scatterInfo.currentSpin !== 0) return;
                 NetworkManager.sendCommand(ClientCommand.Feature, ["6"]);
+                GameState.isScatterInfoShown.set(false);
                 Dispatcher.emit(EVENTS.HIDE_SCATTER_INFO);
                 this.hasDelayedSpinStarted = true;
             }
@@ -147,7 +148,8 @@ class VideoSlotReelsManager {
                 Dispatcher.emit(AUDIO_EVENTS.REEL_STOP);
                 this.renderWinLines(this.currentSpin.winLines);
                 if(this.scatterInfo.isScatterSpin) {
-                    if(this.scatterInfo.currentSpin === 10) {
+					console.log('scatterInfo.currentSpin',this.scatterInfo.currentSpin)
+                    if(this.scatterInfo.currentSpin === 9) {
 						// setTimeout(() => {
 						// 	GameState.isSpinning.set(false);
 						// }, 1350);
@@ -416,7 +418,7 @@ class VideoSlotReelsManager {
 			}
 		}
 
-		if(GameState.isAutoPlayRunning.get() && !GameState.isSpinning.get() && this.spinQueue.length == 1){
+		if(GameState.isAutoPlayRunning.get() && !GameState.isSpinning.get() && this.spinQueue.length == 1 && !this.GameState.isEndScatter.get()){
 			// Dispatcher.emit(ACTION_EVENTS.SPIN_START);
 			const spin = this.spinQueue.shift();
 			if(spin) {
@@ -611,7 +613,7 @@ class VideoSlotReelsManager {
 				console.log('Scatter book');
 				this.changeTintSymbol(true);
 				setTimeout(() => {
-					if(GameState.isAutoPlayRunning){
+					if(GameState.isAutoPlayRunning.get()){
 						if(GameState.isAutoplayFreeSpin.get() || GameState.isAutoplayJackpot.get()){
 							GameState.isAutoPlayRunning.set(false);
 							this.activeAutoplay = 0;
@@ -994,7 +996,7 @@ class VideoSlotReelsManager {
 					
 					if(i === singleLineImages.length - 1){
 						setTimeout(() => {
-							// GameState.isSpinning.set(false);
+							GameState.isSpinning.set(false);
 							if(GameState.isReward.get()){
 								// GameState.isReward.set(false);
 								Dispatcher.emit(EVENTS.REWARD_COMPLETE)
@@ -1209,7 +1211,7 @@ class VideoSlotReelsManager {
 						.image(
 						this.targets[0].x + this.targets[0].parentContainer.x,
 						this.targets[0].y + this.targets[0].parentContainer.y,
-						GameState.isMobile ? 'skin_texture2_level2' : 'skin_texture4_level0',
+						GameState.isMobile ? 'skin_texture4_level2' : 'skin_texture4_level0',
 						'EG.png'
 						)
 						.setScale(6)

@@ -264,6 +264,52 @@ export default class AutoplayScene extends Phaser.Scene {
 		this.setAutoplayBtn();
 		this.setStopAutoplay();
 
+		// OnAnyWin
+		if (this.gameState.isAutoplayAnyWin.get()) {
+			this.valueAnyWin1.setFrame('HB.png');
+			this.valueAnyWin2.setFrame('JB.png');
+		} else {
+			this.valueAnyWin1.setFrame('GB.png');
+			this.valueAnyWin2.setFrame('IB.png');
+		}
+		this.tweens.add({
+			targets: this.valueAnyWin2,
+			x: this.gameState.isAutoplayAnyWin.get() ? 490 : 470,
+			duration: 100,
+			ease: 'Power2',
+		});
+
+		// OnFreeSpins
+		if (this.gameState.isAutoplayFreeSpin.get()) {
+			this.valueFreeSpins1.setFrame('HB.png');
+			this.valueFreeSpins2.setFrame('JB.png');
+		} else {
+			this.valueFreeSpins1.setFrame('GB.png');
+			this.valueFreeSpins2.setFrame('IB.png');
+		}
+		this.tweens.add({
+			targets: this.valueFreeSpins2,
+			x: this.gameState.isAutoplayFreeSpin.get() ? 680 : 660,
+			duration: 100,
+			ease: 'Power2',
+		});
+
+		// OnJackpot
+		if (this.gameState.isAutoplayJackpot.get()) {
+			this.valueJackpotWon1.setFrame('HB.png');
+			this.valueJackpotWon2.setFrame('JB.png');
+		} else {
+			this.valueJackpotWon1.setFrame('GB.png');
+			this.valueJackpotWon2.setFrame('IB.png');
+		}
+		this.tweens.add({
+			targets: this.valueJackpotWon2,
+			x: this.gameState.isAutoplayJackpot.get() ? 490 : 470,
+			duration: 100,
+			ease: 'Power2',
+		});
+
+		
 	}
 
 	setAutoplayBtn(){

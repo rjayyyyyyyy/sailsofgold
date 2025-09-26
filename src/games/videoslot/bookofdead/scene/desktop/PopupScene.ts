@@ -53,6 +53,7 @@ export default class PopupScene extends Phaser.Scene {
 
 		// btnExit
 		const btnExit = this.add.image(639, 485, "videoslot_popup_texture0_level0", "OB.png");
+		btnExit.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 51), Phaser.Geom.Rectangle.Contains);
 		btnExit.scaleX = 0.8;
 		btnExit.scaleY = 0.8;
 

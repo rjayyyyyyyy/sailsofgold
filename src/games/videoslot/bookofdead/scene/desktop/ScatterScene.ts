@@ -5,10 +5,12 @@ import { SymbolTextureSet } from "@games/videoslot/components/Reels";
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
 import { container } from "@gl/di/container";
+import Dispatcher, { EVENTS } from "@gl/events/Dispatcher";
 import { FeatureAwardType } from "@gl/networking/FeatureType";
 
 /* START OF COMPILED CODE */
 
+import ReelPrefab from "../prefab/ReelPrefab";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -19,6 +21,7 @@ export default class ScatterScene extends Phaser.Scene {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.symbolList = [];
 		/* END-USER-CTR-CODE */
 	}
 
@@ -28,6 +31,7 @@ export default class ScatterScene extends Phaser.Scene {
 		const animation = this.add.sprite(640, 360, "skin_texture1_level0", "KH.png");
 		animation.scaleX = 0.8;
 		animation.scaleY = 0.8;
+		animation.play("animationBook");
 
 		// bgBook
 		const bgBook = this.add.image(640, 360, "skin_texture1_level0", "JL.png");
@@ -89,6 +93,10 @@ export default class ScatterScene extends Phaser.Scene {
 		txtSpinBegin.text = "IDS_PRESSPIN";
 		txtSpinBegin.setStyle({ "align": "center", "color": "#5c2c17", "fontFamily": "ROBOTO_CONDENSED_BOLD", "fontSize": "22px" });
 
+		// reelPrefab
+		const reelPrefab = new ReelPrefab(this, 42, -184);
+		this.add.existing(reelPrefab);
+
 		// lists
 		const bookContent = [imgDeco1, txtSpinBegin, txtYouWon, txtCongrats, selectedSymbol, imgDeco4, imgDeco3, imgDeco2];
 		const endScatter: Array<any> = [];
@@ -103,6 +111,7 @@ export default class ScatterScene extends Phaser.Scene {
 		this.txtCongrats = txtCongrats;
 		this.txtYouWon = txtYouWon;
 		this.txtSpinBegin = txtSpinBegin;
+		this.reelPrefab = reelPrefab;
 		this.bookContent = bookContent;
 		this.endScatter = endScatter;
 
@@ -119,6 +128,7 @@ export default class ScatterScene extends Phaser.Scene {
 	private txtCongrats!: Phaser.GameObjects.Text;
 	private txtYouWon!: Phaser.GameObjects.Text;
 	private txtSpinBegin!: Phaser.GameObjects.Text;
+	private reelPrefab!: ReelPrefab;
 	private bookContent!: Array<Phaser.GameObjects.Image|Phaser.GameObjects.Text|Phaser.GameObjects.Sprite>;
 	private endScatter!: Array<any>;
 
@@ -141,155 +151,169 @@ export default class ScatterScene extends Phaser.Scene {
 	}
 
 	bookAnimation(target: Phaser.GameObjects.Sprite[]){
-		this.animation.play('bookAnimation');
-		for(let i = 0; i < target.length; i++){
-			const xTarget = target[i].x
-			const yTarget = target[i].y
-			this.tweens.add({
-				targets: target[i],
-                scaleX: 1.2,
-                scaleY: 1.2,
-                yoyo: true,
-                repeat: 2,
-                duration: 200,
-				onComplete: () => {
-					this.tweens.add({
-						targets: target[i],
-                        x: (this.scale.width / 2) - target[i].parentContainer.x,
-                        y: (this.scale.height / 2) - target[i].parentContainer.y,
-                        duration: 400,
-                        repeat: 0,
-                        delay: 800,
-                        ease: "Linear",
-						onComplete: () => {
-							target[i].x = xTarget;
-                            target[i].y = yTarget;
-							this.editorCreate();
+		this.GameState.isEndScatter.set(true);
+		setTimeout(() => {
 
-							this.txtCongrats.setText(this.cache.json.get('language').texts[this.txtCongrats.text])
-							this.txtYouWon.setText(this.cache.json.get('language').texts[this.txtYouWon.text].replace("%d", "10"))
-							this.txtSpinBegin.setText(this.cache.json.get('language').texts[this.txtSpinBegin.text])
+			for(let i = 0; i < target.length; i++){
+				const xTarget = target[i].x
+				const yTarget = target[i].y
+				this.tweens.add({
+					targets: target[i],
+					scaleX: .85,
+					scaleY: .85,
+					yoyo: true,
+					repeat: 2,
+					duration: 200,
+					onComplete: () => {
+						this.tweens.add({
+							targets: target[i],
+							x: (this.scale.width / 2) - target[i].parentContainer.x,
+							y: (this.scale.height / 2) - target[i].parentContainer.y,
+							duration: 400,
+							repeat: 0,
+							delay: 800,
+							ease: "Linear",
+							onComplete: () => {
+								console.log('onComplete');
+								target[i].x = xTarget;
+								target[i].y = yTarget;
+								this.editorCreate();
 
-							this.animation.on('animationcomplete', (anim: Phaser.GameObjects.Sprite) => {
-								// will fire every time an animation truly completes
-								(this.animation as Phaser.GameObjects.Sprite).destroy();
-								// anim.destroy();
-								this.bgBook.setVisible(true)
-								this.tweens.add({
-									targets: this.bgBook,
-									scale: {from: .15, to: .8},
-									duration: 500,
-									onComplete: () => {
-										this.bookContent.forEach(value => {
-											value.setVisible(true);
-										})
-										if(i === 0) this.addScatter();
-									},
-								})
-							});
-						}
-					})
-				}
-			})
-		}
+								this.txtCongrats.setText(this.cache.json.get('language').texts[this.txtCongrats.text])
+								this.txtYouWon.setText(this.cache.json.get('language').texts[this.txtYouWon.text].replace("%d", "10"))
+								this.txtSpinBegin.setText(this.cache.json.get('language').texts[this.txtSpinBegin.text])
+
+								this.animation.on('animationcomplete', (anim: Phaser.GameObjects.Sprite) => {
+									// will fire every time an animation truly completes
+									(this.animation as Phaser.GameObjects.Sprite).destroy();
+									// anim.destroy();
+									this.bgBook.setVisible(true)
+									this.tweens.add({
+										targets: this.bgBook,
+										scale: {from: .15, to: .8},
+										duration: 500,
+										onComplete: () => {
+											this.bookContent.forEach(value => {
+												value.setVisible(true);
+											})
+											if(i === 0) this.addScatter();
+										},
+									})
+								});
+							}
+						})
+					}
+				})
+			}
+		}, 1000)
 	}
 
 	addScatter(){
 		// 10, J, Q, K, A, Bird, Anubis, Pharaoh, Human
-		/*this.reelPrefab.symbol_list.forEach((sprite) => {
+		this.reelPrefab.symbol_list.forEach((sprite) => {
 			this.symbolList.push([sprite.texture.key, sprite.frame.name]);
-		});*/
+		});
 
-        let repeatCounter = 0
-        this.tweens.add({
-            targets: this.selectedSymbol,
-            duration: 150,
-            alpha: { from: 0, to: 1, start: 1},
-            repeat: 15,
-            onRepeat: () => {
-                repeatCounter++
-                let randomNumber = Phaser.Math.RND.between(0, 8);
-                const symbol = this.selectedSymbol;
-                if(repeatCounter == 15){
-                    const winSymbol = (this.ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
-					const sym = this.symbolList[winSymbol]
-					symbol.setTexture(sym[0], sym[1]);
-                    console.log(winSymbol)
-                    this.GameState.isSpinning.set(false)
-					
-                    // Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, 'T4'+arraySymbols[winSymbol]+'B.png')
+		setTimeout(() => {
 
-                    // if(winSymbol) {
-                    // }
-                }
-                else{   
-					/*const sym = this.symbolList[randomNumber]
-					symbol.setTexture(sym[0], sym[1]);*/
-                }
-            },
-            onComplete: function()  {
-                repeatCounter = 0
-                // Option.checkClick = false;
-            }
-        })
+			let repeatCounter = 0
+			this.tweens.add({
+				targets: this.selectedSymbol,
+				duration: 150,
+				alpha: { from: 0, to: 1, start: 1},
+				repeat: 15,
+				onRepeat: () => {
+					repeatCounter++
+					let randomNumber = Phaser.Math.RND.between(0, 8);
+					const symbol = this.selectedSymbol;
+					if(repeatCounter == 15){
+						const winSymbol = (this.ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
+						const sym = this.symbolList[winSymbol]
+						// const sym = this.symbolList[winSymbol]
+						symbol.setTexture(sym[0], sym[1]);
+						this.GameState.isSpinning.set(false)
+
+						// Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, 'T4'+arraySymbols[winSymbol]+'B.png')
+
+						// if(winSymbol) {
+						// }
+					}
+					else{   
+						const sym = this.symbolList[randomNumber]
+						symbol.setTexture(sym[0], sym[1]);
+					}
+				},
+				onComplete: function()  {
+					repeatCounter = 0
+					// Option.checkClick = false;
+				}
+			})
+		}, 0)
 	}
 
 	paperScatter(){
-		const paper = this.add.container(0, 0).setDepth(1)
-		const backgroundBlack = this.add.rectangle(800, 450, 128, 128);
-		backgroundBlack.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
-		backgroundBlack.scaleX = 12.5;
-		backgroundBlack.scaleY = 7.8;
-		backgroundBlack.isFilled = true;
-		backgroundBlack.fillColor = 0;
-		backgroundBlack.fillAlpha = 0.5;
-		// jH_png
-		const jH_png = this.add.image(800, 450, "skin_texture0_level0", "JH.png");
-
-		// aJ_png
-		const aJ_png = this.add.image(500, 450, "skin_texture0_level0", "AJ.png");
-
-		// bJ_png
-		const bJ_png = this.add.image(1100, 450, "skin_texture0_level0", "BJ.png");
-
-		// txtTotalWinText
-		const txtTotalWinText = this.add.text(800, 350, "", {});
-		txtTotalWinText.setOrigin(0.5, 0.5);
-		txtTotalWinText.text = this.cache.json.get('language').texts["IDS_TOTALWIN"];
-		txtTotalWinText.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "40px" });
-
-		// txtTotalWinValue
-		const txtTotalWinValue = this.add.text(800, 410, "", {});
-		txtTotalWinValue.setOrigin(0.5, 0.5);
-		txtTotalWinValue.text = this.GameState.winCoins.get().toString();
-		txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "60px" });
-
-		paper.add([
-			backgroundBlack,
-			jH_png,
-			aJ_png,
-			bJ_png,
-			txtTotalWinText,
-			txtTotalWinValue
-		])
-
-		this.tweens.add({
-            targets: paper,
-            alpha: { from: 0, to: 1, start: 0 },
-            duration: 500,
-            hold: 3000,
-            onComplete: () => {
-                this.tweens.add({
-                    targets: paper,
-                    alpha: { from: 1, to: 0, start: 1 },
-                    duration: 500,
-                    onComplete: () => {
-                        paper.destroy();
-						this.GameState.isEndScatter.set(true);
-                    }
-                })
-            }
-		})
+		setTimeout(() => {
+			const paper = this.add.container(0, 0).setDepth(1)
+			const backgroundBlack = this.add.rectangle(800, 450, 128, 128);
+			backgroundBlack.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+			backgroundBlack.scaleX = 12.5;
+			backgroundBlack.scaleY = 7.8;
+			backgroundBlack.isFilled = true;
+			backgroundBlack.fillColor = 0;
+			backgroundBlack.fillAlpha = 0.5;
+			// jH_png
+			const jH_png = this.add.image(640, 360, "skin_texture0_level0", "JH.png");
+	
+			// aJ_png
+			const aJ_png = this.add.image(340, 360, "skin_texture0_level0", "AJ.png");
+	
+			// bJ_png
+			const bJ_png = this.add.image(940, 360, "skin_texture0_level0", "BJ.png");
+	
+			// txtTotalWinText
+			const txtTotalWinText = this.add.text(640, 260, "", {});
+			txtTotalWinText.setOrigin(0.5, 0.5);
+			txtTotalWinText.text = this.cache.json.get('language').texts["IDS_TOTALWIN"];
+			txtTotalWinText.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "60px" });
+			txtTotalWinText.setScale(.5, .5)
+	
+			// txtTotalWinValue
+			const txtTotalWinValue = this.add.text(640, 350, "", {});
+			txtTotalWinValue.setOrigin(0.5, 0.5);
+			txtTotalWinValue.text = this.GameState.winCoins.get().toString();
+			txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "80px" })
+			txtTotalWinValue.setScale(.5, .5);
+	
+			paper.add([
+				backgroundBlack,
+				jH_png,
+				aJ_png,
+				bJ_png,
+				txtTotalWinText,
+				txtTotalWinValue
+			])
+	
+			this.tweens.add({
+				targets: paper,
+				alpha: { from: 0, to: 1, start: 0 },
+				duration: 500,
+				hold: 3000,
+				onComplete: () => {
+					this.tweens.add({
+						targets: paper,
+						alpha: { from: 1, to: 0, start: 1 },
+						duration: 500,
+						onComplete: () => {
+							paper.destroy();
+							setTimeout(() => {
+								this.GameState.isEndScatter.set(false);
+								Dispatcher.emit(EVENTS.HIDE_SCATTER_INFO)
+							}, 2000)
+						}
+					})
+				}
+			})
+		}, 1000)
 	}
 	/* END-USER-CODE */
 }

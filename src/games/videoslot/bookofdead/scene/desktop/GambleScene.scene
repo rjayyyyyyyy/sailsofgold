@@ -37,7 +37,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_VP_BONUS2",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "44px",
             "color": "#FFF59F"
         },
@@ -53,7 +53,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_COLORPAYS",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "36px",
             "color": "#FFF59F"
         },
@@ -69,7 +69,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_SUITPAYS",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "36px",
             "color": "#FFF59F"
         },
@@ -85,7 +85,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "0",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "48px",
             "color": "#FFF59F"
         },
@@ -101,7 +101,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "0",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "48px",
             "color": "#FFF59F"
         },
@@ -116,7 +116,7 @@
             "scaleY": 0.5,
             "originY": 0.5,
             "text": "IDS_PREVIOUSCARDS",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "40px",
             "color": "#FFF59F"
         },
@@ -149,7 +149,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_INFO_RED",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "44px",
             "color": "#FFF59F"
         },
@@ -182,7 +182,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_INFO_BLACK",
-            "fontFamily": "ROBOTO-CONDENSED-REGULAR",
+            "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "44px",
             "color": "#FFF59F"
         },
