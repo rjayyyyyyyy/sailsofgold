@@ -61,10 +61,13 @@
                     "scope": "CLASS",
                     "x": 85,
                     "y": -12,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "COINS",
                     "fontFamily": "FLANKER_GRIFFO",
+                    "fontSize": "32px",
                     "color": "#F7EDA1"
                 },
                 {
@@ -74,11 +77,13 @@
                     "scope": "PUBLIC",
                     "x": 85,
                     "y": 10,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "1",
                     "fontFamily": "FLANKER_GRIFFO",
-                    "fontSize": "26px",
+                    "fontSize": "52px",
                     "color": "#F7EDA1"
                 }
             ]

@@ -189,8 +189,9 @@ export default class Reels extends Phaser.Scene {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-        this.machine2 = null;
-        this.containers = [];
+
+        // this.machine2 = null;
+        // this.containers = null;
         this.symbolList = [];
         this.winSymbolList = [];
         this.freeSymbolList = [];
@@ -207,9 +208,9 @@ export default class Reels extends Phaser.Scene {
 		machine.scaleY = 0.625;
 
 		// machineMobile
-		const machineMobile = this.add.image(270, 395, "skin_texture1_level2", "HG.png");
-		machineMobile.scaleX = 0.7;
-		machineMobile.scaleY = 0.7;
+		const machineMobile = this.add.image(360, 550, "skin_texture1_level2", "HG.png");
+		machineMobile.scaleX = 0.9;
+		machineMobile.scaleY = 0.9;
 		machineMobile.visible = false;
 
 		// reelPrefab
@@ -235,7 +236,7 @@ export default class Reels extends Phaser.Scene {
     winSymbolList: SymbolTextureSet[];
     freeSymbolList: SymbolTextureSet[];
 	// Write your code here
-    machine2: Phaser.GameObjects.Sprite | null;
+    machine2: Phaser.GameObjects.Sprite;
     containers: ReelsContainer[];
     containerBlur: Phaser.FX.Blur[] = [];
     columnTween: Phaser.Tweens.Tween[] = [];
@@ -308,6 +309,23 @@ export default class Reels extends Phaser.Scene {
 
 		this.ReelsManager.bindScene(this)
         this.initialize();
+
+        this.GameState.isShowingMenu.subscribe((val) => {
+            if (!this.GameState.isMobile) return;
+			if (val) {
+				this.machineMobile.setVisible(false);
+                this.machine2.setVisible(false);
+                for(let i = 0; i < this.containers.length; i++){
+                    this.containers[i].setVisible(false);
+                }
+			} else {
+				this.machineMobile.setVisible(true);
+                this.machine2.setVisible(true);
+                for(let i = 0; i < this.containers.length; i++){
+                    this.containers[i].setVisible(true);
+                }
+			}
+		});
 	}
 
 	update(time: number, delta: number): void {

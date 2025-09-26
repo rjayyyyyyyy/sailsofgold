@@ -307,15 +307,68 @@ export default class MenuScene extends Phaser.Scene {
 		this.scene.bringToTop();
 		this.editorCreate();
 
-			this.txtTitle.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_TITLE'] || 'IDS_M_SETTINGS_TITLE');
-			this.txtDenominationTitle.setText(this.cache.json.get('language').texts['IDS_COINVALUE'] || 'IDS_COINVALUE');
-			this.txtCoinsTitle.setText(this.cache.json.get('language').texts['IDS_SLOT_COINS'] || 'IDS_SLOT_COINS');
-			this.txtLinesTitle.setText(this.cache.json.get('language').texts['IDS_SLOT_LINES'] || 'IDS_SLOT_LINES');
-			this.txtSound.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L1'] || 'IDS_M_SETTINGS_L1');
-			this.txtFastPlay.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L12'] || 'IDS_M_SETTINGS_L12');
-			this.txtAutoAdjust.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L9'] || 'IDS_M_SETTINGS_L9');
-			this.txtSpacebar.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L13'] || 'IDS_M_SETTINGS_L13');
-			this.txtOk.setText(this.cache.json.get('language').texts['IDS_BTN_OK'] || 'IDS_BTN_OK');
+		this.txtTitle.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_TITLE'] || 'IDS_M_SETTINGS_TITLE');
+		this.txtDenominationTitle.setText(this.cache.json.get('language').texts['IDS_COINVALUE'] || 'IDS_COINVALUE');
+		this.txtCoinsTitle.setText(this.cache.json.get('language').texts['IDS_SLOT_COINS'] || 'IDS_SLOT_COINS');
+		this.txtLinesTitle.setText(this.cache.json.get('language').texts['IDS_SLOT_LINES'] || 'IDS_SLOT_LINES');
+		this.txtSound.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L1'] || 'IDS_M_SETTINGS_L1');
+		this.txtFastPlay.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L12'] || 'IDS_M_SETTINGS_L12');
+		this.txtAutoAdjust.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L9'] || 'IDS_M_SETTINGS_L9');
+		this.txtSpacebar.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L13'] || 'IDS_M_SETTINGS_L13');
+		this.txtOk.setText(this.cache.json.get('language').texts['IDS_BTN_OK'] || 'IDS_BTN_OK');
+
+		this.txtDenominationValue.setText(`${this.gameState.coinValueCurrency.get()} ${(this.gameState.coinValue.get() / 100).toFixed(2)}`);
+		const denominationValue = this.gameState.coinValueList.indexOf(this.gameState.coinValue.get());
+		if (denominationValue <= 0) {
+			this.minusDenomination.disableInteractive();
+			this.minusDenomination.setTint(0x666666);
+		} else {
+			this.minusDenomination.setInteractive();
+			this.minusDenomination.clearTint();
+		}
+
+		// Increase button
+		if (denominationValue >= this.gameState.coinValueList.length - 1) {
+			this.plusDenomination.disableInteractive();
+			this.plusDenomination.setTint(0x666666);
+		} else {
+			this.plusDenomination.setInteractive();
+			this.plusDenomination.clearTint();
+		}
+
+		if (this.gameState.linesBet.get() <= 1) {
+			this.minusLines.disableInteractive();
+			this.minusLines.setTint(0x666666);
+		} else {
+			this.minusLines.setInteractive();
+			this.minusLines.clearTint();
+		}
+
+		// Increase button
+		if (this.gameState.linesBet.get() >= 10) {
+			this.plusLines.disableInteractive();
+			this.plusLines.setTint(0x666666);
+		} else {
+			this.plusLines.setInteractive();
+			this.plusLines.clearTint();
+		}
+
+		if (this.gameState.coinBet.get() <= 1) {
+			this.minusCoins.disableInteractive();
+			this.minusCoins.setTint(0x666666);
+		} else {
+			this.minusCoins.setInteractive();
+			this.minusCoins.clearTint();
+		}
+
+		// Increase button
+		if (this.gameState.coinBet.get() >= 5) {
+			this.plusCoins.disableInteractive();
+			this.plusCoins.setTint(0x666666);
+		} else {
+			this.plusCoins.setInteractive();
+			this.plusCoins.clearTint();
+		}
 
 		this.minusDenomination.on('pointerdown', () => {
 			this.gameState.coinValue.set(this.gameState.coinValueList[Math.max(0, this.gameState.coinValueList.indexOf(this.gameState.coinValue.get()) - 1)]);
@@ -325,17 +378,17 @@ export default class MenuScene extends Phaser.Scene {
 		});
 
 		this.minusCoins.on('pointerdown', () => {
-			this.gameState.betCoins.set(Math.max(0, this.gameState.betCoins.get() - 1));
+			this.gameState.coinBet.set(Math.max(0, this.gameState.coinBet.get() - 1));
 		});
 		this.plusCoins.on('pointerdown', () => {
-			this.gameState.betCoins.set(Math.min(5, this.gameState.betCoins.get() + 1));
+			this.gameState.coinBet.set(Math.min(5, this.gameState.coinBet.get() + 1));
 		});
 
 		this.minusLines.on('pointerdown', () => {
-			this.gameState.betLines.set(Math.max(1, this.gameState.betLines.get() - 1));
+			this.gameState.linesBet.set(Math.max(1, this.gameState.linesBet.get() - 1));
 		});
 		this.plusLines.on('pointerdown', () => {
-			this.gameState.betLines.set(Math.min(10, this.gameState.betLines.get() + 1));
+			this.gameState.linesBet.set(Math.min(10, this.gameState.linesBet.get() + 1));
 		});
 
 		const toggleSound = () => {
@@ -376,7 +429,7 @@ export default class MenuScene extends Phaser.Scene {
 		 // and disable/enable buttons
 		this.gameState.coinValue.subscribe((val) => {
 			if(!this.scene.isActive('MenuScene')) return;
-			this.txtDenominationValue.setText(`${this.gameState.coinValueCurrency.get()} ${val.toFixed(2)}`);
+			this.txtDenominationValue.setText(`${this.gameState.coinValueCurrency.get()} ${(val / 100).toFixed(2)}`);
 
 			// Disable/enable buttons
 			// Decrease button
@@ -399,7 +452,7 @@ export default class MenuScene extends Phaser.Scene {
 			}
 		});
 
-		this.gameState.betLines.subscribe((val) => {
+		this.gameState.linesBet.subscribe((val) => {
 			if(!this.scene.isActive('MenuScene')) return;
 			this.txtLinesValue.setText(val.toString());
 			if (val <= 1) {
@@ -420,7 +473,7 @@ export default class MenuScene extends Phaser.Scene {
 			}
 		});
 
-		this.gameState.betCoins.subscribe((val) => {
+		this.gameState.coinBet.subscribe((val) => {
 			if(!this.scene.isActive('MenuScene')) return;
 			this.txtCoinsValue.setText(val.toString());
 			if (val <= 1) {

@@ -3,6 +3,7 @@
 
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import { container } from "@gl/di/container";
+import Dispatcher, { ACTION_EVENTS } from "@gl/events/Dispatcher";
 import { IGameConfig } from "@gl/GameConfig";
 import NetworkManager from "@gl/networking/NetworkManager";
 import { Slider } from "phaser3-rex-plugins/templates/ui/ui-components";
@@ -244,6 +245,8 @@ export default class AutoplayScene extends Phaser.Scene {
 	private gameConfig!: IGameConfig;
 
 	create() {
+		
+		this.scene.bringToTop()
 		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
 
 		this.editorCreate();
@@ -485,7 +488,9 @@ export default class AutoplayScene extends Phaser.Scene {
 
 		this.btnOk.on('pointerdown', () => {
 			this.gameState.isShowingAutoplay.set(false);
+			this.gameState.isAutoPlayRunning.set(true);
 			this.gameState.activeAutoplay.set(this.activeAutoplay);
+			Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay);
 		})
 	}
 	/* END-USER-CODE */

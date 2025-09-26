@@ -11,8 +11,8 @@
         "createMethodName": "editorCreate",
         "sceneKey": "Reels",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 1280,
-        "borderHeight": 720
+        "borderWidth": 720,
+        "borderHeight": 1280
     },
     "displayList": [
         {
@@ -38,10 +38,10 @@
                 "key": "skin_texture1_level2",
                 "frame": "HG.png"
             },
-            "x": 270,
-            "y": 395,
-            "scaleX": 0.7,
-            "scaleY": 0.7,
+            "x": 360,
+            "y": 550,
+            "scaleX": 0.9,
+            "scaleY": 0.9,
             "visible": false
         },
         {
