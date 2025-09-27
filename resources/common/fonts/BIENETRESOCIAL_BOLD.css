@@ -1,0 +1,8 @@
+
+@font-face {
+	font-family: 'BIENETRESOCIAL_BOLD';
+	src: url('BIENETRESOCIAL_BOLD.woff') format('woff'),
+		url('BIENETRESOCIAL_BOLD.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}

@@ -3,7 +3,7 @@ import { injectable, inject } from "inversify";
 import {container} from "@gl/di/container";
 import type NetworkManager from "../../framework/networking/NetworkManager";
 import { VideoSlotGameState } from "./VideoSlotGameState";
-import Dispatcher, { EVENTS } from "@gl/events/Dispatcher";
+import Dispatcher, { AUDIO_EVENTS, EVENTS } from "@gl/events/Dispatcher";
 import { CommandEvent } from "@gl/events/eventEnums";
 import { Command, ServerCommand } from "@gl/networking/Commands";
 import VideoSlotReelsManager from "./VideoSlotReelsManager";
@@ -68,6 +68,7 @@ class VideoSlot extends BaseGame {
 
         Dispatcher.addListener(EVENTS.GAME_READY, () => {
             this.phaserScene.scene.launch("Reels");
+            Dispatcher.emit(AUDIO_EVENTS.BGM_PLAY);
         });
     }
    

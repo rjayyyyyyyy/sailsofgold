@@ -87,11 +87,14 @@ export class GameBootstrapper {
             }
             preload() {
                 this.logger.info("Starting preload...");
-
-                this.load.pack("pack", `assets/${gameDefinition.gameSlug}/preload-asset-pack.json`);
                 const assetLevel = payload.device === "desktop" ? "hd" : "sd";
-                this.load.pack(`game-assets-pack`, `assets/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
-                this.load.json('language', `assets/${gameDefinition.gameSlug}/lang/${payload.lang || 'en_US'}/locale.json`);
+
+                this.load.pack("pack", `resources/games/${gameDefinition.gameType}/${gameDefinition.gameSlug}/preload-asset-pack.json`);
+                this.load.pack(`game-assets-pack`, `resources/games/${gameDefinition.gameType}/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
+                this.load.json('language', `resources/lang/${payload.lang || 'en_US'}/locale.json`);
+                // this.load.pack("pack", `assets/${gameDefinition.gameSlug}/preload-asset-pack.json`);
+                // this.load.pack(`game-assets-pack`, `assets/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
+                // this.load.json('language', `assets/${gameDefinition.gameSlug}/lang/${payload.lang || 'en_US'}/locale.json`);
                 this.scene.add('Preload', Preload, false);
                 this.logger.info("Preload setup complete");
             }

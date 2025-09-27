@@ -1,0 +1,8 @@
+
+@font-face {
+	font-family: 'SPRAY_ME';
+	src: url('SPRAY_ME.woff') format('woff'),
+		url('SPRAY_ME.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}

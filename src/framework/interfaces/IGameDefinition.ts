@@ -7,6 +7,7 @@ export interface IGameDefinition {
   gameClass: typeof BaseGame;
   id: string;
   gameSlug: string;
+  gameType: string;
   name: string;
   apiUrl: string;
   configUrl: string;
