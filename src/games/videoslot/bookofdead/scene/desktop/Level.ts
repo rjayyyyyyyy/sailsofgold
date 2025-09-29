@@ -625,7 +625,7 @@ export default class Level extends Phaser.Scene {
 			this.scene.stop('ScatterScene');
 		});
 
-		Dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
 			this.spinBtn.setVisible(true)
 			this.autoplayBtn.setVisible(true);
 			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
