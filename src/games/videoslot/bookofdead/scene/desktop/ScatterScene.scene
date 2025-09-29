@@ -25,6 +25,7 @@
             "y": 360,
             "scaleX": 0.8,
             "scaleY": 0.8,
+            "animationPlayMethod": 1,
             "animationKey": "animationBook"
         },
         {
@@ -168,6 +169,18 @@
             "fontFamily": "ROBOTO_CONDENSED_BOLD",
             "fontSize": "22px",
             "color": "#5c2c17"
+        },
+        {
+            "prefabId": "334caecd-0d7c-4587-9013-1ff62fc90f63",
+            "id": "83ee3c17-a963-401f-bc94-f0cd3149820d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "reelPrefab",
+            "scope": "CLASS",
+            "x": 42,
+            "y": -184
         }
     ],
     "plainObjects": [],

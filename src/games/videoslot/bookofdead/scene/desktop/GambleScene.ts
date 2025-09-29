@@ -4,6 +4,7 @@
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import { container } from "@gl/di/container";
 import { CardValue, ClientCardPicked } from "../../types/gamble";
+import { ObservableState } from "@gl/ObservableState";
 
 /* START OF COMPILED CODE */
 
@@ -33,7 +34,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtInformation.scaleY = 0.5;
 		txtInformation.setOrigin(0.5, 0.5);
 		txtInformation.text = "IDS_VP_BONUS2";
-		txtInformation.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "44px" });
+		txtInformation.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
 
 		// txtColorpays
 		const txtColorpays = this.add.text(420, 250, "", {});
@@ -41,7 +42,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtColorpays.scaleY = 0.5;
 		txtColorpays.setOrigin(0.5, 0.5);
 		txtColorpays.text = "IDS_COLORPAYS";
-		txtColorpays.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "36px" });
+		txtColorpays.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "36px" });
 
 		// txtSuitpays
 		const txtSuitpays = this.add.text(865, 249, "", {});
@@ -49,7 +50,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtSuitpays.scaleY = 0.5;
 		txtSuitpays.setOrigin(0.5, 0.5);
 		txtSuitpays.text = "IDS_SUITPAYS";
-		txtSuitpays.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "36px" });
+		txtSuitpays.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "36px" });
 
 		// txtColorpaysValue
 		const txtColorpaysValue = this.add.text(420, 290, "", {});
@@ -57,7 +58,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtColorpaysValue.scaleY = 0.5;
 		txtColorpaysValue.setOrigin(0.5, 0.5);
 		txtColorpaysValue.text = "0";
-		txtColorpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "48px" });
+		txtColorpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "48px" });
 
 		// txtSuitpaysValue
 		const txtSuitpaysValue = this.add.text(865, 290, "", {});
@@ -65,7 +66,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtSuitpaysValue.scaleY = 0.5;
 		txtSuitpaysValue.setOrigin(0.5, 0.5);
 		txtSuitpaysValue.text = "0";
-		txtSuitpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "48px" });
+		txtSuitpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "48px" });
 
 		// txtPrevCard
 		const txtPrevCard = this.add.text(392, 508, "", {});
@@ -73,7 +74,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtPrevCard.scaleY = 0.5;
 		txtPrevCard.setOrigin(0, 0.5);
 		txtPrevCard.text = "IDS_PREVIOUSCARDS";
-		txtPrevCard.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "40px" });
+		txtPrevCard.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "40px" });
 
 		// btnRed
 		const btnRed = this.add.sprite(420, 360, "skin_texture3_level0", "II.png");
@@ -87,7 +88,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtRed.scaleY = 0.5;
 		txtRed.setOrigin(0.5, 0.5);
 		txtRed.text = "IDS_INFO_RED";
-		txtRed.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "44px" });
+		txtRed.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
 
 		// btnBlack
 		const btnBlack = this.add.sprite(420, 435, "skin_texture3_level0", "GI.png");
@@ -101,7 +102,7 @@ export default class GambleScene extends Phaser.Scene {
 		txtBlack.scaleY = 0.5;
 		txtBlack.setOrigin(0.5, 0.5);
 		txtBlack.text = "IDS_INFO_BLACK";
-		txtBlack.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO-CONDENSED-REGULAR", "fontSize": "44px" });
+		txtBlack.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
 
 		// cardReveal
 		const cardReveal = this.add.sprite(640, 360, "skin_texture3_level0", "PG.png");
@@ -175,6 +176,7 @@ export default class GambleScene extends Phaser.Scene {
 	private largeCard!: Phaser.GameObjects.Sprite;
 	private smallCard!: Phaser.GameObjects.Sprite;
 	private asCard!: Phaser.GameObjects.Sprite;
+	private prevWinCard: Phaser.GameObjects.Sprite[] = [];
 	private prevCard!: string;
 
 	init() {
@@ -226,7 +228,25 @@ export default class GambleScene extends Phaser.Scene {
 			this.addButtonTween(this.btnSpade);
 		});
 
+		if(this.prevWinCard){
+
+		}
+
 		this.toggleEffect();
+
+		setTimeout(() => {
+			if(this.prevWinCard){
+				for(let i = 0; i < this.prevWinCard.length; i++){
+					this.prevWinCard[i].destroy()
+				}
+			}
+			let prevCardCount = 0
+			for(let i = this.gameState.prevWinCard.length - 1; i >= 0; i--){
+				this.prevWinCard[prevCardCount] = this.add.sprite(610 + (prevCardCount * 35), 508, 'skin_texture3_level0', this.gameState.prevWinCard[i]).setScale(.35).setDepth(2)
+				prevCardCount++
+				if(prevCardCount === 9) return 
+			}
+		}, 0);
 	}
 
 	pickCards(picked: number){
@@ -319,6 +339,21 @@ export default class GambleScene extends Phaser.Scene {
                 break; 
 			}
 
+			setTimeout(() => {
+				if(this.prevWinCard){
+					for(let i = 0; i < this.prevWinCard.length; i++){
+						this.prevWinCard[i].destroy()
+					}
+				}
+				this.gameState.prevWinCard.push(this.prevCard);
+				let prevCardCount = 0
+				for(let i = this.gameState.prevWinCard.length - 1; i >= 0; i--){
+					this.prevWinCard[prevCardCount] = this.add.sprite(610 + (prevCardCount * 35), 508, 'skin_texture3_level0', this.gameState.prevWinCard[i]).setScale(.35).setDepth(2)
+					prevCardCount++
+					if(prevCardCount === 9) return 
+				}
+			}, 200);
+
 			const coinsWon = this.gameState.winCoins.get();
 			if(coinsWon != 0){
 				this.txtColorpaysValue.setText('' + coinsWon * 2)
@@ -331,6 +366,9 @@ export default class GambleScene extends Phaser.Scene {
                 this.btnRed.setTexture('skin_texture3_level0', 'II.png')
                 this.btnBlack.setTexture('skin_texture3_level0', 'GI.png')
                 this.txtInformation.setText(`${this.cache.json.get('language').texts["IDS_MENU_WIN"]} ${coinsWon}`)
+				const wonLine = this.cache.json.get('language').texts['IDS_MENU_WON'];
+				const totalWin = wonLine.replace('%d', this.gameState.winCoins.get().toString());
+				this.gameState.informationText.set(`${totalWin}`);
 
                 this.toggleEffect()
 
@@ -351,11 +389,11 @@ export default class GambleScene extends Phaser.Scene {
                 this.time.addEvent({
                     delay: 2000,
                     callback: () => {
-                        // if(this.previs){
-                        //     for(let i = 0; i < this.previs.length; i++){
-                        //         this.previs[i].destroy()
-                        //     }
-                        // }
+                        if(this.prevWinCard){
+                            for(let i = 0; i < this.prevWinCard.length; i++){
+                                this.prevWinCard[i].destroy()
+                            }
+                        }
                         this.gameState.isShowingGamble.set(false);
                     }
                 })

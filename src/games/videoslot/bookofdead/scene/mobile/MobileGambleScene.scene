@@ -30,10 +30,13 @@
             "scope": "CLASS",
             "x": 361,
             "y": 448,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_VP_BONUS2",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "32px",
             "color": "#FFF59F"
         },
         {
@@ -43,11 +46,13 @@
             "scope": "CLASS",
             "x": 197,
             "y": 479,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_COLORPAYS",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
-            "fontSize": "12px",
+            "fontSize": "24px",
             "color": "#FFF59F"
         },
         {
@@ -57,11 +62,13 @@
             "scope": "CLASS",
             "x": 525,
             "y": 480,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_SUITPAYS",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
-            "fontSize": "12px",
+            "fontSize": "24px",
             "color": "#FFF59F"
         },
         {
@@ -71,10 +78,13 @@
             "scope": "CLASS",
             "x": 197,
             "y": 507,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "0",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "32px",
             "color": "#FFF59F"
         },
         {
@@ -84,10 +94,13 @@
             "scope": "CLASS",
             "x": 525,
             "y": 507,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "0",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "32px",
             "color": "#FFF59F"
         },
         {
@@ -96,10 +109,13 @@
             "label": "txtPrevCard",
             "scope": "CLASS",
             "x": 175,
-            "y": 672,
+            "y": 671,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originY": 0.5,
             "text": "IDS_PREVIOUSCARDS",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "32px",
             "color": "#FFF59F"
         },
         {
@@ -124,10 +140,13 @@
             "scope": "CLASS",
             "x": 197,
             "y": 561,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_INFO_RED",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "32px",
             "color": "#FFF59F"
         },
         {
@@ -152,10 +171,13 @@
             "scope": "CLASS",
             "x": 197,
             "y": 616,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "text": "IDS_INFO_BLACK",
             "fontFamily": "ROBOTO_CONDENSED_REGULAR",
+            "fontSize": "32px",
             "color": "#FFF59F"
         },
         {

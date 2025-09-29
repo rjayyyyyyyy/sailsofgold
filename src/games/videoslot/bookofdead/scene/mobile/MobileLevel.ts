@@ -297,15 +297,15 @@ export default class MobileLevel extends Phaser.Scene {
 				}
 			});
 
-			this.GameState.isScatterInfoShown.subscribe((val) => {
-				if (val) {
-					console.log("show Scatter")
-					this.scene.launch("MobileScatterScene");
-				} else {
-					console.log("hide Scatter")
-					this.scene.stop("MobileScatterScene");
-				}
-			});
+			// this.GameState.isScatterInfoShown.subscribe((val) => {
+			// 	if (val) {
+			// 		console.log("show Scatter")
+			// 		this.scene.launch("MobileScatterScene");
+			// 	} else {
+			// 		console.log("hide Scatter")
+			// 		this.scene.stop("MobileScatterScene");
+			// 	}
+			// });
 
 			this.GameState.isIllegalSession.subscribe((val) => {
 				if (val) {
@@ -319,6 +319,7 @@ export default class MobileLevel extends Phaser.Scene {
 
 			this.GameState.isReward.subscribe((val) => {
 				if(this.GameState.isAutoPlayRunning.get()) return;
+				if(this.GameState.isAutoSpinRunning.get()) return;
 				if(this.toggleVfx) this.toggleVfx.destroy();
 				if (val) {
 					console.log("show Reward")
@@ -380,7 +381,7 @@ export default class MobileLevel extends Phaser.Scene {
 						this.GameState.isShowingGamble.set(false);
 					}
 					console.log("show Spin")
-					this.setButtonInteractive(this.spinBtn, false);
+					this.setButtonInteractive(this.spinBtn, this.GameState.isAutoPlayRunning.get() ? true : false);
 					this.setButtonInteractive(this.denominationBtn, false);
 					this.setButtonInteractive(this.gambleBtn, false);
 					this.setButtonInteractive(this.collectBtn, false);
@@ -418,12 +419,24 @@ export default class MobileLevel extends Phaser.Scene {
 				}
 			});
 
+			this.GameState.isEndScatter.subscribe((val) => {
+				if (!val) {
+					if(this.GameState.isAutoPlayRunning.get()) {
+						this.spinBtn.setFrame('stopBtn.png');
+						this.spinBtn.setInteractive();
+						this.txtAutoplayValue.setVisible(true);
+						Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
+					}
+				}
+			})
+
 			// Autoplay state
 			this.GameState.isAutoPlayRunning.subscribe((isAutoPlayRunning) => {
 				console.log("isAutoPlayRunning", isAutoPlayRunning);
 				console.log("activeAutoplay", this.GameState.activeAutoplay.get());
 				if (isAutoPlayRunning) {
 					this.spinBtn.setFrame('stopBtn.png');
+					this.spinBtn.setInteractive();
 					this.txtAutoplayValue.setVisible(true);
 				} else if(!isAutoPlayRunning && this.GameState.activeAutoplay.get() === 0) {
 					this.spinBtn.setVisible(true)
@@ -434,7 +447,7 @@ export default class MobileLevel extends Phaser.Scene {
 			});
 			this.GameState.activeAutoplay.subscribe((val) => {
 				console.log("activeAutoplay", val);
-				this.txtAutoplayValue.setText((this.GameState.activeAutoplay.get()).toString());
+				this.txtAutoplayValue.setText((val).toString());
 				if(val === 0) {
 					this.GameState.isAutoPlayRunning.set(false);
 				}
@@ -552,7 +565,20 @@ export default class MobileLevel extends Phaser.Scene {
 
 		// Spin
 		this.spinBtn.on('pointerdown', () => {
-			if(this.GameState.isSpinning && !this.GameState.isAutoPlayRunning) return;
+			if(this.GameState.isSpinning.get() && !this.GameState.isAutoPlayRunning.get()) return;
+			if(this.GameState.isScatterInfoShown.get()) {
+				this.setButtonInteractive(this.spinBtn, false);
+				Dispatcher.emit(ACTION_EVENTS.SPIN_START);
+				return;
+			}
+			if(this.GameState.isAutoPlayRunning.get()) {
+				this.GameState.autoplayBalance.set(0);
+				this.GameState.activeAutoplay.set(0);
+				this.GameState.isAutoPlayRunning.set(false);
+				Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
+				this.setButtonInteractive(this.spinBtn, false);
+				return;
+			};
 			this.setButtonInteractive(this.spinBtn, false);
 			Dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
@@ -636,6 +662,7 @@ export default class MobileLevel extends Phaser.Scene {
 
 		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
 			this.GameState.isAutoSpinRunning.set(true);
+			this.setButtonInteractive(this.spinBtn, false);
 			if(this.logo1.alpha == 1){
 				this.tweens.add({
 					targets: [this.logo1, this.logo2, this.logo3],
@@ -673,6 +700,10 @@ export default class MobileLevel extends Phaser.Scene {
 
 		Dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
 			this.GameState.isShowingScatter.set(true);
+
+			this.spinBtn.setFrame('spinBtnBaseHi.png');
+			this.txtAutoplayValue.setVisible(false)
+
 			console.log(scatterSymbolSprite)
 			this.scene.launch('MobileScatterScene');
 			if(scatterSymbolSprite){
@@ -689,6 +720,12 @@ export default class MobileLevel extends Phaser.Scene {
 			this.ReelsManager.currentSpin = null;
 			this.scene.stop('MobileScatterScene');
 		});
+		
+		
+		Dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
+			this.spinBtn.setFrame('spinBtnBaseHi.png');
+			this.txtAutoplayValue.setVisible(false)
+		})
 	}
 
 	addButtonTween(sprite: Phaser.GameObjects.Sprite, text: Phaser.GameObjects.Text[] = []) {

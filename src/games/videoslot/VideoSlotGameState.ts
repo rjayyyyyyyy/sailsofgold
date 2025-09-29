@@ -68,6 +68,7 @@ export class VideoSlotGameState {
     // Gamble state
     winCard: ObservableState<number>;
     playerPick: ObservableState<number>;
+    prevWinCard: string[] = [];
 
     // Scatter state
     bookSprites: Phaser.GameObjects.Sprite[] = [];
@@ -137,6 +138,7 @@ export class VideoSlotGameState {
         this.playerPick.subscribe((val) => {
             if (val === 0) {
                 this.isReward.set(false);
+                this.isSpinning.set(false);
             };
             this.networkManager.sendCommand(ClientCommand.Gamble, [val.toString()]);
         });
