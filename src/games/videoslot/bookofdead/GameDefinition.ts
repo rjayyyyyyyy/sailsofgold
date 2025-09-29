@@ -7,11 +7,16 @@ import { VideoSlotGameState } from '../VideoSlotGameState';
 import VideoSlotReelsManager from '../VideoSlotReelsManager';
 import MobileLevel from './scene/mobile/MobileLevel';
 import AudioManager from '@gl/AudioManager';
+import NetworkManager from '@gl/networking/NetworkManager';
+import Dispatcher from '@gl/events/Dispatcher';
 
 const gameId = "310";
+// Bind NetworkManager
+container.bind<NetworkManager>("NetworkManager").to(NetworkManager).inSingletonScope();
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<VideoSlotReelsManager>("VideoSlotReelsManager").to(VideoSlotReelsManager).inSingletonScope();
 container.bind<AudioManager>("AudioManager").to(AudioManager).inSingletonScope();
+container.bind<Dispatcher>("Dispatcher").toConstantValue(new Dispatcher());
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
@@ -37,9 +42,9 @@ const BookOfDeadGameDefinition: IGameDefinition = {
     logger.info('Initializing Book of Dead game...');
     logger.info(payload);
     
-    gameInstance.initSession("Book of Dead", 
-      payload.launcher_payload,
-      (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
+    // gameInstance.initSession("Book of Dead", 
+    //   payload.launcher_payload,
+    //   (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
     if(payload.config === null) {
       logger.error("Game config is null!");
       gameInstance.networkManager.shutdown();

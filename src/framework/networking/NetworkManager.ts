@@ -11,7 +11,8 @@ import { container } from "@gl/di/container";
 
 @injectable()
 class NetworkManager {
-    private packetHandler = new PacketHandler();
+    private _dispatcher: Dispatcher;
+    private packetHandler: PacketHandler;
     private logger = new Logger();
 
     private _hasSession: boolean = false;
@@ -54,29 +55,32 @@ class NetworkManager {
     }
 
     constructor() {
+        this._dispatcher = container.get<Dispatcher>("Dispatcher");
+        this.packetHandler = new PacketHandler(this._dispatcher);
+
         this.logger.info("NetworkManager initialized");
 
-        Dispatcher.addListener(NetworkEvent.REQUEST_DATA, (data: string) => {
+        this._dispatcher.addListener(NetworkEvent.REQUEST_DATA, (data: string) => {
             console.log("REQUEST_DATA", data);
         });
 
-        Dispatcher.addListener(NetworkEvent.REQUEST_ERROR, (error: string) => {
+        this._dispatcher.addListener(NetworkEvent.REQUEST_ERROR, (error: string) => {
             console.log("REQUEST_ERROR", error);
         });
 
-        Dispatcher.addListener(NetworkEvent.CLIENT_PACKET, (data: string) => {
+        this._dispatcher.addListener(NetworkEvent.CLIENT_PACKET, (data: string) => {
             console.log("CLIENT_PACKET", data);
             const request = new Request(this.apiEndpoint);
             request.send(data);
         });
 
-        Dispatcher.addListener(NetworkEvent.GAME_HISTORY, (data: string) => {
+        this._dispatcher.addListener(NetworkEvent.GAME_HISTORY, (data: string) => {
             console.log("GAME_HISTORY", data);
             const request = new Request(this.gameHistory);
             request.send(data);
         });
 
-        Dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
+        this._dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
             this.logger.trace(`GAME_IN: ${command.type}`);
             this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
             switch(command.type){
@@ -84,7 +88,7 @@ class NetworkManager {
                     this.logger.info("New Session ID received");
                     if(!this._hasSession){ // no session found previously. Proceed to login
                         this._hasSession = true;
-                        Dispatcher.emit(NetworkEvent.SESSION_CREATED);
+                        this._dispatcher.emit(NetworkEvent.SESSION_CREATED);
 
                         this.logger.trace("No previous session, proceeding to login");
                     } else {
@@ -96,7 +100,7 @@ class NetworkManager {
                         ]);
                     }
                     let sessId = command.getString(0);
-                    Dispatcher.emit(NetworkEvent.CHANGE_SESSION_ID, sessId);
+                    this._dispatcher.emit(NetworkEvent.CHANGE_SESSION_ID, sessId);
                     this.logger.trace(`New Session ID: ${sessId}`);
                     break;
                 case ServerCommand.LoginAnswer:
@@ -106,7 +110,7 @@ class NetworkManager {
 
                 case ServerCommand.NewSPGameStarted:
                     this.logger.trace(`New SP Game Started: ${command.getString(0)}`);
-                    Dispatcher.emit(EVENTS.GAME_READY);
+                    this._dispatcher.emit(EVENTS.GAME_READY);
                     this.logger.trace(`New SP Game Started with Game ID: ${command.getString(0)}`);
                     break;
 
@@ -118,7 +122,7 @@ class NetworkManager {
                 case ServerCommand.IllegalSessionId:
                     console.log("Illegal Session Id", command.getString(0));
                     this.GameState.isIllegalSession.set(true);
-                    Dispatcher.emit(EVENTS.ILLEGAL_SESSION_ID);
+                    this._dispatcher.emit(EVENTS.ILLEGAL_SESSION_ID);
                     break;
 
                 case ServerCommand.BuyinStatus:
@@ -139,7 +143,7 @@ class NetworkManager {
             }
         });
 
-        Dispatcher.addListener(NetworkEvent.SESSION_CREATED, () => {
+        this._dispatcher.addListener(NetworkEvent.SESSION_CREATED, () => {
             setTimeout(() => {
                 this.sendCommand(ClientCommand.Login, [
                     this._ticket,
@@ -153,51 +157,7 @@ class NetworkManager {
     }
 
     public sendCommand(command: number, data: string[]) {
-        Dispatcher.emit(CommandEvent.GAME_OUT, new Command(command, data));
-    }
-
-    
-
-    // DEBUG UTILS
-    public async getToken() {
-        const jsonData = JSON.stringify({
-            key: 'BlSGtgIpVfm1QkpPutX2',
-            keyType: 0,
-            mid: '9284686FCEDD415F46B5C6874E47A257',
-            mspecs: 'X-1001GLcma_cny001',
-            version: '1.4.2'
-        })
-        
-        const response = await fetch('https://api.lydrst.com/token', {
-        // const response = await fetch('https://api.jydlxf.com/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Client-Id': 'carnival'
-            },
-            body: jsonData
-        });
-
-        const data = await response.json();
-        this._token = data.access_token;
-        return data.access_token;
-    }
-
-    public async createSession(){
-        try{
-            const response = await fetch('https://api.lydrst.com/api/portal/Users/Sessions', {
-            // const response = await fetch('https://api.jydlxf.com/api/portal/Users/Sessions', {
-                method: 'GET',
-                headers: {
-                    'Authorization' : 'Bearer ' + this._token,
-                },
-            });
-            const data = await response.json();
-            this._ticket = data.ticket
-            return data.ticket;
-        } catch(error){
-            console.error('Error fetching player data: ', error);
-        }
+        this._dispatcher.emit(CommandEvent.GAME_OUT, new Command(command, data));
     }
 
     public shutdown() {

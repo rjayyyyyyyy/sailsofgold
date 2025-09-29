@@ -9,35 +9,35 @@
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Ambience_Stem1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Ambience_Stem1_1.wav"
                 ],
                 "type": "audio",
                 "key": "bgm"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespin_Theme_Loop1_4.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespin_Theme_Loop1_4.wav"
                 ],
                 "type": "audio",
                 "key": "bgm_free_spin"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Background_Stem_Layer_One1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Background_Stem_Layer_One1_1.wav"
                 ],
                 "type": "audio",
                 "key": "bgm_layer1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Background_Stem_Layer_Two1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Background_Stem_Layer_Two1_1.wav"
                 ],
                 "type": "audio",
                 "key": "bgm_layer2"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Background_Stem_Layer_Three1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Background_Stem_Layer_Three1_1.wav"
                 ],
                 "type": "audio",
                 "key": "bgm_layer3"
@@ -50,7 +50,7 @@
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Book_Open1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Book_Open1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Book_Open1_1"
@@ -90,112 +90,112 @@
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Intro_Animation1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Intro_Animation1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Intro_Animation1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Intro1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Intro1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Intro1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Retrigger1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Retrigger1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Retrigger1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Final1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Final1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Select_Symbol_Final1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Five1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Five1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Select_Symbol_Five1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Four1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Four1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Select_Symbol_Four1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_One1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_One1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Select_Symbol_One1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Three1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Three1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Select_Symbol_Three1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Two1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Select_Symbol_Two1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Select_Symbol_Two1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Summary1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Summary1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Summary1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Transform_Symbol1_4.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Transform_Symbol1_4.wav"
                 ],
                 "type": "audio",
                 "key": "Freespins_Transform_Symbol1_4"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Gamble_Click1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Gamble_Click1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Gamble_Click1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Gamble_Collect1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Gamble_Collect1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Gamble_Collect1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Gamble_Loop1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Gamble_Loop1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Gamble_Loop1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Gamble_Lose1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Gamble_Lose1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Gamble_Lose1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Gamble_Win1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Gamble_Win1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Gamble_Win1_1"
@@ -220,84 +220,84 @@
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Pre_Gamble_Stem_Layer1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Pre_Gamble_Stem_Layer1_2.wav"
                 ],
                 "type": "audio",
                 "key": "Pre_Gamble_Stem_Layer1_2"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Reel_Loop1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Reel_Loop1_1.wav"
                 ],
                 "type": "audio",
                 "key": "reel_loop"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Reel_Start1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Reel_Start1_1.wav"
                 ],
                 "type": "audio",
                 "key": "reel_start"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Reel_Stop1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Reel_Stop1_1.wav"
                 ],
                 "type": "audio",
                 "key": "reel_stop"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Reel_Wait1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Reel_Wait1_2.wav"
                 ],
                 "type": "audio",
                 "key": "reel_wait"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Sarcophagus_Break1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Sarcophagus_Break1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Sarcophagus_Break1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Sarcophagus_Zoom1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Sarcophagus_Zoom1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Sarcophagus_Zoom1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_Four1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_Four1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Scatter_Land_Four1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_One1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_One1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Scatter_Land_One1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_Three1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_Three1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Scatter_Land_Three1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_Two1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Scatter_Land_Two1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Scatter_Land_Two1_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Scatters_Merge1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Scatters_Merge1_1.wav"
                 ],
                 "type": "audio",
                 "key": "Scatters_Merge1_1"
@@ -346,147 +346,147 @@
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_One1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_One1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_1"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_One1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_One1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_1_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Ten1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Ten1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_10"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Ten1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Ten1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_10_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Eleven1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Eleven1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_11"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Two1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Two1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_2"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Two1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Two1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_2_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Three1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Three1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_3"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Three1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Three1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_3_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Four1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Four1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_4"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Four1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Four1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_4_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Five1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Five1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_5"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Five1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Five1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_5_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Six1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Six1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_6"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Six1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Six1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_6_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Seven1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Seven1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_7"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Seven1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Seven1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_7_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Eight1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Eight1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_8"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Eight1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Eight1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_8_scatter"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Win_Nine1_1.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Win_Nine1_1.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_9"
             },
             {
                 "url": [
-                    "rresources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Nine1_2.wav"
+                    "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Display_Scatter_Line_Nine1_2.wav"
                 ],
                 "type": "audio",
                 "key": "win_line_9_scatter"

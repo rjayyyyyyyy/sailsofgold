@@ -7,8 +7,7 @@ import { Logger } from '../Logger';
 const container = new Container();
 const logger = new Logger();
 
-// Bind NetworkManager
-container.bind<NetworkManager>("NetworkManager").to(NetworkManager).inSingletonScope();
+
 
 // Bind BaseGame
 container.bind<BaseGame>(BaseGame).to(BaseGame);

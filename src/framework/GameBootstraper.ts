@@ -69,7 +69,7 @@ export class GameBootstrapper {
         };
     }
 
-    async launch(config: ILauncherConfig) {
+    async launch(element: string, launcher_config: ILauncherPayload) {
         this.logger.info(`Launching game: ${this.gameDefinition.name}`);
         this.logger.debug(`Query Params: ${JSON.stringify(this.readAllQueryParams())}`);
         await this.loadGameConfig();
@@ -88,13 +88,18 @@ export class GameBootstrapper {
             preload() {
                 this.logger.info("Starting preload...");
                 const assetLevel = payload.device === "desktop" ? "hd" : "sd";
-
-                this.load.pack("pack", `resources/games/${gameDefinition.gameType}/${gameDefinition.gameSlug}/preload-asset-pack.json`);
-                this.load.pack(`game-assets-pack`, `resources/games/${gameDefinition.gameType}/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
-                this.load.json('language', `resources/lang/${payload.lang || 'en_US'}/locale.json`);
-                // this.load.pack("pack", `assets/${gameDefinition.gameSlug}/preload-asset-pack.json`);
-                // this.load.pack(`game-assets-pack`, `assets/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
-                // this.load.json('language', `assets/${gameDefinition.gameSlug}/lang/${payload.lang || 'en_US'}/locale.json`);
+                console.log("Config bundle:", launcher_config.bundle);
+                for(const key in launcher_config.bundle) {
+                    if(key === 'lang') {
+                        this.load.json("language", launcher_config.bundle[key]);
+                        continue;
+                    }
+                    this.load.pack(key, launcher_config.bundle[key]);
+                }
+                // this.load.pack("pack", `resources/games/${gameDefinition.gameType}/${gameDefinition.gameSlug}/preload-asset-pack.json`);
+                // this.load.pack(`game-assets-pack`, `resources/games/${gameDefinition.gameType}/${gameDefinition.gameSlug}/asset-pack-${assetLevel}.json`);
+                // this.load.json('language', `resources/lang/${payload.lang || 'en_US'}/locale.json`);
+                
                 this.scene.add('Preload', Preload, false);
                 this.logger.info("Preload setup complete");
             }
@@ -133,7 +138,7 @@ export class GameBootstrapper {
             width: this.gameDefinition.devices[this.payload.device]?.width || 800,
             height: this.gameDefinition.devices[this.payload.device]?.height || 600,
             scene: [PhaserBootstraper],
-            parent: 'game-container',
+            parent: element,
             scale: {
                 mode: Phaser.Scale.FIT,
                 autoCenter: Phaser.Scale.CENTER_BOTH,

@@ -19,23 +19,23 @@ class BaseGame {
     }
 
     async initSession(gameName: string, payload: ILauncherPayload, gameId: string) {
-        this.logger.info("VideoSlot session initialized.");
-        console.log(payload)
-        if(payload.debug) {
-            this.logger.info("Initiating game session");
-            const token = await this.networkManager.getToken();
-            this.logger.trace(`Token: ${token}`);
-            const ticket = await this.networkManager.createSession();
-            this.logger.trace(`Ticket: ${ticket}`);
-        }
-        this.networkManager.sendCommand(ClientCommand.RequestSession, [
-            payload.pid.toString(),
-            payload.lang,
-            gameId,
-            this.getUserAgent(),
-            gameName,
-            payload.device,
-        ]);
+        // this.logger.info("VideoSlot session initialized.");
+        // console.log(payload)
+        // if(payload.debug) {
+        //     this.logger.info("Initiating game session");
+        //     const token = await this.networkManager.getToken();
+        //     this.logger.trace(`Token: ${token}`);
+        //     const ticket = await this.networkManager.createSession();
+        //     this.logger.trace(`Ticket: ${ticket}`);
+        // }
+        // this.networkManager.sendCommand(ClientCommand.RequestSession, [
+        //     payload.pid.toString(),
+        //     payload.lang,
+        //     gameId,
+        //     this.getUserAgent(),
+        //     gameName,
+        //     payload.device,
+        // ]);
         // setTimeout(() => {
         //     this.networkManager.sendCommand(ClientCommand.Login, [
         //         this.networkManager._ticket,
