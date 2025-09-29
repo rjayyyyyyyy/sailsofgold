@@ -36,6 +36,7 @@ export default class Level extends Phaser.Scene {
 		// this.audio = container.get<IAudioService>(TYPES.AudioService)
 		// Write your code here.
 		/* END-USER-CTR-CODE */
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 	}
 
 	editorCreate(): void {
@@ -302,6 +303,7 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
+	private dispatcher!: Dispatcher;
 	private toggleVfx!: any;
 	private GameState!: VideoSlotGameState;
 	private ReelsManager!: VideoSlotReelsManager;
@@ -493,7 +495,7 @@ export default class Level extends Phaser.Scene {
 				}
 			});
 
-			Dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
+			this.dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
 				if(!this.GameState.isReward.get()) {
 					this.GameState.isReward.set(true);
 				} else{
@@ -544,7 +546,7 @@ export default class Level extends Phaser.Scene {
 			});
 		}, 0);
 
-		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
             this.GameState.isAutoSpinRunning.set(true);
             if(this.logo1.alpha == 1){
                 this.tweens.add({
@@ -566,7 +568,7 @@ export default class Level extends Phaser.Scene {
             this.freeSpinHeader3.setText(textFreeSpin)
         })
 
-        Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
 
             this.tweens.add({
                 targets: [this.logo1, this.logo2, this.logo3],
@@ -581,7 +583,7 @@ export default class Level extends Phaser.Scene {
             })
         })
 
-		Dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
+		this.dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
 			this.GameState.isShowingScatter.set(true);
 			console.log(scatterSymbolSprite)
 			this.scene.launch('ScatterScene');
@@ -593,7 +595,7 @@ export default class Level extends Phaser.Scene {
 			}
 		});
 
-		Dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
+		this.dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
 			this.GameState.isShowingScatter.set(false);
 			this.GameState.isSpinning.set(false);
 			this.ReelsManager.currentSpin = null;
@@ -743,7 +745,7 @@ export default class Level extends Phaser.Scene {
 		this.spinBtn.btnButton.on('pointerdown', () => {
 			if(this.GameState.isSpinning && !this.GameState.isAutoPlayRunning) return;
 			this.setButtonInteractive(this.spinBtn.btnButton, false);
-            Dispatcher.emit(ACTION_EVENTS.SPIN_START);
+            this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
 
 		// Autoplay
@@ -754,7 +756,7 @@ export default class Level extends Phaser.Scene {
 				this.GameState.autoplayBalance.set(0);
 				this.GameState.activeAutoplay.set(0);
 				this.GameState.isAutoPlayRunning.set(false);
-                Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
+                this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
 			}
 		});
 

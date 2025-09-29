@@ -1,5 +1,6 @@
 import { Command, ClientCommand } from "./Commands";
 import Dispatcher, { CommandEvent, EVENTS, NetworkEvent, SystemEvent } from "../events/Dispatcher";
+import { Logger } from "@gl/Logger";
 
 
 export class PacketHandler
@@ -119,6 +120,7 @@ export class PacketHandler
 	/** Enables communication. */
 	protected onStart(): void
 	{
+		console.log("PacketHandler enabled");
 		this._enabled = true;
 	}
 
@@ -370,6 +372,10 @@ export class PacketHandler
 				// }
 			}
 		}
+	}
+
+	public enable() {
+		this._enabled = true;
 	}
 
 	public disable() {

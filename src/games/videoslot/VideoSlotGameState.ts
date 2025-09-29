@@ -1,17 +1,16 @@
-import { container } from "@gl/di/container";
-import { IGameConfig } from "@gl/GameConfig";
 import Dispatcher from "@gl/events/Dispatcher";
 import { EVENTS } from "@gl/events/events";
 import { ClientCommand } from "@gl/networking/Commands";
 import NetworkManager from "@gl/networking/NetworkManager";
 import { ObservableState } from "@gl/ObservableState";
-import { inject, injectable } from "inversify";
+import { injectable, inject } from "inversify";
 import { WinLineResult } from "./interfaces/reels";
+import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
 
 @injectable()
 export class VideoSlotGameState {
     isMobile: boolean = false;
-    gameConfig: IGameConfig;
+    gameConfig: ILauncherConfig;
 
     // coins: ObservableState<number> = new ObservableState(0);
     // coinBet: ObservableState<number> = new ObservableState(1);
@@ -77,11 +76,10 @@ export class VideoSlotGameState {
     isEndScatter: ObservableState<boolean>;
 
     winCoins: ObservableState<number>;
-    constructor(
-        @inject("NetworkManager") private networkManager: NetworkManager
-    ) {
-        this.gameConfig = networkManager.getGameConfig() as IGameConfig;
 
+    private networkManager: NetworkManager;
+
+    constructor(@inject("DispatcherGame") private dispatcher: Dispatcher) {
         // Initialize game states
         this.balance = new ObservableState(1000);
         this.coinBet = new ObservableState(1);
@@ -125,17 +123,22 @@ export class VideoSlotGameState {
 
         this.isSpinning = new ObservableState(false);
 
+        this.winCoins = new ObservableState(0);
+        this.winCoins.subscribe((val) => {
+            this.dispatcher.emit(EVENTS.WIN_LINES);
+        });
+    }
+
+    setNetworkManager(networkManager: NetworkManager) {
+        this.networkManager = networkManager;
+        this.gameConfig = networkManager.getGameConfig() as ILauncherConfig;
+
         // Subscribe to network events and update game states
         this.playerPick.subscribe((val) => {
             if (val === 0) {
                 this.isReward.set(false);
             };
             this.networkManager.sendCommand(ClientCommand.Gamble, [val.toString()]);
-        });
-
-        this.winCoins = new ObservableState(0);
-        this.winCoins.subscribe((val) => {
-            Dispatcher.emit(EVENTS.WIN_LINES);
         });
     }
 }

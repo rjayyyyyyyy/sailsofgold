@@ -37,16 +37,19 @@ export class Request
 	private _headers: IHeader[];
 	private _xhr: XMLHttpRequest;
 	private _id: number;
+	private _dispatcher: Dispatcher;
 
 	/**
 	 * Creates new Request instance.
 	 * @param url The URL to connect to.
+	 * @param dispatcher The dispatcher instance.
 	 * @param timeoutSec Timeout after this many seconds.
 	 */
-	constructor(url: string, timeoutSec: number = 30)
+	constructor(url: string, dispatcher: Dispatcher, timeoutSec: number = 30)
 	{
 
 		this._url = url;
+		this._dispatcher = dispatcher;
 		this._timeoutSec = timeoutSec;
 		this._headers = [];
 
@@ -187,13 +190,13 @@ export class Request
 	{
 		if (this._xhr.readyState === Request.STATE_DONE)
 		{
-            Dispatcher.emit(NetworkEvent.REQUEST_DATA, this._xhr.responseText);
+            this._dispatcher.emit(NetworkEvent.REQUEST_DATA, this._xhr.responseText);
 		}
 	}
 
 	/** XMLHttpRequest timeout handler. */
 	private timeoutHandler(): void
 	{
-		Dispatcher.emit(NetworkEvent.REQUEST_ERROR, this._xhr.statusText);
+		this._dispatcher.emit(NetworkEvent.REQUEST_ERROR, this._xhr.statusText);
 	}
 }

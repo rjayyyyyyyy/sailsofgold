@@ -8,28 +8,29 @@ import { CommandEvent } from "@gl/events/eventEnums";
 import { Command, ServerCommand } from "@gl/networking/Commands";
 import VideoSlotReelsManager from "./VideoSlotReelsManager";
 import Reels from "./components/Reels";
-import { IGameConfig } from "@gl/GameConfig";
+import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
 
 @injectable()
 class VideoSlot extends BaseGame {
-    gameConfig: IGameConfig | null = null;
+    gameConfig: ILauncherConfig | null = null;
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
         @inject("VideoSlotGameState") public gameState: VideoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState"),
-        @inject("VideoSlotReelsManager") public reelsManager: VideoSlotReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager")
+        @inject("VideoSlotReelsManager") public reelsManager: VideoSlotReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager"),
+        @inject("DispatcherGame") public dispatcher: Dispatcher = container.get<Dispatcher>("DispatcherGame"),
     )
     {
-        super(networkManager);
+        super(networkManager, dispatcher);
         console.log("GameState coinValue", this.gameState.coinValue);
         this.setupDispatchers();
     }
 
-    setGameConfig(config: IGameConfig | null) {
+    setGameConfig(config: ILauncherConfig | null) {
         this.gameConfig = config;
     }
 
     private setupDispatchers() {
-        Dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
+        this.dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
             switch(command.type){
                 case ServerCommand.Setup:
                     this.logger.trace(`Received Setup commandline: ${command.getString(0)}`);
@@ -39,7 +40,7 @@ class VideoSlot extends BaseGame {
                         return;
                     }
                     GameState.linesBet.set(this.gameConfig.lines as number);
-                    GameState.coinValue.set(parseInt(this.gameConfig.denom as string) * 10);
+                    GameState.coinValue.set(this.gameConfig.denom * 10);
                     console.log('coin value ' + GameState.coinValue)
                     GameState.betValue.set(GameState.coinBet.get() * GameState.linesBet.get() * (GameState.coinValue.get() / 100));
 
@@ -60,15 +61,15 @@ class VideoSlot extends BaseGame {
                         denoms.push(parseInt(command.getString(i)));
                     }
                     this.gameState.coinValueList = denoms;
-                    const coinValueIndex = denoms.indexOf(parseInt(this.gameConfig?.denom as string) * 10)
+                    const coinValueIndex = denoms.indexOf(this.gameConfig!.denom * 10)
                     this.gameState.coinValue.set(denoms[coinValueIndex]);
                     break;
             }
         });
 
-        Dispatcher.addListener(EVENTS.GAME_READY, () => {
+        this.dispatcher.addListener(EVENTS.GAME_READY, () => {
             this.phaserScene.scene.launch("Reels");
-            Dispatcher.emit(AUDIO_EVENTS.BGM_PLAY);
+            this.dispatcher.emit(AUDIO_EVENTS.BGM_PLAY);
         });
     }
    

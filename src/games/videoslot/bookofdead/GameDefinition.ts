@@ -16,7 +16,7 @@ container.bind<NetworkManager>("NetworkManager").to(NetworkManager).inSingletonS
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<VideoSlotReelsManager>("VideoSlotReelsManager").to(VideoSlotReelsManager).inSingletonScope();
 container.bind<AudioManager>("AudioManager").to(AudioManager).inSingletonScope();
-container.bind<Dispatcher>("Dispatcher").toConstantValue(new Dispatcher());
+container.bind<Dispatcher>("DispatcherGame").toConstantValue(new Dispatcher());
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
@@ -51,11 +51,12 @@ const BookOfDeadGameDefinition: IGameDefinition = {
       return;
     }
     gameInstance.networkManager.setGameId(payload.gameId);
+    gameInstance.networkManager.setSessionID(payload.config.sessionId);
     gameInstance.bindScene(game);
     gameInstance.setConfig(payload.config);
     const audiomgr = container.get<AudioManager>("AudioManager");
     audiomgr.bindBootScene(game);
-    if(payload.launcher_payload.device === "desktop") {
+    if(payload.config.deviceType === "desktop") {
       
       logger.info("Loading desktop scene...");
       gameInstance.gameState.isMobile = false;

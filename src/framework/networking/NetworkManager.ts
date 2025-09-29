@@ -1,13 +1,12 @@
-import { injectable } from "inversify";
+import { injectable, inject } from "inversify";
 import { PacketHandler } from "./PacketHandler";
 import { Logger } from "../Logger";
 import Dispatcher, { CommandEvent, EVENTS, NetworkEvent, SystemEvent } from "@gl/events/Dispatcher";
 import { ClientCommand, Command, ServerCommand } from "./Commands";
 import { Request } from "./Request";
 import { FeatureType, FeatureAwardType } from "./FeatureType";
-import { IGameConfig } from "@gl/GameConfig";
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
-import { container } from "@gl/di/container";
+import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
 
 @injectable()
 class NetworkManager {
@@ -21,7 +20,7 @@ class NetworkManager {
     private apiEndpoint: string = "";
     private gameHistory: string = "";
 
-    public gameConfig: IGameConfig | null = null;
+    public gameConfig: ILauncherConfig | null = null;
     private GameState: VideoSlotGameState;
 
     // DEBUG Properties
@@ -31,6 +30,10 @@ class NetworkManager {
 
     public setApiEndpoint(endpoint: string) {
         this.apiEndpoint = endpoint;
+    }
+
+    public getApiEndpoint() {
+        return this.apiEndpoint;
     }
 
     public setGameHistory(history: string) {
@@ -46,17 +49,30 @@ class NetworkManager {
         this.gameId = id;
     }
 
-    public setGameConfig(config: IGameConfig | null) {
+    public setGameConfig(config: ILauncherConfig | null) {
         this.gameConfig = config;
     }
 
-    public getGameConfig(): IGameConfig | null {
+    public getGameConfig(): ILauncherConfig | null {
         return this.gameConfig;
     }
 
-    constructor() {
-        this._dispatcher = container.get<Dispatcher>("Dispatcher");
+    public setSessionID(sessionId: string) {
+        this.logger.info(`Session ID set to: ${sessionId}`);
+        this._hasSession = true;
+        this._dispatcher.emit(NetworkEvent.CHANGE_SESSION_ID, sessionId);
+        this.sendCommand(ClientCommand.NewSPGame, [
+            this.gameId,
+            "0"
+        ]);
+    }
+
+    constructor(@inject("DispatcherGame") dispatcher: Dispatcher, @inject(VideoSlotGameState) gameState: VideoSlotGameState) {
+        this._dispatcher = dispatcher;
+        this.GameState = gameState;
+        this.GameState.setNetworkManager(this);
         this.packetHandler = new PacketHandler(this._dispatcher);
+        this.packetHandler.enable();
 
         this.logger.info("NetworkManager initialized");
 
@@ -70,38 +86,37 @@ class NetworkManager {
 
         this._dispatcher.addListener(NetworkEvent.CLIENT_PACKET, (data: string) => {
             console.log("CLIENT_PACKET", data);
-            const request = new Request(this.apiEndpoint);
+            const request = new Request(this.apiEndpoint, this._dispatcher);
             request.send(data);
         });
 
         this._dispatcher.addListener(NetworkEvent.GAME_HISTORY, (data: string) => {
             console.log("GAME_HISTORY", data);
-            const request = new Request(this.gameHistory);
+            const request = new Request(this.gameHistory, this._dispatcher);
             request.send(data);
         });
 
         this._dispatcher.addListener(CommandEvent.GAME_IN, (command: Command) => {
             this.logger.trace(`GAME_IN: ${command.type}`);
-            this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
             switch(command.type){
                 case ServerCommand.NewSessionId:
-                    this.logger.info("New Session ID received");
-                    if(!this._hasSession){ // no session found previously. Proceed to login
-                        this._hasSession = true;
-                        this._dispatcher.emit(NetworkEvent.SESSION_CREATED);
+                    // this.logger.info("New Session ID received");
+                    // if(!this._hasSession){ // no session found previously. Proceed to login
+                    //     this._hasSession = true;
+                    //     this._dispatcher.emit(NetworkEvent.SESSION_CREATED);
 
-                        this.logger.trace("No previous session, proceeding to login");
-                    } else {
+                    //     this.logger.trace("No previous session, proceeding to login");
+                    // } else {
                         // session found previously. Continue to NewSPGame
-                        this.logger.trace("Session found, proceeding to NewSPGame");
-                        this.sendCommand(ClientCommand.NewSPGame, [
-                            this.gameId,
-                            "0"
-                        ]);
-                    }
-                    let sessId = command.getString(0);
-                    this._dispatcher.emit(NetworkEvent.CHANGE_SESSION_ID, sessId);
-                    this.logger.trace(`New Session ID: ${sessId}`);
+                        // this.logger.trace("Session found, proceeding to NewSPGame");
+                        // this.sendCommand(ClientCommand.NewSPGame, [
+                        //     this.gameId,
+                        //     "0"
+                        // ]);
+                    // }
+                    // let sessId = command.getString(0);
+                    // this._dispatcher.emit(NetworkEvent.CHANGE_SESSION_ID, sessId);
+                    // this.logger.trace(`New Session ID: ${sessId}`);
                     break;
                 case ServerCommand.LoginAnswer:
                     this.logger.trace("Login Answer");
@@ -143,17 +158,17 @@ class NetworkManager {
             }
         });
 
-        this._dispatcher.addListener(NetworkEvent.SESSION_CREATED, () => {
-            setTimeout(() => {
-                this.sendCommand(ClientCommand.Login, [
-                    this._ticket,
-                    "",
-                    "ipcelectron",
-                    "",
-                    ""
-                ]);
-            }, 100);
-        });
+        // this._dispatcher.addListener(NetworkEvent.SESSION_CREATED, () => {
+        //     setTimeout(() => {
+        //         this.sendCommand(ClientCommand.Login, [
+        //             this._ticket,
+        //             "",
+        //             "ipcelectron",
+        //             "",
+        //             ""
+        //         ]);
+        //     }, 100);
+        // });
     }
 
     public sendCommand(command: number, data: string[]) {

@@ -5,15 +5,16 @@ import Dispatcher, { SystemEvent } from "@gl/events/Dispatcher";
 import { ILauncherPayload } from "@gl/interfaces/ILauncherPayload";
 import { ClientCommand } from "@gl/networking/Commands";
 import { Logger } from "@gl/Logger";
-import { IGameConfig } from "@gl/GameConfig";
+import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
 
 @injectable()
 class BaseGame {
     protected logger = new Logger();
-    public gameConfig: IGameConfig | null = null;
+    public gameConfig: ILauncherConfig | null = null;
     public phaserScene: Phaser.Scene;
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
+        @inject("DispatcherGame") public dispatcher: Dispatcher
     ) {
         
     }
@@ -52,12 +53,12 @@ class BaseGame {
         return userAgent;
     }
 
-    setConfig(config: IGameConfig) {
+    setConfig(config: ILauncherConfig) {
         this.gameConfig = config;
     }
 
     public tick(time: number, delta: number) {
-        Dispatcher.emit(SystemEvent.TICK, time, delta);
+        this.dispatcher.emit(SystemEvent.TICK, time, delta);
     }
 
     bindScene(scene: Phaser.Scene) {

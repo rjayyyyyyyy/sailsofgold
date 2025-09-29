@@ -10,43 +10,44 @@ class AudioManager {
     bootScene: Scene;
     constructor(
         // TODO: Change to generic ReelsManager if other game types will use AudioManager
-        @inject("VideoSlotReelsManager") private reelsManager: VideoSlotReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager")
+        @inject("VideoSlotReelsManager") private reelsManager: VideoSlotReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager"),
+        @inject("DispatcherGame") private dispatcher: Dispatcher = container.get<Dispatcher>("DispatcherGame"),
     ) {
-        Dispatcher.addListener(AUDIO_EVENTS.BGM_PLAY, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.BGM_PLAY, () => {
             this.playBGM();
         });
-        Dispatcher.addListener(AUDIO_EVENTS.BGM_STOP, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.BGM_STOP, () => {
             this.stopBGM();
         });
 
-        Dispatcher.addListener(AUDIO_EVENTS.SWITCH_BGM_FREE_SPIN, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.SWITCH_BGM_FREE_SPIN, () => {
             this.switchBGMFreeSpin();
         });
 
-        Dispatcher.addListener(AUDIO_EVENTS.SWITCH_BGM_NORMAL, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.SWITCH_BGM_NORMAL, () => {
             this.switchBGMNormal();
         });
 
-        Dispatcher.addListener(AUDIO_EVENTS.MUTE_AUDIO, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.MUTE_AUDIO, () => {
             this.bootScene.sound.mute = true;
         });
-        Dispatcher.addListener(AUDIO_EVENTS.UNMUTE_AUDIO, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.UNMUTE_AUDIO, () => {
             this.bootScene.sound.mute = false;
         });
 
-        Dispatcher.addListener(AUDIO_EVENTS.REEL_START, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.REEL_START, () => {
             this.bootScene.sound.play('reel_start');
             this.bootScene.sound.play('reel_loop', {
                 loop: true,
                 volume: 0.5
             });
         });
-        Dispatcher.addListener(AUDIO_EVENTS.REEL_STOP, () => {
+        this.dispatcher.addListener(AUDIO_EVENTS.REEL_STOP, () => {
             this.bootScene.sound.play('reel_stop');
             this.bootScene.sound.stopByKey('reel_loop');
         });
 
-        Dispatcher.addListener(AUDIO_EVENTS.WIN_LINE_SOUND, (index: number) => {
+        this.dispatcher.addListener(AUDIO_EVENTS.WIN_LINE_SOUND, (index: number) => {
             if(this.reelsManager.scatterInfo.isScatterSpin) {
                 this.bootScene.sound.play(`win_line_${index+1}_scatter`);
             } else {
