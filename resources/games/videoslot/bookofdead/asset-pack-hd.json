@@ -89,6 +89,11 @@
                 "key": "features-animations"
             },
             {
+                "url": "resources/games/videoslot/bookofdead/animation/features-animations-hd.json",
+                "type": "animation",
+                "key": "features-animations-hd"
+            },
+            {
                 "url": [
                     "resources/games/videoslot/bookofdead/sounds/sounds/Freespins_Intro_Animation1_1.wav"
                 ],

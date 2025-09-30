@@ -19,7 +19,7 @@
             "type": "Image",
             "id": "ce15994b-d119-4689-b8ff-9d36d9c4aa6a",
             "label": "machine",
-            "scope": "CLASS",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "skin_texture1_level0",
                 "frame": "HG.png"
@@ -33,7 +33,7 @@
             "type": "Image",
             "id": "4a215f12-4c85-4db1-b553-23bc43814298",
             "label": "machineMobile",
-            "scope": "CLASS",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "skin_texture1_level2",
                 "frame": "HG.png"
@@ -52,7 +52,7 @@
                 "y"
             ],
             "label": "reelPrefab",
-            "scope": "CLASS",
+            "scope": "PUBLIC",
             "x": -186,
             "y": -70
         }

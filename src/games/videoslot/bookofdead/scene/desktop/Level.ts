@@ -16,6 +16,7 @@ import ScatterScene from "./ScatterScene";
 import PopupScene from "./PopupScene";
 import Dispatcher, { ACTION_EVENTS, EVENTS } from "@gl/events/Dispatcher";
 import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
+import FeaturesScene from "./FeaturesScene";
 
 // container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
@@ -24,6 +25,7 @@ container.bind<AutoplayScene>("AutoplayScene").to(AutoplayScene).inSingletonScop
 container.bind<GambleScene>("GambleScene").to(GambleScene).inSingletonScope();
 container.bind<ScatterScene>("ScatterScene").to(ScatterScene).inSingletonScope();
 container.bind<PopupScene>("PopupScene").to(PopupScene).inSingletonScope();
+container.bind<FeaturesScene>("FeaturesScene").to(FeaturesScene).inSingletonScope();
 
 /* END-USER-IMPORTS */
 
@@ -320,6 +322,7 @@ export default class Level extends Phaser.Scene {
 		this.scene.add('GambleScene', container.get<Phaser.Scene>('GambleScene'), true);
 		this.scene.add('ScatterScene', container.get<Phaser.Scene>('ScatterScene'), true);
 		this.scene.add('PopupScene', container.get<Phaser.Scene>('PopupScene'), true);
+		this.scene.add('FeaturesScene', container.get<Phaser.Scene>('FeaturesScene'), true);
 
 		setTimeout(() => {
 			this.GameState.isShowingAutoplay.subscribe((val) => {
@@ -370,17 +373,6 @@ export default class Level extends Phaser.Scene {
                 	this.GameState.isReward.set(false);
 				}
 			});
-
-			// this.GameState.isScatterInfoShown.subscribe((val) => {
-			// 	if (val) {
-			// 		console.log("show Scatter")
-			// 		this.scene.launch("ScatterScene");
-			// 		(this.scene.get('ScatterScene') as ScatterScene)?.bookAnimation(this.GameState.bookSprites);
-			// 	} else {
-			// 		console.log("hide Scatter")
-			// 		this.scene.stop("ScatterScene");
-			// 	}
-			// });
 
 			this.GameState.isIllegalSession.subscribe((val) => {
 				if (val) {
@@ -600,7 +592,7 @@ export default class Level extends Phaser.Scene {
 
 		this.dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
 			this.GameState.isShowingScatter.set(true);
-			
+
 			this.spinBtn.setVisible(true)
 			this.autoplayBtn.setVisible(true);
 			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])

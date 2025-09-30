@@ -263,27 +263,27 @@ export default class ScatterScene extends Phaser.Scene {
 			backgroundBlack.fillAlpha = 0.5;
 			// jH_png
 			const jH_png = this.add.image(640, 360, "skin_texture0_level0", "JH.png");
-	
+
 			// aJ_png
 			const aJ_png = this.add.image(340, 360, "skin_texture0_level0", "AJ.png");
-	
+
 			// bJ_png
 			const bJ_png = this.add.image(940, 360, "skin_texture0_level0", "BJ.png");
-	
+
 			// txtTotalWinText
 			const txtTotalWinText = this.add.text(640, 260, "", {});
 			txtTotalWinText.setOrigin(0.5, 0.5);
 			txtTotalWinText.text = this.cache.json.get('language').texts["IDS_TOTALWIN"];
 			txtTotalWinText.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "60px" });
 			txtTotalWinText.setScale(.5, .5)
-	
+
 			// txtTotalWinValue
 			const txtTotalWinValue = this.add.text(640, 350, "", {});
 			txtTotalWinValue.setOrigin(0.5, 0.5);
 			txtTotalWinValue.text = this.GameState.winCoins.get().toString();
 			txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "80px" })
 			txtTotalWinValue.setScale(.5, .5);
-	
+
 			paper.add([
 				backgroundBlack,
 				jH_png,
@@ -292,7 +292,7 @@ export default class ScatterScene extends Phaser.Scene {
 				txtTotalWinText,
 				txtTotalWinValue
 			])
-	
+
 			this.tweens.add({
 				targets: paper,
 				alpha: { from: 0, to: 1, start: 0 },

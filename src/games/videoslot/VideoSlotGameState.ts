@@ -47,6 +47,7 @@ export class VideoSlotGameState {
     isShowingAutoplay: ObservableState<boolean>;
     isShowingGamble: ObservableState<boolean>;
     isShowingScatter: ObservableState<boolean>;
+    isShowingFeatures: ObservableState<boolean>;
 
     // Autoplay state
     activeAutoplay: ObservableState<number>;
@@ -95,7 +96,8 @@ export class VideoSlotGameState {
         this.isShowingMenu = new ObservableState(false);
         this.isShowingAutoplay = new ObservableState(false);
         this.isShowingGamble = new ObservableState(false);
-        this.isShowingScatter = new ObservableState(false)
+        this.isShowingScatter = new ObservableState(false);
+        this.isShowingFeatures = new ObservableState(true);
 
         // Initialize autoplay states
         this.activeAutoplay = new ObservableState(0);
