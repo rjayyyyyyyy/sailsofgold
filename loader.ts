@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 // read env GAME (must start with VITE_ to be exposed)
 import { Logger } from './src/framework/Logger';
 import Dispatcher, { CommandEvent, EVENTS, NetworkEvent, SystemEvent } from './src/framework/events/Dispatcher';

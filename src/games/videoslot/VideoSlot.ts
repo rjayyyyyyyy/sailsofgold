@@ -15,9 +15,9 @@ class VideoSlot extends BaseGame {
     gameConfig: ILauncherConfig | null = null;
     constructor(
         @inject("NetworkManager") public networkManager: NetworkManager,
+        @inject("DispatcherGame") public dispatcher: Dispatcher = container.get<Dispatcher>("DispatcherGame"),
         @inject("VideoSlotGameState") public gameState: VideoSlotGameState = container.get<VideoSlotGameState>("VideoSlotGameState"),
         @inject("VideoSlotReelsManager") public reelsManager: VideoSlotReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager"),
-        @inject("DispatcherGame") public dispatcher: Dispatcher = container.get<Dispatcher>("DispatcherGame"),
     )
     {
         super(networkManager, dispatcher);
