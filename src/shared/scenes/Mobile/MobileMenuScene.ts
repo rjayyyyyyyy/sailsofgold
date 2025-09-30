@@ -338,11 +338,18 @@ export default class MobileMenuScene extends Phaser.Scene{
                 left: 10, right: 10, top: 10, bottom: 10,
                 panel: 10
             }
-        }).layout().setDepth(2);
-        this.pageContainer[0].add([
-            bgMenu,
-            scrollPanel0.getTopmostSizer()
-        ])
+        }).layout().setDepth(2) as ScrollablePanel;
+        const topmostSizer = scrollPanel0.getTopmostSizer();
+        if (topmostSizer) {
+            this.pageContainer[0].add([
+                bgMenu,
+                topmostSizer
+            ]);
+        } else {
+            this.pageContainer[0].add([
+                bgMenu
+            ]);
+        }
     }
 
     createItemList0(){
@@ -395,7 +402,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider1){
                     const thumb = slider1.getElement('thumb');
-                    txtSlider1.setPosition(thumb.x - 5, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider1.setPosition(t.x - 5, t.y - 25)
+                    }
+                    // txtSlider1.setPosition(thumb.x - 5, thumb.y - 25)
                     txtSlider1.setText(mapped.toString())
                     this.GameState.betValue.set(this.GameState.coinBet.get() * this.GameState.linesBet.get() * (this.GameState.coinValue.get() / 100))
                     this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${this.GameState.coinValueCurrency.get()} ${(this.GameState.betValue.get()).toFixed(2)}`)
@@ -458,7 +469,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider2){
                     const thumb = slider2.getElement('thumb');
-                    txtSlider2.setPosition(thumb.x - 15, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider2.setPosition(t.x - 15, t.y - 25)
+                    }
+                    // txtSlider2.setPosition(thumb.x - 15, thumb.y - 25)
                     txtSlider2.setText(((this.GameState.coinValue.get() / 100).toFixed(2)))
                     this.GameState.betValue.set(this.GameState.coinBet.get() * this.GameState.linesBet.get() * (this.GameState.coinValue.get() / 100))
                     console.log(mapped)
@@ -521,7 +536,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider3){
                     const thumb = slider3.getElement('thumb');
-                    txtSlider3.setPosition(thumb.x - 5, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider3.setPosition(t.x - 5, t.y - 25)
+                    }
+                    // txtSlider3.setPosition(thumb.x - 5, thumb.y - 25)
                     txtSlider3.setText(mapped.toString())
                     this.GameState.betValue.set(this.GameState.coinBet.get() * this.GameState.linesBet.get() * (this.GameState.coinValue.get() / 100))
                     this.txtBalanceBetText.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${this.GameState.coinValueCurrency.get()} ${(this.GameState.betValue.get()).toFixed(2)}`)
@@ -613,7 +632,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider4){
                     const thumb = slider4.getElement('thumb');
-                    txtSlider4.setPosition(thumb.x, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider4.setPosition(t.x, t.y - 25)
+                    }
+                    // txtSlider4.setPosition(thumb.x, thumb.y - 25)
                     txtSlider4.setText(closest.toString())
                     txtAutoplayValue.setText(closest.toString())
                 }
@@ -627,7 +650,11 @@ export default class MobileMenuScene extends Phaser.Scene{
             slider4.value = this.defaultAutoSpins / 100
             if(slider4){
                 const thumb = slider4.getElement('thumb');
-                txtSlider4.setPosition(thumb.x, thumb.y - 25)
+                if (thumb && 'x' in thumb && 'y' in thumb) {
+                    const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                    txtSlider4.setPosition(t.x, t.y - 25)
+                }
+                // txtSlider4.setPosition(thumb.x, thumb.y - 25)
                 txtSlider4.setText(this.defaultAutoSpins.toString())
                 txtAutoplayValue.setText(this.defaultAutoSpins.toString())
             }
@@ -705,7 +732,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider5){
                     const thumb = slider5.getElement('thumb');
-                    txtSlider5.setPosition(thumb.x, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider5.setPosition(t.x, t.y - 25)
+                    }
+                    // txtSlider5.setPosition(thumb.x, thumb.y - 25)
                     txtSlider5.setText(mapped.toFixed(2))
                 }
                 // }, 100)
@@ -776,7 +807,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider6){
                     const thumb = slider6.getElement('thumb');
-                    txtSlider6.setPosition(thumb.x, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider6.setPosition(t.x, t.y - 25)
+                    }
+                    // txtSlider6.setPosition(thumb.x, thumb.y - 25)
                     txtSlider6.setText(mapped.toFixed(2))
                 }
                 // }, 100)
@@ -847,7 +882,11 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // setTimeout(() => {
                 if(slider7){
                     const thumb = slider7.getElement('thumb');
-                    txtSlider7.setPosition(thumb.x, thumb.y - 25)
+                    if (thumb && 'x' in thumb && 'y' in thumb) {
+                        const t = thumb as unknown as Phaser.GameObjects.GameObject & { x: number, y: number };
+                        txtSlider7.setPosition(t.x, t.y - 25)
+                    }
+                    // txtSlider7.setPosition(thumb.x, thumb.y - 25)
                     txtSlider7.setText(mapped.toFixed(2))
                 }
                 // }, 100)
@@ -1184,11 +1223,24 @@ export default class MobileMenuScene extends Phaser.Scene{
                 panel: 10
             }
         }).layout().setDepth(0);
-        this.pageContainer[2].add([
-            background,
-            bgMenu,
-            scrollPanel2.getTopmostSizer()
-        ])
+        const topmostSizer = scrollPanel2.getTopmostSizer();
+        if (topmostSizer) {
+            this.pageContainer[2].add([
+                background,
+                bgMenu,
+                topmostSizer
+            ]);
+        } else {
+            this.pageContainer[2].add([
+                background,
+                bgMenu
+            ]);
+        }
+        // this.pageContainer[2].add([
+        //     background,
+        //     bgMenu,
+        //     scrollPanel2.getTopmostSizer()
+        // ])
         // pageMenu.add(this.scrollPanel)
     }
 
@@ -1585,7 +1637,7 @@ export default class MobileMenuScene extends Phaser.Scene{
         }, 10);
         this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
-            this.defaultAutoSpins = parseInt(this.GameState.gameConfig.defaultAutoSpins as string)
+            this.defaultAutoSpins = this.GameState.gameConfig.defaultAutoSpins
         //     this.txtCoinsValue.setText(((this.GameState.balance / (this.GameState.coinValue / 100) / 100)).toFixed(0));
         //     this.txtBetText.setText((this.GameState.coinBet * this.GameState.linesBet).toString())
         //     this.txtBalanceBetText.setText(`${this.GameState.coinValueCurrency} ${(this.GameState.betValue).toFixed(1)}`)

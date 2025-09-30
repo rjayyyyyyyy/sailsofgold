@@ -547,7 +547,7 @@ export default class Level extends Phaser.Scene {
 						this.bgAutoplay.setVisible(true);
 						this.txtAutoplay.setVisible(true);
 						this.txtAutoplayValue.setVisible(true);
-						Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
+						this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
 					}
 				}
 			})
