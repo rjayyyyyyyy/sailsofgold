@@ -7,13 +7,16 @@ import { VideoSlotGameState } from '../VideoSlotGameState';
 import VideoSlotReelsManager from '../VideoSlotReelsManager';
 import MobileLevel from './scene/mobile/MobileLevel';
 import AudioManager from '@gl/AudioManager';
-import FeaturesScene from './scene/desktop/FeaturesScene';
-import MobileFeaturesScene from './scene/mobile/MobileFeaturesScene';
+import NetworkManager from '@gl/networking/NetworkManager';
+import Dispatcher from '@gl/events/Dispatcher';
 
 const gameId = "310";
+// Bind NetworkManager
+container.bind<NetworkManager>("NetworkManager").to(NetworkManager).inSingletonScope();
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<VideoSlotReelsManager>("VideoSlotReelsManager").to(VideoSlotReelsManager).inSingletonScope();
 container.bind<AudioManager>("AudioManager").to(AudioManager).inSingletonScope();
+container.bind<Dispatcher>("DispatcherGame").toConstantValue(new Dispatcher());
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
@@ -39,31 +42,30 @@ const BookOfDeadGameDefinition: IGameDefinition = {
     logger.info('Initializing Book of Dead game...');
     logger.info(payload);
     
-    gameInstance.initSession("Book of Dead", 
-      payload.launcher_payload,
-      (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
+    // gameInstance.initSession("Book of Dead", 
+    //   payload.launcher_payload,
+    //   (payload.launcher_payload.device === "desktop" ? gameId : `100${gameId}`));
     if(payload.config === null) {
       logger.error("Game config is null!");
       gameInstance.networkManager.shutdown();
       return;
     }
     gameInstance.networkManager.setGameId(payload.gameId);
+    gameInstance.networkManager.setSessionID(payload.config.sessionId);
     gameInstance.bindScene(game);
     gameInstance.setConfig(payload.config);
     const audiomgr = container.get<AudioManager>("AudioManager");
     audiomgr.bindBootScene(game);
-    if(payload.launcher_payload.device === "desktop") {
+    if(payload.config.deviceType === "desktop") {
       
       logger.info("Loading desktop scene...");
       gameInstance.gameState.isMobile = false;
       game.scene.add('MainLevel', Level, true);
-      // game.scene.add('FeatureScene', FeaturesScene, true);
     } else {
       // Load Mobile Scene
       logger.info("Loading mobile scene...");
       gameInstance.gameState.isMobile = true;
       game.scene.add('MobileLevel', MobileLevel, true);
-      // game.scene.add('MobileFeaturesScene', MobileFeaturesScene, true);
     }
   },
 

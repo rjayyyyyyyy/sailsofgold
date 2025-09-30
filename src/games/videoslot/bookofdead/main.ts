@@ -1,7 +1,8 @@
 import { GameBootstrapper } from "@gl/GameBootstraper";
 import BookOfDeadGameDefinition from "./GameDefinition";
+import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
 
 
-export const start = (config: any) => {
-    new GameBootstrapper(BookOfDeadGameDefinition).launch(config);
+export const start = (element: string, config: ILauncherConfig) => {
+    new GameBootstrapper(BookOfDeadGameDefinition).launch(element, config);
 }

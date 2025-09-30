@@ -14,4 +14,6 @@ export interface ILauncherPayload {
   origin: string;
   debug?: number;
   device: 'desktop' | 'mobile';
+  bundle?: Record<string, string>;
+  sessionId?: string;
 }
