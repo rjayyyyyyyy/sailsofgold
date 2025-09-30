@@ -84,6 +84,11 @@
                 "key": "features_texture1_level2"
             },
             {
+                "url": "resources/games/videoslot/bookofdead/animation/features-animations-sd.json",
+                "type": "animation",
+                "key": "features-animations-sd"
+            },
+            {
                 "url": [
                     "rresources/games/videoslot/bookofdead/sounds/sounds_mobile/Freespins_Intro_Animation1_1.wav"
                 ],

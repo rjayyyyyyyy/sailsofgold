@@ -13,11 +13,13 @@ import MobileScatterScene from "./MobileScatterScene";
 import MobilePopupScene from "./MobilePopupScene";
 import Dispatcher, { ACTION_EVENTS, EVENTS } from "@gl/events/Dispatcher";
 import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
+import MobileFeaturesScene from "./MobileFeaturesScene";
 
 container.bind<MobileMenuScene>("MobileMenuScene").to(MobileMenuScene).inSingletonScope();
 container.bind<MobileGambleScene>("MobileGambleScene").to(MobileGambleScene).inSingletonScope();
 container.bind<MobileScatterScene>("MobileScatterScene").to(MobileScatterScene).inSingletonScope();
 container.bind<MobilePopupScene>("MobilePopupScene").to(MobilePopupScene).inSingletonScope();
+container.bind<MobileFeaturesScene>("MobileFeaturesScene").to(MobileFeaturesScene).inSingletonScope();
 /* END-USER-IMPORTS */
 
 export default class MobileLevel extends Phaser.Scene {
@@ -270,6 +272,7 @@ export default class MobileLevel extends Phaser.Scene {
 		this.scene.add('MobileGambleScene', container.get<Phaser.Scene>('MobileGambleScene'), true);
 		this.scene.add('MobileScatterScene', container.get<Phaser.Scene>('MobileScatterScene'), true);
 		this.scene.add('MobilePopupScene', container.get<Phaser.Scene>('MobilePopupScene'), true);
+		this.scene.add('MobileFeaturesScene', container.get<Phaser.Scene>('MobileFeaturesScene'), true);
 
 		setTimeout(() => {
 			this.GameState.isShowingMenu.subscribe((val) => {
@@ -296,16 +299,6 @@ export default class MobileLevel extends Phaser.Scene {
                 	this.GameState.isReward.set(false);
 				}
 			});
-
-			// this.GameState.isScatterInfoShown.subscribe((val) => {
-			// 	if (val) {
-			// 		console.log("show Scatter")
-			// 		this.scene.launch("MobileScatterScene");
-			// 	} else {
-			// 		console.log("hide Scatter")
-			// 		this.scene.stop("MobileScatterScene");
-			// 	}
-			// });
 
 			this.GameState.isIllegalSession.subscribe((val) => {
 				if (val) {
@@ -720,8 +713,8 @@ export default class MobileLevel extends Phaser.Scene {
 			this.ReelsManager.currentSpin = null;
 			this.scene.stop('MobileScatterScene');
 		});
-		
-		
+
+
 		Dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
 			this.spinBtn.setFrame('spinBtnBaseHi.png');
 			this.txtAutoplayValue.setVisible(false)

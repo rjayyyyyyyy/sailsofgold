@@ -1,6 +1,6 @@
 
 // You can write more code here
-import Phaser from "phaser";
+import Phaser, { Game } from "phaser";
 import { container } from "@gl/di/container";
 
 export type SymbolTextureSet = [string, string];
@@ -224,19 +224,19 @@ export default class Reels extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
-	private machine!: Phaser.GameObjects.Image;
-	private machineMobile!: Phaser.GameObjects.Image;
-	private reelPrefab!: ReelPrefab;
+	public machine!: Phaser.GameObjects.Image;
+	public machineMobile!: Phaser.GameObjects.Image;
+	public reelPrefab!: ReelPrefab;
 
 	/* START-USER-CODE */
-    GameState: VideoSlotGameState;
+    public GameState: VideoSlotGameState;
     ReelsManager: VideoSlotReelsManager;
     logger = new Logger();
     symbolList: SymbolTextureSet[];
     winSymbolList: SymbolTextureSet[];
     freeSymbolList: SymbolTextureSet[];
 	// Write your code here
-    machine2: Phaser.GameObjects.Sprite;
+    public machine2: Phaser.GameObjects.Sprite;
     containers: ReelsContainer[];
     containerBlur: Phaser.FX.Blur[] = [];
     columnTween: Phaser.Tweens.Tween[] = [];
@@ -326,7 +326,24 @@ export default class Reels extends Phaser.Scene {
                 }
 			}
 		});
+
+        this.GameState.isShowingFeatures.subscribe((val) => {
+            const alpha = val ? 0 : 1; // hide if true, show if false
+            
+            if (!val) {
+                this.scene.stop(this.GameState.isMobile ? "MobileFeaturesScene" : "FeaturesScene");
+            }
+
+            if (this.GameState.isMobile) {
+                this.machineMobile.setAlpha(alpha);
+            } else {
+                this.machine.setAlpha(alpha);
+            }
+
+            this.machine2.setAlpha(alpha);
+        })
 	}
+
 
 	update(time: number, delta: number): void {
         this.ReelsManager.update();
@@ -348,13 +365,13 @@ export default class Reels extends Phaser.Scene {
 
         this.tweens.add({
             targets: this.GameState.isMobile ? this.machineMobile : this.machine,
-            alpha: 1,
+            alpha: 0,
             duration: 1000,
             ease: 'Power2',
         });
         this.tweens.add({
             targets: this.machine2,
-            alpha: 1,
+            alpha: 0,
             duration: 1000,
             ease: 'Power2',
         });

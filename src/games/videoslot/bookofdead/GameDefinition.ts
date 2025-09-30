@@ -7,6 +7,8 @@ import { VideoSlotGameState } from '../VideoSlotGameState';
 import VideoSlotReelsManager from '../VideoSlotReelsManager';
 import MobileLevel from './scene/mobile/MobileLevel';
 import AudioManager from '@gl/AudioManager';
+import FeaturesScene from './scene/desktop/FeaturesScene';
+import MobileFeaturesScene from './scene/mobile/MobileFeaturesScene';
 
 const gameId = "310";
 container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
@@ -55,11 +57,13 @@ const BookOfDeadGameDefinition: IGameDefinition = {
       logger.info("Loading desktop scene...");
       gameInstance.gameState.isMobile = false;
       game.scene.add('MainLevel', Level, true);
+      // game.scene.add('FeatureScene', FeaturesScene, true);
     } else {
       // Load Mobile Scene
       logger.info("Loading mobile scene...");
       gameInstance.gameState.isMobile = true;
       game.scene.add('MobileLevel', MobileLevel, true);
+      // game.scene.add('MobileFeaturesScene', MobileFeaturesScene, true);
     }
   },
 
