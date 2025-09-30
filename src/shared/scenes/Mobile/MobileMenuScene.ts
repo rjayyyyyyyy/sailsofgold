@@ -28,9 +28,11 @@ export default class MobileMenuScene extends Phaser.Scene{
     private patterns: any[] = [];
     private numPatterns: number = 0;
 	private GameState!: VideoSlotGameState;
+    private dispatcher: Dispatcher;
 
 	init() {
 		this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
+        this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 	}
 
     create(){
@@ -403,7 +405,7 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // txtSlider1.setText(mapped.toFixed(2));
             }
         }).layout();
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             slider1.setValue((this.GameState.coinBet.get() - 1) / 4)
         })
@@ -421,7 +423,7 @@ export default class MobileMenuScene extends Phaser.Scene{
             // fontStyle : 'BOLD',
             align: 'left'
         }).setOrigin(0, .5);
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             txtCoinValue.setText(this.cache.json.get('language').texts["IDS_COINVALUE_CAPTION"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
         })
@@ -469,7 +471,7 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // txtSlider1.setText(mapped.toFixed(2));
             }
         }).layout();
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             this.snapValues = this.GameState.coinValueList;
             this.totalSteps = this.snapValues.length - 1;
@@ -528,7 +530,7 @@ export default class MobileMenuScene extends Phaser.Scene{
                 // txtSlider1.setText(mapped.toFixed(2));
             }
         }).layout();
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             slider3.setValue((this.GameState.linesBet.get() - 1) / 9)
         })
@@ -574,7 +576,7 @@ export default class MobileMenuScene extends Phaser.Scene{
             this.GameState.isShowingAutoplay.set(false);
             this.GameState.isShowingMenu.set(false);
             // Dispatcher.emit(ACTION_EVENTS.CLOSE_MENU)
-            Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay)
+            this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay)
         })
         let txtAutoplayValue = this.add.text(600, 0, '10', {
             fontSize : '30px',
@@ -621,7 +623,7 @@ export default class MobileMenuScene extends Phaser.Scene{
         }).layout();
         let txtCon6 = this.add.container(0, 0, [txtSlider4, slider4, btnAutoplay, txtAutoplayValue]).setSize(0, 75);
         sizer.add(txtCon6, { align: 'left' })
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             slider4.value = this.defaultAutoSpins / 100
             if(slider4){
                 const thumb = slider4.getElement('thumb');
@@ -650,7 +652,7 @@ export default class MobileMenuScene extends Phaser.Scene{
             align: 'left'
         }).setOrigin(0, .5);
         
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             txtSingleWin.setText(this.cache.json.get('language').texts["IDS_AP_WINEXCEEDS"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
         })
@@ -721,7 +723,7 @@ export default class MobileMenuScene extends Phaser.Scene{
             // fontStyle : 'BOLD',
             align: 'left'
         }).setOrigin(0, .5);
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             txtBalanceIncrease.setText(this.cache.json.get('language').texts["IDS_AP_BALANCEINC"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
         })
@@ -792,7 +794,7 @@ export default class MobileMenuScene extends Phaser.Scene{
             // fontStyle : 'BOLD',
             align: 'left'
         }).setOrigin(0, .5);
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             txtBalanceDecrease.setText(this.cache.json.get('language').texts["IDS_AP_BALANCEDEC"] + ' ('+ this.GameState.coinValueCurrency.get()+')')
         })
@@ -1581,7 +1583,7 @@ export default class MobileMenuScene extends Phaser.Scene{
                 this.txtWinText.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${val.toFixed(2)}`);
             });
         }, 10);
-        Dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.OPEN_MENU, () => {
             if(!this.GameState.isMobile) return;
             this.defaultAutoSpins = parseInt(this.GameState.gameConfig.defaultAutoSpins as string)
         //     this.txtCoinsValue.setText(((this.GameState.balance / (this.GameState.coinValue / 100) / 100)).toFixed(0));

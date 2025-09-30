@@ -20,6 +20,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 
 		/* START-USER-CTR-CODE */
 		this.symbolList = []
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
@@ -114,6 +115,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 	symbolList: SymbolTextureSet[];
 	private GameState!: VideoSlotGameState;
 	private ReelsManager!: VideoSlotReelsManager;
+	private dispatcher: Dispatcher;
 
 	init() {
 		this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
@@ -275,7 +277,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 							paper.destroy();
 							setTimeout(() => {
 								this.GameState.isEndScatter.set(false);
-								Dispatcher.emit(EVENTS.HIDE_SCATTER_INFO)
+								this.dispatcher.emit(EVENTS.HIDE_SCATTER_INFO)
 							}, 2000)
 						}
 					})

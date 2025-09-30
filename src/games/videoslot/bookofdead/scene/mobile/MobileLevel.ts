@@ -30,6 +30,7 @@ export default class MobileLevel extends Phaser.Scene {
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 	}
 
 	editorCreate(): void {
@@ -261,6 +262,7 @@ export default class MobileLevel extends Phaser.Scene {
 	private GameState!: VideoSlotGameState;
 	private ReelsManager!: VideoSlotReelsManager;
 	private toggleVfx!: any;
+	private dispatcher: Dispatcher;
 
 	init() {
 		this.GameState = container.get<VideoSlotGameState>('VideoSlotGameState');
@@ -345,7 +347,7 @@ export default class MobileLevel extends Phaser.Scene {
             		this.ReelsManager.removePayLineImages()
 				}
 			});
-			Dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
+			this.dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
 				if(!this.GameState.isReward.get()) {
 					this.GameState.isReward.set(true);
 				} else{
@@ -418,7 +420,7 @@ export default class MobileLevel extends Phaser.Scene {
 						this.spinBtn.setFrame('stopBtn.png');
 						this.spinBtn.setInteractive();
 						this.txtAutoplayValue.setVisible(true);
-						Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
+						this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
 					}
 				}
 			})
@@ -561,19 +563,19 @@ export default class MobileLevel extends Phaser.Scene {
 			if(this.GameState.isSpinning.get() && !this.GameState.isAutoPlayRunning.get()) return;
 			if(this.GameState.isScatterInfoShown.get()) {
 				this.setButtonInteractive(this.spinBtn, false);
-				Dispatcher.emit(ACTION_EVENTS.SPIN_START);
+				this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
 				return;
 			}
 			if(this.GameState.isAutoPlayRunning.get()) {
 				this.GameState.autoplayBalance.set(0);
 				this.GameState.activeAutoplay.set(0);
 				this.GameState.isAutoPlayRunning.set(false);
-				Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
+				this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
 				this.setButtonInteractive(this.spinBtn, false);
 				return;
 			};
 			this.setButtonInteractive(this.spinBtn, false);
-			Dispatcher.emit(ACTION_EVENTS.SPIN_START);
+			this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
 
 		// Bet Coins
@@ -634,7 +636,7 @@ export default class MobileLevel extends Phaser.Scene {
 		// Menu
 		this.mobileInfoPrefab.btnMenu.on('pointerdown', () => {
 			this.GameState.isShowingMenu.set(true);
-			Dispatcher.emit(ACTION_EVENTS.OPEN_MENU);
+			this.dispatcher.emit(ACTION_EVENTS.OPEN_MENU);
 			this.tweens.add({
 				targets: [this.mobileInfoPrefab.btnMenu],
 				scale: .9,
@@ -653,7 +655,7 @@ export default class MobileLevel extends Phaser.Scene {
 			});
 		});
 
-		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
 			this.GameState.isAutoSpinRunning.set(true);
 			this.setButtonInteractive(this.spinBtn, false);
 			if(this.logo1.alpha == 1){
@@ -676,7 +678,7 @@ export default class MobileLevel extends Phaser.Scene {
 			this.freeSpinHeader3.setText(textFreeSpin)
 		})
 
-		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
 
 			this.tweens.add({
 				targets: [this.logo1, this.logo2, this.logo3],
@@ -691,7 +693,7 @@ export default class MobileLevel extends Phaser.Scene {
 			})
 		})
 
-		Dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
+		this.dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
 			this.GameState.isShowingScatter.set(true);
 
 			this.spinBtn.setFrame('spinBtnBaseHi.png');
@@ -707,7 +709,7 @@ export default class MobileLevel extends Phaser.Scene {
 			}
 		});
 
-		Dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
+		this.dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
 			this.GameState.isShowingScatter.set(false);
 			this.GameState.isSpinning.set(false);
 			this.ReelsManager.currentSpin = null;
@@ -715,7 +717,7 @@ export default class MobileLevel extends Phaser.Scene {
 		});
 
 
-		Dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
 			this.spinBtn.setFrame('spinBtnBaseHi.png');
 			this.txtAutoplayValue.setVisible(false)
 		})

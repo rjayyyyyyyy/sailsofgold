@@ -4,7 +4,7 @@
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
 import { container } from "@gl/di/container";
 import Dispatcher, { ACTION_EVENTS } from "@gl/events/Dispatcher";
-import { IGameConfig } from "@gl/GameConfig";
+import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
 import NetworkManager from "@gl/networking/NetworkManager";
 import { Slider } from "phaser3-rex-plugins/templates/ui/ui-components";
 
@@ -20,6 +20,7 @@ export default class AutoplayScene extends Phaser.Scene {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 		/* END-USER-CTR-CODE */
 	}
 
@@ -242,7 +243,8 @@ export default class AutoplayScene extends Phaser.Scene {
     autoSpins: number[] = [];
 	activeAutoplay: number = 0;
 	private gameState!: VideoSlotGameState;
-	private gameConfig!: IGameConfig;
+	private gameConfig!: ILauncherConfig;
+	private dispatcher: Dispatcher;
 
 	create() {
 		
@@ -313,7 +315,7 @@ export default class AutoplayScene extends Phaser.Scene {
 	}
 
 	setAutoplayBtn(){
-		this.gameConfig = container.get<NetworkManager>('NetworkManager').getGameConfig() as IGameConfig;
+		this.gameConfig = container.get<NetworkManager>('NetworkManager').getGameConfig() as ILauncherConfig;
 		let autoSpins: string[] = []
 		if(this.gameConfig){
 			autoSpins = this.gameConfig.autoSpins?.split(",") as string[]
@@ -374,7 +376,7 @@ export default class AutoplayScene extends Phaser.Scene {
             selectAutoplay.push(btn);
 			let defaultAutoSpins;
 			if(this.gameConfig){
-				defaultAutoSpins = parseInt(this.gameConfig.defaultAutoSpins as string);
+				defaultAutoSpins = this.gameConfig.defaultAutoSpins;
 			} else{
 				defaultAutoSpins = 50;
 			}
@@ -536,7 +538,7 @@ export default class AutoplayScene extends Phaser.Scene {
 			this.gameState.isShowingAutoplay.set(false);
 			this.gameState.isAutoPlayRunning.set(true);
 			this.gameState.activeAutoplay.set(this.activeAutoplay);
-			Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay);
+			this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.activeAutoplay);
 		})
 	}
 	/* END-USER-CODE */
