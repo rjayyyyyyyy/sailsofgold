@@ -649,7 +649,9 @@ export default class MobileFeaturesScene extends Phaser.Scene {
 										symbol.setVisible(false);
 									})
 									playBooks();
-									this.feature_animation.play('feature-animation');
+									if(this.feature_animation){
+										this.feature_animation.play('feature-animation');
+									}
 								}, 2000);
 							}
 						}

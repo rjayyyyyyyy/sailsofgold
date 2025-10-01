@@ -306,6 +306,10 @@ export default class Reels extends Phaser.Scene {
         this.machine.setAlpha(0);
         this.machineMobile.setAlpha(0);
 		this.machine2.setAlpha(0);
+        this.containers.forEach(container => {
+            container.setVisible(false);
+        })
+
 
 		this.ReelsManager.bindScene(this)
         this.initialize();
@@ -328,19 +332,21 @@ export default class Reels extends Phaser.Scene {
 		});
 
         this.GameState.isShowingFeatures.subscribe((val) => {
-            const alpha = val ? 0 : 1; // hide if true, show if false
+            // const alpha = val ? 0 : 1; // hide if true, show if false
             
             if (!val) {
                 this.scene.stop(this.GameState.isMobile ? "MobileFeaturesScene" : "FeaturesScene");
+                if (this.GameState.isMobile) {
+                    this.machineMobile.setAlpha(1);
+                } else {
+                    this.machine.setAlpha(1);
+                }
+                this.machine2.setAlpha(1);
+                this.containers.forEach(container => {
+                    container.setVisible(true);
+                })
             }
 
-            if (this.GameState.isMobile) {
-                this.machineMobile.setAlpha(alpha);
-            } else {
-                this.machine.setAlpha(alpha);
-            }
-
-            this.machine2.setAlpha(alpha);
         })
 	}
 
@@ -362,16 +368,16 @@ export default class Reels extends Phaser.Scene {
                 ease: 'Power2',
             });
         });
-
+        if(this.GameState.isShowingFeatures.get()) return;
         this.tweens.add({
             targets: this.GameState.isMobile ? this.machineMobile : this.machine,
-            alpha: 0,
+            alpha: 1,
             duration: 1000,
             ease: 'Power2',
         });
         this.tweens.add({
             targets: this.machine2,
-            alpha: 0,
+            alpha: 1,
             duration: 1000,
             ease: 'Power2',
         });

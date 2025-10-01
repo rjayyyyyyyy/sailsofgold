@@ -344,6 +344,15 @@ class VideoSlotReelsManager {
                     break;
 			}
 		});	
+
+		this.GameState.playerPick.subscribe((val) => {
+			console.log("playerPick", val);
+			if (val === 0) {
+				// this.isReward.set(false);
+				// this.isSpinning.set(false);
+			};
+			NetworkManager.sendCommand(ClientCommand.Gamble, [val.toString()]);
+		});
     }
 
 	enqueueSpin(symbols: number[], winLines: WinLineResult[], topSymbol: number[], bottomSymbol: number[]) {
@@ -385,6 +394,7 @@ class VideoSlotReelsManager {
 			
 			this.setReelSymbols(symbols, topSymbol, bottomSymbol);
 			this.updateReelSymbols();
+			this.GameState.isShowingFeatures.set(false);
 			setTimeout(() => {
 				console.log("FirstLoad Scatter Info");
 				console.log(this.scatterInfo);

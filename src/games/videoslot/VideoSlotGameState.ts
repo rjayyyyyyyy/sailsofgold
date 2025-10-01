@@ -135,14 +135,5 @@ export class VideoSlotGameState {
     setNetworkManager(networkManager: NetworkManager) {
         this.networkManager = networkManager;
         this.gameConfig = networkManager.getGameConfig() as ILauncherConfig;
-
-        // Subscribe to network events and update game states
-        this.playerPick.subscribe((val) => {
-            if (val === 0) {
-                this.isReward.set(false);
-                this.isSpinning.set(false);
-            };
-            this.networkManager.sendCommand(ClientCommand.Gamble, [val.toString()]);
-        });
     }
 }
