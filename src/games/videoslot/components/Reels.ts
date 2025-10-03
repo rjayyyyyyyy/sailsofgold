@@ -45,16 +45,12 @@ export const winsSymbolTextures = [
     ['skin_texture2_level0', 'FG.png'], // Book
 ];
 
+
 class ReelsContainer extends Phaser.GameObjects.Container {
     GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
     ReelsManager = container.get<VideoSlotReelsManager>("VideoSlotReelsManager");
     constructor(scene: Reels, x: number, y: number) {
         super(scene, x, y)
-
-        // if(options.isMobile){
-        //     options.symbolHeight = 110
-        //     console.log(options.symbolHeight)
-        // }
 
         let symbols = [];
 
@@ -65,13 +61,6 @@ class ReelsContainer extends Phaser.GameObjects.Container {
             symbols.push(this.symbolSprite(0, this.ReelsManager.symbolHeight * i, symbol[0], symbol[1], x, this.ReelsManager.symbolHeight * i))
         }
 
-        // if(GameState.isMobile){
-        //     symbols[0].setScale(.55)
-        //     symbols[1].setScale(.55)
-        //     symbols[2].setScale(.55)
-        //     symbols[3].setScale(.55)
-        //     symbols[4].setScale(.55)
-        // }
         symbols[0].disableInteractive()
         symbols[4].disableInteractive()
         this.add(symbols);
@@ -109,24 +98,25 @@ class ReelsContainer extends Phaser.GameObjects.Container {
 
     paytable(container: Phaser.GameObjects.Container, frame: string){
         let bgSymbol = this.scene.add.sprite(0, 0, this.GameState.isMobile ? 'skin_texture2_level2' : 'skin_texture2_level0', 'ZH.png')
-        let txtPaytable1 = this.scene.add.text(-100, -10, 'x5\nx4\nx3\nx2', {
+        bgSymbol.setScale(this.GameState.isMobile ? 1 : .725)
+        let txtPaytable1 = this.scene.add.text(-70, -5, 'x5\nx4\nx3\nx2', {
             // fontSize : '50px',
             color : '#5c2c17',
             // fontFamily : 'flanker',
-            font: '100 30px britannicBold',
+            font: '100 46px britannicBold',
             align: 'center',
             stroke: '#FFDD40',
-            strokeThickness: 3,
-        }).setOrigin(0, .5)
-        let txtPaytable2 = this.scene.add.text(-50, -10, '5000\n1000\n100\n10', {
+            strokeThickness: 4,
+        }).setOrigin(0, .5).setScale(.5)
+        let txtPaytable2 = this.scene.add.text(-30, -5, '5000\n1000\n100\n10', {
             // fontSize : '50px',
             color : '#FFDD40',
             // fontFamily : 'flanker',
-            font: '100 30px britannicBold',
+            font: '100 46px britannicBold',
             align: 'left',
             stroke: '#5c2c17',
-            strokeThickness: 3,
-        }).setOrigin(0, .5)
+            strokeThickness: 4,
+        }).setOrigin(0, .5).setScale(.5)
 
         switch(frame){
             case 'WE.png':
@@ -235,6 +225,8 @@ export default class Reels extends Phaser.Scene {
     symbolList: SymbolTextureSet[];
     winSymbolList: SymbolTextureSet[];
     freeSymbolList: SymbolTextureSet[];
+    coinWon: SymbolTextureSet;
+    paytableSymbol: SymbolTextureSet;
 	// Write your code here
     public machine2: Phaser.GameObjects.Sprite;
     containers: ReelsContainer[];
@@ -242,6 +234,43 @@ export default class Reels extends Phaser.Scene {
     columnTween: Phaser.Tweens.Tween[] = [];
     blurTween: Phaser.Tweens.Tween[] = [];
     initialized = false;
+
+    
+	PayLines: number[][][] = [
+		[[0, 1], [1, 1], [2, 1], [3, 1], [4, 1]], //line 1
+		[[0, 0], [1, 0], [2, 0], [3, 0], [4, 0]], //line 2
+		[[0, 2], [1, 2], [2, 2], [3, 2], [4, 2]], //line 3
+		[[0, 0], [1, 1], [2, 2], [3, 1], [4, 0]], //line 4
+		[[0, 2], [1, 1], [2, 0], [3, 1], [4, 2]], //line 5
+		[[0, 1], [1, 0], [2, 0], [3, 0], [4, 1]], //line 6
+		[[0, 1], [1, 2], [2, 2], [3, 2], [4, 1]], //line 7
+		[[0, 0], [1, 0], [2, 1], [3, 2], [4, 2]], //line 8
+		[[0, 2], [1, 2], [2, 1], [3, 0], [4, 0]], //line 9
+		[[0, 1], [1, 2], [2, 1], [3, 0], [4, 1]], //line 10
+		[[0, 1], [1, 0], [2, 1], [3, 2], [4, 1]], //line 11
+		[[0, 0], [1, 1], [2, 1], [3, 1], [4, 0]], //line 12
+		[[0, 2], [1, 1], [2, 1], [3, 1], [4, 2]], //line 13
+		[[0, 0], [1, 1], [2, 0], [3, 1], [4, 0]], //line 14
+		[[0, 2], [1, 1], [2, 2], [3, 1], [4, 2]], //line 15
+		[[0, 1], [1, 1], [2, 0], [3, 1], [4, 1]], //line 16
+		[[0, 1], [1, 1], [2, 2], [3, 1], [4, 1]], //line 17
+		[[0, 0], [1, 0], [2, 2], [3, 0], [4, 0]], //line 18
+		[[0, 2], [1, 2], [2, 0], [3, 2], [4, 2]], //line 19
+		[[0, 0], [1, 2], [2, 2], [3, 2], [4, 0]] //line 20
+	]
+
+    PayValues: number[][] = [
+		[0, 5, 25, 100], // 10
+		[0, 5, 25, 100], // J
+		[5, 25, 100], // Q
+		[5, 40, 150], // K
+		[5, 40, 150], // A
+		[5, 30, 100, 750], // Bird
+		[5, 30, 100, 750], // Anubis
+		[5, 40, 400, 2000], // Pharaoh
+		[10, 100, 1350, 5000], // People
+		[0, 2, 20, 200], // Book
+	]
 
 	create() {
 		this.editorCreate();
@@ -286,7 +315,8 @@ export default class Reels extends Phaser.Scene {
             });
         }
 
-
+        this.coinWon = this.GameState.isMobile ? [this.reelPrefab.bgCoinWinMobile.texture.key, this.reelPrefab.bgCoinWinMobile.frame.name] : [this.reelPrefab.bgCoinWin.texture.key, this.reelPrefab.bgCoinWin.frame.name];
+        this.paytableSymbol = this.GameState.isMobile ? [this.reelPrefab.paytableSymbolSD.texture.key, this.reelPrefab.paytableSymbolSD.frame.name] : [this.reelPrefab.paytableSymbolHD.texture.key, this.reelPrefab.paytableSymbolHD.frame.name];
 
         console.log("Reels SymbolList");
         console.log(this.symbolList);
@@ -350,6 +380,50 @@ export default class Reels extends Phaser.Scene {
         })
 	}
 
+    createPaytableContainer(x: number, y: number, symbol: number) {
+        const bgSymbol = this.add.sprite(0, 0, this.paytableSymbol[0], this.paytableSymbol[1])
+        bgSymbol.setScale(this.GameState.isMobile ? 1 : 0.725)
+        const txtPaytable1 = this.add.text(-70, -5, '', {
+            color : '#5c2c17',
+            font: '500 46px britannicBold',
+            align: 'center',
+            stroke: '#FFDD40',
+            strokeThickness: 4,
+        }).setOrigin(0, 0.5).setScale(0.5)
+        const txtPaytable2 = this.add.text(-30, -5, '', {
+            color : '#FFDD40',
+            font: '500 46px britannicBold',
+            align: 'left',
+            stroke: '#5c2c17',
+            strokeThickness: 4,
+        }).setOrigin(0, 0.5).setScale(0.5)
+        let multiplier = 5;
+        const container = this.add.container(x - 125, y, [bgSymbol, txtPaytable1, txtPaytable2]).setVisible(false)
+        if (symbol === 9) {
+            txtPaytable1.setText(this.cache.json.get('language').texts['IDS_PT_THREE_TRIGGER_FREESPIN'])
+            txtPaytable1.setStroke('#5c2c17', 1)
+            txtPaytable1.setFont('500 36px robotoBold')
+            txtPaytable1.setX(txtPaytable1.x - 5)
+            txtPaytable1.setWordWrapWidth(250, true);
+            txtPaytable2.setVisible(false)
+            return container;
+        }
+        for (let i = this.PayValues[symbol].length - 1; i >= 0; i--) {
+            if (this.PayValues[symbol][i] === 0) {
+                return container;
+            }
+            else if (i === this.PayValues[symbol].length - 1) {
+                txtPaytable1.setText(`${multiplier}x`)
+                txtPaytable2.setText(`${this.PayValues[symbol][i]}`)
+            }
+            else {
+                txtPaytable1.setText(`${txtPaytable1.text}\n${multiplier}x`)
+                txtPaytable2.setText(`${txtPaytable2.text}\n${this.PayValues[symbol][i]}`)
+            }
+            multiplier--;
+        }
+        return container;
+    }
 
 	update(time: number, delta: number): void {
         this.ReelsManager.update();

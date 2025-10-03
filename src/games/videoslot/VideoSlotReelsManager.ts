@@ -37,41 +37,6 @@ class VideoSlotReelsManager {
 	symbolHeight: number = 150;
 
 	scene: Reels;
-	PayLines: number[][][] = [
-		[[0, 1], [1, 1], [2, 1], [3, 1], [4, 1]], //line 1
-		[[0, 0], [1, 0], [2, 0], [3, 0], [4, 0]], //line 2
-		[[0, 2], [1, 2], [2, 2], [3, 2], [4, 2]], //line 3
-		[[0, 0], [1, 1], [2, 2], [3, 1], [4, 0]], //line 4
-		[[0, 2], [1, 1], [2, 0], [3, 1], [4, 2]], //line 5
-		[[0, 1], [1, 0], [2, 0], [3, 0], [4, 1]], //line 6
-		[[0, 1], [1, 2], [2, 2], [3, 2], [4, 1]], //line 7
-		[[0, 0], [1, 0], [2, 1], [3, 2], [4, 2]], //line 8
-		[[0, 2], [1, 2], [2, 1], [3, 0], [4, 0]], //line 9
-		[[0, 1], [1, 2], [2, 1], [3, 0], [4, 1]], //line 10
-		[[0, 1], [1, 0], [2, 1], [3, 2], [4, 1]], //line 11
-		[[0, 0], [1, 1], [2, 1], [3, 1], [4, 0]], //line 12
-		[[0, 2], [1, 1], [2, 1], [3, 1], [4, 2]], //line 13
-		[[0, 0], [1, 1], [2, 0], [3, 1], [4, 0]], //line 14
-		[[0, 2], [1, 1], [2, 2], [3, 1], [4, 2]], //line 15
-		[[0, 1], [1, 1], [2, 0], [3, 1], [4, 1]], //line 16
-		[[0, 1], [1, 1], [2, 2], [3, 1], [4, 1]], //line 17
-		[[0, 0], [1, 0], [2, 2], [3, 0], [4, 0]], //line 18
-		[[0, 2], [1, 2], [2, 0], [3, 2], [4, 2]], //line 19
-		[[0, 0], [1, 2], [2, 2], [3, 2], [4, 0]] //line 20
-	]
-
-    PayValues: number[][] = [
-		[0, 5, 25, 100], // 10
-		[0, 5, 25, 100], // J
-		[5, 25, 100], // Q
-		[5, 40, 150], // K
-		[5, 40, 150], // A
-		[5, 30, 100, 750], // Bird
-		[5, 30, 100, 750], // Anubis
-		[5, 40, 400, 2000], // Pharaoh
-		[10, 100, 1350, 5000], // People
-		[0, 2, 20, 200], // Book
-	]
 
 	private hasDelayedSpinStarted: boolean = false;
 
@@ -494,8 +459,11 @@ class VideoSlotReelsManager {
 			let btnSprite = (this.scene.containers[column].list[row] as Phaser.GameObjects.Sprite);
 			let x = btnSprite.parentContainer.x;
 			let y = btnSprite.parentContainer.y + btnSprite.y;
-			let container = this.scene.add.container(x - 125, y + 25).setVisible(false);
-			this.paytable(container, symbol[1]);
+			// let container = this.scene.add.container(x - 125, y + 25).setVisible(false);
+
+			// this.paytable(container, symbol[1]);
+			let container = this.scene.createPaytableContainer(x, y, this.reelSymbols[i]);
+
 			btnSprite.removeAllListeners();
 			btnSprite.setInteractive();
 			btnSprite.on('pointerdown', () => {
@@ -829,7 +797,7 @@ class VideoSlotReelsManager {
 	winSymbol(line: WinLineResult) {
 		const GameState = this.GameState;
 		for (let i = 0; i < line.totalSymbol; i++) {
-			const [reelIndex, symbolIndex] = this.PayLines[line.paylineIndex][i];
+			const [reelIndex, symbolIndex] = this.scene.PayLines[line.paylineIndex][i];
 			const symbolContainer = this.scene.containers[reelIndex];
 			const symbol = symbolContainer.list[symbolIndex + 1] as Phaser.GameObjects.Sprite;
 
@@ -848,12 +816,15 @@ class VideoSlotReelsManager {
 
 			// Show coinWin only if totalSymbol is 2 and i == 1, or if i is second to last
 			const showCoinWin = (line.totalSymbol === 2 && i === 1) || (i !== 0 && i === line.totalSymbol - 2);
+			const spriteBgCoinWon = this.scene.coinWon;
 			if (showCoinWin) {
 				coinWinBg = this.scene.add.sprite(
 					posX, 
 					posY, 
-					GameState.isMobile ? 'skin_texture1_level2' : 'skin_texture1_level0', 
-					'GG.png')
+					spriteBgCoinWon[0],
+					spriteBgCoinWon[1])
+					// GameState.isMobile ? 'skin_texture1_level2' : 'skin_texture1_level0', 
+					// 'GG.png')
 					.setDepth(2)
 					.setScale(GameState.isMobile ? 0.7 : 0.4, .8)
 					.setAlpha(0.8);
@@ -915,17 +886,17 @@ class VideoSlotReelsManager {
 		const lineEndXOffset = GameState.isMobile ? this.scene.scale.width - lineStartXOffset : this.scene.scale.width - lineStartXOffset;
 		const lineEndYOffset = lineStartYOffset;
 		const points = [
-		{x: lineStartXOffset, y: lineStartYOffset + (this.PayLines[payline][0][1] * yGap)},
+		{x: lineStartXOffset, y: lineStartYOffset + (this.scene.PayLines[payline][0][1] * yGap)},
 		]
 		for(let i =0; i<5;i++) {
 		let innerXGap = halfDistance;
 		if(i > 0) {
 			innerXGap *= 2;
 		}
-		points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.PayLines[payline][i][1] * yGap)});
+		points.push({x: lineStartXOffset + halfDistance +(innerXGap * i), y: lineStartYOffset + (this.scene.PayLines[payline][i][1] * yGap)});
 		// this.scene.add.circle(lineStartXOffset + halfDistance +(innerXGap * i), lineStartYOffset, 10, color, 1);
 		}
-		points.push({x: lineEndXOffset, y: lineEndYOffset + (this.PayLines[payline][4][1] * yGap)});
+		points.push({x: lineEndXOffset, y: lineEndYOffset + (this.scene.PayLines[payline][4][1] * yGap)});
 
 		// Create graphics object once outside the loop to avoid memory allocation
 		const circleMask = this.scene.make.graphics({});
@@ -1075,6 +1046,7 @@ class VideoSlotReelsManager {
 			const showCoinWin = (j: number) =>
 				(line.totalSymbol === 2 && j === 1) || (j !== 0 && j === line.totalSymbol - 2);
 
+			const spriteBgCoinWon = this.scene.coinWon;
 			const createCoinWinDisplay = (symbol: Phaser.GameObjects.Sprite) => {
 				const x = symbol.parentContainer.x;
 				const y = symbol.parentContainer.y + symbol.y;
@@ -1082,8 +1054,8 @@ class VideoSlotReelsManager {
 				coinWinBg = this.scene.add.sprite(
 					x,
 					y, 
-					GameState.isMobile ? 'skin_texture1_level2' : 'skin_texture1_level0', 
-					'GG.png')
+					spriteBgCoinWon[0], 
+					spriteBgCoinWon[1])
 					.setDepth(2)
 					.setScale(GameState.isMobile ? 0.7 : 0.4, .8)
 					.setAlpha(0.8);
@@ -1109,7 +1081,7 @@ class VideoSlotReelsManager {
 					imageGroup.forEach(img => img.setVisible(true));
 
 					for (let j = 0; j < line.totalSymbol; j++) {
-						const [reel, index] = this.PayLines[line.paylineIndex][j];
+						const [reel, index] = this.scene.PayLines[line.paylineIndex][j];
 						const symbol = this.scene.containers[reel].list[index + 1] as Phaser.GameObjects.Sprite;
 						symbol.setTint(0xFFFFFF);
 
@@ -1127,7 +1099,7 @@ class VideoSlotReelsManager {
 					this.changeTintSymbol(true);
 
 					for (let j = 0; j < line.totalSymbol; j++) {
-						const [reel, index] = this.PayLines[line.paylineIndex][j];
+						const [reel, index] = this.scene.PayLines[line.paylineIndex][j];
 						const symbol = this.scene.containers[reel].list[index + 1] as Phaser.GameObjects.Sprite;
 						symbol.setTint(0xFFFFFF);
 					}
@@ -1246,74 +1218,6 @@ class VideoSlotReelsManager {
 			}
 		}
 	}
-
-	paytable(container: Phaser.GameObjects.Container, frame: string){
-		const GameState = this.GameState;
-        let bgSymbol = this.scene.add.sprite(0, 0, GameState.isMobile ? 'skin_texture2_level2' : 'skin_texture2_level0', 'ZH.png')
-        let txtPaytable1 = this.scene.add.text(-100, -10, 'x5\nx4\nx3\nx2', {
-            // fontSize : '50px',
-            color : '#5c2c17',
-            // fontFamily : 'flanker',
-            font: '100 30px britannicBold',
-            align: 'center',
-            stroke: '#FFDD40',
-            strokeThickness: 3,
-        }).setOrigin(0, .5)
-        let txtPaytable2 = this.scene.add.text(-50, -10, '5000\n1000\n100\n10', {
-            // fontSize : '50px',
-            color : '#FFDD40',
-            // fontFamily : 'flanker',
-            font: '100 30px britannicBold',
-            align: 'left',
-            stroke: '#5c2c17',
-            strokeThickness: 3,
-        }).setOrigin(0, .5)
-        
-        switch(frame){
-            case 'WE.png':
-                txtPaytable1.setText('x5\nx4\nx3\nx2')
-                txtPaytable2.setText('5000\n1000\n100\n10')
-                break;
-
-            case 'VE.png':
-                txtPaytable1.setText('x5\nx4\nx3\nx2')
-                txtPaytable2.setText('2000\n400\n40\n5')
-                break;
-
-            case 'SE.png':
-            case 'TE.png':
-                txtPaytable1.setText('x5\nx4\nx3\nx2')
-                txtPaytable2.setText('750\n100\n30\n5')
-                break;
-
-            case 'DF.png':
-            case 'JF.png':
-            case 'CF.png':
-            case 'IF.png':
-                txtPaytable1.setText('x5\nx4\nx3')
-                txtPaytable2.setText('150\n40\n5')
-                break;
-
-            case 'LF.png':
-            case 'NF.png':
-            case 'PF.png':
-            case 'KF.png':
-            case 'MF.png':
-            case 'OF.png':
-                txtPaytable1.setText('x5\nx4\nx3')
-                txtPaytable2.setText('100\n25\n5')
-                break;
-
-            default:
-                txtPaytable1.setText('Three symbols\nactivate the FREE\nSPIN feature.')
-                txtPaytable1.setStroke('', 0)
-                txtPaytable1.setFont('500 22px OSWALD-REGULAR')
-                txtPaytable2.setVisible(false)
-        }
-        
-        container.add([bgSymbol, txtPaytable1, txtPaytable2])
-    }
-
 }
 
 function fnRepeat(tween: Phaser.Tweens.Tween, mgr: VideoSlotReelsManager) {

@@ -675,6 +675,126 @@
                     },
                     "x": -2795,
                     "y": 381
+                },
+                {
+                    "type": "Image",
+                    "id": "c8dd27b0-d9b1-4979-b05c-f4fc0d53c575",
+                    "label": "bgCoinWin",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "skin_texture1_level0",
+                        "frame": "GG.png"
+                    },
+                    "x": -3239,
+                    "y": -4,
+                    "scaleX": 0.4,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Image",
+                    "id": "484278c1-e81c-4d00-8be0-c7415338c246",
+                    "label": "bgCoinWinMobile",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "skin_texture1_level2",
+                        "frame": "GG.png"
+                    },
+                    "x": -3239,
+                    "y": 118,
+                    "scaleX": 0.7,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Text",
+                    "id": "275ac2e8-5109-4db4-acb8-bf365d833502",
+                    "label": "text_2",
+                    "x": -3339,
+                    "y": -63,
+                    "text": "Background Win Coin HD"
+                },
+                {
+                    "type": "Text",
+                    "id": "f8987625-2a54-4b2a-9903-774b79c748e2",
+                    "label": "text_3",
+                    "x": -3340,
+                    "y": 74,
+                    "text": "Background Win Coin SD"
+                },
+                {
+                    "type": "Text",
+                    "id": "c9df7af2-fe1d-4673-a4ca-fae50f913298",
+                    "label": "text_4",
+                    "x": -2357,
+                    "y": -124,
+                    "text": "Default Symbol SD\n",
+                    "fontSize": "32px"
+                },
+                {
+                    "type": "Text",
+                    "id": "942ef5ef-fd42-4b44-ba3c-8d2b1fcf82fc",
+                    "label": "text_5",
+                    "x": -1959,
+                    "y": -112,
+                    "text": "Win Symbol SD",
+                    "fontSize": "32px"
+                },
+                {
+                    "type": "Text",
+                    "id": "121b93db-480d-4d59-8fc5-f43967c709fa",
+                    "label": "text_6",
+                    "x": -3045,
+                    "y": -75,
+                    "text": "Scatter symbol HD"
+                },
+                {
+                    "type": "Text",
+                    "id": "7ed7c318-6250-4524-94c7-5a23813200ff",
+                    "label": "text_7",
+                    "x": -2864,
+                    "y": -54,
+                    "text": "Scatter symbol SD"
+                },
+                {
+                    "type": "Sprite",
+                    "id": "24ff015d-15ac-469f-b99c-6fd8ce885c81",
+                    "label": "paytableSymbolHD",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "skin_texture2_level0",
+                        "frame": "ZH.png"
+                    },
+                    "x": -3240,
+                    "y": 341,
+                    "scaleX": 0.725,
+                    "scaleY": 0.725
+                },
+                {
+                    "type": "Text",
+                    "id": "eb4e6d75-dd13-4759-b65c-d254049ae5f4",
+                    "label": "text_8",
+                    "x": -3332,
+                    "y": 237,
+                    "text": "Paytable Symbol HD"
+                },
+                {
+                    "type": "Sprite",
+                    "id": "53772902-ccdb-4f4d-8386-bb373d8b5ff3",
+                    "label": "paytableSymbolSD",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "skin_texture2_level2",
+                        "frame": "ZH.png"
+                    },
+                    "x": -3248,
+                    "y": 605
+                },
+                {
+                    "type": "Text",
+                    "id": "92043974-11e9-4279-b725-67c447530f78",
+                    "label": "text_9",
+                    "x": -3332,
+                    "y": 515,
+                    "text": "Paytable Symbol HD"
                 }
             ]
         }

@@ -324,6 +324,15 @@ export default class Level extends Phaser.Scene {
 		this.scene.add('PopupScene', container.get<Phaser.Scene>('PopupScene'), true);
 		this.scene.add('FeaturesScene', container.get<Phaser.Scene>('FeaturesScene'), true);
 
+		// Text Style for Button prefabs
+		[this.paytableBtn, this.autoplayBtn, this.betmaxBtn, this.gambleBtn, this.collectBtn].forEach((btn) => {
+			let gradient = btn.txtButton.context.createLinearGradient(0, 0, 0, btn.txtButton.height);
+			gradient.addColorStop(0, '#442B14');
+			gradient.addColorStop(.5, '#6B4A17');
+			gradient.addColorStop(1, '#442B14');
+			btn.txtButton.setFill(gradient)
+		})
+
 		setTimeout(() => {
 			this.GameState.isShowingAutoplay.subscribe((val) => {
 				if (val) {
@@ -771,6 +780,15 @@ export default class Level extends Phaser.Scene {
 			this.setButtonInteractive(this.spinBtn.btnButton, false);
             this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
+
+		const spinBtn = this.spinBtn.txtButton
+		spinBtn.setStyle({"fontSize": "76px"})
+		const gradient = spinBtn.context.createLinearGradient(0, 0, 0, spinBtn.height);
+		gradient.addColorStop(0, '#DDA339');
+		gradient.addColorStop(.5, '#FBF2A5');
+		gradient.addColorStop(.5, '#DDA339');
+		gradient.addColorStop(1, '#FBF2A5');
+		spinBtn.setFill(gradient)
 
 		// Autoplay
 		this.autoplayBtn.btnButton.on('pointerdown', () => {

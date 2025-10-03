@@ -42,23 +42,6 @@ export default class Button extends Phaser.GameObjects.Container {
 				btnButton.setTexture(this.buttonSprite.key, this.buttonSprite.frame)
 			}
 
-			if(this.event == 'spin'){
-				txtButton.setStyle({"fontSize": "76px"})
-				const gradient = txtButton.context.createLinearGradient(0, 0, 0, txtButton.height);
-				gradient.addColorStop(0, '#DDA339');
-				gradient.addColorStop(.5, '#FBF2A5');
-				gradient.addColorStop(.5, '#DDA339');
-				gradient.addColorStop(1, '#FBF2A5');
-				txtButton.setFill(gradient)
-			}
-			else{
-				let gradient = txtButton.context.createLinearGradient(0, 0, 0, txtButton.height);
-				gradient.addColorStop(0, '#442B14');
-				gradient.addColorStop(.5, '#6B4A17');
-				gradient.addColorStop(1, '#442B14');
-				txtButton.setFill(gradient)
-			}
-
 
 			btnButton.on('pointerdown', () => {
 				scene.tweens.add({
