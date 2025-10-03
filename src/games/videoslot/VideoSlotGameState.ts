@@ -1,22 +1,16 @@
 import Dispatcher from "@gl/events/Dispatcher";
 import { EVENTS } from "@gl/events/events";
-import { ClientCommand } from "@gl/networking/Commands";
-import NetworkManager from "@gl/networking/NetworkManager";
 import { ObservableState } from "@gl/ObservableState";
 import { injectable, inject } from "inversify";
 import { WinLineResult } from "./interfaces/reels";
-import { ILauncherConfig } from "@gl/interfaces/ILauncherConfig";
+import { BaseGameState } from "@shared/BaseGameState";
 
 @injectable()
-export class VideoSlotGameState {
-    isMobile: boolean = false;
-    gameConfig: ILauncherConfig;
-
+export class VideoSlotGameState extends BaseGameState {
     // coins: ObservableState<number> = new ObservableState(0);
     // coinBet: ObservableState<number> = new ObservableState(1);
     coinValueList: number[] = [];
     coinValue: ObservableState<number>;
-    coinValueCurrency: ObservableState<string> = new ObservableState("USD");
     betValue: ObservableState<number> = new ObservableState(0);
 
     // linesBet: ObservableState<number> = new ObservableState(10);
@@ -29,9 +23,8 @@ export class VideoSlotGameState {
     isSpinning: ObservableState<boolean>;
     isReward: ObservableState<boolean> = new ObservableState(false);
     isAutoPlayRunning: ObservableState<boolean> = new ObservableState(false);
-    isIllegalSession: ObservableState<boolean> = new ObservableState(false);
-
     isAutoSpinRunning: ObservableState<boolean> = new ObservableState(false);
+
     // Game states
     balance: ObservableState<number>;
     coinBet: ObservableState<number>;
@@ -60,7 +53,6 @@ export class VideoSlotGameState {
     ifAutoplayBalanceDecrease: ObservableState<number>;
 
     // Menu state
-    isSoundingOn: ObservableState<boolean>;
     isFastplayOn: ObservableState<boolean>;
     isAutoAdjustOn: ObservableState<boolean>;
     isSpacebarSpinOn: ObservableState<boolean>;
@@ -79,9 +71,9 @@ export class VideoSlotGameState {
 
     winCoins: ObservableState<number>;
 
-    private networkManager: NetworkManager;
-
     constructor(@inject("DispatcherGame") private dispatcher: Dispatcher) {
+        super();
+
         // Initialize game states
         this.balance = new ObservableState(1000);
         this.coinBet = new ObservableState(1);
@@ -89,8 +81,6 @@ export class VideoSlotGameState {
         this.informationText = new ObservableState("IDS_PRESSPIN");
         this.coinValueList = [10, 20, 30, 40, 50, 100, 200, 500]
         this.coinValue = new ObservableState(this.coinValueList[0]);
-        this.coinValueCurrency = new ObservableState("CNY");
-
         // Initialize scene states
         this.isShowingPaytable = new ObservableState(false);
         this.isShowingMenu = new ObservableState(false);
@@ -110,7 +100,6 @@ export class VideoSlotGameState {
         this.ifAutoplayBalanceDecrease = new ObservableState(0);
 
         // Initialize menu states
-        this.isSoundingOn = new ObservableState(true);
         this.isFastplayOn = new ObservableState(false);
         this.isAutoAdjustOn = new ObservableState(false);
         this.isSpacebarSpinOn = new ObservableState(false);
@@ -130,10 +119,5 @@ export class VideoSlotGameState {
         this.winCoins.subscribe((val) => {
             this.dispatcher.emit(EVENTS.WIN_LINES);
         });
-    }
-
-    setNetworkManager(networkManager: NetworkManager) {
-        this.networkManager = networkManager;
-        this.gameConfig = networkManager.getGameConfig() as ILauncherConfig;
     }
 }

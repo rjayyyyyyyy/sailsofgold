@@ -144,6 +144,6 @@ export class GameBootstrapper {
                 autoCenter: Phaser.Scale.CENTER_BOTH,
             },
         };
-        new Phaser.Game(phaserConfig);
+        return new Phaser.Game(phaserConfig);
     }
 }
