@@ -256,6 +256,76 @@ export default class ReelPrefab extends Phaser.GameObjects.Container {
 		const sd_free_symbol_8 = scene.add.sprite(-2795, 381, "skin_texture0_level2", "ZI.png");
 		this.add(sd_free_symbol_8);
 
+		// bgCoinWin
+		const bgCoinWin = scene.add.image(-3239, -4, "skin_texture1_level0", "GG.png");
+		bgCoinWin.scaleX = 0.4;
+		bgCoinWin.scaleY = 0.8;
+		this.add(bgCoinWin);
+
+		// bgCoinWinMobile
+		const bgCoinWinMobile = scene.add.image(-3239, 118, "skin_texture1_level2", "GG.png");
+		bgCoinWinMobile.scaleX = 0.7;
+		bgCoinWinMobile.scaleY = 0.8;
+		this.add(bgCoinWinMobile);
+
+		// text_2
+		const text_2 = scene.add.text(-3339, -63, "", {});
+		text_2.text = "Background Win Coin HD";
+		text_2.setStyle({  });
+		this.add(text_2);
+
+		// text_3
+		const text_3 = scene.add.text(-3340, 74, "", {});
+		text_3.text = "Background Win Coin SD";
+		text_3.setStyle({  });
+		this.add(text_3);
+
+		// text_4
+		const text_4 = scene.add.text(-2357, -124, "", {});
+		text_4.text = "Default Symbol SD\n";
+		text_4.setStyle({ "fontSize": "32px" });
+		this.add(text_4);
+
+		// text_5
+		const text_5 = scene.add.text(-1959, -112, "", {});
+		text_5.text = "Win Symbol SD";
+		text_5.setStyle({ "fontSize": "32px" });
+		this.add(text_5);
+
+		// text_6
+		const text_6 = scene.add.text(-3045, -75, "", {});
+		text_6.text = "Scatter symbol HD";
+		text_6.setStyle({  });
+		this.add(text_6);
+
+		// text_7
+		const text_7 = scene.add.text(-2864, -54, "", {});
+		text_7.text = "Scatter symbol SD";
+		text_7.setStyle({  });
+		this.add(text_7);
+
+		// paytableSymbolHD
+		const paytableSymbolHD = scene.add.sprite(-3240, 341, "skin_texture2_level0", "ZH.png");
+		paytableSymbolHD.scaleX = 0.725;
+		paytableSymbolHD.scaleY = 0.725;
+		this.add(paytableSymbolHD);
+
+		// text_8
+		const text_8 = scene.add.text(-3332, 237, "", {});
+		text_8.text = "Paytable Symbol HD";
+		text_8.setStyle({  });
+		this.add(text_8);
+
+		// paytableSymbolSD
+		const paytableSymbolSD = scene.add.sprite(-3248, 605, "skin_texture2_level2", "ZH.png");
+		this.add(paytableSymbolSD);
+
+		// text_9
+		const text_9 = scene.add.text(-3332, 515, "", {});
+		text_9.text = "Paytable Symbol HD";
+		text_9.setStyle({  });
+		this.add(text_9);
+
 		// lists
 		const symbol_list = [symbol_0, symbol_1, symbol_2, symbol_3, symbol_4, symbol_5, symbol_6, symbol_7, symbol_8, symbol_9];
 		const win_symbol_list = [win_symbol_0, win_symbol_1, win_symbol_2, win_symbol_3, win_symbol_4, win_symbol_5, win_symbol_6, win_symbol_7, win_symbol_8, win_symbol_9];
@@ -264,6 +334,10 @@ export default class ReelPrefab extends Phaser.GameObjects.Container {
 		const free_symbol_list = [free_symbol_0, free_symbol_1, free_symbol_2, free_symbol_3, free_symbol_4, free_symbol_5, free_symbol_6, free_symbol_7, free_symbol_8];
 		const sd_free_symbol_list = [sd_free_symbol_0, sd_free_symbol_1, sd_free_symbol_2, sd_free_symbol_3, sd_free_symbol_4, sd_free_symbol_5, sd_free_symbol_6, sd_free_symbol_7, sd_free_symbol_8];
 
+		this.bgCoinWin = bgCoinWin;
+		this.bgCoinWinMobile = bgCoinWinMobile;
+		this.paytableSymbolHD = paytableSymbolHD;
+		this.paytableSymbolSD = paytableSymbolSD;
 		this.symbol_list = symbol_list;
 		this.win_symbol_list = win_symbol_list;
 		this.sd_symbol_list = sd_symbol_list;
@@ -276,6 +350,10 @@ export default class ReelPrefab extends Phaser.GameObjects.Container {
 		/* END-USER-CTR-CODE */
 	}
 
+	public bgCoinWin: Phaser.GameObjects.Image;
+	public bgCoinWinMobile: Phaser.GameObjects.Image;
+	public paytableSymbolHD: Phaser.GameObjects.Sprite;
+	public paytableSymbolSD: Phaser.GameObjects.Sprite;
 	public symbol_list: Phaser.GameObjects.Sprite[];
 	public win_symbol_list: Phaser.GameObjects.Sprite[];
 	public sd_symbol_list: Phaser.GameObjects.Sprite[];

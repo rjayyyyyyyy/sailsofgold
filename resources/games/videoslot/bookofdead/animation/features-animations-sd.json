@@ -1,0 +1,47 @@
+{
+    "anims": [
+        {
+            "key": "feature-animation",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "features_texture0_level2",
+                    "frame": "AB.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level2",
+                    "frame": "BB.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level2",
+                    "frame": "CB.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level2",
+                    "frame": "DB.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 2,
+            "skipMissedFrames": true,
+            "randomFrame": false
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}

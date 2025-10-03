@@ -316,6 +316,8 @@ export default class MenuScene extends Phaser.Scene {
 		this.txtAutoAdjust.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L9'] || 'IDS_M_SETTINGS_L9');
 		this.txtSpacebar.setText(this.cache.json.get('language').texts['IDS_M_SETTINGS_L13'] || 'IDS_M_SETTINGS_L13');
 		this.txtOk.setText(this.cache.json.get('language').texts['IDS_BTN_OK'] || 'IDS_BTN_OK');
+		this.txtCoinsValue.setText(this.gameState.coinBet.get().toString());
+		this.txtLinesValue.setText(this.gameState.linesBet.get().toString());
 
 		this.txtDenominationValue.setText(`${this.gameState.coinValueCurrency.get()} ${(this.gameState.coinValue.get() / 100).toFixed(2)}`);
 		const denominationValue = this.gameState.coinValueList.indexOf(this.gameState.coinValue.get());
@@ -421,7 +423,7 @@ export default class MenuScene extends Phaser.Scene {
 		this.valueSpacebar2.on('pointerdown', toggleSpacebar);
 
 		this.btnOk.on('pointerdown', () => {
-			this.scene.stop();
+			this.gameState.isShowingMenu.set(false)
 		});
 
 		 // Subscribe to game state changes

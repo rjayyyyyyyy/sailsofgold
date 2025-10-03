@@ -10,6 +10,7 @@ import { container } from "@gl/di/container";
 import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
 import { FeatureAwardType } from "@gl/networking/FeatureType";
 import { SymbolTextureSet } from "@games/videoslot/components/Reels";
+import Dispatcher, { EVENTS } from "@gl/events/Dispatcher";
 /* END-USER-IMPORTS */
 
 export default class MobileScatterScene extends Phaser.Scene {
@@ -18,6 +19,8 @@ export default class MobileScatterScene extends Phaser.Scene {
 		super("MobileScatterScene");
 
 		/* START-USER-CTR-CODE */
+		this.symbolList = []
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
@@ -30,6 +33,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 
 		// animation
 		const animation = this.add.sprite(360, 640, "skin_texture1_level2", "KH.png");
+		animation.play("book-animation-sd");
 
 		// bgBook
 		const bgBook = this.add.image(360, 640, "skin_texture1_level2", "JL.png");
@@ -111,6 +115,7 @@ export default class MobileScatterScene extends Phaser.Scene {
 	symbolList: SymbolTextureSet[];
 	private GameState!: VideoSlotGameState;
 	private ReelsManager!: VideoSlotReelsManager;
+	private dispatcher: Dispatcher;
 
 	init() {
 		this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
@@ -123,53 +128,56 @@ export default class MobileScatterScene extends Phaser.Scene {
 	}
 
 	bookAnimation(target: Phaser.GameObjects.Sprite[]){
-		this.animation.play("book-animation-sd");
-		for(let i = 0; i < target.length; i++){
-			const xTarget = target[i].x
-			const yTarget = target[i].y
-			this.tweens.add({
-				targets: target[i],
-				scaleX: 1,
-				scaleY: 1,
-				yoyo: true,
-				repeat: 2,
-				duration: 200,
-				onComplete: () => {
-					this.tweens.add({
-						targets: target[i],
-						x: (540 / 2) - target[i].parentContainer.x,
-						y: (960 / 2) - target[i].parentContainer.y - 50,
-						duration: 400,
-						repeat: 0,
-						delay: 800,
-						ease: "Linear",
-						onComplete: () => {
-							target[i].x = xTarget;
-							target[i].y = yTarget;
-							this.editorCreate();
-							this.setLocalizationText();
-							this.animation.on('animationcomplete', (anim: Phaser.GameObjects.Sprite) => {
-								// will fire every time an animation truly completes
-								(this.animation as Phaser.GameObjects.Sprite).destroy();
-								// anim.destroy();
-								this.bgBook.setVisible(true)
-								this.tweens.add({
-									targets: this.bgBook,
-									scale: {from: .2, to: 1},
-									duration: 500,
-									onComplete: () => {
-										this.bookContent.forEach(value => {
-											value.setVisible(true);
-										})
-										if(i === 0) this.addScatter();
-									},
-								})
-							});
-						}
-					})
-				}
-			})
-		}
+		this.GameState.isEndScatter.set(true);
+		setTimeout(() => {
+
+			for(let i = 0; i < target.length; i++){
+				const xTarget = target[i].x
+				const yTarget = target[i].y
+				this.tweens.add({
+					targets: target[i],
+					scaleX: 1.2,
+					scaleY: 1.2,
+					yoyo: true,
+					repeat: 2,
+					duration: 200,
+					onComplete: () => {
+						this.tweens.add({
+							targets: target[i],
+							x: (this.scale.width / 2) - target[i].parentContainer.x,
+							y: (this.scale.height / 2) - target[i].parentContainer.y - 50,
+							duration: 400,
+							repeat: 0,
+							delay: 800,
+							ease: "Linear",
+							onComplete: () => {
+								target[i].x = xTarget;
+								target[i].y = yTarget;
+								this.editorCreate();
+								this.setLocalizationText();
+								this.animation.on('animationcomplete', (anim: Phaser.GameObjects.Sprite) => {
+									// will fire every time an animation truly completes
+									(this.animation as Phaser.GameObjects.Sprite).destroy();
+									// anim.destroy();
+									this.bgBook.setVisible(true)
+									this.tweens.add({
+										targets: this.bgBook,
+										scale: {from: .2, to: 1},
+										duration: 500,
+										onComplete: () => {
+											this.bookContent.forEach(value => {
+												value.setVisible(true);
+											})
+											if(i === 0) this.addScatter();
+										},
+									})
+								});
+							}
+						})
+					}
+				})
+			}
+		}, 1000)
 	}
 
 	addScatter(){
@@ -178,95 +186,104 @@ export default class MobileScatterScene extends Phaser.Scene {
 			this.symbolList.push([sprite.texture.key, sprite.frame.name]);
 		});
 
-		let repeatCounter = 0
-		this.tweens.add({
-			targets: this.selectedSymbol,
-			duration: 150,
-			alpha: { from: 0, to: 1, start: 1},
-			repeat: 15,
-			onRepeat: () => {
-				repeatCounter++
-				let randomNumber = Phaser.Math.RND.between(0, 8);
-				const symbol = this.selectedSymbol;
-				if(repeatCounter == 15){
-					const winSymbol = (this.ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
-					const sym = this.symbolList[winSymbol]
-					symbol.setTexture(sym[0], sym[1]);
-					console.log(winSymbol)
-					this.GameState.isSpinning.set(false)
-					// Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, 'T4'+arraySymbols[winSymbol]+'B.png')
+		setTimeout(() => {
 
-					// if(winSymbol) {
-					// }
+			let repeatCounter = 0
+			this.tweens.add({
+				targets: this.selectedSymbol,
+				duration: 150,
+				alpha: { from: 0, to: 1, start: 1},
+				repeat: 15,
+				onRepeat: () => {
+					repeatCounter++
+					let randomNumber = Phaser.Math.RND.between(0, 8);
+					const symbol = this.selectedSymbol;
+					if(repeatCounter == 15){
+						const winSymbol = (this.ReelsManager.scatterInfo.collections[FeatureAwardType.Feature]?.amount as number);
+						const sym = this.symbolList[winSymbol]
+						symbol.setTexture(sym[0], sym[1]);
+						this.GameState.isSpinning.set(false)
+						// Dispatcher.emit(ACTION_EVENTS.AUTO_SPIN_START, 'T4'+arraySymbols[winSymbol]+'B.png')
+
+						// if(winSymbol) {
+						// }
+					}
+					else{
+						const sym = this.symbolList[randomNumber]
+						symbol.setTexture(sym[0], sym[1]);
+					}
+				},
+				onComplete: function()  {
+					repeatCounter = 0
+					// Option.checkClick = false;
 				}
-				else{
-					const sym = this.symbolList[randomNumber]
-					symbol.setTexture(sym[0], sym[1]);
-				}
-			},
-			onComplete: function()  {
-				repeatCounter = 0
-				// Option.checkClick = false;
-			}
-		})
+			})
+		}, 0)
 	}
 
 	paperScatter(){
-		const paper = this.add.container(0, 0).setDepth(1)
-		const backgroundBlack = this.add.rectangle(800, 450, 128, 128);
-		backgroundBlack.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
-		backgroundBlack.scaleX = 12.5;
-		backgroundBlack.scaleY = 7.8;
-		backgroundBlack.isFilled = true;
-		backgroundBlack.fillColor = 0;
-		backgroundBlack.fillAlpha = 0.5;
-		// jH_png
-		const jH_png = this.add.image(270, 395, "skin_texture0_level2", "JH.png");
+		setTimeout(() => {
+			const paper = this.add.container(0, 0).setDepth(1)
+			const backgroundBlack = this.add.rectangle(360, 640, 128, 128);
+			backgroundBlack.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+			backgroundBlack.scaleX = 6.5;
+			backgroundBlack.scaleY = 10.5;
+			backgroundBlack.isFilled = true;
+			backgroundBlack.fillColor = 0;
+			backgroundBlack.fillAlpha = 0.5;
+			// jH_png
+			const jH_png = this.add.image(360, 640, "skin_texture0_level2", "JH.png");
 
-		// aJ_png
-		const aJ_png = this.add.image(90, 395, "skin_texture0_level2", "AJ.png");
+			// aJ_png
+			const aJ_png = this.add.image(180, 640, "skin_texture0_level2", "AJ.png");
 
-		// bJ_png
-		const bJ_png = this.add.image(450, 395, "skin_texture0_level2", "BJ.png");
+			// bJ_png
+			const bJ_png = this.add.image(540, 640, "skin_texture0_level2", "BJ.png");
 
-		// txtTotalWinText
-		const txtTotalWinText = this.add.text(270, 330, "", {});
-		txtTotalWinText.setOrigin(0.5, 0.5);
-		txtTotalWinText.text = this.cache.json.get('language').texts["IDS_TOTALWIN"];
-		txtTotalWinText.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "30px" });
+			// txtTotalWinText
+			const txtTotalWinText = this.add.text(360, 580, "", {});
+			txtTotalWinText.setOrigin(0.5, 0.5);
+			txtTotalWinText.text = this.cache.json.get('language').texts["IDS_TOTALWIN"];
+			txtTotalWinText.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "50px" });
+			txtTotalWinText.setScale(.5, .5)
 
-		// txtTotalWinValue
-		const txtTotalWinValue = this.add.text(270, 370, "", {});
-		txtTotalWinValue.setOrigin(0.5, 0.5);
-		txtTotalWinValue.text = this.GameState.winCoins.get().toString();
-		txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "50px" });
+			// txtTotalWinValue
+			const txtTotalWinValue = this.add.text(360, 630, "", {});
+			txtTotalWinValue.setOrigin(0.5, 0.5);
+			txtTotalWinValue.text = this.GameState.winCoins.get().toString();
+			txtTotalWinValue.setStyle({ "color": "#582c15", "fontFamily": "ROBOTO-CONDENSED-BOLD", "fontSize": "80px" });
+			txtTotalWinValue.setScale(.5, .5);
 
-		paper.add([
-			backgroundBlack,
-			jH_png,
-			aJ_png,
-			bJ_png,
-			txtTotalWinText,
-			txtTotalWinValue
-		])
+			paper.add([
+				backgroundBlack,
+				jH_png,
+				aJ_png,
+				bJ_png,
+				txtTotalWinText,
+				txtTotalWinValue
+			])
 
-		this.tweens.add({
-			targets: paper,
-			alpha: { from: 0, to: 1, start: 0 },
-			duration: 500,
-			hold: 3000,
-			onComplete: () => {
-				this.tweens.add({
-					targets: paper,
-					alpha: { from: 1, to: 0, start: 1 },
-					duration: 500,
-					onComplete: () => {
-						paper.destroy();
-						this.GameState.isEndScatter.set(true);
-					}
-				})
-			}
-		})
+			this.tweens.add({
+				targets: paper,
+				alpha: { from: 0, to: 1, start: 0 },
+				duration: 500,
+				hold: 3000,
+				onComplete: () => {
+					this.tweens.add({
+						targets: paper,
+						alpha: { from: 1, to: 0, start: 1 },
+						duration: 500,
+						onComplete: () => {
+							paper.destroy();
+							setTimeout(() => {
+								this.GameState.isEndScatter.set(false);
+								this.dispatcher.emit(EVENTS.HIDE_SCATTER_INFO)
+							}, 2000)
+						}
+					})
+				}
+			})
+		}, 1000)
 	}
 
 	setLocalizationText(){

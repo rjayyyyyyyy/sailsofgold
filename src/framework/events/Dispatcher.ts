@@ -7,7 +7,7 @@ import { Logger } from '@gl/Logger';
 export { EVENTS, ACTION_EVENTS, AUDIO_EVENTS, CommandEvent, SystemEvent, NetworkEvent };
 
 export class Dispatcher<EventType = string> {
-    private static instance: Dispatcher;
+    // private static instance: Dispatcher;
     private logger = new Logger();
     _listeners: Map<EventType, ((...args: any[]) => void)[]>;
 
@@ -15,17 +15,18 @@ export class Dispatcher<EventType = string> {
         this._listeners = new Map();
     }
 
-    public static getInstance(): Dispatcher {
-        if (!Dispatcher.instance) {
-            Dispatcher.instance = new Dispatcher();
-        }
-        return Dispatcher.instance;
-    }
+    // public static getInstance(): Dispatcher {
+    //     if (!Dispatcher.instance) {
+    //         Dispatcher.instance = new Dispatcher();
+    //     }
+    //     return Dispatcher.instance;
+    // }
 
     addListener(event: EventType, callback: (...args: any[]) => void) {
         const callbacks = this._listeners.get(event) || [];
         callbacks.push(callback);
         this._listeners.set(event, callbacks);
+        return callback;
     }
 
     emit(event: EventType, ...args: any[]) {
@@ -52,4 +53,4 @@ export class Dispatcher<EventType = string> {
     }
 }
 
-export default Dispatcher.getInstance();
+export default Dispatcher;

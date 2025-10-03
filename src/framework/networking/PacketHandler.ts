@@ -1,5 +1,6 @@
 import { Command, ClientCommand } from "./Commands";
 import Dispatcher, { CommandEvent, EVENTS, NetworkEvent, SystemEvent } from "../events/Dispatcher";
+import { Logger } from "@gl/Logger";
 
 
 export class PacketHandler
@@ -11,7 +12,7 @@ export class PacketHandler
 	protected static readonly TIMEOUT_MS: number = 10000;
 	protected static readonly ERROR_MS: number = 30000;
 
-	protected _dispatcher: typeof Dispatcher;
+	protected _dispatcher: Dispatcher;
 
 	protected _separatorRe: RegExp;
 	protected _typeRe: RegExp;
@@ -36,10 +37,10 @@ export class PacketHandler
 	// protected _onCommand: (e: CommandEvent) => void;
 
 	/** Creates new PacketHandler instance. */
-	constructor(keepAlive: boolean = true)
+	constructor(dispatcher: Dispatcher, keepAlive: boolean = true)
 	{
 
-		this._dispatcher = Dispatcher;
+		this._dispatcher = dispatcher;
 		this._keepAlive = keepAlive;
 
 		this._dispatcher.addListener(CommandEvent.GAME_OUT, this.onCommand.bind(this));
@@ -69,11 +70,11 @@ export class PacketHandler
 
 		this._hadCommDelay = false;
 
-		Dispatcher.addListener(EVENTS.LOAD_COMPLETE, () => {
+		this._dispatcher.addListener(EVENTS.LOAD_COMPLETE, () => {
 			this.onStart();
 		});
 
-		Dispatcher.addListener(SystemEvent.TICK, this.onTick.bind(this));
+		this._dispatcher.addListener(SystemEvent.TICK, this.onTick.bind(this));
 	}
 
 	/** Sets the maximum ping time in seconds. */
@@ -119,6 +120,7 @@ export class PacketHandler
 	/** Enables communication. */
 	protected onStart(): void
 	{
+		console.log("PacketHandler enabled");
 		this._enabled = true;
 	}
 
@@ -370,6 +372,10 @@ export class PacketHandler
 				// }
 			}
 		}
+	}
+
+	public enable() {
+		this._enabled = true;
 	}
 
 	public disable() {

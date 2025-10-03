@@ -1,10 +1,13 @@
+import { container } from '@gl/di/container';
 import Dispatcher, { EVENTS } from '@gl/events/Dispatcher';
 import Phaser from 'phaser';
 
 export class Preload extends Phaser.Scene {
 	private progressBar!: Phaser.GameObjects.Rectangle;
+	private dispatcher: Dispatcher;
     constructor() {
         super({ key: 'Preload' });
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
     }
 
     preload() {
@@ -16,7 +19,7 @@ export class Preload extends Phaser.Scene {
 
 		this.load.on('complete', () => {
             console.log('loader-complete');
-            Dispatcher.emit(EVENTS.LOAD_COMPLETE);
+            this.dispatcher.emit(EVENTS.LOAD_COMPLETE);
             setTimeout(() => {
                 this.scene.remove('Preload');
             }, 1000);

@@ -81,6 +81,9 @@
             "id": "d96d7f67-cf8d-4304-950e-c947f3052815",
             "label": "btnExit",
             "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 128,
+            "hitArea.height": 51,
             "texture": {
                 "key": "videoslot_popup_texture0_level0",
                 "frame": "OB.png"

@@ -27,39 +27,51 @@ export default class MobileGambleScene extends Phaser.Scene {
 
 		// txtInformation
 		const txtInformation = this.add.text(361, 448, "", {});
+		txtInformation.scaleX = 0.5;
+		txtInformation.scaleY = 0.5;
 		txtInformation.setOrigin(0.5, 0.5);
 		txtInformation.text = "IDS_VP_BONUS2";
-		txtInformation.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
+		txtInformation.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "32px" });
 
 		// txtColorpays
 		const txtColorpays = this.add.text(197, 479, "", {});
+		txtColorpays.scaleX = 0.5;
+		txtColorpays.scaleY = 0.5;
 		txtColorpays.setOrigin(0.5, 0.5);
 		txtColorpays.text = "IDS_COLORPAYS";
-		txtColorpays.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "12px" });
+		txtColorpays.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "24px" });
 
 		// txtSuitpays
 		const txtSuitpays = this.add.text(525, 480, "", {});
+		txtSuitpays.scaleX = 0.5;
+		txtSuitpays.scaleY = 0.5;
 		txtSuitpays.setOrigin(0.5, 0.5);
 		txtSuitpays.text = "IDS_SUITPAYS";
-		txtSuitpays.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "12px" });
+		txtSuitpays.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "24px" });
 
 		// txtColorpaysValue
 		const txtColorpaysValue = this.add.text(197, 507, "", {});
+		txtColorpaysValue.scaleX = 0.5;
+		txtColorpaysValue.scaleY = 0.5;
 		txtColorpaysValue.setOrigin(0.5, 0.5);
 		txtColorpaysValue.text = "0";
-		txtColorpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
+		txtColorpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "32px" });
 
 		// txtSuitpaysValue
 		const txtSuitpaysValue = this.add.text(525, 507, "", {});
+		txtSuitpaysValue.scaleX = 0.5;
+		txtSuitpaysValue.scaleY = 0.5;
 		txtSuitpaysValue.setOrigin(0.5, 0.5);
 		txtSuitpaysValue.text = "0";
-		txtSuitpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
+		txtSuitpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "32px" });
 
 		// txtPrevCard
-		const txtPrevCard = this.add.text(175, 672, "", {});
+		const txtPrevCard = this.add.text(175, 671, "", {});
+		txtPrevCard.scaleX = 0.5;
+		txtPrevCard.scaleY = 0.5;
 		txtPrevCard.setOrigin(0, 0.5);
 		txtPrevCard.text = "IDS_PREVIOUSCARDS";
-		txtPrevCard.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
+		txtPrevCard.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "32px" });
 
 		// btnRed
 		const btnRed = this.add.sprite(197, 561, "skin_texture3_level2", "II.png");
@@ -67,9 +79,11 @@ export default class MobileGambleScene extends Phaser.Scene {
 
 		// txtRed
 		const txtRed = this.add.text(197, 561, "", {});
+		txtRed.scaleX = 0.5;
+		txtRed.scaleY = 0.5;
 		txtRed.setOrigin(0.5, 0.5);
 		txtRed.text = "IDS_INFO_RED";
-		txtRed.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
+		txtRed.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "32px" });
 
 		// btnBlack
 		const btnBlack = this.add.sprite(197, 616, "skin_texture3_level2", "GI.png");
@@ -77,9 +91,11 @@ export default class MobileGambleScene extends Phaser.Scene {
 
 		// txtBlack
 		const txtBlack = this.add.text(197, 616, "", {});
+		txtBlack.scaleX = 0.5;
+		txtBlack.scaleY = 0.5;
 		txtBlack.setOrigin(0.5, 0.5);
 		txtBlack.text = "IDS_INFO_BLACK";
-		txtBlack.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR" });
+		txtBlack.setStyle({ "color": "#FFF59F", "fontFamily": "ROBOTO_CONDENSED_REGULAR", "fontSize": "32px" });
 
 		// cardReveal
 		const cardReveal = this.add.sprite(360, 560, "skin_texture3_level2", "PG.png");
@@ -144,6 +160,7 @@ export default class MobileGambleScene extends Phaser.Scene {
 	private smallCard!: Phaser.GameObjects.Sprite;
 	private asCard!: Phaser.GameObjects.Sprite;
 	private prevCard!: string;
+	private prevWinCard: Phaser.GameObjects.Sprite[] = [];
 
 	init() {
 		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
@@ -163,7 +180,7 @@ export default class MobileGambleScene extends Phaser.Scene {
 		const coinsWon = this.gameState.winCoins.get();
 		this.txtColorpaysValue.setText((coinsWon * 2).toString());
 		this.txtSuitpaysValue.setText((coinsWon * 4).toString());
-		
+
 		this.btnRed.on('pointerdown', () =>{
 			this.pickCards(ClientCardPicked.Red)
 			this.addButtonTween(this.btnRed, [this.txtRed]);
@@ -195,6 +212,20 @@ export default class MobileGambleScene extends Phaser.Scene {
 		});
 
 		this.toggleEffect();
+
+		setTimeout(() => {
+			if(this.prevWinCard){
+				for(let i = 0; i < this.prevWinCard.length; i++){
+					this.prevWinCard[i].destroy()
+				}
+			}
+			let prevCardCount = 0
+			for(let i = this.gameState.prevWinCard.length - 1; i >= 0; i--){
+				this.prevWinCard[prevCardCount] = this.add.sprite(330 + (prevCardCount * 30), 671, 'skin_texture3_level2', this.gameState.prevWinCard[i]).setScale(.5).setDepth(2)
+				prevCardCount++
+				if(prevCardCount === 9) return 
+			}
+		}, 0);
 	}
 
 	pickCards(picked: number){
@@ -286,6 +317,21 @@ export default class MobileGambleScene extends Phaser.Scene {
 					this.prevCard = 'LG.png'
 				break; 
 			}
+
+			setTimeout(() => {
+				if(this.prevWinCard){
+					for(let i = 0; i < this.prevWinCard.length; i++){
+						this.prevWinCard[i].destroy()
+					}
+				}
+				this.gameState.prevWinCard.push(this.prevCard);
+				let prevCardCount = 0
+				for(let i = this.gameState.prevWinCard.length - 1; i >= 0; i--){
+					this.prevWinCard[prevCardCount] = this.add.sprite(330 + (prevCardCount * 30), 671, 'skin_texture3_level2', this.gameState.prevWinCard[i]).setScale(.5).setDepth(2)
+					prevCardCount++
+					if(prevCardCount === 9) return 
+				}
+			}, 200);
 
 			const coinsWon = this.gameState.winCoins.get();
 			if(coinsWon != 0){

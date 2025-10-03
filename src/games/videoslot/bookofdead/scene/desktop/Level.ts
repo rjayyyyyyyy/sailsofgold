@@ -16,6 +16,7 @@ import ScatterScene from "./ScatterScene";
 import PopupScene from "./PopupScene";
 import Dispatcher, { ACTION_EVENTS, EVENTS } from "@gl/events/Dispatcher";
 import VideoSlotReelsManager from "@games/videoslot/VideoSlotReelsManager";
+import FeaturesScene from "./FeaturesScene";
 
 // container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
@@ -24,6 +25,7 @@ container.bind<AutoplayScene>("AutoplayScene").to(AutoplayScene).inSingletonScop
 container.bind<GambleScene>("GambleScene").to(GambleScene).inSingletonScope();
 container.bind<ScatterScene>("ScatterScene").to(ScatterScene).inSingletonScope();
 container.bind<PopupScene>("PopupScene").to(PopupScene).inSingletonScope();
+container.bind<FeaturesScene>("FeaturesScene").to(FeaturesScene).inSingletonScope();
 
 /* END-USER-IMPORTS */
 
@@ -36,6 +38,7 @@ export default class Level extends Phaser.Scene {
 		// this.audio = container.get<IAudioService>(TYPES.AudioService)
 		// Write your code here.
 		/* END-USER-CTR-CODE */
+		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
 	}
 
 	editorCreate(): void {
@@ -302,6 +305,7 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
+	private dispatcher!: Dispatcher;
 	private toggleVfx!: any;
 	private GameState!: VideoSlotGameState;
 	private ReelsManager!: VideoSlotReelsManager;
@@ -318,6 +322,8 @@ export default class Level extends Phaser.Scene {
 		this.scene.add('GambleScene', container.get<Phaser.Scene>('GambleScene'), true);
 		this.scene.add('ScatterScene', container.get<Phaser.Scene>('ScatterScene'), true);
 		this.scene.add('PopupScene', container.get<Phaser.Scene>('PopupScene'), true);
+		this.scene.add('FeaturesScene', container.get<Phaser.Scene>('FeaturesScene'), true);
+
 
 		setTimeout(() => {
 			this.GameState.isShowingAutoplay.subscribe((val) => {
@@ -368,17 +374,6 @@ export default class Level extends Phaser.Scene {
                 	this.GameState.isReward.set(false);
 				}
 			});
-
-			// this.GameState.isScatterInfoShown.subscribe((val) => {
-			// 	if (val) {
-			// 		console.log("show Scatter")
-			// 		this.scene.launch("ScatterScene");
-			// 		(this.scene.get('ScatterScene') as ScatterScene)?.bookAnimation(this.GameState.bookSprites);
-			// 	} else {
-			// 		console.log("hide Scatter")
-			// 		this.scene.stop("ScatterScene");
-			// 	}
-			// });
 
 			this.GameState.isIllegalSession.subscribe((val) => {
 				if (val) {
@@ -453,6 +448,7 @@ export default class Level extends Phaser.Scene {
 			this.GameState.isReward.subscribe((val) => {
 				console.log("isReward", val);
 				if(this.GameState.isAutoPlayRunning.get()) return;
+				if(this.GameState.isAutoSpinRunning.get()) return;
 				if(this.toggleVfx) this.toggleVfx.destroy();
 				if (val) {
 					console.log("show Reward")
@@ -493,12 +489,13 @@ export default class Level extends Phaser.Scene {
 				}
 			});
 
-			Dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
+			this.dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
 				if(!this.GameState.isReward.get()) {
 					this.GameState.isReward.set(true);
 				} else{
 					return;
 				}
+				if(this.GameState.isAutoSpinRunning.get()) return;
 				const wonLine = this.cache.json.get('language').texts['IDS_MENU_WON'];
 				const totalWin = wonLine.replace('%d', this.GameState.winCoins.get().toString());
 				if (paylineIndex) {
@@ -542,9 +539,22 @@ export default class Level extends Phaser.Scene {
 					this.GameState.isAutoPlayRunning.set(false);
 				}
 			});
+
+			this.GameState.isEndScatter.subscribe((val) => {
+				if (!val) {
+					if(this.GameState.isAutoPlayRunning.get()) {
+						this.spinBtn.setVisible(false);
+						this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_STOP'])
+						this.bgAutoplay.setVisible(true);
+						this.txtAutoplay.setVisible(true);
+						this.txtAutoplayValue.setVisible(true);
+						this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
+					}
+				}
+			})
 		}, 0);
 
-		Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
             this.GameState.isAutoSpinRunning.set(true);
             if(this.logo1.alpha == 1){
                 this.tweens.add({
@@ -566,7 +576,7 @@ export default class Level extends Phaser.Scene {
             this.freeSpinHeader3.setText(textFreeSpin)
         })
 
-        Dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
+        this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
 
             this.tweens.add({
                 targets: [this.logo1, this.logo2, this.logo3],
@@ -581,8 +591,16 @@ export default class Level extends Phaser.Scene {
             })
         })
 
-		Dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
+		this.dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
 			this.GameState.isShowingScatter.set(true);
+
+			this.spinBtn.setVisible(true)
+			this.autoplayBtn.setVisible(true);
+			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
+			this.bgAutoplay.setVisible(false);
+			this.txtAutoplay.setVisible(false);
+			this.txtAutoplayValue.setVisible(false);
+
 			console.log(scatterSymbolSprite)
 			this.scene.launch('ScatterScene');
 			if(scatterSymbolSprite){
@@ -593,12 +611,21 @@ export default class Level extends Phaser.Scene {
 			}
 		});
 
-		Dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
+		this.dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
 			this.GameState.isShowingScatter.set(false);
 			this.GameState.isSpinning.set(false);
 			this.ReelsManager.currentSpin = null;
 			this.scene.stop('ScatterScene');
 		});
+
+		this.dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
+			this.spinBtn.setVisible(true)
+			this.autoplayBtn.setVisible(true);
+			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
+			this.bgAutoplay.setVisible(false);
+			this.txtAutoplay.setVisible(false);
+			this.txtAutoplayValue.setVisible(false);
+		})
 	}
 
 	create() {
@@ -620,6 +647,15 @@ export default class Level extends Phaser.Scene {
 			const coinValueList = this.GameState.coinValueList;
 			const coinValue = this.GameState.coinValue;
 			const coinValueCurrency = this.GameState.coinValueCurrency;
+
+			// Text Style for Button prefabs
+			[this.paytableBtn, this.autoplayBtn, this.betmaxBtn, this.gambleBtn, this.collectBtn].forEach((btn) => {
+				let gradient = btn.txtButton.context.createLinearGradient(0, 0, 0, btn.txtButton.height);
+				gradient.addColorStop(0, '#442B14');
+				gradient.addColorStop(.5, '#6B4A17');
+				gradient.addColorStop(1, '#442B14');
+				btn.txtButton.setFill(gradient)
+			})
 
 			// Initialize UI with current state values
 			this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * coinValue.get()}`);
@@ -743,8 +779,17 @@ export default class Level extends Phaser.Scene {
 		this.spinBtn.btnButton.on('pointerdown', () => {
 			if(this.GameState.isSpinning && !this.GameState.isAutoPlayRunning) return;
 			this.setButtonInteractive(this.spinBtn.btnButton, false);
-            Dispatcher.emit(ACTION_EVENTS.SPIN_START);
+            this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
 		});
+
+		const spinBtn = this.spinBtn.txtButton
+		spinBtn.setStyle({"fontSize": "76px"})
+		const gradient = spinBtn.context.createLinearGradient(0, 0, 0, spinBtn.height);
+		gradient.addColorStop(0, '#DDA339');
+		gradient.addColorStop(.5, '#FBF2A5');
+		gradient.addColorStop(.5, '#DDA339');
+		gradient.addColorStop(1, '#FBF2A5');
+		spinBtn.setFill(gradient)
 
 		// Autoplay
 		this.autoplayBtn.btnButton.on('pointerdown', () => {
@@ -754,7 +799,7 @@ export default class Level extends Phaser.Scene {
 				this.GameState.autoplayBalance.set(0);
 				this.GameState.activeAutoplay.set(0);
 				this.GameState.isAutoPlayRunning.set(false);
-                Dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
+                this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
 			}
 		});
 
@@ -773,8 +818,7 @@ export default class Level extends Phaser.Scene {
 
 		// Footer menu
 		this.footerPrefab.btnMenu.on('pointerdown', () => {
-			const current = this.GameState.isShowingMenu.get();
-      		this.GameState.isShowingMenu.set(!current);
+      		this.GameState.isShowingMenu.set(true);
 		});
 	}
 

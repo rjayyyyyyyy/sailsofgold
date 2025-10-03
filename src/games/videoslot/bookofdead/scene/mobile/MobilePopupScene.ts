@@ -51,6 +51,7 @@ export default class MobilePopupScene extends Phaser.Scene {
 
 		// btnExit
 		const btnExit = this.add.image(360, 730, "videoslot_popup_texture0_level2", "OB.png");
+		btnExit.setInteractive(new Phaser.Geom.Rectangle(0, 0, 77, 31), Phaser.Geom.Rectangle.Contains);
 
 		// txtExit
 		const txtExit = this.add.text(360, 730, "", {});
