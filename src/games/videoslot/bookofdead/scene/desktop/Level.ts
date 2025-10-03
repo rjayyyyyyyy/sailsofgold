@@ -324,14 +324,6 @@ export default class Level extends Phaser.Scene {
 		this.scene.add('PopupScene', container.get<Phaser.Scene>('PopupScene'), true);
 		this.scene.add('FeaturesScene', container.get<Phaser.Scene>('FeaturesScene'), true);
 
-		// Text Style for Button prefabs
-		[this.paytableBtn, this.autoplayBtn, this.betmaxBtn, this.gambleBtn, this.collectBtn].forEach((btn) => {
-			let gradient = btn.txtButton.context.createLinearGradient(0, 0, 0, btn.txtButton.height);
-			gradient.addColorStop(0, '#442B14');
-			gradient.addColorStop(.5, '#6B4A17');
-			gradient.addColorStop(1, '#442B14');
-			btn.txtButton.setFill(gradient)
-		})
 
 		setTimeout(() => {
 			this.GameState.isShowingAutoplay.subscribe((val) => {
@@ -655,6 +647,15 @@ export default class Level extends Phaser.Scene {
 			const coinValueList = this.GameState.coinValueList;
 			const coinValue = this.GameState.coinValue;
 			const coinValueCurrency = this.GameState.coinValueCurrency;
+
+			// Text Style for Button prefabs
+			[this.paytableBtn, this.autoplayBtn, this.betmaxBtn, this.gambleBtn, this.collectBtn].forEach((btn) => {
+				let gradient = btn.txtButton.context.createLinearGradient(0, 0, 0, btn.txtButton.height);
+				gradient.addColorStop(0, '#442B14');
+				gradient.addColorStop(.5, '#6B4A17');
+				gradient.addColorStop(1, '#442B14');
+				btn.txtButton.setFill(gradient)
+			})
 
 			// Initialize UI with current state values
 			this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * coinValue.get()}`);
