@@ -37,15 +37,6 @@ export default class FeaturesScene extends Phaser.Scene {
 		bB_png.scaleX = 0.9;
 		bB_png.scaleY = 0.9;
 
-		// logo1
-		const logo1 = this.add.image(640, 48, "logo_texture0_level0", "AB.png");
-
-		// logo2
-		const logo2 = this.add.image(640, 66, "logo_texture0_level0", "DB.png");
-
-		// logo3
-		const logo3 = this.add.image(640, 23, "logo_texture0_level0", "BB.png");
-
 		// txtContinue
 		const txtContinue = this.add.text(640, 635, "", {});
 		txtContinue.scaleX = 0.5;
@@ -491,14 +482,34 @@ export default class FeaturesScene extends Phaser.Scene {
 		symbolsTop_14.scaleY = 0.7;
 		symbolsTop_14.visible = false;
 
+		// a_12_png_1
+		const a_12_png_1 = this.add.sprite(480, 59, "logo_texture0_level0", "A-12.png");
+		a_12_png_1.flipX = true;
+		a_12_png_1.play("logo-ribbon-animation");
+
+		// a_12_png
+		const a_12_png = this.add.sprite(780, 59, "logo_texture0_level0", "A-12.png");
+		a_12_png.play("logo-ribbon-animation");
+
+		// cB_png
+		this.add.image(769, 57, "logo_texture0_level0", "CB.png");
+
+		// logo3
+		const logo3 = this.add.image(686, 57, "logo_texture0_level0", "BB.png");
+
+		// logo1
+		const logo1 = this.add.image(515, 57, "logo_texture0_level0", "AB.png");
+
+		// logo2
+		const logo2 = this.add.image(634, 55, "logo_texture0_level0", "DB.png");
+		logo2.scaleX = 1.5;
+		logo2.scaleY = 1.5;
+
 		// lists
 		const symbolsList = [symbolsTop_14, symbolsBot_14, frameFeatures_14, bgFeatures_14, symbolsTop_13, symbolsBot_13, frameFeatures_13, bgFeatures_13, symbolsTop_12, symbolsBot_12, frameFeatures_12, bgFeatures_12, symbolsTop_11, symbolsBot_11, frameFeatures_11, bgFeatures_11, symbolsTop_10, symbolsBot_10, frameFeatures_10, bgFeatures_10, symbolsTop_9, symbolsBot_9, frameFeatures_9, bgFeatures_9, symbolsTop_8, symbolsBot_8, frameFeatures_8, bgFeatures_8, symbolsTop_7, symbolsBot_7, frameFeatures_7, bgFeatures_7, symbolsTop_6, symbolsBot_6, frameFeatures_6, bgFeatures_6, symbolsTop_5, symbolsBot_5, frameFeatures_5, bgFeatures_5, symbolsTop_4, symbolsBot_4, frameFeatures_4, bgFeatures_4, symbolsTop_3, symbolsBot_3, frameFeatures_3, bgFeatures_3, symbolsTop_2, symbolsBot_2, frameFeatures_2, bgFeatures_2, symbolsTop_1, symbolsBot_1, frameFeatures_1, bgFeatures_1, symbolsTop, symbolsBot, frameFeatures, bgFeatures];
 
 		this.t0AB_png = t0AB_png;
 		this.btnContinue = btnContinue;
-		this.logo1 = logo1;
-		this.logo2 = logo2;
-		this.logo3 = logo3;
 		this.txtContinue = txtContinue;
 		this.txtHeader = txtHeader;
 		this.bgBook1 = bgBook1;
@@ -513,6 +524,9 @@ export default class FeaturesScene extends Phaser.Scene {
 		this.txtCheckbox = txtCheckbox;
 		this.btnCheck = btnCheck;
 		this.feature_animation = feature_animation;
+		this.logo3 = logo3;
+		this.logo1 = logo1;
+		this.logo2 = logo2;
 		this.symbolsList = symbolsList;
 
 		this.events.emit("scene-awake");
@@ -520,9 +534,6 @@ export default class FeaturesScene extends Phaser.Scene {
 
 	private t0AB_png!: Phaser.GameObjects.Image;
 	private btnContinue!: Phaser.GameObjects.Image;
-	private logo1!: Phaser.GameObjects.Image;
-	private logo2!: Phaser.GameObjects.Image;
-	private logo3!: Phaser.GameObjects.Image;
 	private txtContinue!: Phaser.GameObjects.Text;
 	private txtHeader!: Phaser.GameObjects.Text;
 	private bgBook1!: Phaser.GameObjects.Image;
@@ -537,6 +548,9 @@ export default class FeaturesScene extends Phaser.Scene {
 	private txtCheckbox!: Phaser.GameObjects.Text;
 	private btnCheck!: Phaser.GameObjects.Sprite;
 	private feature_animation!: Phaser.GameObjects.Sprite;
+	private logo3!: Phaser.GameObjects.Image;
+	private logo1!: Phaser.GameObjects.Image;
+	private logo2!: Phaser.GameObjects.Image;
 	private symbolsList!: Phaser.GameObjects.Image[];
 
 	/* START-USER-CODE */

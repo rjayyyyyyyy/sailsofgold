@@ -1,58 +1,20 @@
 {
-    "frames": {
-        "AB.png": {
-            "frame": {
-                "h": 2000,
-                "w": 2000,
-                "x": 0,
-                "y": 0
-            },
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            },
-            "rotated": false,
-            "sourceSize": {
-                "h": 2000,
-                "w": 2000
-            },
-            "spriteSourceSize": {
-                "h": 2000,
-                "w": 2000,
-                "x": 0,
-                "y": 0
-            },
-            "trimmed": false
-        }
-    },
-    "meta": {
-        "app": "https://www.codeandweb.com/texturepacker",
-        "files": {
-            "level0": {
-                "size": 1601871,
-                "url": "background_texture0_level0.jpg"
-            },
-            "level1": {
-                "size": 1601871,
-                "url": "background_texture0_level1.jpg"
-            },
-            "level2": {
-                "size": 622193,
-                "url": "background_texture0_level2.jpg"
-            },
-            "level3": {
-                "size": 622193,
-                "url": "background_texture0_level3.jpg"
-            }
-        },
-        "format": "RGB888",
-        "image": "background_texture0_level0.jpg",
-        "scale": "1",
-        "size": {
-            "h": 2000,
-            "w": 2000
-        },
-        "smartupdate": "$TexturePacker:SmartUpdate:0b3468d8e1facae7ae6b6a1f71a6de65:3f8c8c87b5cf522cfc952e61f200ae2f:d706abb40532d51d697907c799753183$",
-        "version": "1.0"
+  "frames": {
+    "AB.png": {
+      "frame": { "x": 1, "y": 1, "w": 2000, "h": 2000 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 2000, "h": 2000 },
+      "sourceSize": { "w": 2000, "h": 2000 }
     }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "background_texture0_level0.jpg",
+    "format": "RGBA8888",
+    "size": { "w": 2002, "h": 2002 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:e9b2eaebc8afdfe62a1947346bf7608d:c05ef3dac464d13d6aad9bc46a3d3997:9b6b3f565f9631fc863abcba7ba380c2$"
+  }
 }
