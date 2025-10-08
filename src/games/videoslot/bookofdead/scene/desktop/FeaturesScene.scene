@@ -413,6 +413,20 @@
             },
             "x": 967,
             "y": 310
+        },
+        {
+            "type": "Sprite",
+            "id": "eab9c5f4-4d1c-46cf-8573-78e3b51b6a46",
+            "label": "flag1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "features_texture0_level0",
+                "frame": "A-100.png"
+            },
+            "x": 251,
+            "y": 268,
+            "animationPlayMethod": 1,
+            "animationKey": "flag-animation"
         }
     ],
     "plainObjects": [],
