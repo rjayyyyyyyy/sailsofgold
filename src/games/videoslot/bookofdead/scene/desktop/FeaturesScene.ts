@@ -54,34 +54,34 @@ export default class FeaturesScene extends Phaser.Scene {
 		txtHeader.setStyle({ "align": "center", "fontFamily": "FLANKER_GRIFFO", "fontSize": "86px", "stroke": "#000000", "strokeThickness": 3, "shadow.stroke": true });
 
 		// bgBook1
-		const bgBook1 = this.add.image(330, 310, "features_texture0_level0", "GB.png");
+		const bgBook1 = this.add.image(290, 310, "features_texture0_level0", "GB.png");
 		bgBook1.scaleX = 0.7;
 		bgBook1.scaleY = 0.7;
 
 		// bgBook2
-		const bgBook2 = this.add.image(440, 310, "features_texture0_level0", "GB.png");
+		const bgBook2 = this.add.image(445, 310, "features_texture0_level0", "GB.png");
 		bgBook2.scaleX = 0.7;
 		bgBook2.scaleY = 0.7;
 
 		// bgBook3
-		const bgBook3 = this.add.image(550, 310, "features_texture0_level0", "GB.png");
+		const bgBook3 = this.add.image(605, 310, "features_texture0_level0", "GB.png");
 		bgBook3.scaleX = 0.7;
 		bgBook3.scaleY = 0.7;
 
 		// book1
-		const book1 = this.add.image(330, 310, "features_texture0_level0", "IB.png");
-		book1.scaleX = 0.7;
-		book1.scaleY = 0.7;
+		const book1 = this.add.image(280, 303, "features_texture0_level0", "IB.png");
+		book1.scaleX = 0.65;
+		book1.scaleY = 0.65;
 
 		// book2
-		const book2 = this.add.image(440, 310, "features_texture0_level0", "IB.png");
-		book2.scaleX = 0.7;
-		book2.scaleY = 0.7;
+		const book2 = this.add.image(445, 303, "features_texture0_level0", "IB.png");
+		book2.scaleX = 0.65;
+		book2.scaleY = 0.65;
 
 		// book3
-		const book3 = this.add.image(550, 310, "features_texture0_level0", "IB.png");
-		book3.scaleX = 0.7;
-		book3.scaleY = 0.7;
+		const book3 = this.add.image(605, 303, "features_texture0_level0", "IB.png");
+		book3.scaleX = 0.65;
+		book3.scaleY = 0.65;
 
 		// txtMoreFreespins
 		const txtMoreFreespins = this.add.text(447, 445, "", {});
@@ -116,372 +116,6 @@ export default class FeaturesScene extends Phaser.Scene {
 		const btnCheck = this.add.sprite(855, 635, "feature_preview_texture0_level0", "EB.png");
 		btnCheck.visible = false;
 
-		// feature_animation
-		const feature_animation = this.add.sprite(840, 270, "features_texture0_level0", "AB.png");
-		feature_animation.scaleX = 0.7;
-		feature_animation.scaleY = 0.7;
-		feature_animation.play("feature-animation");
-
-		// bgFeatures
-		const bgFeatures = this.add.image(725, 218, "features_texture0_level0", "JB.png");
-		bgFeatures.scaleX = 0.7;
-		bgFeatures.scaleY = 0.7;
-		bgFeatures.visible = false;
-
-		// frameFeatures
-		const frameFeatures = this.add.image(725, 218, "features_texture0_level0", "EB.png");
-		frameFeatures.scaleX = 0.7;
-		frameFeatures.scaleY = 0.7;
-		frameFeatures.visible = false;
-
-		// symbolsBot
-		const symbolsBot = this.add.image(725, 229, "features_texture0_level0", "KB.png");
-		symbolsBot.scaleX = 0.7;
-		symbolsBot.scaleY = 0.7;
-		symbolsBot.visible = false;
-
-		// symbolsTop
-		const symbolsTop = this.add.image(726, 206, "features_texture0_level0", "LB.png");
-		symbolsTop.scaleX = 0.7;
-		symbolsTop.scaleY = 0.7;
-		symbolsTop.visible = false;
-
-		// bgFeatures_1
-		const bgFeatures_1 = this.add.image(725, 271, "features_texture0_level0", "JB.png");
-		bgFeatures_1.scaleX = 0.7;
-		bgFeatures_1.scaleY = 0.7;
-		bgFeatures_1.visible = false;
-
-		// frameFeatures_1
-		const frameFeatures_1 = this.add.image(725, 271, "features_texture0_level0", "EB.png");
-		frameFeatures_1.scaleX = 0.7;
-		frameFeatures_1.scaleY = 0.7;
-		frameFeatures_1.visible = false;
-
-		// symbolsBot_1
-		const symbolsBot_1 = this.add.image(725, 282, "features_texture0_level0", "KB.png");
-		symbolsBot_1.scaleX = 0.7;
-		symbolsBot_1.scaleY = 0.7;
-		symbolsBot_1.visible = false;
-
-		// symbolsTop_1
-		const symbolsTop_1 = this.add.image(726, 259, "features_texture0_level0", "LB.png");
-		symbolsTop_1.scaleX = 0.7;
-		symbolsTop_1.scaleY = 0.7;
-		symbolsTop_1.visible = false;
-
-		// bgFeatures_2
-		const bgFeatures_2 = this.add.image(725, 325, "features_texture0_level0", "JB.png");
-		bgFeatures_2.scaleX = 0.7;
-		bgFeatures_2.scaleY = 0.7;
-		bgFeatures_2.visible = false;
-
-		// frameFeatures_2
-		const frameFeatures_2 = this.add.image(725, 325, "features_texture0_level0", "EB.png");
-		frameFeatures_2.scaleX = 0.7;
-		frameFeatures_2.scaleY = 0.7;
-		frameFeatures_2.visible = false;
-
-		// symbolsBot_2
-		const symbolsBot_2 = this.add.image(725, 336, "features_texture0_level0", "KB.png");
-		symbolsBot_2.scaleX = 0.7;
-		symbolsBot_2.scaleY = 0.7;
-		symbolsBot_2.visible = false;
-
-		// symbolsTop_2
-		const symbolsTop_2 = this.add.image(726, 313, "features_texture0_level0", "LB.png");
-		symbolsTop_2.scaleX = 0.7;
-		symbolsTop_2.scaleY = 0.7;
-		symbolsTop_2.visible = false;
-
-		// bgFeatures_3
-		const bgFeatures_3 = this.add.image(782, 218, "features_texture0_level0", "JB.png");
-		bgFeatures_3.scaleX = 0.7;
-		bgFeatures_3.scaleY = 0.7;
-		bgFeatures_3.visible = false;
-
-		// frameFeatures_3
-		const frameFeatures_3 = this.add.image(782, 218, "features_texture0_level0", "EB.png");
-		frameFeatures_3.scaleX = 0.7;
-		frameFeatures_3.scaleY = 0.7;
-		frameFeatures_3.visible = false;
-
-		// symbolsBot_3
-		const symbolsBot_3 = this.add.image(782, 229, "features_texture0_level0", "KB.png");
-		symbolsBot_3.scaleX = 0.7;
-		symbolsBot_3.scaleY = 0.7;
-		symbolsBot_3.visible = false;
-
-		// symbolsTop_3
-		const symbolsTop_3 = this.add.image(783, 206, "features_texture0_level0", "LB.png");
-		symbolsTop_3.scaleX = 0.7;
-		symbolsTop_3.scaleY = 0.7;
-		symbolsTop_3.visible = false;
-
-		// bgFeatures_4
-		const bgFeatures_4 = this.add.image(782, 271, "features_texture0_level0", "JB.png");
-		bgFeatures_4.scaleX = 0.7;
-		bgFeatures_4.scaleY = 0.7;
-		bgFeatures_4.visible = false;
-
-		// frameFeatures_4
-		const frameFeatures_4 = this.add.image(782, 271, "features_texture0_level0", "EB.png");
-		frameFeatures_4.scaleX = 0.7;
-		frameFeatures_4.scaleY = 0.7;
-		frameFeatures_4.visible = false;
-
-		// symbolsBot_4
-		const symbolsBot_4 = this.add.image(782, 282, "features_texture0_level0", "KB.png");
-		symbolsBot_4.scaleX = 0.7;
-		symbolsBot_4.scaleY = 0.7;
-		symbolsBot_4.visible = false;
-
-		// symbolsTop_4
-		const symbolsTop_4 = this.add.image(783, 259, "features_texture0_level0", "LB.png");
-		symbolsTop_4.scaleX = 0.7;
-		symbolsTop_4.scaleY = 0.7;
-		symbolsTop_4.visible = false;
-
-		// bgFeatures_5
-		const bgFeatures_5 = this.add.image(782, 325, "features_texture0_level0", "JB.png");
-		bgFeatures_5.scaleX = 0.7;
-		bgFeatures_5.scaleY = 0.7;
-		bgFeatures_5.visible = false;
-
-		// frameFeatures_5
-		const frameFeatures_5 = this.add.image(782, 325, "features_texture0_level0", "EB.png");
-		frameFeatures_5.scaleX = 0.7;
-		frameFeatures_5.scaleY = 0.7;
-		frameFeatures_5.visible = false;
-
-		// symbolsBot_5
-		const symbolsBot_5 = this.add.image(782, 336, "features_texture0_level0", "KB.png");
-		symbolsBot_5.scaleX = 0.7;
-		symbolsBot_5.scaleY = 0.7;
-		symbolsBot_5.visible = false;
-
-		// symbolsTop_5
-		const symbolsTop_5 = this.add.image(783, 313, "features_texture0_level0", "LB.png");
-		symbolsTop_5.scaleX = 0.7;
-		symbolsTop_5.scaleY = 0.7;
-		symbolsTop_5.visible = false;
-
-		// bgFeatures_6
-		const bgFeatures_6 = this.add.image(839, 218, "features_texture0_level0", "JB.png");
-		bgFeatures_6.scaleX = 0.7;
-		bgFeatures_6.scaleY = 0.7;
-		bgFeatures_6.visible = false;
-
-		// frameFeatures_6
-		const frameFeatures_6 = this.add.image(839, 218, "features_texture0_level0", "EB.png");
-		frameFeatures_6.scaleX = 0.7;
-		frameFeatures_6.scaleY = 0.7;
-		frameFeatures_6.visible = false;
-
-		// symbolsBot_6
-		const symbolsBot_6 = this.add.image(839, 229, "features_texture0_level0", "KB.png");
-		symbolsBot_6.scaleX = 0.7;
-		symbolsBot_6.scaleY = 0.7;
-		symbolsBot_6.visible = false;
-
-		// symbolsTop_6
-		const symbolsTop_6 = this.add.image(840, 206, "features_texture0_level0", "LB.png");
-		symbolsTop_6.scaleX = 0.7;
-		symbolsTop_6.scaleY = 0.7;
-		symbolsTop_6.visible = false;
-
-		// bgFeatures_7
-		const bgFeatures_7 = this.add.image(839, 271, "features_texture0_level0", "JB.png");
-		bgFeatures_7.scaleX = 0.7;
-		bgFeatures_7.scaleY = 0.7;
-		bgFeatures_7.visible = false;
-
-		// frameFeatures_7
-		const frameFeatures_7 = this.add.image(839, 271, "features_texture0_level0", "EB.png");
-		frameFeatures_7.scaleX = 0.7;
-		frameFeatures_7.scaleY = 0.7;
-		frameFeatures_7.visible = false;
-
-		// symbolsBot_7
-		const symbolsBot_7 = this.add.image(839, 282, "features_texture0_level0", "KB.png");
-		symbolsBot_7.scaleX = 0.7;
-		symbolsBot_7.scaleY = 0.7;
-		symbolsBot_7.visible = false;
-
-		// symbolsTop_7
-		const symbolsTop_7 = this.add.image(840, 259, "features_texture0_level0", "LB.png");
-		symbolsTop_7.scaleX = 0.7;
-		symbolsTop_7.scaleY = 0.7;
-		symbolsTop_7.visible = false;
-
-		// bgFeatures_8
-		const bgFeatures_8 = this.add.image(839, 325, "features_texture0_level0", "JB.png");
-		bgFeatures_8.scaleX = 0.7;
-		bgFeatures_8.scaleY = 0.7;
-		bgFeatures_8.visible = false;
-
-		// frameFeatures_8
-		const frameFeatures_8 = this.add.image(839, 325, "features_texture0_level0", "EB.png");
-		frameFeatures_8.scaleX = 0.7;
-		frameFeatures_8.scaleY = 0.7;
-		frameFeatures_8.visible = false;
-
-		// symbolsBot_8
-		const symbolsBot_8 = this.add.image(839, 336, "features_texture0_level0", "KB.png");
-		symbolsBot_8.scaleX = 0.7;
-		symbolsBot_8.scaleY = 0.7;
-		symbolsBot_8.visible = false;
-
-		// symbolsTop_8
-		const symbolsTop_8 = this.add.image(840, 313, "features_texture0_level0", "LB.png");
-		symbolsTop_8.scaleX = 0.7;
-		symbolsTop_8.scaleY = 0.7;
-		symbolsTop_8.visible = false;
-
-		// bgFeatures_9
-		const bgFeatures_9 = this.add.image(897, 218, "features_texture0_level0", "JB.png");
-		bgFeatures_9.scaleX = 0.7;
-		bgFeatures_9.scaleY = 0.7;
-		bgFeatures_9.visible = false;
-
-		// frameFeatures_9
-		const frameFeatures_9 = this.add.image(897, 218, "features_texture0_level0", "EB.png");
-		frameFeatures_9.scaleX = 0.7;
-		frameFeatures_9.scaleY = 0.7;
-		frameFeatures_9.visible = false;
-
-		// symbolsBot_9
-		const symbolsBot_9 = this.add.image(897, 229, "features_texture0_level0", "KB.png");
-		symbolsBot_9.scaleX = 0.7;
-		symbolsBot_9.scaleY = 0.7;
-		symbolsBot_9.visible = false;
-
-		// symbolsTop_9
-		const symbolsTop_9 = this.add.image(898, 206, "features_texture0_level0", "LB.png");
-		symbolsTop_9.scaleX = 0.7;
-		symbolsTop_9.scaleY = 0.7;
-		symbolsTop_9.visible = false;
-
-		// bgFeatures_10
-		const bgFeatures_10 = this.add.image(897, 271, "features_texture0_level0", "JB.png");
-		bgFeatures_10.scaleX = 0.7;
-		bgFeatures_10.scaleY = 0.7;
-		bgFeatures_10.visible = false;
-
-		// frameFeatures_10
-		const frameFeatures_10 = this.add.image(897, 271, "features_texture0_level0", "EB.png");
-		frameFeatures_10.scaleX = 0.7;
-		frameFeatures_10.scaleY = 0.7;
-		frameFeatures_10.visible = false;
-
-		// symbolsBot_10
-		const symbolsBot_10 = this.add.image(897, 282, "features_texture0_level0", "KB.png");
-		symbolsBot_10.scaleX = 0.7;
-		symbolsBot_10.scaleY = 0.7;
-		symbolsBot_10.visible = false;
-
-		// symbolsTop_10
-		const symbolsTop_10 = this.add.image(898, 259, "features_texture0_level0", "LB.png");
-		symbolsTop_10.scaleX = 0.7;
-		symbolsTop_10.scaleY = 0.7;
-		symbolsTop_10.visible = false;
-
-		// bgFeatures_11
-		const bgFeatures_11 = this.add.image(897, 325, "features_texture0_level0", "JB.png");
-		bgFeatures_11.scaleX = 0.7;
-		bgFeatures_11.scaleY = 0.7;
-		bgFeatures_11.visible = false;
-
-		// frameFeatures_11
-		const frameFeatures_11 = this.add.image(897, 325, "features_texture0_level0", "EB.png");
-		frameFeatures_11.scaleX = 0.7;
-		frameFeatures_11.scaleY = 0.7;
-		frameFeatures_11.visible = false;
-
-		// symbolsBot_11
-		const symbolsBot_11 = this.add.image(897, 336, "features_texture0_level0", "KB.png");
-		symbolsBot_11.scaleX = 0.7;
-		symbolsBot_11.scaleY = 0.7;
-		symbolsBot_11.visible = false;
-
-		// symbolsTop_11
-		const symbolsTop_11 = this.add.image(898, 313, "features_texture0_level0", "LB.png");
-		symbolsTop_11.scaleX = 0.7;
-		symbolsTop_11.scaleY = 0.7;
-		symbolsTop_11.visible = false;
-
-		// bgFeatures_12
-		const bgFeatures_12 = this.add.image(953, 218, "features_texture0_level0", "JB.png");
-		bgFeatures_12.scaleX = 0.7;
-		bgFeatures_12.scaleY = 0.7;
-		bgFeatures_12.visible = false;
-
-		// frameFeatures_12
-		const frameFeatures_12 = this.add.image(953, 218, "features_texture0_level0", "EB.png");
-		frameFeatures_12.scaleX = 0.7;
-		frameFeatures_12.scaleY = 0.7;
-		frameFeatures_12.visible = false;
-
-		// symbolsBot_12
-		const symbolsBot_12 = this.add.image(953, 229, "features_texture0_level0", "KB.png");
-		symbolsBot_12.scaleX = 0.7;
-		symbolsBot_12.scaleY = 0.7;
-		symbolsBot_12.visible = false;
-
-		// symbolsTop_12
-		const symbolsTop_12 = this.add.image(954, 206, "features_texture0_level0", "LB.png");
-		symbolsTop_12.scaleX = 0.7;
-		symbolsTop_12.scaleY = 0.7;
-		symbolsTop_12.visible = false;
-
-		// bgFeatures_13
-		const bgFeatures_13 = this.add.image(953, 271, "features_texture0_level0", "JB.png");
-		bgFeatures_13.scaleX = 0.7;
-		bgFeatures_13.scaleY = 0.7;
-		bgFeatures_13.visible = false;
-
-		// frameFeatures_13
-		const frameFeatures_13 = this.add.image(953, 271, "features_texture0_level0", "EB.png");
-		frameFeatures_13.scaleX = 0.7;
-		frameFeatures_13.scaleY = 0.7;
-		frameFeatures_13.visible = false;
-
-		// symbolsBot_13
-		const symbolsBot_13 = this.add.image(953, 282, "features_texture0_level0", "KB.png");
-		symbolsBot_13.scaleX = 0.7;
-		symbolsBot_13.scaleY = 0.7;
-		symbolsBot_13.visible = false;
-
-		// symbolsTop_13
-		const symbolsTop_13 = this.add.image(954, 259, "features_texture0_level0", "LB.png");
-		symbolsTop_13.scaleX = 0.7;
-		symbolsTop_13.scaleY = 0.7;
-		symbolsTop_13.visible = false;
-
-		// bgFeatures_14
-		const bgFeatures_14 = this.add.image(953, 325, "features_texture0_level0", "JB.png");
-		bgFeatures_14.scaleX = 0.7;
-		bgFeatures_14.scaleY = 0.7;
-		bgFeatures_14.visible = false;
-
-		// frameFeatures_14
-		const frameFeatures_14 = this.add.image(953, 325, "features_texture0_level0", "EB.png");
-		frameFeatures_14.scaleX = 0.7;
-		frameFeatures_14.scaleY = 0.7;
-		frameFeatures_14.visible = false;
-
-		// symbolsBot_14
-		const symbolsBot_14 = this.add.image(953, 336, "features_texture0_level0", "KB.png");
-		symbolsBot_14.scaleX = 0.7;
-		symbolsBot_14.scaleY = 0.7;
-		symbolsBot_14.visible = false;
-
-		// symbolsTop_14
-		const symbolsTop_14 = this.add.image(954, 313, "features_texture0_level0", "LB.png");
-		symbolsTop_14.scaleX = 0.7;
-		symbolsTop_14.scaleY = 0.7;
-		symbolsTop_14.visible = false;
-
 		// a_12_png_1
 		const a_12_png_1 = this.add.sprite(480, 59, "logo_texture0_level0", "A-12.png");
 		a_12_png_1.flipX = true;
@@ -505,8 +139,33 @@ export default class FeaturesScene extends Phaser.Scene {
 		logo2.scaleX = 1.5;
 		logo2.scaleY = 1.5;
 
+		// frameFeatures_15
+		this.add.image(286, 310, "features_texture0_level0", "EB.png");
+
+		// frameFeatures_16
+		this.add.image(445, 310, "features_texture0_level0", "EB.png");
+
+		// frameFeatures_17
+		this.add.image(603, 310, "features_texture0_level0", "EB.png");
+
+		// fB_png
+		this.add.image(794, 310, "feature_preview_texture0_level0", "FB.png");
+
+		// bgBook
+		const bgBook = this.add.image(969, 310, "features_texture0_level0", "BB.png");
+		bgBook.scaleX = 0.7;
+		bgBook.scaleY = 0.7;
+
+		// book
+		const book = this.add.image(969, 303, "features_texture0_level0", "JB.png");
+		book.scaleX = 0.65;
+		book.scaleY = 0.65;
+
+		// frameFeatures
+		this.add.image(967, 310, "features_texture0_level0", "EB.png");
+
 		// lists
-		const symbolsList = [symbolsTop_14, symbolsBot_14, frameFeatures_14, bgFeatures_14, symbolsTop_13, symbolsBot_13, frameFeatures_13, bgFeatures_13, symbolsTop_12, symbolsBot_12, frameFeatures_12, bgFeatures_12, symbolsTop_11, symbolsBot_11, frameFeatures_11, bgFeatures_11, symbolsTop_10, symbolsBot_10, frameFeatures_10, bgFeatures_10, symbolsTop_9, symbolsBot_9, frameFeatures_9, bgFeatures_9, symbolsTop_8, symbolsBot_8, frameFeatures_8, bgFeatures_8, symbolsTop_7, symbolsBot_7, frameFeatures_7, bgFeatures_7, symbolsTop_6, symbolsBot_6, frameFeatures_6, bgFeatures_6, symbolsTop_5, symbolsBot_5, frameFeatures_5, bgFeatures_5, symbolsTop_4, symbolsBot_4, frameFeatures_4, bgFeatures_4, symbolsTop_3, symbolsBot_3, frameFeatures_3, bgFeatures_3, symbolsTop_2, symbolsBot_2, frameFeatures_2, bgFeatures_2, symbolsTop_1, symbolsBot_1, frameFeatures_1, bgFeatures_1, symbolsTop, symbolsBot, frameFeatures, bgFeatures];
+		const symbolsList: Array<any> = [];
 
 		this.t0AB_png = t0AB_png;
 		this.btnContinue = btnContinue;
@@ -523,10 +182,11 @@ export default class FeaturesScene extends Phaser.Scene {
 		this.btnCheckbox = btnCheckbox;
 		this.txtCheckbox = txtCheckbox;
 		this.btnCheck = btnCheck;
-		this.feature_animation = feature_animation;
 		this.logo3 = logo3;
 		this.logo1 = logo1;
 		this.logo2 = logo2;
+		this.bgBook = bgBook;
+		this.book = book;
 		this.symbolsList = symbolsList;
 
 		this.events.emit("scene-awake");
@@ -547,11 +207,12 @@ export default class FeaturesScene extends Phaser.Scene {
 	private btnCheckbox!: Phaser.GameObjects.Sprite;
 	private txtCheckbox!: Phaser.GameObjects.Text;
 	private btnCheck!: Phaser.GameObjects.Sprite;
-	private feature_animation!: Phaser.GameObjects.Sprite;
 	private logo3!: Phaser.GameObjects.Image;
 	private logo1!: Phaser.GameObjects.Image;
 	private logo2!: Phaser.GameObjects.Image;
-	private symbolsList!: Phaser.GameObjects.Image[];
+	private bgBook!: Phaser.GameObjects.Image;
+	private book!: Phaser.GameObjects.Image;
+	private symbolsList!: Array<any>;
 
 	/* START-USER-CODE */
 
