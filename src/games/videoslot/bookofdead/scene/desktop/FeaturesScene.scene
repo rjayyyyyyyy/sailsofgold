@@ -55,42 +55,6 @@
             "scaleY": 0.9
         },
         {
-            "type": "Image",
-            "id": "e62e398f-13b1-45a6-bbf5-f4a935b5438f",
-            "label": "logo1",
-            "scope": "CLASS",
-            "texture": {
-                "key": "logo_texture0_level0",
-                "frame": "AB.png"
-            },
-            "x": 640,
-            "y": 48
-        },
-        {
-            "type": "Image",
-            "id": "f0a8972e-a4d7-4284-9821-f084c635b1ee",
-            "label": "logo2",
-            "scope": "CLASS",
-            "texture": {
-                "key": "logo_texture0_level0",
-                "frame": "DB.png"
-            },
-            "x": 640,
-            "y": 66
-        },
-        {
-            "type": "Image",
-            "id": "03c3c648-5ae0-4f86-adee-c7f2df0d3899",
-            "label": "logo3",
-            "scope": "CLASS",
-            "texture": {
-                "key": "logo_texture0_level0",
-                "frame": "BB.png"
-            },
-            "x": 640,
-            "y": 23
-        },
-        {
             "type": "Text",
             "id": "1b5a3bf4-06d1-4aea-a5ff-4de13aecd06e",
             "label": "txtContinue",
@@ -1146,6 +1110,82 @@
             "scaleX": 0.7,
             "scaleY": 0.7,
             "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "6b64d4f3-746b-47e8-a33b-b77dab2887f9",
+            "label": "a_12_png_1",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "A-12.png"
+            },
+            "x": 480,
+            "y": 59,
+            "flipX": true,
+            "animationPlayMethod": 1,
+            "animationKey": "logo-ribbon-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "2b46b810-6501-4357-ac84-ec98628eedf1",
+            "label": "a_12_png",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "A-12.png"
+            },
+            "x": 780,
+            "y": 59,
+            "animationPlayMethod": 1,
+            "animationKey": "logo-ribbon-animation"
+        },
+        {
+            "type": "Image",
+            "id": "907c749a-3539-4b83-830d-e04a6c32dbec",
+            "label": "cB_png",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "CB.png"
+            },
+            "x": 769,
+            "y": 57
+        },
+        {
+            "type": "Image",
+            "id": "03c3c648-5ae0-4f86-adee-c7f2df0d3899",
+            "label": "logo3",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "BB.png"
+            },
+            "x": 686,
+            "y": 57
+        },
+        {
+            "type": "Image",
+            "id": "e62e398f-13b1-45a6-bbf5-f4a935b5438f",
+            "label": "logo1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "AB.png"
+            },
+            "x": 515,
+            "y": 57
+        },
+        {
+            "type": "Image",
+            "id": "f0a8972e-a4d7-4284-9821-f084c635b1ee",
+            "label": "logo2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "DB.png"
+            },
+            "x": 634,
+            "y": 55,
+            "scaleX": 1.5,
+            "scaleY": 1.5
         }
     ],
     "plainObjects": [],
