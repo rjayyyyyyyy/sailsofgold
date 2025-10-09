@@ -140,7 +140,7 @@
                 "key": "features_texture0_level0",
                 "frame": "IB.png"
             },
-            "x": 280,
+            "x": 284,
             "y": 303,
             "scaleX": 0.65,
             "scaleY": 0.65
@@ -392,7 +392,7 @@
         {
             "type": "Image",
             "id": "ed882942-2727-4e5d-8919-be059564b767",
-            "label": "book",
+            "label": "ship",
             "scope": "CLASS",
             "texture": {
                 "key": "features_texture0_level0",
@@ -423,8 +423,78 @@
                 "key": "features_texture0_level0",
                 "frame": "A-100.png"
             },
-            "x": 251,
+            "x": 253,
+            "y": 269,
+            "animationPlayMethod": 1,
+            "animationKey": "flag-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "3ca39ef8-4159-429b-88ee-889105f0ee52",
+            "label": "flag",
+            "scope": "CLASS",
+            "texture": {
+                "key": "features_texture0_level0",
+                "frame": "A-100.png"
+            },
+            "x": 281,
+            "y": 250,
+            "animationPlayMethod": 1,
+            "animationKey": "flag-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "a94d93b5-2b78-440d-b004-32672cca84a8",
+            "label": "flag_1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "features_texture0_level0",
+                "frame": "A-100.png"
+            },
+            "x": 416,
             "y": 268,
+            "animationPlayMethod": 1,
+            "animationKey": "flag-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "b8b430bc-7efd-4b52-8929-11ddd120b5c2",
+            "label": "flag_2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "features_texture0_level0",
+                "frame": "A-100.png"
+            },
+            "x": 442,
+            "y": 248,
+            "animationPlayMethod": 1,
+            "animationKey": "flag-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "68c08a93-38a5-45e3-8fb7-f5633c02bd6e",
+            "label": "flag_3",
+            "scope": "CLASS",
+            "texture": {
+                "key": "features_texture0_level0",
+                "frame": "A-100.png"
+            },
+            "x": 574,
+            "y": 268,
+            "animationPlayMethod": 1,
+            "animationKey": "flag-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "fcea5256-f8df-46fe-acf2-b26de2ff3507",
+            "label": "flag_4",
+            "scope": "CLASS",
+            "texture": {
+                "key": "features_texture0_level0",
+                "frame": "A-100.png"
+            },
+            "x": 602,
+            "y": 250,
             "animationPlayMethod": 1,
             "animationKey": "flag-animation"
         }

@@ -111,7 +111,7 @@ export default class FeaturesScene extends Phaser.Scene {
 
     // book1
     const book1 = this.add.image(
-      280,
+      284,
       303,
       "features_texture0_level0",
       "IB.png"
@@ -256,22 +256,67 @@ export default class FeaturesScene extends Phaser.Scene {
     bgBook.scaleX = 0.7;
     bgBook.scaleY = 0.7;
 
-    // book
-    const book = this.add.image(969, 303, "features_texture0_level0", "JB.png");
-    book.scaleX = 0.65;
-    book.scaleY = 0.65;
+    // ship
+    const ship = this.add.image(969, 303, "features_texture0_level0", "JB.png");
+    ship.scaleX = 0.65;
+    ship.scaleY = 0.65;
 
     // frameFeatures
     this.add.image(967, 310, "features_texture0_level0", "EB.png");
 
     // flag1
     const flag1 = this.add.sprite(
-      251,
-      268,
+      253,
+      269,
       "features_texture0_level0",
       "A-100.png"
     );
     flag1.play("flag-animation");
+
+    // flag
+    const flag = this.add.sprite(
+      281,
+      250,
+      "features_texture0_level0",
+      "A-100.png"
+    );
+    flag.play("flag-animation");
+
+    // flag_1
+    const flag_1 = this.add.sprite(
+      416,
+      268,
+      "features_texture0_level0",
+      "A-100.png"
+    );
+    flag_1.play("flag-animation");
+
+    // flag_2
+    const flag_2 = this.add.sprite(
+      442,
+      248,
+      "features_texture0_level0",
+      "A-100.png"
+    );
+    flag_2.play("flag-animation");
+
+    // flag_3
+    const flag_3 = this.add.sprite(
+      574,
+      268,
+      "features_texture0_level0",
+      "A-100.png"
+    );
+    flag_3.play("flag-animation");
+
+    // flag_4
+    const flag_4 = this.add.sprite(
+      602,
+      250,
+      "features_texture0_level0",
+      "A-100.png"
+    );
+    flag_4.play("flag-animation");
 
     // lists
     const symbolsList: Array<any> = [];
@@ -295,8 +340,13 @@ export default class FeaturesScene extends Phaser.Scene {
     this.logo1 = logo1;
     this.logo2 = logo2;
     this.bgBook = bgBook;
-    this.book = book;
+    this.ship = ship;
     this.flag1 = flag1;
+    this.flag = flag;
+    this.flag_1 = flag_1;
+    this.flag_2 = flag_2;
+    this.flag_3 = flag_3;
+    this.flag_4 = flag_4;
     this.symbolsList = symbolsList;
 
     this.events.emit("scene-awake");
@@ -321,8 +371,13 @@ export default class FeaturesScene extends Phaser.Scene {
   private logo1!: Phaser.GameObjects.Image;
   private logo2!: Phaser.GameObjects.Image;
   private bgBook!: Phaser.GameObjects.Image;
-  private book!: Phaser.GameObjects.Image;
+  private ship!: Phaser.GameObjects.Image;
   private flag1!: Phaser.GameObjects.Sprite;
+  private flag!: Phaser.GameObjects.Sprite;
+  private flag_1!: Phaser.GameObjects.Sprite;
+  private flag_2!: Phaser.GameObjects.Sprite;
+  private flag_3!: Phaser.GameObjects.Sprite;
+  private flag_4!: Phaser.GameObjects.Sprite;
   private symbolsList!: Array<any>;
 
   /* START-USER-CODE */
@@ -381,6 +436,7 @@ export default class FeaturesScene extends Phaser.Scene {
         duration: 200,
         repeat: 3,
         onComplete: () => {
+          playShip();
           // this.time.delayedCall(7000, playBooks); // call again after 1s
         },
         onRepeat: function () {
@@ -407,6 +463,53 @@ export default class FeaturesScene extends Phaser.Scene {
               .setDepth(1);
 
             book.scene.tweens.add({
+              targets: spark,
+              duration: 200,
+              repeat: 0,
+              alpha: { from: 0, to: 0.5, start: 0 },
+              yoyo: 1,
+            });
+          });
+        },
+      });
+    };
+
+    const playShip = () => {
+      this.tweens.add({
+        targets: [this.ship],
+        scale: 0.8,
+        yoyo: true,
+        duration: 200,
+        repeat: 3,
+        onComplete: () => {
+          this.time.delayedCall(2000, playBooks);
+
+          // this.time.delayedCall(7000, playBooks); // call again after 1s
+        },
+        onRepeat: function () {
+          this.targets.forEach((ship: Phaser.GameObjects.Image) => {
+            const spark = ship.scene.add
+              .image(ship.x, ship.y, "skin_texture4_level0", "EG.png")
+              .setScale(2)
+              .setDepth(1);
+
+            ship.scene.tweens.add({
+              targets: spark,
+              duration: 200,
+              repeat: 0,
+              alpha: { from: 0, to: 0.5, start: 0 },
+              yoyo: 1,
+            });
+          });
+        },
+        onStart: function () {
+          this.targets.forEach((ship: Phaser.GameObjects.Image) => {
+            const spark = ship.scene.add
+              .image(ship.x, ship.y, "skin_texture4_level0", "EG.png")
+              .setScale(2)
+              .setDepth(1);
+
+            ship.scene.tweens.add({
               targets: spark,
               duration: 200,
               repeat: 0,
