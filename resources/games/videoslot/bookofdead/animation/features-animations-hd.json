@@ -201,8 +201,199 @@
                 }
             ],
             "frameRate": 10,
+            "skipMissedFrames": true,
             "repeat": -1,
             "yoyo": true,
+            "randomFrame": false
+        },
+        {
+            "key": "flag-animation",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-100.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-105.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-109.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-112.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-120.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-123.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-142.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-146.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-149.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-150.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-151.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-152.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-153.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-154.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-155.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-160.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-161.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-53.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-61.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-62.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-63.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-66.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-70.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-75.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-77.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-82.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-85.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-89.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-94.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "features_texture0_level0",
+                    "frame": "A-98.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 3,
+            "skipMissedFrames": true,
+            "repeat": -1,
             "randomFrame": false
         }
     ],
