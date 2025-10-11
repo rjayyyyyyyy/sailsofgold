@@ -20,12 +20,24 @@ import FeaturesScene from "./FeaturesScene";
 
 // container.bind<VideoSlotGameState>("VideoSlotGameState").to(VideoSlotGameState).inSingletonScope();
 container.bind<MenuScene>("MenuScene").to(MenuScene).inSingletonScope();
-container.bind<PaytableScene>("PaytableScene").to(PaytableScene).inSingletonScope();
-container.bind<AutoplayScene>("AutoplayScene").to(AutoplayScene).inSingletonScope();
+container
+  .bind<PaytableScene>("PaytableScene")
+  .to(PaytableScene)
+  .inSingletonScope();
+container
+  .bind<AutoplayScene>("AutoplayScene")
+  .to(AutoplayScene)
+  .inSingletonScope();
 container.bind<GambleScene>("GambleScene").to(GambleScene).inSingletonScope();
-container.bind<ScatterScene>("ScatterScene").to(ScatterScene).inSingletonScope();
+container
+  .bind<ScatterScene>("ScatterScene")
+  .to(ScatterScene)
+  .inSingletonScope();
 container.bind<PopupScene>("PopupScene").to(PopupScene).inSingletonScope();
-container.bind<FeaturesScene>("FeaturesScene").to(FeaturesScene).inSingletonScope();
+container
+  .bind<FeaturesScene>("FeaturesScene")
+  .to(FeaturesScene)
+  .inSingletonScope();
 
 /* END-USER-IMPORTS */
 
@@ -35,10 +47,9 @@ export default class Level extends Phaser.Scene {
 		super("Level");
 
 		/* START-USER-CTR-CODE */
-		// this.audio = container.get<IAudioService>(TYPES.AudioService)
-		// Write your code here.
-		/* END-USER-CTR-CODE */
-		this.dispatcher = container.get<Dispatcher>("DispatcherGame");
+    // this.audio = container.get<IAudioService>(TYPES.AudioService)
+    // Write your code here.
+    /* END-USER-CTR-CODE */
 	}
 
 	editorCreate(): void {
@@ -55,15 +66,6 @@ export default class Level extends Phaser.Scene {
 		// denominationBtn
 		const denominationBtn = this.add.sprite(150, 650, "menu_texture1_level0", "WB.png");
 		denominationBtn.setInteractive(this.input.makePixelPerfect());
-
-		// logo1
-		const logo1 = this.add.image(640, 48, "logo_texture0_level0", "AB.png");
-
-		// logo2
-		const logo2 = this.add.image(640, 66, "logo_texture0_level0", "DB.png");
-
-		// logo3
-		const logo3 = this.add.image(640, 23, "logo_texture0_level0", "BB.png");
 
 		// txtCoinsValue
 		const txtCoinsValue = this.add.text(150, 585, "", {});
@@ -175,7 +177,7 @@ export default class Level extends Phaser.Scene {
 		freeSpinHeader1.alphaBottomRight = 0;
 
 		// freeSpinHeader2
-		const freeSpinHeader2 = this.add.image(454, 56, "skin_texture0_level0", "VI.png");
+		const freeSpinHeader2 = this.add.image(416, 28, "skin_texture0_level0", "VI.png");
 		freeSpinHeader2.scaleX = 0.8;
 		freeSpinHeader2.scaleY = 0.8;
 		freeSpinHeader2.alpha = 0;
@@ -185,7 +187,7 @@ export default class Level extends Phaser.Scene {
 		freeSpinHeader2.alphaBottomRight = 0;
 
 		// freeSpinHeader3
-		const freeSpinHeader3 = this.add.text(715, 56, "", {});
+		const freeSpinHeader3 = this.add.text(677, 28, "", {});
 		freeSpinHeader3.setOrigin(0.5, 0.5);
 		freeSpinHeader3.alpha = 0;
 		freeSpinHeader3.alphaTopLeft = 0;
@@ -206,6 +208,29 @@ export default class Level extends Phaser.Scene {
 		// footerPrefab
 		const footerPrefab = new FooterPrefab(this, 36, 707);
 		this.add.existing(footerPrefab);
+
+		// a_12_png_1
+		const a_12_png_1 = this.add.sprite(485, 46, "logo_texture0_level0", "A-12.png");
+		a_12_png_1.flipX = true;
+		a_12_png_1.play("logo-ribbon-animation");
+
+		// a_12_png
+		const a_12_png = this.add.sprite(785, 46, "logo_texture0_level0", "A-12.png");
+		a_12_png.play("logo-ribbon-animation");
+
+		// cB_png
+		this.add.image(774, 44, "logo_texture0_level0", "CB.png");
+
+		// logo3
+		const logo3 = this.add.image(691, 44, "logo_texture0_level0", "BB.png");
+
+		// logo1
+		const logo1 = this.add.image(520, 44, "logo_texture0_level0", "AB.png");
+
+		// logo2
+		const logo2 = this.add.image(639, 42, "logo_texture0_level0", "DB.png");
+		logo2.scaleX = 1.5;
+		logo2.scaleY = 1.5;
 
 		// autoplayBtn (prefab fields)
 		autoplayBtn.text = "IDS_BTN_AUTOPLAY";
@@ -247,9 +272,6 @@ export default class Level extends Phaser.Scene {
 		this.t1BB_png_1 = t1BB_png_1;
 		this.informationImg = informationImg;
 		this.denominationBtn = denominationBtn;
-		this.logo1 = logo1;
-		this.logo2 = logo2;
-		this.logo3 = logo3;
 		this.txtCoinsValue = txtCoinsValue;
 		this.txtBetValue = txtBetValue;
 		this.txtCoinValueText = txtCoinValueText;
@@ -270,6 +292,9 @@ export default class Level extends Phaser.Scene {
 		this.betCoins = betCoins;
 		this.betLines = betLines;
 		this.footerPrefab = footerPrefab;
+		this.logo3 = logo3;
+		this.logo1 = logo1;
+		this.logo2 = logo2;
 
 		this.events.emit("scene-awake");
 	}
@@ -278,9 +303,6 @@ export default class Level extends Phaser.Scene {
 	private t1BB_png_1!: Phaser.GameObjects.Image;
 	private informationImg!: Phaser.GameObjects.Image;
 	private denominationBtn!: Phaser.GameObjects.Sprite;
-	private logo1!: Phaser.GameObjects.Image;
-	private logo2!: Phaser.GameObjects.Image;
-	private logo3!: Phaser.GameObjects.Image;
 	private txtCoinsValue!: Phaser.GameObjects.Text;
 	private txtBetValue!: Phaser.GameObjects.Text;
 	private txtCoinValueText!: Phaser.GameObjects.Text;
@@ -301,574 +323,783 @@ export default class Level extends Phaser.Scene {
 	private betCoins!: BetPrefab;
 	private betLines!: BetPrefab;
 	private footerPrefab!: FooterPrefab;
+	private logo3!: Phaser.GameObjects.Image;
+	private logo1!: Phaser.GameObjects.Image;
+	private logo2!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
-	// Write your code here
-	private dispatcher!: Dispatcher;
-	private toggleVfx!: any;
-	private GameState!: VideoSlotGameState;
-	private ReelsManager!: VideoSlotReelsManager;
+  // Write your code here
+  private dispatcher!: Dispatcher;
+  private toggleVfx!: any;
+  private GameState!: VideoSlotGameState;
+  private ReelsManager!: VideoSlotReelsManager;
 
-	init() {
-		this.GameState = container.get<VideoSlotGameState>('VideoSlotGameState');
-		this.ReelsManager = container.get<VideoSlotReelsManager>('VideoSlotReelsManager');
-	}
+  init() {
+    this.GameState = container.get<VideoSlotGameState>("VideoSlotGameState");
+    this.ReelsManager = container.get<VideoSlotReelsManager>(
+      "VideoSlotReelsManager"
+    );
+  }
 
-	preload() {
-		this.scene.add('MenuScene', container.get<Phaser.Scene>('MenuScene'), true);
-		this.scene.add('PaytableScene', container.get<Phaser.Scene>('PaytableScene'), true);
-		this.scene.add('AutoplayScene', container.get<Phaser.Scene>('AutoplayScene'), true);
-		this.scene.add('GambleScene', container.get<Phaser.Scene>('GambleScene'), true);
-		this.scene.add('ScatterScene', container.get<Phaser.Scene>('ScatterScene'), true);
-		this.scene.add('PopupScene', container.get<Phaser.Scene>('PopupScene'), true);
-		this.scene.add('FeaturesScene', container.get<Phaser.Scene>('FeaturesScene'), true);
+  create() {
+    this.dispatcher = new Dispatcher();
 
+    this.editorCreate();
+    this.setupUI();
+    this.scene.add("MenuScene", container.get<Phaser.Scene>("MenuScene"), true);
+    this.scene.add(
+      "PaytableScene",
+      container.get<Phaser.Scene>("PaytableScene"),
+      true
+    );
+    this.scene.add(
+      "AutoplayScene",
+      container.get<Phaser.Scene>("AutoplayScene"),
+      true
+    );
+    this.scene.add(
+      "GambleScene",
+      container.get<Phaser.Scene>("GambleScene"),
+      true
+    );
+    this.scene.add(
+      "ScatterScene",
+      container.get<Phaser.Scene>("ScatterScene"),
+      true
+    );
+    this.scene.add(
+      "PopupScene",
+      container.get<Phaser.Scene>("PopupScene"),
+      true
+    );
+    this.scene.add(
+      "FeaturesScene",
+      container.get<Phaser.Scene>("FeaturesScene"),
+      true
+    );
 
-		setTimeout(() => {
-			this.GameState.isShowingAutoplay.subscribe((val) => {
-				if (val) {
-					console.log("show Autoplay")
-					this.scene.launch("AutoplayScene");
-				} else {
-					console.log("hide Autoplay")
-					this.scene.stop("AutoplayScene");
-				}
-			});
+    setTimeout(() => {
+      this.GameState.isShowingAutoplay.subscribe((val) => {
+        if (val) {
+          console.log("show Autoplay");
+          this.scene.launch("AutoplayScene");
+        } else {
+          console.log("hide Autoplay");
+          this.scene.stop("AutoplayScene");
+        }
+      });
 
-			this.GameState.isShowingMenu.subscribe((val) => {
-				if (val) {
-					console.log("show Menu")
-					this.scene.launch("MenuScene");
-				} else {
-					console.log("hide Menu")
-					this.scene.stop("MenuScene");
-				}
-			});
+      this.GameState.isShowingMenu.subscribe((val) => {
+        if (val) {
+          console.log("show Menu");
+          this.scene.launch("MenuScene");
+        } else {
+          console.log("hide Menu");
+          this.scene.stop("MenuScene");
+        }
+      });
 
-			this.GameState.isShowingPaytable.subscribe((val) => {
-				if (val) {
-					console.log("show Paytable")
-					this.scene.launch("PaytableScene");
-				} else {
-					console.log("hide Paytable")
-					this.scene.stop("PaytableScene");
-				}
-			});
+      this.GameState.isShowingPaytable.subscribe((val) => {
+        if (val) {
+          console.log("show Paytable");
+          this.scene.launch("PaytableScene");
+        } else {
+          console.log("hide Paytable");
+          this.scene.stop("PaytableScene");
+        }
+      });
 
-			this.GameState.isShowingGamble.subscribe((val) => {
-				if (val) {
-					console.log("show Gamble")
-					this.scene.launch("GambleScene");
-					this.setButtonInteractive(this.gambleBtn.btnButton, false);
-					this.setButtonInteractive(this.collectBtn.btnButton, true);
-				} else {
-					console.log("hide Gamble")
-					this.scene.stop("GambleScene");
-					this.setButtonInteractive(this.gambleBtn.btnButton, false);
-					this.setButtonInteractive(this.collectBtn.btnButton, false);
-					this.gambleBtn.setVisible(false);
-					this.collectBtn.setVisible(false);
-					this.betmaxBtn.setVisible(true);
-					this.autoplayBtn.setVisible(true);
-                	this.GameState.isReward.set(false);
-				}
-			});
+      this.GameState.isShowingGamble.subscribe((val) => {
+        if (val) {
+          console.log("show Gamble");
+          this.scene.launch("GambleScene");
+          this.setButtonInteractive(this.gambleBtn.btnButton, false);
+          this.setButtonInteractive(this.collectBtn.btnButton, true);
+        } else {
+          console.log("hide Gamble");
+          this.scene.stop("GambleScene");
+          this.setButtonInteractive(this.gambleBtn.btnButton, false);
+          this.setButtonInteractive(this.collectBtn.btnButton, false);
+          this.gambleBtn.setVisible(false);
+          this.collectBtn.setVisible(false);
+          this.betmaxBtn.setVisible(true);
+          this.autoplayBtn.setVisible(true);
+          this.GameState.isReward.set(false);
+        }
+      });
 
-			this.GameState.isIllegalSession.subscribe((val) => {
-				if (val) {
-					console.log("show Popup")
-					this.scene.launch("PopupScene");
-				} else {
-					console.log("hide Popup")
-					this.scene.stop("PopupScene");
-				}
-			});
+      this.GameState.isIllegalSession.subscribe((val) => {
+        if (val) {
+          console.log("show Popup");
+          this.scene.launch("PopupScene");
+        } else {
+          console.log("hide Popup");
+          this.scene.stop("PopupScene");
+        }
+      });
 
-			this.GameState.isSpinning.subscribe((val) => {
-				if (val) {
-					if(this.toggleVfx) this.toggleVfx.destroy();
-					this.ReelsManager.removePayLineImages();
-					this.GameState.isReward.set(false);
-					this.GameState.informationText.set('');
-					if(this.GameState.isShowingGamble.get()){
-						this.GameState.isShowingGamble.set(false);
-					}
-					console.log("show Spin")
-					this.setButtonInteractive(this.spinBtn.btnButton, false);
-					this.setButtonInteractive(this.denominationBtn, false);
-					this.setButtonInteractive(this.gambleBtn.btnButton, false);
-					this.setButtonInteractive(this.collectBtn.btnButton, false);
-					this.setButtonInteractive(this.betCoins.btnDecrease, false);
-					this.setButtonInteractive(this.betCoins.btnIncrease, false);
-					this.setButtonInteractive(this.betLines.btnDecrease, false);
-					this.setButtonInteractive(this.betLines.btnIncrease, false);
-					this.setButtonInteractive(this.betmaxBtn.btnButton, false);
-					this.GameState.activeAutoplay.get() != 0 ? this.setButtonInteractive(this.autoplayBtn.btnButton, true) : this.setButtonInteractive(this.autoplayBtn.btnButton, false);
-					this.setButtonInteractive(this.paytableBtn.btnButton, false);
-					this.gambleBtn.setVisible(false);
-					this.collectBtn.setVisible(false);
-					this.betmaxBtn.setVisible(true);
-					this.autoplayBtn.setVisible(true);
-				} else {
-					console.log("hide Spin")
-					// if(this.GameState.activeAutoplay.get() != 0) {
-            		// 	Dispatcher.emit(ACTION_EVENTS.SPIN_START);
-					// }
-					this.setButtonInteractive(this.spinBtn.btnButton, true);
-					this.setButtonInteractive(this.denominationBtn, true);
-					this.setButtonInteractive(this.betmaxBtn.btnButton, true);
-					this.setButtonInteractive(this.autoplayBtn.btnButton, true);
-					this.setButtonInteractive(this.paytableBtn.btnButton, true);
+      this.GameState.isSpinning.subscribe((val) => {
+        if (val) {
+          if (this.toggleVfx) this.toggleVfx.destroy();
+          this.ReelsManager.removePayLineImages();
+          this.GameState.isReward.set(false);
+          this.GameState.informationText.set("");
+          if (this.GameState.isShowingGamble.get()) {
+            this.GameState.isShowingGamble.set(false);
+          }
+          console.log("show Spin");
+          this.setButtonInteractive(this.spinBtn.btnButton, false);
+          this.setButtonInteractive(this.denominationBtn, false);
+          this.setButtonInteractive(this.gambleBtn.btnButton, false);
+          this.setButtonInteractive(this.collectBtn.btnButton, false);
+          this.setButtonInteractive(this.betCoins.btnDecrease, false);
+          this.setButtonInteractive(this.betCoins.btnIncrease, false);
+          this.setButtonInteractive(this.betLines.btnDecrease, false);
+          this.setButtonInteractive(this.betLines.btnIncrease, false);
+          this.setButtonInteractive(this.betmaxBtn.btnButton, false);
+          this.GameState.activeAutoplay.get() != 0
+            ? this.setButtonInteractive(this.autoplayBtn.btnButton, true)
+            : this.setButtonInteractive(this.autoplayBtn.btnButton, false);
+          this.setButtonInteractive(this.paytableBtn.btnButton, false);
+          this.gambleBtn.setVisible(false);
+          this.collectBtn.setVisible(false);
+          this.betmaxBtn.setVisible(true);
+          this.autoplayBtn.setVisible(true);
+        } else {
+          console.log("hide Spin");
+          // if(this.GameState.activeAutoplay.get() != 0) {
+          // 	Dispatcher.emit(ACTION_EVENTS.SPIN_START);
+          // }
+          this.setButtonInteractive(this.spinBtn.btnButton, true);
+          this.setButtonInteractive(this.denominationBtn, true);
+          this.setButtonInteractive(this.betmaxBtn.btnButton, true);
+          this.setButtonInteractive(this.autoplayBtn.btnButton, true);
+          this.setButtonInteractive(this.paytableBtn.btnButton, true);
 
-					if (this.GameState.coinBet.get() <= 1) {
-						this.setButtonInteractive(this.betCoins.btnDecrease, false);
-					} else {
-						this.setButtonInteractive(this.betCoins.btnDecrease, true);
-					}
-					if (this.GameState.coinBet.get() >= 5) {
-						this.setButtonInteractive(this.betCoins.btnIncrease, false);
-					} else {
-						this.setButtonInteractive(this.betCoins.btnIncrease, true);
-					}
-					if (this.GameState.linesBet.get() <= 1) {
-						this.setButtonInteractive(this.betLines.btnDecrease, false);
-					} else {
-						this.setButtonInteractive(this.betLines.btnDecrease, true);
-					}
-					if (this.GameState.linesBet.get() >= 10) {
-						this.setButtonInteractive(this.betLines.btnIncrease, false);
-					} else {
-						this.setButtonInteractive(this.betLines.btnIncrease, true);
-					} 
-				}
-			});
+          if (this.GameState.coinBet.get() <= 1) {
+            this.setButtonInteractive(this.betCoins.btnDecrease, false);
+          } else {
+            this.setButtonInteractive(this.betCoins.btnDecrease, true);
+          }
+          if (this.GameState.coinBet.get() >= 5) {
+            this.setButtonInteractive(this.betCoins.btnIncrease, false);
+          } else {
+            this.setButtonInteractive(this.betCoins.btnIncrease, true);
+          }
+          if (this.GameState.linesBet.get() <= 1) {
+            this.setButtonInteractive(this.betLines.btnDecrease, false);
+          } else {
+            this.setButtonInteractive(this.betLines.btnDecrease, true);
+          }
+          if (this.GameState.linesBet.get() >= 10) {
+            this.setButtonInteractive(this.betLines.btnIncrease, false);
+          } else {
+            this.setButtonInteractive(this.betLines.btnIncrease, true);
+          }
+        }
+      });
 
-			// Reward State
-			this.GameState.isReward.subscribe((val) => {
-				console.log("isReward", val);
-				if(this.GameState.isAutoPlayRunning.get()) return;
-				if(this.GameState.isAutoSpinRunning.get()) return;
-				if(this.toggleVfx) this.toggleVfx.destroy();
-				if (val) {
-					console.log("show Reward")
-					const grayTint = 0x888888;
-					const whiteTint = 0xFFFFFF;
-					const firstColor = Phaser.Display.Color.ValueToColor(grayTint);
-					const secondColor = Phaser.Display.Color.ValueToColor(whiteTint);
-					this.toggleVfx = this.tweens.addCounter({
-						from: 0,
-						to: 100,
-						hold: 300,
-						repeatDelay: 300,
-						duration: 10,
-						repeat: -1,
-						yoyo: true,
-						onUpdate: tween => {
-							const value = tween.getValue() as number;
-							const color1 = Phaser.Display.Color.Interpolate.ColorWithColor(firstColor, secondColor, 100, value);
-							const color2 = Phaser.Display.Color.Interpolate.ColorWithColor(secondColor, firstColor, 100, value);
-							(this.gambleBtn.list[0] as Phaser.GameObjects.Sprite).setTint(Phaser.Display.Color.GetColor(color1.r, color1.g, color1.b));
-							(this.collectBtn.list[0] as Phaser.GameObjects.Sprite).setTint(Phaser.Display.Color.GetColor(color2.r, color2.g, color2.b));
-						}
-					});
-					this.setButtonInteractive(this.collectBtn.btnButton, true);
-					this.setButtonInteractive(this.gambleBtn.btnButton,true);
-					this.gambleBtn.setVisible(true);
-					this.collectBtn.setVisible(true);
-					this.betmaxBtn.setVisible(false);
-					this.autoplayBtn.setVisible(false);
-				} else {
-					console.log("hide Reward")
-					this.GameState.informationText.set(this.cache.json.get('language').texts['IDS_PRESSPIN']);
-					this.gambleBtn.setVisible(false);
-					this.collectBtn.setVisible(false);
-					this.betmaxBtn.setVisible(true);
-					this.autoplayBtn.setVisible(true);
-            		this.ReelsManager.removePayLineImages()
-				}
-			});
+      // Reward State
+      this.GameState.isReward.subscribe((val) => {
+        console.log("isReward", val);
+        if (this.GameState.isAutoPlayRunning.get()) return;
+        if (this.GameState.isAutoSpinRunning.get()) return;
+        if (this.toggleVfx) this.toggleVfx.destroy();
+        if (val) {
+          console.log("show Reward");
+          const grayTint = 0x888888;
+          const whiteTint = 0xffffff;
+          const firstColor = Phaser.Display.Color.ValueToColor(grayTint);
+          const secondColor = Phaser.Display.Color.ValueToColor(whiteTint);
+          this.toggleVfx = this.tweens.addCounter({
+            from: 0,
+            to: 100,
+            hold: 300,
+            repeatDelay: 300,
+            duration: 10,
+            repeat: -1,
+            yoyo: true,
+            onUpdate: (tween) => {
+              const value = tween.getValue() as number;
+              const color1 = Phaser.Display.Color.Interpolate.ColorWithColor(
+                firstColor,
+                secondColor,
+                100,
+                value
+              );
+              const color2 = Phaser.Display.Color.Interpolate.ColorWithColor(
+                secondColor,
+                firstColor,
+                100,
+                value
+              );
+              (this.gambleBtn.list[0] as Phaser.GameObjects.Sprite).setTint(
+                Phaser.Display.Color.GetColor(color1.r, color1.g, color1.b)
+              );
+              (this.collectBtn.list[0] as Phaser.GameObjects.Sprite).setTint(
+                Phaser.Display.Color.GetColor(color2.r, color2.g, color2.b)
+              );
+            },
+          });
+          this.setButtonInteractive(this.collectBtn.btnButton, true);
+          this.setButtonInteractive(this.gambleBtn.btnButton, true);
+          this.gambleBtn.setVisible(true);
+          this.collectBtn.setVisible(true);
+          this.betmaxBtn.setVisible(false);
+          this.autoplayBtn.setVisible(false);
+        } else {
+          console.log("hide Reward");
+          this.GameState.informationText.set(
+            this.cache.json.get("language").texts["IDS_PRESSPIN"]
+          );
+          this.gambleBtn.setVisible(false);
+          this.collectBtn.setVisible(false);
+          this.betmaxBtn.setVisible(true);
+          this.autoplayBtn.setVisible(true);
+          this.ReelsManager.removePayLineImages();
+        }
+      });
 
-			this.dispatcher.addListener(EVENTS.SPIN_REWARD, (coinWon: number, paylineIndex: number) => {
-				if(!this.GameState.isReward.get()) {
-					this.GameState.isReward.set(true);
-				} else{
-					return;
-				}
-				if(this.GameState.isAutoSpinRunning.get()) return;
-				const wonLine = this.cache.json.get('language').texts['IDS_MENU_WON'];
-				const totalWin = wonLine.replace('%d', this.GameState.winCoins.get().toString());
-				if (paylineIndex) {
-					let txtCoinWon = this.cache.json.get('language').texts["IDS_MENU_WONMONEY_LINE"];
-					txtCoinWon = txtCoinWon.replace('%d', coinWon.toString()).replace('%l', paylineIndex.toString())
-					this.GameState.informationText.set(`${totalWin}\n${txtCoinWon}`);
-				} else if (coinWon) {
-					this.GameState.informationText.set(`${totalWin}`);
-				} else {
-					this.GameState.informationText.set(this.cache.json.get('language').texts["IDS_PRESSPIN"]);
-				}
-				// if(!this.GameState.isReward.get()){
-				// } else{
-				// 	return;
-				// }
-			})
+      this.dispatcher.addListener(
+        EVENTS.SPIN_REWARD,
+        (coinWon: number, paylineIndex: number) => {
+          if (!this.GameState.isReward.get()) {
+            this.GameState.isReward.set(true);
+          } else {
+            return;
+          }
+          if (this.GameState.isAutoSpinRunning.get()) return;
+          const wonLine = this.cache.json.get("language").texts["IDS_MENU_WON"];
+          const totalWin = wonLine.replace(
+            "%d",
+            this.GameState.winCoins.get().toString()
+          );
+          if (paylineIndex) {
+            let txtCoinWon =
+              this.cache.json.get("language").texts["IDS_MENU_WONMONEY_LINE"];
+            txtCoinWon = txtCoinWon
+              .replace("%d", coinWon.toString())
+              .replace("%l", paylineIndex.toString());
+            this.GameState.informationText.set(`${totalWin}\n${txtCoinWon}`);
+          } else if (coinWon) {
+            this.GameState.informationText.set(`${totalWin}`);
+          } else {
+            this.GameState.informationText.set(
+              this.cache.json.get("language").texts["IDS_PRESSPIN"]
+            );
+          }
+          // if(!this.GameState.isReward.get()){
+          // } else{
+          // 	return;
+          // }
+        }
+      );
 
-			// Autoplay state
-			this.GameState.isAutoPlayRunning.subscribe((isAutoPlayRunning) => {
-				console.log("isAutoPlayRunning", isAutoPlayRunning);
-				console.log("activeAutoplay", this.GameState.activeAutoplay.get());
-				if (isAutoPlayRunning) {
-					this.spinBtn.setVisible(false);
-					this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_STOP'])
-					this.bgAutoplay.setVisible(true);
-					this.txtAutoplay.setVisible(true);
-					this.txtAutoplayValue.setVisible(true);
-				} else if(!isAutoPlayRunning && this.GameState.activeAutoplay.get() === 0) {
-					this.spinBtn.setVisible(true)
-					this.autoplayBtn.setVisible(true);
-					this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
-					this.bgAutoplay.setVisible(false);
-					this.txtAutoplay.setVisible(false);
-					this.txtAutoplayValue.setVisible(false);
-				}
-			});
-			this.GameState.activeAutoplay.subscribe((val) => {
-				console.log("activeAutoplay", val);
-				this.txtAutoplayValue.setText(val.toString());
-				if(val === 0) {
-					this.GameState.isAutoPlayRunning.set(false);
-				}
-			});
+      // Autoplay state
+      this.GameState.isAutoPlayRunning.subscribe((isAutoPlayRunning) => {
+        console.log("isAutoPlayRunning", isAutoPlayRunning);
+        console.log("activeAutoplay", this.GameState.activeAutoplay.get());
+        if (isAutoPlayRunning) {
+          this.spinBtn.setVisible(false);
+          this.autoplayBtn.txtButton.setText(
+            this.cache.json.get("language").texts["IDS_BTN_STOP"]
+          );
+          this.bgAutoplay.setVisible(true);
+          this.txtAutoplay.setVisible(true);
+          this.txtAutoplayValue.setVisible(true);
+        } else if (
+          !isAutoPlayRunning &&
+          this.GameState.activeAutoplay.get() === 0
+        ) {
+          this.spinBtn.setVisible(true);
+          this.autoplayBtn.setVisible(true);
+          this.autoplayBtn.txtButton.setText(
+            this.cache.json.get("language").texts["IDS_BTN_AUTOPLAY"]
+          );
+          this.bgAutoplay.setVisible(false);
+          this.txtAutoplay.setVisible(false);
+          this.txtAutoplayValue.setVisible(false);
+        }
+      });
+      this.GameState.activeAutoplay.subscribe((val) => {
+        console.log("activeAutoplay", val);
+        this.txtAutoplayValue.setText(val.toString());
+        if (val === 0) {
+          this.GameState.isAutoPlayRunning.set(false);
+        }
+      });
 
-			this.GameState.isEndScatter.subscribe((val) => {
-				if (!val) {
-					if(this.GameState.isAutoPlayRunning.get()) {
-						this.spinBtn.setVisible(false);
-						this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_STOP'])
-						this.bgAutoplay.setVisible(true);
-						this.txtAutoplay.setVisible(true);
-						this.txtAutoplayValue.setVisible(true);
-						this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_START, this.GameState.activeAutoplay.get());
-					}
-				}
-			})
-		}, 0);
+      this.GameState.isEndScatter.subscribe((val) => {
+        if (!val) {
+          if (this.GameState.isAutoPlayRunning.get()) {
+            this.spinBtn.setVisible(false);
+            this.autoplayBtn.txtButton.setText(
+              this.cache.json.get("language").texts["IDS_BTN_STOP"]
+            );
+            this.bgAutoplay.setVisible(true);
+            this.txtAutoplay.setVisible(true);
+            this.txtAutoplayValue.setVisible(true);
+            this.dispatcher.emit(
+              ACTION_EVENTS.AUTO_PLAY_START,
+              this.GameState.activeAutoplay.get()
+            );
+          }
+        }
+      });
+    }, 0);
 
-		this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_START, (symbol, freeSpinCounter = 0) => {
-            this.GameState.isAutoSpinRunning.set(true);
-            if(this.logo1.alpha == 1){
-                this.tweens.add({
-                    targets: [this.logo1, this.logo2, this.logo3],
-                    alpha: { from: 1, to: 0, start: 1},
-                    duration: 500,
-                })
-                this.tweens.add({
-                    targets: [this.freeSpinHeader1, this.freeSpinHeader2, this.freeSpinHeader3],
-                    alpha: { from: 0, to: 1, start: 0},
-                    delay: 500,
-                    duration: 500,
-                })
-            }
-            if(symbol !== null){
-                this.freeSpinHeader2.setTexture(symbol[0], symbol[1])
-            }
-            const textFreeSpin = this.cache.json.get('language').texts["IDS_FREESPIN_X_OF_Y"].replace("%d", freeSpinCounter).replace("%t", "10")
-            this.freeSpinHeader3.setText(textFreeSpin)
-        })
+    this.dispatcher.addListener(
+      ACTION_EVENTS.AUTO_SPIN_START,
+      (symbol, freeSpinCounter = 0) => {
+        this.GameState.isAutoSpinRunning.set(true);
+        if (this.logo1.alpha == 1) {
+          this.tweens.add({
+            targets: [this.logo1, this.logo2, this.logo3],
+            alpha: { from: 1, to: 0, start: 1 },
+            duration: 500,
+          });
+          this.tweens.add({
+            targets: [
+              this.freeSpinHeader1,
+              this.freeSpinHeader2,
+              this.freeSpinHeader3,
+            ],
+            alpha: { from: 0, to: 1, start: 0 },
+            delay: 500,
+            duration: 500,
+          });
+        }
+        if (symbol !== null) {
+          this.freeSpinHeader2.setTexture(symbol[0], symbol[1]);
+        }
+        const textFreeSpin = this.cache.json
+          .get("language")
+          .texts["IDS_FREESPIN_X_OF_Y"].replace("%d", freeSpinCounter)
+          .replace("%t", "10");
+        this.freeSpinHeader3.setText(textFreeSpin);
+      }
+    );
 
-        this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
+    this.dispatcher.addListener(ACTION_EVENTS.AUTO_SPIN_STOP, () => {
+      this.tweens.add({
+        targets: [this.logo1, this.logo2, this.logo3],
+        alpha: { from: 0, to: 1, start: 0 },
+        duration: 500,
+      });
+      this.tweens.add({
+        targets: [
+          this.freeSpinHeader1,
+          this.freeSpinHeader2,
+          this.freeSpinHeader3,
+        ],
+        alpha: { from: 1, to: 0, start: 1 },
+        delay: 500,
+        duration: 500,
+      });
+    });
 
-            this.tweens.add({
-                targets: [this.logo1, this.logo2, this.logo3],
-                alpha: { from: 0, to: 1, start: 0},
-                duration: 500,
-            })
-            this.tweens.add({
-                targets: [this.freeSpinHeader1, this.freeSpinHeader2, this.freeSpinHeader3],
-                alpha: { from: 1, to: 0, start: 1},
-                delay: 500,
-                duration: 500,
-            })
-        })
+    this.dispatcher.addListener(
+      EVENTS.SHOW_SCATTER_INFO,
+      (scatterSymbolSprite) => {
+        this.GameState.isShowingScatter.set(true);
 
-		this.dispatcher.addListener(EVENTS.SHOW_SCATTER_INFO, (scatterSymbolSprite) => {
-			this.GameState.isShowingScatter.set(true);
+        this.spinBtn.setVisible(true);
+        this.autoplayBtn.setVisible(true);
+        this.autoplayBtn.txtButton.setText(
+          this.cache.json.get("language").texts["IDS_BTN_AUTOPLAY"]
+        );
+        this.bgAutoplay.setVisible(false);
+        this.txtAutoplay.setVisible(false);
+        this.txtAutoplayValue.setVisible(false);
 
-			this.spinBtn.setVisible(true)
-			this.autoplayBtn.setVisible(true);
-			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
-			this.bgAutoplay.setVisible(false);
-			this.txtAutoplay.setVisible(false);
-			this.txtAutoplayValue.setVisible(false);
+        console.log(scatterSymbolSprite);
+        this.scene.launch("ScatterScene");
+        if (scatterSymbolSprite) {
+          (this.scene.get("ScatterScene") as ScatterScene)?.bookAnimation(
+            scatterSymbolSprite
+          );
+        } else {
+          (this.scene.get("ScatterScene") as ScatterScene)?.paperScatter();
+        }
+      }
+    );
 
-			console.log(scatterSymbolSprite)
-			this.scene.launch('ScatterScene');
-			if(scatterSymbolSprite){
-				(this.scene.get('ScatterScene') as ScatterScene)?.bookAnimation(scatterSymbolSprite);
-			}
-			else{
-				(this.scene.get('ScatterScene') as ScatterScene)?.paperScatter();
-			}
-		});
+    this.dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
+      this.GameState.isShowingScatter.set(false);
+      this.GameState.isSpinning.set(false);
+      this.ReelsManager.currentSpin = null;
+      this.scene.stop("ScatterScene");
+    });
 
-		this.dispatcher.addListener(EVENTS.HIDE_SCATTER_INFO, () => {
-			this.GameState.isShowingScatter.set(false);
-			this.GameState.isSpinning.set(false);
-			this.ReelsManager.currentSpin = null;
-			this.scene.stop('ScatterScene');
-		});
+    this.dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
+      this.spinBtn.setVisible(true);
+      this.autoplayBtn.setVisible(true);
+      this.autoplayBtn.txtButton.setText(
+        this.cache.json.get("language").texts["IDS_BTN_AUTOPLAY"]
+      );
+      this.bgAutoplay.setVisible(false);
+      this.txtAutoplay.setVisible(false);
+      this.txtAutoplayValue.setVisible(false);
+    });
+  }
 
-		this.dispatcher.addListener(ACTION_EVENTS.AUTO_PLAY_STOP, () => {
-			this.spinBtn.setVisible(true)
-			this.autoplayBtn.setVisible(true);
-			this.autoplayBtn.txtButton.setText(this.cache.json.get('language').texts['IDS_BTN_AUTOPLAY'])
-			this.bgAutoplay.setVisible(false);
-			this.txtAutoplay.setVisible(false);
-			this.txtAutoplayValue.setVisible(false);
-		})
-	}
+  private setupUI() {
+    console.log("Language data:", this.cache.json.get("language"));
 
-	create() {
+    setTimeout(() => {
+      const balance = this.GameState.balance;
+      const betCoins = this.GameState.coinBet;
+      const betLines = this.GameState.linesBet;
+      const informationText = this.GameState.informationText;
+      const totalWin = this.GameState.totalWin;
+      const coinValueList = this.GameState.coinValueList;
+      const coinValue = this.GameState.coinValue;
+      const coinValueCurrency = this.GameState.coinValueCurrency;
 
-		this.editorCreate();
-		this.setupUI();
+      // Text Style for Button prefabs
+      [
+        this.paytableBtn,
+        this.autoplayBtn,
+        this.betmaxBtn,
+        this.gambleBtn,
+        this.collectBtn,
+      ].forEach((btn) => {
+        let gradient = btn.txtButton.context.createLinearGradient(
+          0,
+          0,
+          0,
+          btn.txtButton.height
+        );
+        gradient.addColorStop(0, "#442B14");
+        gradient.addColorStop(0.5, "#6B4A17");
+        gradient.addColorStop(1, "#442B14");
+        btn.txtButton.setFill(gradient);
+      });
 
-	}
+      // Initialize UI with current state values
+      this.txtCoinsValue.setText(
+        `${this.cache.json.get("language").texts["IDS_VP_COINS"]}: ${
+          balance.get() * coinValue.get()
+        }`
+      );
+      this.txtBetValue.setText(
+        `${this.cache.json.get("language").texts["IDS_MENU_BET_VSLOT"]}: ${
+          betCoins.get() * betLines.get()
+        }`
+      );
+      this.GameState.informationText.set(
+        this.cache.json.get("language").texts["IDS_PRESSPIN"]
+      );
+      this.txtDenomination.setText(
+        `${coinValueCurrency.get()} ${coinValue.get().toFixed(2)}`
+      );
+      this.footerPrefab.txtBalanceValue.setText(
+        `${
+          this.cache.json.get("language").texts["IDS_BALANCE_CAPTION"]
+        } ${coinValueCurrency.get()} ${balance.get().toString()}`
+      );
+      this.footerPrefab.txtBalanceBetValue.setText(
+        `${
+          this.cache.json.get("language").texts["IDS_BET_CAPTION"]
+        } ${coinValueCurrency.get()} ${(
+          coinValue.get() *
+          betCoins.get() *
+          betLines.get()
+        ).toFixed(2)}`
+      );
+      this.footerPrefab.txtWinValue.setText(
+        `${
+          this.cache.json.get("language").texts["IDS_WIN_CAPTION"]
+        } ${coinValueCurrency.get()} ${totalWin.get().toFixed(2)}`
+      );
+      this.betCoins.txtBetValue.setText(betCoins.get().toString());
+      this.betLines.txtBetValue.setText(betLines.get().toString());
+      this.txtAutoplay.setText(
+        this.cache.json.get("language").texts["IDS_AP_RUNNING"]
+      );
 
-	private setupUI() {
-		console.log("Language data:", this.cache.json.get('language'));
+      // Set button states based on initial values
+      if (betCoins.get() <= 1) {
+        this.betCoins.btnDecrease.disableInteractive();
+        this.betCoins.btnDecrease.setTint(0x666666);
+      }
+      if (betCoins.get() >= 5) {
+        this.betCoins.btnIncrease.disableInteractive();
+        this.betCoins.btnIncrease.setTint(0x666666);
+      }
+      if (betLines.get() <= 1) {
+        this.betLines.btnDecrease.disableInteractive();
+        this.betLines.btnDecrease.setTint(0x666666);
+      }
+      if (betLines.get() >= 10) {
+        this.betLines.btnIncrease.disableInteractive();
+        this.betLines.btnIncrease.setTint(0x666666);
+      }
 
-		setTimeout(() => {
-			const balance = this.GameState.balance;
-			const betCoins = this.GameState.coinBet;
-			const betLines = this.GameState.linesBet;
-			const informationText = this.GameState.informationText;
-			const totalWin = this.GameState.totalWin;
-			const coinValueList = this.GameState.coinValueList;
-			const coinValue = this.GameState.coinValue;
-			const coinValueCurrency = this.GameState.coinValueCurrency;
+      // Subscribe to state changes to update UI reactively
+      balance.subscribe((val) => {
+        let valueMoney = (
+          val /
+          (this.GameState.coinValue.get() / 100) /
+          100
+        ).toFixed(0);
+        this.txtCoinsValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_VP_COINS"]
+          }: ${valueMoney}`
+        );
+        this.footerPrefab.txtBalanceValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_BALANCE_CAPTION"]
+          } ${coinValueCurrency.get()} ${(val / 100).toString()}`
+        );
+      });
 
-			// Text Style for Button prefabs
-			[this.paytableBtn, this.autoplayBtn, this.betmaxBtn, this.gambleBtn, this.collectBtn].forEach((btn) => {
-				let gradient = btn.txtButton.context.createLinearGradient(0, 0, 0, btn.txtButton.height);
-				gradient.addColorStop(0, '#442B14');
-				gradient.addColorStop(.5, '#6B4A17');
-				gradient.addColorStop(1, '#442B14');
-				btn.txtButton.setFill(gradient)
-			})
+      betCoins.subscribe((val) => {
+        this.txtBetValue.setText(
+          `${this.cache.json.get("language").texts["IDS_MENU_BET_VSLOT"]}: ${
+            betCoins.get() * betLines.get()
+          }`
+        );
+        this.betCoins.txtBetValue.setText(val.toString());
+        this.footerPrefab.txtBalanceBetValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_BET_CAPTION"]
+          } ${coinValueCurrency.get()} ${(
+            val *
+            (coinValue.get() / 100) *
+            betLines.get()
+          ).toFixed(2)}`
+        );
+        this.updateBetButtons(val, this.betCoins, 1, 5);
+      });
 
-			// Initialize UI with current state values
-			this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${balance.get() * coinValue.get()}`);
-			this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
-			this.GameState.informationText.set(this.cache.json.get('language').texts["IDS_PRESSPIN"]);
-			this.txtDenomination.setText(`${coinValueCurrency.get()} ${coinValue.get().toFixed(2)}`);
-			this.footerPrefab.txtBalanceValue.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${balance.get().toString()}`);
-			this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(coinValue.get() * betCoins.get() * betLines.get()).toFixed(2)}`);
-			this.footerPrefab.txtWinValue.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${coinValueCurrency.get()} ${totalWin.get().toFixed(2)}`);
-			this.betCoins.txtBetValue.setText(betCoins.get().toString());
-			this.betLines.txtBetValue.setText(betLines.get().toString());
-			this.txtAutoplay.setText(this.cache.json.get('language').texts['IDS_AP_RUNNING']);
+      betLines.subscribe((val) => {
+        this.txtBetValue.setText(
+          `${this.cache.json.get("language").texts["IDS_MENU_BET_VSLOT"]}: ${
+            betCoins.get() * betLines.get()
+          }`
+        );
+        this.betLines.txtBetValue.setText(val.toString());
+        this.footerPrefab.txtBalanceBetValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_BET_CAPTION"]
+          } ${coinValueCurrency.get()} ${(
+            val *
+            betCoins.get() *
+            (coinValue.get() / 100)
+          ).toFixed(2)}`
+        );
+        this.updateBetButtons(val, this.betLines, 1, 10);
+      });
 
-			// Set button states based on initial values
-			if (betCoins.get() <= 1) {
-				this.betCoins.btnDecrease.disableInteractive();
-				this.betCoins.btnDecrease.setTint(0x666666);
-			}
-			if (betCoins.get() >= 5) {
-				this.betCoins.btnIncrease.disableInteractive();
-				this.betCoins.btnIncrease.setTint(0x666666);
-			}
-			if (betLines.get() <= 1) {
-				this.betLines.btnDecrease.disableInteractive();
-				this.betLines.btnDecrease.setTint(0x666666);
-			}
-			if (betLines.get() >= 10) {
-				this.betLines.btnIncrease.disableInteractive();
-				this.betLines.btnIncrease.setTint(0x666666);
-			}
+      informationText.subscribe((val) => {
+        this.txtInformation.setText(val);
+      });
 
-			// Subscribe to state changes to update UI reactively
-			balance.subscribe((val) => {
-				let valueMoney = ((val / (this.GameState.coinValue.get() / 100) / 100).toFixed(0));
-				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${valueMoney}`);
-				this.footerPrefab.txtBalanceValue.setText(`${this.cache.json.get('language').texts['IDS_BALANCE_CAPTION']} ${coinValueCurrency.get()} ${(val / 100).toString()}`);
-			});
+      coinValue.subscribe((val) => {
+        let valueMoney = (
+          this.GameState.balance.get() /
+          (val / 100) /
+          100
+        ).toFixed(0);
+        this.txtCoinsValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_VP_COINS"]
+          }: ${valueMoney}`
+        );
+        this.txtDenomination.setText(
+          `${coinValueCurrency.get()} ${(val / 100).toFixed(2)}`
+        );
+        this.footerPrefab.txtBalanceBetValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_BET_CAPTION"]
+          } ${coinValueCurrency.get()} ${(
+            (val / 100) *
+            betCoins.get() *
+            betLines.get()
+          ).toFixed(2)}`
+        );
+      });
 
-			betCoins.subscribe((val) => {
-				this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
-				this.betCoins.txtBetValue.setText(val.toString());
-				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * (coinValue.get() / 100) * betLines.get()).toFixed(2)}`);
-				this.updateBetButtons(val, this.betCoins, 1, 5);
-			});
+      totalWin.subscribe((val) => {
+        this.footerPrefab.txtWinValue.setText(
+          `${
+            this.cache.json.get("language").texts["IDS_WIN_CAPTION"]
+          } ${coinValueCurrency.get()} ${val.toFixed(2)}`
+        );
+      });
+    }, 0);
 
-			betLines.subscribe((val) => {
-				this.txtBetValue.setText(`${this.cache.json.get('language').texts['IDS_MENU_BET_VSLOT']}: ${betCoins.get() * betLines.get() }`);
-				this.betLines.txtBetValue.setText(val.toString());
-				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${(val * betCoins.get() * (coinValue.get() / 100)).toFixed(2)}`);
-				this.updateBetButtons(val, this.betLines, 1, 10);
-			});
+    // Denomination (coin value)
+    this.denominationBtn.on("pointerdown", () => {
+      const currentIndex = this.GameState.coinValueList.indexOf(
+        this.GameState.coinValue.get()
+      );
+      const nextIndex =
+        (currentIndex + 1) % this.GameState.coinValueList.length;
+      this.GameState.coinValue.set(this.GameState.coinValueList[nextIndex]);
+      this.addButtonTween(this, this.denominationBtn, [
+        this.txtDenomination,
+        this.txtCoinValueText,
+      ]);
+    });
 
-			informationText.subscribe((val) => {
-				this.txtInformation.setText(val);
-			});
+    // Paytable
+    this.paytableBtn.btnButton.on("pointerdown", () => {
+      const current = this.GameState.isShowingPaytable.get();
+      this.GameState.isShowingPaytable.set(!current);
+    });
 
-			coinValue.subscribe((val) => {
-				let valueMoney = ((this.GameState.balance.get() / (val / 100) / 100).toFixed(0));
-				this.txtCoinsValue.setText(`${this.cache.json.get('language').texts['IDS_VP_COINS']}: ${valueMoney}`);
-				this.txtDenomination.setText(`${coinValueCurrency.get()} ${(val / 100).toFixed(2)}`);
-				this.footerPrefab.txtBalanceBetValue.setText(`${this.cache.json.get('language').texts['IDS_BET_CAPTION']} ${coinValueCurrency.get()} ${((val / 100) * betCoins.get() * betLines.get()).toFixed(2)}`);
-			});
+    // Bet Coins
+    this.betCoins.btnDecrease.on("pointerdown", () => {
+      let currentBet = this.GameState.coinBet.get();
+      if (currentBet > 1) {
+        currentBet -= 1;
+        this.GameState.coinBet.set(currentBet);
+      }
+    });
 
-			totalWin.subscribe((val) => {
-				this.footerPrefab.txtWinValue.setText(`${this.cache.json.get('language').texts['IDS_WIN_CAPTION']} ${coinValueCurrency.get()} ${val.toFixed(2)}`);
-			});
-		}, 0);
+    this.betCoins.btnIncrease.on("pointerdown", () => {
+      let currentBet = this.GameState.coinBet.get();
+      currentBet += 1;
+      this.GameState.coinBet.set(currentBet);
+    });
 
-		// Denomination (coin value)
-		this.denominationBtn.on('pointerdown', () => {
-			const currentIndex = this.GameState.coinValueList.indexOf(this.GameState.coinValue.get());
-			const nextIndex = (currentIndex + 1) % this.GameState.coinValueList.length;
-			this.GameState.coinValue.set(this.GameState.coinValueList[nextIndex]);
-			this.addButtonTween(this, this.denominationBtn, [ this.txtDenomination, this.txtCoinValueText ] );
-		});
+    // Bet Lines
+    this.betLines.btnDecrease.on("pointerdown", () => {
+      let currentBet = this.GameState.linesBet.get();
+      if (currentBet > 1) {
+        currentBet -= 1;
+        this.GameState.linesBet.set(currentBet);
+      }
+    });
 
-		// Paytable
-		this.paytableBtn.btnButton.on('pointerdown', () => {
-			const current = this.GameState.isShowingPaytable.get();
-      		this.GameState.isShowingPaytable.set(!current);
-		});
+    this.betLines.btnIncrease.on("pointerdown", () => {
+      let currentBet = this.GameState.linesBet.get();
+      currentBet += 1;
+      this.GameState.linesBet.set(currentBet);
+    });
 
+    // Bet Max
+    this.betmaxBtn.btnButton.on("pointerdown", () => {
+      this.GameState.linesBet.set(10);
+      this.GameState.coinBet.set(5);
+    });
 
-		// Bet Coins
-		this.betCoins.btnDecrease.on('pointerdown', () => {
-			let currentBet = this.GameState.coinBet.get();
-			if (currentBet > 1) {
-				currentBet -= 1;
-				this.GameState.coinBet.set(currentBet);
-			}
-		});
+    // Spin
+    this.spinBtn.btnButton.on("pointerdown", () => {
+      if (this.GameState.isSpinning && !this.GameState.isAutoPlayRunning)
+        return;
+      this.setButtonInteractive(this.spinBtn.btnButton, false);
+      this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
+    });
 
-		this.betCoins.btnIncrease.on('pointerdown', () => {
-			let currentBet = this.GameState.coinBet.get();
-			currentBet += 1;
-			this.GameState.coinBet.set(currentBet);
-		});
+    const spinBtn = this.spinBtn.txtButton;
+    spinBtn.setStyle({ fontSize: "76px" });
+    const gradient = spinBtn.context.createLinearGradient(
+      0,
+      0,
+      0,
+      spinBtn.height
+    );
+    gradient.addColorStop(0, "#DDA339");
+    gradient.addColorStop(0.5, "#FBF2A5");
+    gradient.addColorStop(0.5, "#DDA339");
+    gradient.addColorStop(1, "#FBF2A5");
+    spinBtn.setFill(gradient);
 
-		// Bet Lines
-		this.betLines.btnDecrease.on('pointerdown', () => {
-			let currentBet = this.GameState.linesBet.get();
-			if (currentBet > 1) {
-				currentBet -= 1;
-				this.GameState.linesBet.set(currentBet);
-			}
-		});
+    // Autoplay
+    this.autoplayBtn.btnButton.on("pointerdown", () => {
+      if (!this.GameState.isAutoPlayRunning.get()) {
+        this.GameState.isShowingAutoplay.set(true);
+      } else {
+        this.GameState.autoplayBalance.set(0);
+        this.GameState.activeAutoplay.set(0);
+        this.GameState.isAutoPlayRunning.set(false);
+        this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
+      }
+    });
 
-		this.betLines.btnIncrease.on('pointerdown', () => {
-			let currentBet = this.GameState.linesBet.get();
-			currentBet += 1;
-			this.GameState.linesBet.set(currentBet);
-		});
+    // Gamble
+    this.gambleBtn.btnButton.on("pointerdown", () => {
+      this.GameState.isShowingGamble.set(true);
+      if (this.toggleVfx) this.toggleVfx.destroy();
+    });
 
-		// Bet Max
-		this.betmaxBtn.btnButton.on('pointerdown', () => {
-			this.GameState.linesBet.set(10);
-			this.GameState.coinBet.set(5);
-		});
+    // Collect
+    this.collectBtn.btnButton.on("pointerdown", () => {
+      this.GameState.playerPick.set(0);
+      this.GameState.isShowingGamble.set(false);
+      if (this.toggleVfx) this.toggleVfx.destroy();
+    });
 
-		// Spin
-		this.spinBtn.btnButton.on('pointerdown', () => {
-			if(this.GameState.isSpinning && !this.GameState.isAutoPlayRunning) return;
-			this.setButtonInteractive(this.spinBtn.btnButton, false);
-            this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
-		});
+    // Footer menu
+    this.footerPrefab.btnMenu.on("pointerdown", () => {
+      this.GameState.isShowingMenu.set(true);
+    });
+  }
 
-		const spinBtn = this.spinBtn.txtButton
-		spinBtn.setStyle({"fontSize": "76px"})
-		const gradient = spinBtn.context.createLinearGradient(0, 0, 0, spinBtn.height);
-		gradient.addColorStop(0, '#DDA339');
-		gradient.addColorStop(.5, '#FBF2A5');
-		gradient.addColorStop(.5, '#DDA339');
-		gradient.addColorStop(1, '#FBF2A5');
-		spinBtn.setFill(gradient)
+  updateBetButtons(
+    currentBet: number,
+    controls: {
+      btnIncrease: Phaser.GameObjects.Sprite;
+      btnDecrease: Phaser.GameObjects.Sprite;
+    },
+    minBet = 1,
+    maxBet = 5
+  ) {
+    // Decrease button
+    if (currentBet <= minBet) {
+      controls.btnDecrease.disableInteractive();
+      controls.btnDecrease.setTint(0x666666);
+    } else {
+      controls.btnDecrease.setInteractive();
+      controls.btnDecrease.clearTint();
+    }
 
-		// Autoplay
-		this.autoplayBtn.btnButton.on('pointerdown', () => {
-			if(!this.GameState.isAutoPlayRunning.get()){
-				this.GameState.isShowingAutoplay.set(true);
-			} else {
-				this.GameState.autoplayBalance.set(0);
-				this.GameState.activeAutoplay.set(0);
-				this.GameState.isAutoPlayRunning.set(false);
-                this.dispatcher.emit(ACTION_EVENTS.AUTO_PLAY_STOP);
-			}
-		});
+    // Increase button
+    if (currentBet >= maxBet) {
+      controls.btnIncrease.disableInteractive();
+      controls.btnIncrease.setTint(0x666666);
+    } else {
+      controls.btnIncrease.setInteractive();
+      controls.btnIncrease.clearTint();
+    }
+  }
 
-		// Gamble
-		this.gambleBtn.btnButton.on('pointerdown', () => {
-			this.GameState.isShowingGamble.set(true);
-			if(this.toggleVfx) this.toggleVfx.destroy();
-		});
+  addButtonTween(
+    scene: Phaser.Scene,
+    sprite: Phaser.GameObjects.Sprite,
+    text: Phaser.GameObjects.Text[] = []
+  ) {
+    const targets = [sprite, ...text] as Phaser.GameObjects.GameObject[];
 
-		// Collect
-		this.collectBtn.btnButton.on('pointerdown', () => {
-			this.GameState.playerPick.set(0);
-			this.GameState.isShowingGamble.set(false);
-			if(this.toggleVfx) this.toggleVfx.destroy();
-		});
+    const playTween = (scale: number) => {
+      scene.tweens.add({
+        targets,
+        scale: (target: Phaser.GameObjects.GameObject) =>
+          (target as any).scale + scale,
+        duration: 100,
+        ease: "Power2",
+      });
+    };
 
-		// Footer menu
-		this.footerPrefab.btnMenu.on('pointerdown', () => {
-      		this.GameState.isShowingMenu.set(true);
-		});
-	}
+    sprite.on("pointerdown", () => playTween(-0.1));
+    ["pointerup"].forEach((evt) => sprite.on(evt, () => playTween(0.1)));
+  }
 
-	updateBetButtons(currentBet: number, controls: { btnIncrease: Phaser.GameObjects.Sprite; btnDecrease: Phaser.GameObjects.Sprite }, minBet = 1, maxBet = 5) {
-		// Decrease button
-		if (currentBet <= minBet) {
-			controls.btnDecrease.disableInteractive();
-			controls.btnDecrease.setTint(0x666666);
-		} else {
-			controls.btnDecrease.setInteractive();
-			controls.btnDecrease.clearTint();
-		}
-
-		// Increase button
-		if (currentBet >= maxBet) {
-			controls.btnIncrease.disableInteractive();
-			controls.btnIncrease.setTint(0x666666);
-		} else {
-			controls.btnIncrease.setInteractive();
-			controls.btnIncrease.clearTint();
-		}
-	}
-
-	addButtonTween(scene: Phaser.Scene, sprite: Phaser.GameObjects.Sprite, text: Phaser.GameObjects.Text[] = []) {
-		const targets = [sprite, ...text] as Phaser.GameObjects.GameObject[];
-
-		const playTween = (scale: number) => {
-			scene.tweens.add({
-				targets,
-				scale : (target: Phaser.GameObjects.GameObject) =>
-      				(target as any).scale + scale,
-				duration: 100,
-				ease: "Power2"
-			});
-		};
-
-		sprite.on("pointerdown", () => playTween(-0.1));
-		["pointerup"].forEach(evt => sprite.on(evt, () => playTween(0.1)));
-	}
-
-	setButtonInteractive(btn: Phaser.GameObjects.Sprite, isInteractive: boolean){
-		if(isInteractive){
-			btn.setInteractive();
-			btn.setTint(0xffffff);
-		} else {
-			btn.disableInteractive();
-			btn.setTint(0x888888);
-		}
-	}
-	/* END-USER-CODE */
+  setButtonInteractive(btn: Phaser.GameObjects.Sprite, isInteractive: boolean) {
+    if (isInteractive) {
+      btn.setInteractive();
+      btn.setTint(0xffffff);
+    } else {
+      btn.disableInteractive();
+      btn.setTint(0x888888);
+    }
+  }
+  /* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */
