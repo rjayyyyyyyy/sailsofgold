@@ -62,42 +62,6 @@
             "y": 650
         },
         {
-            "type": "Image",
-            "id": "93ddf4d1-b7f6-45ca-8494-7e8d8f77a340",
-            "label": "logo1",
-            "scope": "CLASS",
-            "texture": {
-                "key": "logo_texture0_level0",
-                "frame": "AB.png"
-            },
-            "x": 640,
-            "y": 48
-        },
-        {
-            "type": "Image",
-            "id": "3c991c5c-7e6b-471c-ab93-ce87e5592a95",
-            "label": "logo2",
-            "scope": "CLASS",
-            "texture": {
-                "key": "logo_texture0_level0",
-                "frame": "DB.png"
-            },
-            "x": 640,
-            "y": 66
-        },
-        {
-            "type": "Image",
-            "id": "785713fd-11f1-481e-a7dc-1d3f164d6044",
-            "label": "logo3",
-            "scope": "CLASS",
-            "texture": {
-                "key": "logo_texture0_level0",
-                "frame": "BB.png"
-            },
-            "x": 640,
-            "y": 23
-        },
-        {
             "type": "Text",
             "id": "3a6cc3f7-bc5d-4cf1-8c3a-5deb3a169648",
             "label": "txtCoinsValue",
@@ -412,8 +376,8 @@
                 "key": "skin_texture0_level0",
                 "frame": "VI.png"
             },
-            "x": 454,
-            "y": 56,
+            "x": 416,
+            "y": 28,
             "scaleX": 0.8,
             "scaleY": 0.8,
             "alpha": 0,
@@ -427,8 +391,8 @@
             "id": "2e2a8fae-3287-45fa-bfcd-55e354198944",
             "label": "freeSpinHeader3",
             "scope": "CLASS",
-            "x": 715,
-            "y": 56,
+            "x": 677,
+            "y": 28,
             "originX": 0.5,
             "originY": 0.5,
             "alpha": 0,
@@ -480,6 +444,82 @@
             "scope": "CLASS",
             "x": 36,
             "y": 707
+        },
+        {
+            "type": "Sprite",
+            "id": "5ac8ee6a-edbf-4848-8b63-0cbeaffd1169",
+            "label": "a_12_png_1",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "A-12.png"
+            },
+            "x": 485,
+            "y": 46,
+            "flipX": true,
+            "animationPlayMethod": 1,
+            "animationKey": "logo-ribbon-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "b9b7701a-748c-45e3-bbe5-3cb68d14bcb9",
+            "label": "a_12_png",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "A-12.png"
+            },
+            "x": 785,
+            "y": 46,
+            "animationPlayMethod": 1,
+            "animationKey": "logo-ribbon-animation"
+        },
+        {
+            "type": "Image",
+            "id": "26b49ea5-e021-429d-9b45-a12af894e74f",
+            "label": "cB_png",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "CB.png"
+            },
+            "x": 774,
+            "y": 44
+        },
+        {
+            "type": "Image",
+            "id": "1fecb733-2fc3-4d59-9f16-7de6eabb84c1",
+            "label": "logo3",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "BB.png"
+            },
+            "x": 691,
+            "y": 44
+        },
+        {
+            "type": "Image",
+            "id": "161617f2-528e-455c-a496-e9ab0b7dc26c",
+            "label": "logo1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "AB.png"
+            },
+            "x": 520,
+            "y": 44
+        },
+        {
+            "type": "Image",
+            "id": "265ebb24-3d29-40b3-a1f1-96c79580e434",
+            "label": "logo2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "logo_texture0_level0",
+                "frame": "DB.png"
+            },
+            "x": 639,
+            "y": 42,
+            "scaleX": 1.5,
+            "scaleY": 1.5
         }
     ],
     "plainObjects": [],
