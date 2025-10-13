@@ -26,6 +26,29 @@
         },
         {
             "type": "Image",
+            "id": "1c9d4740-1539-43ba-a056-f06228d07ab7",
+            "label": "nB_png",
+            "texture": {
+                "key": "menu_texture1_level0",
+                "frame": "NB.png"
+            },
+            "x": 176,
+            "y": 587
+        },
+        {
+            "type": "Image",
+            "id": "38b2d47f-7ed2-4191-b50c-49645b89e2a3",
+            "label": "cB_png_1",
+            "texture": {
+                "key": "menu_texture1_level0",
+                "frame": "NB.png"
+            },
+            "x": 974,
+            "y": 585,
+            "scaleX": 0.8
+        },
+        {
+            "type": "Image",
             "id": "6bbd67ec-11f1-44c3-8929-a40c2b6cd73b",
             "label": "t1BB_png_1",
             "scope": "CLASS",
@@ -45,7 +68,7 @@
                 "key": "menu_texture1_level0",
                 "frame": "BB.png"
             },
-            "x": 550,
+            "x": 585,
             "y": 594
         },
         {
@@ -58,7 +81,7 @@
                 "key": "menu_texture1_level0",
                 "frame": "WB.png"
             },
-            "x": 150,
+            "x": 174,
             "y": 650
         },
         {
@@ -66,7 +89,7 @@
             "id": "3a6cc3f7-bc5d-4cf1-8c3a-5deb3a169648",
             "label": "txtCoinsValue",
             "scope": "CLASS",
-            "x": 150,
+            "x": 177,
             "y": 585,
             "scaleX": 0.5,
             "scaleY": 0.5,
@@ -82,8 +105,8 @@
             "id": "69c83292-52f0-4a7d-8dc2-f2637ae63c31",
             "label": "txtBetValue",
             "scope": "CLASS",
-            "x": 975,
-            "y": 585,
+            "x": 974,
+            "y": 584,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -98,8 +121,8 @@
             "id": "37dff1ce-7b0a-4d67-b3ed-85d46ea8f064",
             "label": "txtCoinValueText",
             "scope": "CLASS",
-            "x": 150,
-            "y": 634,
+            "x": 173,
+            "y": 637,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -107,17 +130,17 @@
             "text": "COIN VALUE",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "28px",
-            "color": "#444444"
+            "color": "#5a1500"
         },
         {
             "type": "Text",
             "id": "d9a3932c-ec23-48b0-ad5f-d1e8aaf4cd51",
             "label": "txtDenomination",
             "scope": "CLASS",
-            "x": 150,
-            "y": 660,
-            "scaleX": 0.4,
-            "scaleY": 0.5,
+            "x": 174,
+            "y": 658,
+            "scaleX": 0.35,
+            "scaleY": 0.35,
             "originX": 0.5,
             "originY": 0.5,
             "text": "CNY 2.00",
@@ -146,7 +169,7 @@
             "text": "IDS_BTN_AUTOPLAY",
             "buttonSprite": "",
             "event": "autoplay",
-            "x": 1155,
+            "x": 1136,
             "y": 659,
             "scaleX": 1,
             "scaleY": 1
@@ -172,7 +195,7 @@
             "text": "IDS_BTN_PAYTABLE",
             "buttonSprite": "",
             "event": "paytable",
-            "x": 1155,
+            "x": 1136,
             "y": 590,
             "scaleX": 1,
             "scaleY": 1
@@ -234,8 +257,8 @@
             "id": "7652227a-eddd-46fd-a3a5-7efad2eb5dac",
             "label": "txtInformation",
             "scope": "CLASS",
-            "x": 570,
-            "y": 595,
+            "x": 597,
+            "y": 593,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -296,7 +319,7 @@
             "text": "IDS_BTN_COLLECT",
             "buttonSprite": "",
             "event": "collect",
-            "x": 1155,
+            "x": 1136,
             "y": 659,
             "scaleX": 1,
             "scaleY": 1,

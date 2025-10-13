@@ -224,6 +224,12 @@
                 "key": "menu_texture1_level0"
             },
             {
+                "atlasURL": "resources/games/videoslot/bookofdead/menu/menu_texture2_level0.png.json",
+                "textureURL": "resources/games/videoslot/bookofdead/menu/menu_texture2_level0.png.png",
+                "type": "atlas",
+                "key": "menu_texture2_level0.png"
+            },
+            {
                 "url": [
                     "resources/games/videoslot/bookofdead/sounds/sounds/Pre_Gamble_Stem_Layer1_2.wav"
                 ],

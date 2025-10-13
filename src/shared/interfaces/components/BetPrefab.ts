@@ -12,7 +12,7 @@ export default class BetPrefab extends Phaser.GameObjects.Container {
 		super(scene, x ?? 15, y ?? 30);
 
 		// bgBet
-		const bgBet = scene.add.image(85, 0, "menu_texture0_level0", "CB.png");
+		const bgBet = scene.add.image(85, 0, "menu_texture2_level0.png", "CB.png");
 		this.add(bgBet);
 
 		// btnDecrease

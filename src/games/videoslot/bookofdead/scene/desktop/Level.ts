@@ -57,18 +57,25 @@ export default class Level extends Phaser.Scene {
 		// t0AB_png
 		const t0AB_png = this.add.image(640, 450, "background_texture0_level0", "AB.png");
 
+		// nB_png
+		this.add.image(176, 587, "menu_texture1_level0", "NB.png");
+
+		// cB_png_1
+		const cB_png_1 = this.add.image(974, 585, "menu_texture1_level0", "NB.png");
+		cB_png_1.scaleX = 0.8;
+
 		// t1BB_png_1
 		const t1BB_png_1 = this.add.image(550, 594, "menu_texture1_level0", "NB.png");
 
 		// informationImg
-		const informationImg = this.add.image(550, 594, "menu_texture1_level0", "BB.png");
+		const informationImg = this.add.image(585, 594, "menu_texture1_level0", "BB.png");
 
 		// denominationBtn
-		const denominationBtn = this.add.sprite(150, 650, "menu_texture1_level0", "WB.png");
+		const denominationBtn = this.add.sprite(174, 650, "menu_texture1_level0", "WB.png");
 		denominationBtn.setInteractive(this.input.makePixelPerfect());
 
 		// txtCoinsValue
-		const txtCoinsValue = this.add.text(150, 585, "", {});
+		const txtCoinsValue = this.add.text(177, 585, "", {});
 		txtCoinsValue.scaleX = 0.5;
 		txtCoinsValue.scaleY = 0.5;
 		txtCoinsValue.setOrigin(0.5, 0.5);
@@ -76,7 +83,7 @@ export default class Level extends Phaser.Scene {
 		txtCoinsValue.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
 
 		// txtBetValue
-		const txtBetValue = this.add.text(975, 585, "", {});
+		const txtBetValue = this.add.text(974, 584, "", {});
 		txtBetValue.scaleX = 0.5;
 		txtBetValue.scaleY = 0.5;
 		txtBetValue.setOrigin(0.5, 0.5);
@@ -84,29 +91,29 @@ export default class Level extends Phaser.Scene {
 		txtBetValue.setStyle({ "color": "#F7EDA1", "fontFamily": "FLANKER_GRIFFO", "fontSize": "40px" });
 
 		// txtCoinValueText
-		const txtCoinValueText = this.add.text(150, 634, "", {});
+		const txtCoinValueText = this.add.text(173, 637, "", {});
 		txtCoinValueText.scaleX = 0.5;
 		txtCoinValueText.scaleY = 0.5;
 		txtCoinValueText.setOrigin(0.5, 0.5);
 		txtCoinValueText.text = "COIN VALUE";
-		txtCoinValueText.setStyle({ "color": "#444444", "fontFamily": "FLANKER_GRIFFO", "fontSize": "28px" });
+		txtCoinValueText.setStyle({ "color": "#5a1500", "fontFamily": "FLANKER_GRIFFO", "fontSize": "28px" });
 
 		// txtDenomination
-		const txtDenomination = this.add.text(150, 660, "", {});
-		txtDenomination.scaleX = 0.4;
-		txtDenomination.scaleY = 0.5;
+		const txtDenomination = this.add.text(174, 658, "", {});
+		txtDenomination.scaleX = 0.35;
+		txtDenomination.scaleY = 0.35;
 		txtDenomination.setOrigin(0.5, 0.5);
 		txtDenomination.text = "CNY 2.00";
 		txtDenomination.setStyle({ "color": "#5a1500", "fontFamily": "FLANKER_GRIFFO", "fontSize": "60px" });
 
 		// autoplayBtn
-		const autoplayBtn = new Button(this, 1155, 659);
+		const autoplayBtn = new Button(this, 1136, 659);
 		this.add.existing(autoplayBtn);
 		autoplayBtn.scaleX = 1;
 		autoplayBtn.scaleY = 1;
 
 		// paytableBtn
-		const paytableBtn = new Button(this, 1155, 590);
+		const paytableBtn = new Button(this, 1136, 590);
 		this.add.existing(paytableBtn);
 		paytableBtn.scaleX = 1;
 		paytableBtn.scaleY = 1;
@@ -124,7 +131,7 @@ export default class Level extends Phaser.Scene {
 		spinBtn.scaleY = 1;
 
 		// txtInformation
-		const txtInformation = this.add.text(570, 595, "", {});
+		const txtInformation = this.add.text(597, 593, "", {});
 		txtInformation.scaleX = 0.5;
 		txtInformation.scaleY = 0.5;
 		txtInformation.setOrigin(0.5, 0.5);
@@ -139,7 +146,7 @@ export default class Level extends Phaser.Scene {
 		gambleBtn.visible = false;
 
 		// collectBtn
-		const collectBtn = new Button(this, 1155, 659);
+		const collectBtn = new Button(this, 1136, 659);
 		this.add.existing(collectBtn);
 		collectBtn.scaleX = 1;
 		collectBtn.scaleY = 1;
