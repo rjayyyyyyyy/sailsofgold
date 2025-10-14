@@ -230,6 +230,12 @@
                 "key": "menu_texture2_level0.png"
             },
             {
+                "atlasURL": "resources/games/videoslot/bookofdead/menu/menu_texture2_level1.json",
+                "textureURL": "resources/games/videoslot/bookofdead/menu/menu_texture2_level1.png",
+                "type": "atlas",
+                "key": "menu_texture2_level1"
+            },
+            {
                 "url": [
                     "resources/games/videoslot/bookofdead/sounds/sounds/Pre_Gamble_Stem_Layer1_2.wav"
                 ],
@@ -342,6 +348,18 @@
                 "textureURL": "resources/games/videoslot/bookofdead/skin/skin_texture4_level0.png",
                 "type": "atlas",
                 "key": "skin_texture4_level0"
+            },
+            {
+                "atlasURL": "resources/games/videoslot/bookofdead/skin/skin_texture5_level0.json",
+                "textureURL": "resources/games/videoslot/bookofdead/skin/skin_texture5_level0.png",
+                "type": "atlas",
+                "key": "skin_texture5_level0"
+            },
+            {
+                "atlasURL": "resources/games/videoslot/bookofdead/skin/skin_texture5_level1.json",
+                "textureURL": "resources/games/videoslot/bookofdead/skin/skin_texture5_level1.png",
+                "type": "atlas",
+                "key": "skin_texture5_level1"
             },
             {
                 "atlasURL": "resources/common/ui/desktop/statusbar/statusbar_texture0_level0.json",

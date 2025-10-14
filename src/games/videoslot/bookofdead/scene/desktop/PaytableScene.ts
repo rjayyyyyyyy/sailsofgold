@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 import { VideoSlotGameState } from "@games/videoslot/VideoSlotGameState";
@@ -15,14 +14,14 @@ export default class PaytableScene extends Phaser.Scene {
 		super("PaytableScene");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
-		/* END-USER-CTR-CODE */
+    // Write your code here.
+    /* END-USER-CTR-CODE */
 	}
 
 	editorCreate(): void {
 
 		// paytableBg
-		const paytableBg = this.add.image(640, 314, "menu_texture1_level0", "AB.png");
+		const paytableBg = this.add.image(640, 314, "menu_texture2_level1", "A-0.png");
 		paytableBg.scaleX = 0.8;
 		paytableBg.scaleY = 0.8;
 
@@ -164,68 +163,66 @@ export default class PaytableScene extends Phaser.Scene {
 		txtWinUp.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "40px" });
 
 		// prevPage
-		const prevPage = this.add.sprite(275, 510, "menu_texture0_level0", "OB.png");
+		const prevPage = this.add.sprite(276, 483, "menu_texture2_level0.png", "OB.png");
 		prevPage.setInteractive(new Phaser.Geom.Rectangle(0, 0, 49, 39), Phaser.Geom.Rectangle.Contains);
 		prevPage.scaleX = 0.8;
 		prevPage.scaleY = 0.8;
 		prevPage.angle = -180;
 
 		// closePage
-		const closePage = this.add.sprite(309, 520, "menu_texture0_level0", "OB.png");
+		const closePage = this.add.sprite(310, 493, "menu_texture2_level0.png", "OB.png");
 		closePage.setInteractive(new Phaser.Geom.Rectangle(0, 0, 49, 39), Phaser.Geom.Rectangle.Contains);
 		closePage.scaleX = 0.8;
 		closePage.scaleY = 0.8;
 		closePage.angle = 90;
 
 		// nextPage
-		const nextPage = this.add.sprite(345, 510, "menu_texture0_level0", "OB.png");
+		const nextPage = this.add.sprite(346, 483, "menu_texture2_level0.png", "OB.png");
 		nextPage.setInteractive(new Phaser.Geom.Rectangle(0, 0, 49, 39), Phaser.Geom.Rectangle.Contains);
 		nextPage.scaleX = 0.8;
 		nextPage.scaleY = 0.8;
 
 		// dotPage1
-		const dotPage1 = this.add.sprite(290, 490, "menu_texture0_level0", "PB.png");
+		const dotPage1 = this.add.sprite(291, 463, "menu_texture0_level0", "PB.png");
 		dotPage1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 15, 16), Phaser.Geom.Rectangle.Contains);
 		dotPage1.scaleX = 0.8;
 		dotPage1.scaleY = 0.8;
 
 		// dotPage2
-		const dotPage2 = this.add.sprite(310, 490, "menu_texture0_level0", "PB.png");
+		const dotPage2 = this.add.sprite(311, 463, "menu_texture2_level0.png", "PB.png");
 		dotPage2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 15, 16), Phaser.Geom.Rectangle.Contains);
-		dotPage2.scaleX = 0.8;
-		dotPage2.scaleY = 0.8;
+		dotPage2.scaleX = 0.5;
+		dotPage2.scaleY = 0.5;
 
 		// dotPage3
-		const dotPage3 = this.add.sprite(330, 490, "menu_texture0_level0", "PB.png");
+		const dotPage3 = this.add.sprite(331, 463, "menu_texture2_level0.png", "PB.png");
 		dotPage3.setInteractive(new Phaser.Geom.Rectangle(0, 0, 15, 16), Phaser.Geom.Rectangle.Contains);
-		dotPage3.scaleX = 0.8;
-		dotPage3.scaleY = 0.8;
+		dotPage3.scaleX = 0.5;
+		dotPage3.scaleY = 0.5;
 
 		// activePage
-		const activePage = this.add.image(290, 490, "menu_texture0_level0", "QB.png");
+		const activePage = this.add.image(291, 463, "menu_texture2_level0.png", "QB.png");
 		activePage.scaleX = 0.8;
 		activePage.scaleY = 0.8;
 
 		// fB_png
-		const fB_png = this.add.image(640, 247, "menu_texture0_level0", "FB.png");
-		fB_png.scaleX = 0.8;
-		fB_png.scaleY = 0.8;
+		const fB_png = this.add.image(629, 258, "skin_texture5_level1", "A-2.png");
 		fB_png.visible = false;
 
 		// wE_png
-		const wE_png = this.add.image(389, 176, "skin_texture4_level0", "WE.png");
+		const wE_png = this.add.image(453, 187, "skin_texture5_level0", "A-86.png");
 		wE_png.scaleX = 0.55;
 		wE_png.scaleY = 0.55;
 		wE_png.visible = false;
 
 		// vE_png
-		const vE_png = this.add.image(556, 176, "skin_texture4_level0", "VE.png");
+		const vE_png = this.add.image(643, 185, "skin_texture5_level0", "A-132.png");
 		vE_png.scaleX = 0.55;
 		vE_png.scaleY = 0.55;
 		vE_png.visible = false;
 
 		// tE_png
-		const tE_png = this.add.image(727, 176, "skin_texture4_level0", "TE.png");
+		const tE_png = this.add.image(818, 187, "skin_texture5_level0", "A-166.png");
 		tE_png.scaleX = 0.55;
 		tE_png.scaleY = 0.55;
 		tE_png.visible = false;
@@ -293,10 +290,9 @@ export default class PaytableScene extends Phaser.Scene {
 		symbolMultiplier_3.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
 
 		// rulePaytable1
-		const rulePaytable1 = this.add.image(635, 425, "menu_texture1_level0", "DB.png");
-		rulePaytable1.scaleX = 0.8;
-		rulePaytable1.scaleY = 0.8;
-		rulePaytable1.visible = false;
+		const rulePaytable1 = this.add.image(635, 425, "skin_texture5_level1", "A-5.png");
+		rulePaytable1.scaleX = 0.5;
+		rulePaytable1.scaleY = 0.7;
 
 		// txtPage2
 		const txtPage2 = this.add.text(688, 470, "", {});
@@ -309,32 +305,32 @@ export default class PaytableScene extends Phaser.Scene {
 		txtPage2.setWordWrapWidth(800, true);
 
 		// eB_png
-		const eB_png = this.add.image(640, 245, "menu_texture1_level0", "EB.png");
+		const eB_png = this.add.image(637, 261, "skin_texture5_level1", "A-3.png");
 		eB_png.scaleX = 0.8;
 		eB_png.scaleY = 0.8;
 
 		// dF_png
-		const dF_png = this.add.image(325, 175, "skin_texture4_level0", "DF.png");
+		const dF_png = this.add.image(333, 194, "skin_texture5_level0", "A-79.png");
 		dF_png.scaleX = 0.55;
 		dF_png.scaleY = 0.55;
 
 		// dF_png_1
-		const dF_png_1 = this.add.image(485, 175, "skin_texture4_level0", "JF.png");
+		const dF_png_1 = this.add.image(490, 194, "skin_texture5_level0", "A-73.png");
 		dF_png_1.scaleX = 0.55;
 		dF_png_1.scaleY = 0.55;
 
 		// dF_png_2
-		const dF_png_2 = this.add.image(640, 175, "skin_texture4_level0", "LF.png");
+		const dF_png_2 = this.add.image(634, 194, "skin_texture5_level0", "A-70.png");
 		dF_png_2.scaleX = 0.55;
 		dF_png_2.scaleY = 0.55;
 
 		// dF_png_3
-		const dF_png_3 = this.add.image(795, 175, "skin_texture4_level0", "NF.png");
+		const dF_png_3 = this.add.image(789, 194, "skin_texture5_level0", "A-68.png");
 		dF_png_3.scaleX = 0.55;
 		dF_png_3.scaleY = 0.55;
 
 		// dF_png_4
-		const dF_png_4 = this.add.image(950, 175, "skin_texture4_level0", "PF.png");
+		const dF_png_4 = this.add.image(944, 194, "skin_texture5_level0", "A-75.png");
 		dF_png_4.scaleX = 0.55;
 		dF_png_4.scaleY = 0.55;
 
@@ -398,11 +394,6 @@ export default class PaytableScene extends Phaser.Scene {
 		symbolMultiplier_8.text = "100\n25\n5";
 		symbolMultiplier_8.setStyle({ "align": "center", "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
 
-		// rulePaytable2
-		const rulePaytable2 = this.add.image(635, 425, "menu_texture1_level0", "DB.png");
-		rulePaytable2.scaleX = 0.8;
-		rulePaytable2.scaleY = 0.8;
-
 		// txtPage3
 		const txtPage3 = this.add.text(688, 470, "", {});
 		txtPage3.scaleX = 0.5;
@@ -412,10 +403,20 @@ export default class PaytableScene extends Phaser.Scene {
 		txtPage3.setStyle({ "align": "center", "color": "#FFF59F", "fontFamily": "flanker", "fontSize": "30px" });
 		txtPage3.setWordWrapWidth(800, true);
 
+		// a_41_png
+		const a_41_png = this.add.image(640, 102, "skin_texture5_level1", "A-41.png");
+		a_41_png.scaleX = 0.76;
+		a_41_png.scaleY = 0.8;
+
+		// rulePaytable
+		const rulePaytable = this.add.image(635, 425, "skin_texture5_level1", "A-5.png");
+		rulePaytable.scaleX = 0.5;
+		rulePaytable.scaleY = 0.7;
+
 		// lists
 		const page1 = [txtFreeSpins, txtWinUp, gB_png, txtExpandingDesc, animationPaytable, kB_png, imgLines2, txtScatterDesc2, txtScatterDesc1, scatterMultiplier, scatterX, book, txtScatter, imgLines, txtFreeSpinsDesc, book3, book2, book1];
-		const page2 = [fB_png, txtPage2, rulePaytable1, symbolMultiplier_3, symbolX_3, symbolMultiplier_2, symbolX_2, symbolMultiplier_1, symbolX_1, symbolMultiplier, symbolX, sE_png, tE_png, vE_png, wE_png];
-		const page3 = [txtPage3, rulePaytable2, symbolMultiplier_8, symbolX_8, symbolMultiplier_7, symbolX_7, symbolMultiplier_6, symbolX_6, symbolMultiplier_5, symbolX_5, symbolMultiplier_4, symbolX_4, dF_png_4, dF_png_3, dF_png_2, dF_png_1, dF_png, eB_png];
+		const page2 = [fB_png, txtPage2, rulePaytable1, symbolMultiplier_2, symbolX_2, symbolMultiplier_1, symbolX_1, symbolMultiplier, symbolX, tE_png, vE_png, wE_png];
+		const page3 = [txtPage3, symbolMultiplier_8, symbolX_8, symbolMultiplier_7, symbolX_7, symbolMultiplier_6, symbolX_6, symbolMultiplier_5, symbolX_5, symbolMultiplier_4, symbolX_4, dF_png_4, dF_png_3, dF_png_2, dF_png_1, dF_png, eB_png, rulePaytable];
 
 		this.txtFreeSpins = txtFreeSpins;
 		this.txtFreeSpinsDesc = txtFreeSpinsDesc;
@@ -462,74 +463,94 @@ export default class PaytableScene extends Phaser.Scene {
 
 	/* START-USER-CODE */
 
-	// Write your code here
-	private pageNumber: number = 1
-	private pages: Array<any> = []
-	private gameState!: VideoSlotGameState;
+  // Write your code here
+  private pageNumber: number = 1;
+  private pages: Array<any> = [];
+  private gameState!: VideoSlotGameState;
 
-	init() {
-		// get game state and subscribe to changes
-		this.gameState = container.get<VideoSlotGameState>('VideoSlotGameState');
-	}
+  init() {
+    // get game state and subscribe to changes
+    this.gameState = container.get<VideoSlotGameState>("VideoSlotGameState");
+  }
 
-	create() {
-		// this.scene.sleep();
-		this.scene.bringToTop();
-		this.editorCreate();
+  create() {
+    // this.scene.sleep();
+    this.scene.bringToTop();
+    this.editorCreate();
 
-		this.txtFreeSpins.setText(this.cache.json.get('language').texts['IDS_FREESPINS_HEADER']);
-		this.txtFreeSpinsDesc.setText(this.cache.json.get('language').texts['IDS_BD_MOREFREESPINS']);
-		this.txtScatter.setText(this.cache.json.get('language').texts['IDS_SCATTER']);
-		this.txtScatterDesc1.setText(this.cache.json.get('language').texts['IDS_BD_WILDSCATTERBOOK']);
-		this.txtScatterDesc2.setText(this.cache.json.get('language').texts['IDS_PT_SCATTER_MONEY']);
-		this.txtExpandingDesc.setText(this.cache.json.get('language').texts['IDS_BD_EXPANDINGSYMBOL']);
-		this.txtWinUp.setText(this.cache.json.get('language').texts['IDS_WINUPTO_COINS']);
-		this.txtPage2.setText(this.cache.json.get('language').texts['IDS_PT_STANDARDTEXT_MONEY']);
-		this.txtPage3.setText(this.cache.json.get('language').texts['IDS_PT_STANDARDTEXT_MONEY']);
+    this.txtFreeSpins.setText(
+      this.cache.json.get("language").texts["IDS_FREESPINS_HEADER"]
+    );
+    this.txtFreeSpinsDesc.setText(
+      this.cache.json.get("language").texts["IDS_BD_MOREFREESPINS"]
+    );
+    this.txtScatter.setText(
+      this.cache.json.get("language").texts["IDS_SCATTER"]
+    );
+    this.txtScatterDesc1.setText(
+      this.cache.json.get("language").texts["IDS_BD_WILDSCATTERBOOK"]
+    );
+    this.txtScatterDesc2.setText(
+      this.cache.json.get("language").texts["IDS_PT_SCATTER_MONEY"]
+    );
+    this.txtExpandingDesc.setText(
+      this.cache.json.get("language").texts["IDS_BD_EXPANDINGSYMBOL"]
+    );
+    this.txtWinUp.setText(
+      this.cache.json.get("language").texts["IDS_WINUPTO_COINS"]
+    );
+    this.txtPage2.setText(
+      this.cache.json.get("language").texts["IDS_PT_STANDARDTEXT_MONEY"]
+    );
+    this.txtPage3.setText(
+      this.cache.json.get("language").texts["IDS_PT_STANDARDTEXT_MONEY"]
+    );
 
-		//Navigation 
-		this.page1.forEach(item => item.setVisible(true));
-		// setup once (e.g., in create)
-		this.pages = [this.page1, this.page2, this.page3]; // each is an array of GameObjects
-		const activeX = [290, 310, 330]
-		this.pageNumber = 1;
+    //Navigation
+    this.page1.forEach((item) => item.setVisible(true));
+    // setup once (e.g., in create)
+    this.pages = [this.page1, this.page2, this.page3]; // each is an array of GameObjects
+    const activeX = [290, 310, 330];
+    this.pageNumber = 1;
 
-		const showPage = (index: number) => {
-			this.pages.forEach((page, i) => {
-				const visible = i === index;
-				console.log(index)
-				page.forEach((obj: { setVisible: (arg0: boolean) => any; }) => obj.setVisible(visible));
-			});
+    const showPage = (index: number) => {
+      this.pages.forEach((page, i) => {
+        const visible = i === index;
+        console.log(index);
+        page.forEach((obj: { setVisible: (arg0: boolean) => any }) =>
+          obj.setVisible(visible)
+        );
+      });
 
-			if (this.activePage) {
-				this.activePage.setX(activeX[index]); 
-			}
-		};
+      if (this.activePage) {
+        this.activePage.setX(activeX[index]);
+      }
+    };
 
-		// prev button
-		this.prevPage.on('pointerdown', () => {
-			const len = this.pages.length;
-			// convert to 0-based, wrap, then back to 1-based
-			this.pageNumber = ((this.pageNumber - 2 + len) % len) + 1;
-			showPage(this.pageNumber - 1);
-		});
+    // prev button
+    this.prevPage.on("pointerdown", () => {
+      const len = this.pages.length;
+      // convert to 0-based, wrap, then back to 1-based
+      this.pageNumber = ((this.pageNumber - 2 + len) % len) + 1;
+      showPage(this.pageNumber - 1);
+    });
 
-		// (optional) next button
-		this.nextPage.on('pointerdown', () => {
-			const len = this.pages.length;
-			this.pageNumber = (this.pageNumber % len) + 1;
-			showPage(this.pageNumber - 1);
-		});
+    // (optional) next button
+    this.nextPage.on("pointerdown", () => {
+      const len = this.pages.length;
+      this.pageNumber = (this.pageNumber % len) + 1;
+      showPage(this.pageNumber - 1);
+    });
 
-		// show initial page
-		showPage(this.pageNumber - 1);
+    // show initial page
+    showPage(this.pageNumber - 1);
 
-		this.closePage.on('pointerdown', () => {
-			this.gameState.isShowingPaytable.set(false);
-        })
-	}
+    this.closePage.on("pointerdown", () => {
+      this.gameState.isShowingPaytable.set(false);
+    });
+  }
 
-	/* END-USER-CODE */
+  /* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */
