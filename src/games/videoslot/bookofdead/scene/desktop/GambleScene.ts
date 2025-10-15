@@ -24,66 +24,66 @@ export default class GambleScene extends Phaser.Scene {
 	editorCreate(): void {
 
 		// aF_png
-		const aF_png = this.add.image(640, 360, "skin_texture3_level0", "AF.png");
+		const aF_png = this.add.image(640, 360, "skin_texture5_level3", "A-71.png");
 		aF_png.scaleX = 0.8;
 		aF_png.scaleY = 0.8;
 
 		// txtInformation
-		const txtInformation = this.add.text(640, 210, "", {});
+		const txtInformation = this.add.text(641, 197, "", {});
 		txtInformation.scaleX = 0.5;
 		txtInformation.scaleY = 0.5;
 		txtInformation.setOrigin(0.5, 0.5);
 		txtInformation.text = "IDS_VP_BONUS2";
-		txtInformation.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
+		txtInformation.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px", "strokeThickness": 2 });
 
 		// txtColorpays
-		const txtColorpays = this.add.text(420, 250, "", {});
+		const txtColorpays = this.add.text(409, 239, "", {});
 		txtColorpays.scaleX = 0.5;
 		txtColorpays.scaleY = 0.5;
 		txtColorpays.setOrigin(0.5, 0.5);
 		txtColorpays.text = "IDS_COLORPAYS";
-		txtColorpays.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "36px" });
+		txtColorpays.setStyle({ "color": "#8B4513", "fontFamily": "FLANKER_GRIFFO", "fontSize": "36px", "strokeThickness": 1 });
 
 		// txtSuitpays
-		const txtSuitpays = this.add.text(865, 249, "", {});
+		const txtSuitpays = this.add.text(869, 236, "", {});
 		txtSuitpays.scaleX = 0.5;
 		txtSuitpays.scaleY = 0.5;
 		txtSuitpays.setOrigin(0.5, 0.5);
 		txtSuitpays.text = "IDS_SUITPAYS";
-		txtSuitpays.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "36px" });
+		txtSuitpays.setStyle({ "color": "#8B4513", "fontFamily": "FLANKER_GRIFFO", "fontSize": "36px", "strokeThickness": 1 });
 
 		// txtColorpaysValue
-		const txtColorpaysValue = this.add.text(420, 290, "", {});
+		const txtColorpaysValue = this.add.text(402, 280, "", {});
 		txtColorpaysValue.scaleX = 0.5;
 		txtColorpaysValue.scaleY = 0.5;
 		txtColorpaysValue.setOrigin(0.5, 0.5);
 		txtColorpaysValue.text = "0";
-		txtColorpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "48px" });
+		txtColorpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "48px", "strokeThickness": 2 });
 
 		// txtSuitpaysValue
-		const txtSuitpaysValue = this.add.text(865, 290, "", {});
+		const txtSuitpaysValue = this.add.text(888, 280, "", {});
 		txtSuitpaysValue.scaleX = 0.5;
 		txtSuitpaysValue.scaleY = 0.5;
 		txtSuitpaysValue.setOrigin(0.5, 0.5);
 		txtSuitpaysValue.text = "0";
-		txtSuitpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "48px" });
+		txtSuitpaysValue.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "48px", "strokeThickness": 2 });
 
 		// txtPrevCard
-		const txtPrevCard = this.add.text(392, 508, "", {});
+		const txtPrevCard = this.add.text(392, 526, "", {});
 		txtPrevCard.scaleX = 0.5;
 		txtPrevCard.scaleY = 0.5;
 		txtPrevCard.setOrigin(0, 0.5);
 		txtPrevCard.text = "IDS_PREVIOUSCARDS";
-		txtPrevCard.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "40px" });
+		txtPrevCard.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "40px", "strokeThickness": 2 });
 
 		// btnRed
-		const btnRed = this.add.sprite(420, 360, "skin_texture3_level0", "II.png");
+		const btnRed = this.add.sprite(403, 360, "skin_texture3_level0", "II.png");
 		btnRed.setInteractive(new Phaser.Geom.Rectangle(0, 0, 217, 96), Phaser.Geom.Rectangle.Contains);
 		btnRed.scaleX = 0.8;
 		btnRed.scaleY = 0.8;
 
 		// txtRed
-		const txtRed = this.add.text(420, 360, "", {});
+		const txtRed = this.add.text(403, 360, "", {});
 		txtRed.scaleX = 0.5;
 		txtRed.scaleY = 0.5;
 		txtRed.setOrigin(0.5, 0.5);
@@ -91,13 +91,13 @@ export default class GambleScene extends Phaser.Scene {
 		txtRed.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
 
 		// btnBlack
-		const btnBlack = this.add.sprite(420, 435, "skin_texture3_level0", "GI.png");
+		const btnBlack = this.add.sprite(403, 435, "skin_texture3_level0", "GI.png");
 		btnBlack.setInteractive(new Phaser.Geom.Rectangle(0, 0, 217, 96), Phaser.Geom.Rectangle.Contains);
 		btnBlack.scaleX = 0.8;
 		btnBlack.scaleY = 0.8;
 
 		// txtBlack
-		const txtBlack = this.add.text(420, 435, "", {});
+		const txtBlack = this.add.text(403, 435, "", {});
 		txtBlack.scaleX = 0.5;
 		txtBlack.scaleY = 0.5;
 		txtBlack.setOrigin(0.5, 0.5);
@@ -105,30 +105,30 @@ export default class GambleScene extends Phaser.Scene {
 		txtBlack.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
 
 		// cardReveal
-		const cardReveal = this.add.sprite(640, 360, "skin_texture3_level0", "PG.png");
+		const cardReveal = this.add.sprite(640, 360, "skin_texture5_level3", "A-21.png");
 		cardReveal.scaleX = 0.8;
 		cardReveal.scaleY = 0.8;
 
 		// btnHeart
-		const btnHeart = this.add.sprite(830, 360, "skin_texture3_level0", "OG.png");
+		const btnHeart = this.add.sprite(852, 355, "skin_texture3_level0", "OG.png");
 		btnHeart.setInteractive(new Phaser.Geom.Rectangle(0, 0, 97, 98), Phaser.Geom.Rectangle.Contains);
 		btnHeart.scaleX = 0.8;
 		btnHeart.scaleY = 0.8;
 
 		// btnDiamond
-		const btnDiamond = this.add.sprite(900, 360, "skin_texture3_level0", "NG.png");
+		const btnDiamond = this.add.sprite(932, 355, "skin_texture3_level0", "NG.png");
 		btnDiamond.setInteractive(new Phaser.Geom.Rectangle(0, 0, 97, 98), Phaser.Geom.Rectangle.Contains);
 		btnDiamond.scaleX = 0.8;
 		btnDiamond.scaleY = 0.8;
 
 		// btnClub
-		const btnClub = this.add.sprite(830, 430, "skin_texture3_level0", "MG.png");
+		const btnClub = this.add.sprite(852, 430, "skin_texture3_level0", "MG.png");
 		btnClub.setInteractive(new Phaser.Geom.Rectangle(0, 0, 97, 98), Phaser.Geom.Rectangle.Contains);
 		btnClub.scaleX = 0.8;
 		btnClub.scaleY = 0.8;
 
 		// btnSpade
-		const btnSpade = this.add.sprite(900, 430, "skin_texture3_level0", "LG.png");
+		const btnSpade = this.add.sprite(932, 430, "skin_texture3_level0", "LG.png");
 		btnSpade.setInteractive(new Phaser.Geom.Rectangle(0, 0, 97, 98), Phaser.Geom.Rectangle.Contains);
 		btnSpade.scaleX = 0.8;
 		btnSpade.scaleY = 0.8;
