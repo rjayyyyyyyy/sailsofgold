@@ -362,6 +362,12 @@
                 "key": "skin_texture5_level1"
             },
             {
+                "atlasURL": "resources/games/videoslot/bookofdead/skin/skin_texture5_level2.json",
+                "textureURL": "resources/games/videoslot/bookofdead/skin/skin_texture5_level2.png",
+                "type": "atlas",
+                "key": "skin_texture5_level2"
+            },
+            {
                 "atlasURL": "resources/common/ui/desktop/statusbar/statusbar_texture0_level0.json",
                 "textureURL": "resources/common/ui/desktop/statusbar/statusbar_texture0_level0.png",
                 "type": "atlas",

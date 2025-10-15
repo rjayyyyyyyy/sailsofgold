@@ -1,5 +1,6 @@
 {
   "texts": {
+    "IDS_SCATTER": "WILD",
     "IDS_WINUPTO_COINS": "WIN UP TO %d COINS!",
     "IDS_BD_MOREFREESPINS": "Three ship on the reels during free spins reward an additional 10 free spins!",
     "IDS_BD_TRIGGERFREESPINS": "Three ship on the reels will trigger 10 free spins!",
@@ -1324,7 +1325,7 @@
     "IDS_SCATTER_BONUS": "for scatter bonus",
     "IDS_SCATTER_BASE": "NORMAL SPINS",
     "IDS_SCATTER_AWARDS_FREESPINS_S": "Awards +1 Free Spin",
-    "IDS_SCATTER": "SCATTER",
+
     "IDS_SC_PICKDRUM": "Pick your party drum!",
     "IDS_SB_RESPINS_ACTIVATE": "Activates WILD RE-SPINS!",
     "IDS_SB_RESPINS": "WILD RE-SPINS",

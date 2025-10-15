@@ -21,13 +21,13 @@
             "label": "machine",
             "scope": "PUBLIC",
             "texture": {
-                "key": "skin_texture1_level0",
-                "frame": "HG.png"
+                "key": "skin_texture5_level2",
+                "frame": "A-0.png"
             },
             "x": 640,
-            "y": 320,
-            "scaleX": 0.625,
-            "scaleY": 0.625
+            "y": 315,
+            "scaleX": 0.76,
+            "scaleY": 0.76
         },
         {
             "type": "Image",

@@ -12,55 +12,55 @@ export default class ReelPrefab extends Phaser.GameObjects.Container {
 		super(scene, x ?? -280, y ?? 55);
 
 		// symbol_0
-		const symbol_0 = scene.add.sprite(-942, 53, "skin_texture4_level0", "PF.png");
+		const symbol_0 = scene.add.sprite(-942, 53, "skin_texture5_level2", "A-75.png");
 		this.add(symbol_0);
 
 		// symbol_1
-		const symbol_1 = scene.add.sprite(-933, 245, "skin_texture4_level0", "NF.png");
+		const symbol_1 = scene.add.sprite(-933, 245, "skin_texture5_level2", "A-85.png");
 		this.add(symbol_1);
 
 		// symbol_2
-		const symbol_2 = scene.add.sprite(-944, 422, "skin_texture4_level0", "LF.png");
+		const symbol_2 = scene.add.sprite(-944, 422, "skin_texture5_level2", "A-70.png");
 		this.add(symbol_2);
 
 		// symbol_3
-		const symbol_3 = scene.add.sprite(-952, 602, "skin_texture4_level0", "JF.png");
+		const symbol_3 = scene.add.sprite(-952, 602, "skin_texture5_level2", "A-73.png");
 		this.add(symbol_3);
 
 		// symbol_4
-		const symbol_4 = scene.add.sprite(-958, 776, "skin_texture4_level0", "DF.png");
+		const symbol_4 = scene.add.sprite(-958, 776, "skin_texture5_level2", "A-79.png");
 		this.add(symbol_4);
 
 		// symbol_5
-		const symbol_5 = scene.add.sprite(-956, 978, "skin_texture4_level0", "SE.png");
+		const symbol_5 = scene.add.sprite(-956, 978, "skin_texture5_level2", "A-67.png");
 		this.add(symbol_5);
 
 		// symbol_6
-		const symbol_6 = scene.add.sprite(-957, 1209, "skin_texture4_level0", "TE.png");
+		const symbol_6 = scene.add.sprite(-957, 1209, "skin_texture5_level2", "A-9.png");
 		this.add(symbol_6);
 
 		// symbol_7
-		const symbol_7 = scene.add.sprite(-956, 1444, "skin_texture4_level0", "VE.png");
+		const symbol_7 = scene.add.sprite(-956, 1444, "skin_texture5_level2", "A-28.png");
 		this.add(symbol_7);
 
 		// symbol_8
-		const symbol_8 = scene.add.sprite(-959, 1648, "skin_texture4_level0", "WE.png");
+		const symbol_8 = scene.add.sprite(-959, 1648, "skin_texture5_level2", "A-19.png");
 		this.add(symbol_8);
 
 		// symbol_9
-		const symbol_9 = scene.add.sprite(-952, 1873, "skin_texture4_level0", "XE.png");
+		const symbol_9 = scene.add.sprite(-952, 1873, "skin_texture5_level2", "A-69.png");
 		this.add(symbol_9);
 
 		// win_symbol_0
-		const win_symbol_0 = scene.add.sprite(-376, 72, "skin_texture2_level0", "OF.png");
+		const win_symbol_0 = scene.add.sprite(-376, 72, "skin_texture5_level2", "A-7.png");
 		this.add(win_symbol_0);
 
 		// win_symbol_1
-		const win_symbol_1 = scene.add.sprite(-376, 252, "skin_texture2_level0", "MF.png");
+		const win_symbol_1 = scene.add.sprite(-376, 252, "skin_texture5_level2", "A-68.png");
 		this.add(win_symbol_1);
 
 		// win_symbol_2
-		const win_symbol_2 = scene.add.sprite(-380, 435, "skin_texture2_level0", "KF.png");
+		const win_symbol_2 = scene.add.sprite(-380, 435, "skin_texture5_level2", "A-4.png");
 		this.add(win_symbol_2);
 
 		// text_1
@@ -76,31 +76,31 @@ export default class ReelPrefab extends Phaser.GameObjects.Container {
 		this.add(text);
 
 		// win_symbol_3
-		const win_symbol_3 = scene.add.sprite(-381, 602, "skin_texture2_level0", "IF.png");
+		const win_symbol_3 = scene.add.sprite(-381, 602, "skin_texture5_level2", "A-8.png");
 		this.add(win_symbol_3);
 
 		// win_symbol_4
-		const win_symbol_4 = scene.add.sprite(-377, 778, "skin_texture2_level0", "CF.png");
+		const win_symbol_4 = scene.add.sprite(-377, 778, "skin_texture5_level2", "A-3.png");
 		this.add(win_symbol_4);
 
 		// win_symbol_5
-		const win_symbol_5 = scene.add.sprite(-389, 993, "skin_texture2_level0", "TF.png");
+		const win_symbol_5 = scene.add.sprite(-389, 993, "skin_texture5_level2", "A-5.png");
 		this.add(win_symbol_5);
 
 		// win_symbol_6
-		const win_symbol_6 = scene.add.sprite(-376, 1200, "skin_texture2_level0", "VF.png");
+		const win_symbol_6 = scene.add.sprite(-376, 1200, "skin_texture5_level2", "A-166.png");
 		this.add(win_symbol_6);
 
 		// win_symbol_7
-		const win_symbol_7 = scene.add.sprite(-373, 1429, "skin_texture2_level0", "ZF.png");
+		const win_symbol_7 = scene.add.sprite(-373, 1429, "skin_texture5_level2", "A-132.png");
 		this.add(win_symbol_7);
 
 		// win_symbol_8
-		const win_symbol_8 = scene.add.sprite(-383, 1643, "skin_texture2_level0", "BG.png");
+		const win_symbol_8 = scene.add.sprite(-383, 1643, "skin_texture5_level2", "A-86.png");
 		this.add(win_symbol_8);
 
 		// win_symbol_9
-		const win_symbol_9 = scene.add.sprite(-377, 1860, "skin_texture2_level0", "FG.png");
+		const win_symbol_9 = scene.add.sprite(-377, 1860, "skin_texture5_level2", "A-197.png");
 		this.add(win_symbol_9);
 
 		// sd_symbol_0

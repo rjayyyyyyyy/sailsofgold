@@ -29,35 +29,42 @@ export default class PaytableScene extends Phaser.Scene {
 		const book1 = this.add.image(370, 180, "features_texture0_level0", "FB.png");
 		book1.scaleX = 0.4;
 		book1.scaleY = 0.4;
+		book1.visible = false;
 
 		// book2
 		const book2 = this.add.image(435, 180, "features_texture0_level0", "FB.png");
 		book2.scaleX = 0.4;
 		book2.scaleY = 0.4;
+		book2.visible = false;
 
 		// book3
 		const book3 = this.add.image(500, 180, "features_texture0_level0", "FB.png");
 		book3.scaleX = 0.4;
 		book3.scaleY = 0.4;
+		book3.visible = false;
 
 		// imgLines
 		const imgLines = this.add.image(435, 266, "menu_texture0_level0", "HB.png");
+		imgLines.visible = false;
 
 		// book
 		const book = this.add.image(390, 350, "features_texture0_level0", "FB.png");
 		book.scaleX = 0.55;
 		book.scaleY = 0.55;
+		book.visible = false;
 
 		// imgLines2
 		const imgLines2 = this.add.image(630, 288, "skin_texture5_level1", "A-1.png");
 		imgLines2.scaleX = 1.2;
 		imgLines2.scaleY = 1.1;
+		imgLines2.visible = false;
 
 		// txtFreeSpinsDesc
 		const txtFreeSpinsDesc = this.add.text(786, 396, "", {});
 		txtFreeSpinsDesc.scaleX = 0.5;
 		txtFreeSpinsDesc.scaleY = 0.5;
 		txtFreeSpinsDesc.setOrigin(0.5, 0.5);
+		txtFreeSpinsDesc.visible = false;
 		txtFreeSpinsDesc.text = "IDS_BD_MOREFREESPINS";
 		txtFreeSpinsDesc.setStyle({ "color": "#8B4513", "fontFamily": "flanker", "fontSize": "26px", "stroke": "#8B4513", "strokeThickness": 2 });
 		txtFreeSpinsDesc.setWordWrapWidth(500, true);
@@ -67,6 +74,7 @@ export default class PaytableScene extends Phaser.Scene {
 		txtScatter.scaleX = 0.5;
 		txtScatter.scaleY = 0.5;
 		txtScatter.setOrigin(0.5, 0.5);
+		txtScatter.visible = false;
 		txtScatter.text = "IDS_SCATTER";
 		txtScatter.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px", "stroke": "#8B4513", "strokeThickness": 5 });
 
@@ -75,6 +83,7 @@ export default class PaytableScene extends Phaser.Scene {
 		txtFreeSpins.scaleX = 0.5;
 		txtFreeSpins.scaleY = 0.5;
 		txtFreeSpins.setOrigin(0.5, 0.5);
+		txtFreeSpins.visible = false;
 		txtFreeSpins.text = "IDS_FREESPINS_HEADER";
 		txtFreeSpins.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px", "stroke": "#8B4513", "strokeThickness": 5 });
 
@@ -83,6 +92,7 @@ export default class PaytableScene extends Phaser.Scene {
 		scatterMultiplier.scaleX = 0.5;
 		scatterMultiplier.scaleY = 0.5;
 		scatterMultiplier.setOrigin(0.5, 0.5);
+		scatterMultiplier.visible = false;
 		scatterMultiplier.text = "5000\n1000\n100\n10";
 		scatterMultiplier.setStyle({ "color": "#8B4513", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px", "stroke": "#8B4513", "strokeThickness": 4 });
 
@@ -91,6 +101,7 @@ export default class PaytableScene extends Phaser.Scene {
 		txtScatterDesc1.scaleX = 0.5;
 		txtScatterDesc1.scaleY = 0.5;
 		txtScatterDesc1.setOrigin(0.5, 0);
+		txtScatterDesc1.visible = false;
 		txtScatterDesc1.text = "IDS_BD_WILDSCATTERGOLD";
 		txtScatterDesc1.setStyle({ "align": "center", "color": "#8B4513", "fontFamily": "flanker", "fontSize": "26px", "stroke": "#8B4513", "strokeThickness": 2 });
 		txtScatterDesc1.setWordWrapWidth(300);
@@ -100,6 +111,7 @@ export default class PaytableScene extends Phaser.Scene {
 		scatterX.scaleX = 0.5;
 		scatterX.scaleY = 0.5;
 		scatterX.setOrigin(0.5, 0.5);
+		scatterX.visible = false;
 		scatterX.text = "X5\nX4\nX3\nX2";
 		scatterX.setStyle({ "color": "#b60202ff", "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px", "stroke": "#b60202ff", "strokeThickness": 4 });
 
@@ -108,6 +120,7 @@ export default class PaytableScene extends Phaser.Scene {
 		txtExpandingDesc.scaleX = 0.5;
 		txtExpandingDesc.scaleY = 0.5;
 		txtExpandingDesc.setOrigin(0.5, 0);
+		txtExpandingDesc.visible = false;
 		txtExpandingDesc.text = "IDS_BD_EXPANDINGSYMBOL";
 		txtExpandingDesc.setStyle({ "color": "#8B4513", "fontFamily": "flanker", "fontSize": "26px", "stroke": "#8B4513", "strokeThickness": 2 });
 		txtExpandingDesc.setWordWrapWidth(500, true);
@@ -117,6 +130,7 @@ export default class PaytableScene extends Phaser.Scene {
 		txtWinUp.scaleX = 0.5;
 		txtWinUp.scaleY = 0.5;
 		txtWinUp.setOrigin(0.5, 0.5);
+		txtWinUp.visible = false;
 		txtWinUp.text = "IDS_WINUPTO_COINS";
 		txtWinUp.setStyle({ "backgroundColor": "", "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "60px", "stroke": "#8B4513", "strokeThickness": 5 });
 
@@ -165,25 +179,21 @@ export default class PaytableScene extends Phaser.Scene {
 
 		// fB_png
 		const fB_png = this.add.image(629, 258, "skin_texture5_level1", "A-2.png");
-		fB_png.visible = false;
 
 		// wE_png
 		const wE_png = this.add.image(453, 187, "skin_texture5_level0", "A-86.png");
 		wE_png.scaleX = 0.55;
 		wE_png.scaleY = 0.55;
-		wE_png.visible = false;
 
 		// vE_png
 		const vE_png = this.add.image(643, 185, "skin_texture5_level0", "A-132.png");
 		vE_png.scaleX = 0.55;
 		vE_png.scaleY = 0.55;
-		vE_png.visible = false;
 
 		// tE_png
 		const tE_png = this.add.image(818, 187, "skin_texture5_level0", "A-166.png");
 		tE_png.scaleX = 0.55;
 		tE_png.scaleY = 0.55;
-		tE_png.visible = false;
 
 		// sE_png
 		const sE_png = this.add.image(894, 176, "skin_texture4_level0", "SE.png");
@@ -192,46 +202,40 @@ export default class PaytableScene extends Phaser.Scene {
 		sE_png.visible = false;
 
 		// symbolX
-		const symbolX = this.add.text(361, 313, "", {});
+		const symbolX = this.add.text(429, 313, "", {});
 		symbolX.setOrigin(0.5, 0.5);
-		symbolX.visible = false;
 		symbolX.text = "X5\nX4\nX3\nX2";
-		symbolX.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
+		symbolX.setStyle({ "color": "#b60202ff", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px", "stroke": "#b60202ff", "strokeThickness": 2 });
 
 		// symbolMultiplier
-		const symbolMultiplier = this.add.text(416, 313, "", {});
+		const symbolMultiplier = this.add.text(483, 313, "", {});
 		symbolMultiplier.setOrigin(0.5, 0.5);
-		symbolMultiplier.visible = false;
-		symbolMultiplier.text = "5000\n1000\n100\n10";
-		symbolMultiplier.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
+		symbolMultiplier.text = "1000\n200\n50\n5";
+		symbolMultiplier.setStyle({ "color": "#8B4513", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px", "stroke": "#8B4513", "strokeThickness": 2 });
 
 		// symbolX_1
-		const symbolX_1 = this.add.text(523, 313, "", {});
+		const symbolX_1 = this.add.text(609, 313, "", {});
 		symbolX_1.setOrigin(0.5, 0.5);
-		symbolX_1.visible = false;
 		symbolX_1.text = "X5\nX4\nX3\nX2";
-		symbolX_1.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
+		symbolX_1.setStyle({ "color": "#b60202ff", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px", "stroke": "#b60202ff", "strokeThickness": 2 });
 
 		// symbolMultiplier_1
-		const symbolMultiplier_1 = this.add.text(578, 313, "", {});
+		const symbolMultiplier_1 = this.add.text(658, 313, "", {});
 		symbolMultiplier_1.setOrigin(0.5, 0.5);
-		symbolMultiplier_1.visible = false;
-		symbolMultiplier_1.text = "2000\n400\n40\n5";
-		symbolMultiplier_1.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
+		symbolMultiplier_1.text = "500\n100\n25\n5";
+		symbolMultiplier_1.setStyle({ "color": "#8B4513", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px", "stroke": "#8B4513", "strokeThickness": 2 });
 
 		// symbolX_2
-		const symbolX_2 = this.add.text(698, 313, "", {});
+		const symbolX_2 = this.add.text(791, 313, "", {});
 		symbolX_2.setOrigin(0.5, 0.5);
-		symbolX_2.visible = false;
 		symbolX_2.text = "X5\nX4\nX3\nX2";
-		symbolX_2.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
+		symbolX_2.setStyle({ "color": "#b60202ff", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px", "stroke": "#b60202ff", "strokeThickness": 2 });
 
 		// symbolMultiplier_2
-		const symbolMultiplier_2 = this.add.text(753, 313, "", {});
+		const symbolMultiplier_2 = this.add.text(841, 313, "", {});
 		symbolMultiplier_2.setOrigin(0.5, 0.5);
-		symbolMultiplier_2.visible = false;
-		symbolMultiplier_2.text = "750\n100\n30\n5";
-		symbolMultiplier_2.setStyle({ "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
+		symbolMultiplier_2.text = "250\n75\n15\n5";
+		symbolMultiplier_2.setStyle({ "color": "#8B4513", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px", "stroke": "#8B4513", "strokeThickness": 2 });
 
 		// symbolX_3
 		const symbolX_3 = this.add.text(867, 313, "", {});
@@ -253,13 +257,12 @@ export default class PaytableScene extends Phaser.Scene {
 		rulePaytable1.scaleY = 0.7;
 
 		// txtPage2
-		const txtPage2 = this.add.text(688, 470, "", {});
+		const txtPage2 = this.add.text(654, 461, "", {});
 		txtPage2.scaleX = 0.5;
 		txtPage2.scaleY = 0.5;
 		txtPage2.setOrigin(0.5, 0);
-		txtPage2.visible = false;
 		txtPage2.text = "IDS_PT_STANDARDTEXT_MONEY";
-		txtPage2.setStyle({ "align": "center", "color": "#FFF59F", "fontFamily": "flanker", "fontSize": "30px" });
+		txtPage2.setStyle({ "align": "center", "color": "#8B4513", "fontFamily": "flanker", "fontSize": "30px", "stroke": "#8B4513", "strokeThickness": 1 });
 		txtPage2.setWordWrapWidth(800, true);
 
 		// eB_png
@@ -369,13 +372,13 @@ export default class PaytableScene extends Phaser.Scene {
 		symbolMultiplier_8.setStyle({ "align": "center", "color": "#FFF59F", "fontFamily": "FLANKER_GRIFFO", "fontSize": "24px" });
 
 		// txtPage3
-		const txtPage3 = this.add.text(688, 470, "", {});
+		const txtPage3 = this.add.text(655, 461, "", {});
 		txtPage3.scaleX = 0.5;
 		txtPage3.scaleY = 0.5;
 		txtPage3.setOrigin(0.5, 0);
 		txtPage3.visible = false;
 		txtPage3.text = "IDS_PT_STANDARDTEXT_MONEY";
-		txtPage3.setStyle({ "align": "center", "color": "#FFF59F", "fontFamily": "flanker", "fontSize": "30px" });
+		txtPage3.setStyle({ "align": "center", "color": "#8B4513", "fontFamily": "flanker", "fontSize": "30px", "stroke": "#8B4513", "strokeThickness": 1 });
 		txtPage3.setWordWrapWidth(800, true);
 
 		// a_41_png
@@ -393,32 +396,38 @@ export default class PaytableScene extends Phaser.Scene {
 		const a_67_png = this.add.image(356, 225, "skin_texture5_level0", "A-67.png");
 		a_67_png.scaleX = 0.5;
 		a_67_png.scaleY = 0.5;
+		a_67_png.visible = false;
 
 		// a_69_png
 		const a_69_png = this.add.image(620, 221, "skin_texture5_level0", "A-69.png");
 		a_69_png.scaleX = 0.45;
 		a_69_png.scaleY = 0.45;
+		a_69_png.visible = false;
 
 		// a_69_png_1
 		const a_69_png_1 = this.add.image(738, 221, "skin_texture5_level0", "A-69.png");
 		a_69_png_1.scaleX = 0.45;
 		a_69_png_1.scaleY = 0.45;
+		a_69_png_1.visible = false;
 
 		// a_69_png_2
 		const a_69_png_2 = this.add.image(850, 220, "skin_texture5_level0", "A-69.png");
 		a_69_png_2.scaleX = 0.45;
 		a_69_png_2.scaleY = 0.45;
+		a_69_png_2.visible = false;
 
 		// a_72_png
 		const a_72_png = this.add.image(621, 366, "skin_texture5_level0", "A-72.png");
 		a_72_png.scaleX = 0.5;
 		a_72_png.scaleY = 0.5;
+		a_72_png.visible = false;
 
 		// txtExpandingDesc_1
 		const txtExpandingDesc_1 = this.add.text(739, 269, "", {});
 		txtExpandingDesc_1.scaleX = 0.5;
 		txtExpandingDesc_1.scaleY = 0.5;
 		txtExpandingDesc_1.setOrigin(0.5, 0);
+		txtExpandingDesc_1.visible = false;
 		txtExpandingDesc_1.text = "IDS_BD_TRIGGERFREESPINS";
 		txtExpandingDesc_1.setStyle({ "color": "#8B4513", "fontFamily": "flanker", "fontSize": "26px", "stroke": "#8B4513", "strokeThickness": 2 });
 		txtExpandingDesc_1.setWordWrapWidth(txtExpandingDesc_1.style.wordWrapWidth, true);
