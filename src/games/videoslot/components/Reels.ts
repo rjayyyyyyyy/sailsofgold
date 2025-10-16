@@ -196,7 +196,7 @@ class ReelsContainer extends Phaser.GameObjects.Container {
 }
 /* START OF COMPILED CODE */
 
-import ReelPrefab from "../bookofdead/scene/prefab/ReelPrefab";
+import ReelPrefab from "../sailsofgold/scene/prefab/ReelPrefab";
 /* START-USER-IMPORTS */
 import { VideoSlotGameState } from "../VideoSlotGameState";
 import VideoSlotReelsManager from "../VideoSlotReelsManager";
@@ -204,11 +204,10 @@ import { Logger } from "@gl/Logger";
 /* END-USER-IMPORTS */
 
 export default class Reels extends Phaser.Scene {
+  constructor() {
+    super("Reels");
 
-	constructor() {
-		super("Reels");
-
-		/* START-USER-CTR-CODE */
+    /* START-USER-CTR-CODE */
     // Write your code here.
 
     // this.machine2 = null;
@@ -221,37 +220,41 @@ export default class Reels extends Phaser.Scene {
       "VideoSlotReelsManager"
     );
     /* END-USER-CTR-CODE */
-	}
+  }
 
-	editorCreate(): void {
+  editorCreate(): void {
+    // machine
+    const machine = this.add.image(640, 315, "skin_texture5_level2", "A-0.png");
+    machine.scaleX = 0.76;
+    machine.scaleY = 0.76;
 
-		// machine
-		const machine = this.add.image(640, 315, "skin_texture5_level2", "A-0.png");
-		machine.scaleX = 0.76;
-		machine.scaleY = 0.76;
+    // machineMobile
+    const machineMobile = this.add.image(
+      360,
+      550,
+      "skin_texture1_level2",
+      "HG.png"
+    );
+    machineMobile.scaleX = 0.9;
+    machineMobile.scaleY = 0.9;
+    machineMobile.visible = false;
 
-		// machineMobile
-		const machineMobile = this.add.image(360, 550, "skin_texture1_level2", "HG.png");
-		machineMobile.scaleX = 0.9;
-		machineMobile.scaleY = 0.9;
-		machineMobile.visible = false;
+    // reelPrefab
+    const reelPrefab = new ReelPrefab(this, -186, -70);
+    this.add.existing(reelPrefab);
 
-		// reelPrefab
-		const reelPrefab = new ReelPrefab(this, -186, -70);
-		this.add.existing(reelPrefab);
+    this.machine = machine;
+    this.machineMobile = machineMobile;
+    this.reelPrefab = reelPrefab;
 
-		this.machine = machine;
-		this.machineMobile = machineMobile;
-		this.reelPrefab = reelPrefab;
+    this.events.emit("scene-awake");
+  }
 
-		this.events.emit("scene-awake");
-	}
+  public machine!: Phaser.GameObjects.Image;
+  public machineMobile!: Phaser.GameObjects.Image;
+  public reelPrefab!: ReelPrefab;
 
-	public machine!: Phaser.GameObjects.Image;
-	public machineMobile!: Phaser.GameObjects.Image;
-	public reelPrefab!: ReelPrefab;
-
-	/* START-USER-CODE */
+  /* START-USER-CODE */
   public GameState: VideoSlotGameState;
   ReelsManager: VideoSlotReelsManager;
   logger = new Logger();

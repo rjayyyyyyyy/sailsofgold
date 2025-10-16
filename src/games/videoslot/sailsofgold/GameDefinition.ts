@@ -32,7 +32,7 @@ container.bind<Dispatcher>("DispatcherGame").toConstantValue(new Dispatcher());
 const BookOfDeadGameDefinition: IGameDefinition = {
   gameClass: VideoSlot,
   id: gameId,
-  gameSlug: "bookofdead",
+  gameSlug: "sailsofgold",
   gameType: "videoslot",
   name: "Book of Dead",
   apiUrl: "https://ff.lydrst.com/",

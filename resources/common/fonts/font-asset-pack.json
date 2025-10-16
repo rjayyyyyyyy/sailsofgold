@@ -1,77 +1,77 @@
 {
-    "section1": {
-        "files": [
-            {
-                "url": "assets/bookofdead/fonts/ARIAL_ROUNDED_BOLD.ttf",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "ARIAL_ROUNDED_BOLD"
-            },
-            {
-                "url": "assets/bookofdead/fonts/BRITANNIC_BOLD.otf",
-                "format": "opentype",
-                "descriptors": {},
-                "type": "font",
-                "key": "BRITANNIC_BOLD"
-            },
-            {
-                "url": "assets/bookofdead/fonts/FLANKER_GRIFFO.otf",
-                "format": "opentype",
-                "descriptors": {},
-                "type": "font",
-                "key": "FLANKER_GRIFFO"
-            },
-            {
-                "url": "assets/bookofdead/fonts/OSWALD-MEDIUM.TTF",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "OSWALD-MEDIUM"
-            },
-            {
-                "url": "assets/bookofdead/fonts/Oswald-Regular.ttf",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "OSWALD-REGULAR"
-            },
-            {
-                "url": "assets/bookofdead/fonts/PNG_VNTH.ttf",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "PNG_VNTH"
-            },
-            {
-                "url": "assets/bookofdead/fonts/PNG-MINI.TTF",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "PNG-MINI"
-            },
-            {
-                "url": "assets/bookofdead/fonts/ROBOTO-CONDENSED-BOLD.ttf",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "ROBOTO-CONDENSED-BOLD"
-            },
-            {
-                "url": "assets/bookofdead/fonts/ROBOTO-CONDENSED-REGULAR.ttf",
-                "format": "truetype",
-                "descriptors": {},
-                "type": "font",
-                "key": "ROBOTO-CONDENSED-REGULAR"
-            }
-        ]
-    },
-    "meta": {
-        "app": "Phaser Editor 2D - Asset Pack Editor",
-        "contentType": "phasereditor2d.pack.core.AssetContentType",
-        "url": "https://phasereditor2d.com",
-        "version": 2,
-        "showAllFilesInBlocks": false,
-        "visible": true
-    }
+  "section1": {
+    "files": [
+      {
+        "url": "assets/sailsofgold/fonts/ARIAL_ROUNDED_BOLD.ttf",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "ARIAL_ROUNDED_BOLD"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/BRITANNIC_BOLD.otf",
+        "format": "opentype",
+        "descriptors": {},
+        "type": "font",
+        "key": "BRITANNIC_BOLD"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/FLANKER_GRIFFO.otf",
+        "format": "opentype",
+        "descriptors": {},
+        "type": "font",
+        "key": "FLANKER_GRIFFO"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/OSWALD-MEDIUM.TTF",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "OSWALD-MEDIUM"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/Oswald-Regular.ttf",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "OSWALD-REGULAR"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/PNG_VNTH.ttf",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "PNG_VNTH"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/PNG-MINI.TTF",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "PNG-MINI"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/ROBOTO-CONDENSED-BOLD.ttf",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "ROBOTO-CONDENSED-BOLD"
+      },
+      {
+        "url": "assets/sailsofgold/fonts/ROBOTO-CONDENSED-REGULAR.ttf",
+        "format": "truetype",
+        "descriptors": {},
+        "type": "font",
+        "key": "ROBOTO-CONDENSED-REGULAR"
+      }
+    ]
+  },
+  "meta": {
+    "app": "Phaser Editor 2D - Asset Pack Editor",
+    "contentType": "phasereditor2d.pack.core.AssetContentType",
+    "url": "https://phasereditor2d.com",
+    "version": 2,
+    "showAllFilesInBlocks": false,
+    "visible": true
+  }
 }

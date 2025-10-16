@@ -96,7 +96,7 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "COINS: ",
-            "fontFamily": "FLANKER_GRIFFO",
+            "fontFamily": "BRITANNIC_BOLD",
             "fontSize": "44px",
             "color": "#F7EDA1"
         },

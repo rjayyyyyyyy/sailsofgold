@@ -49,6 +49,7 @@ export default class Level extends Phaser.Scene {
     // this.audio = container.get<IAudioService>(TYPES.AudioService)
     // Write your code here.
     /* END-USER-CTR-CODE */
+    this.dispatcher = container.get<Dispatcher>("DispatcherGame");
   }
 
   editorCreate(): void {
@@ -100,7 +101,7 @@ export default class Level extends Phaser.Scene {
     txtCoinsValue.text = "COINS: ";
     txtCoinsValue.setStyle({
       color: "#F7EDA1",
-      fontFamily: "FLANKER_GRIFFO",
+      fontFamily: "BRITANNIC_BOLD",
       fontSize: "44px",
     });
 
@@ -425,11 +426,7 @@ export default class Level extends Phaser.Scene {
     );
   }
 
-  create() {
-    this.dispatcher = new Dispatcher();
-
-    this.editorCreate();
-    this.setupUI();
+  preload() {
     this.scene.add("MenuScene", container.get<Phaser.Scene>("MenuScene"), true);
     this.scene.add(
       "PaytableScene",
@@ -827,6 +824,10 @@ export default class Level extends Phaser.Scene {
     });
   }
 
+  create() {
+    this.editorCreate();
+    this.setupUI();
+  }
   private setupUI() {
     console.log("Language data:", this.cache.json.get("language"));
 
@@ -1075,6 +1076,7 @@ export default class Level extends Phaser.Scene {
     this.spinBtn.btnButton.on("pointerdown", () => {
       if (this.GameState.isSpinning && !this.GameState.isAutoPlayRunning)
         return;
+
       this.setButtonInteractive(this.spinBtn.btnButton, false);
       this.dispatcher.emit(ACTION_EVENTS.SPIN_START);
     });
