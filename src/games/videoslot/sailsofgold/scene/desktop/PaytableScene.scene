@@ -17,30 +17,13 @@
             "id": "d07076de-531a-4546-a9d7-8ac28e048aee",
             "label": "paytableBg",
             "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "AB.png"
+                "key": "menu_texture2_level1",
+                "frame": "A-0.png"
             },
             "x": 640,
             "y": 314,
             "scaleX": 0.8,
             "scaleY": 0.8
-        },
-        {
-            "type": "Text",
-            "id": "660102aa-496d-4166-8d99-951d76ab7de3",
-            "label": "txtFreeSpins",
-            "scope": "CLASS",
-            "x": 435,
-            "y": 130,
-            "scaleX": 0.5,
-            "scaleY": 0.5,
-            "originX": 0.5,
-            "originY": 0.5,
-            "visible": false,
-            "text": "IDS_FREESPINS_HEADER",
-            "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "44px",
-            "color": "#FFF59F"
         },
         {
             "type": "Image",
@@ -85,26 +68,6 @@
             "visible": false
         },
         {
-            "type": "Text",
-            "id": "f24608fc-aece-45f9-9d27-0826ff57efa4",
-            "label": "txtFreeSpinsDesc",
-            "scope": "CLASS",
-            "x": 435,
-            "y": 239,
-            "scaleX": 0.5,
-            "scaleY": 0.5,
-            "originX": 0.5,
-            "originY": 0.5,
-            "visible": false,
-            "text": "IDS_BD_MOREFREESPINS",
-            "align": "center",
-            "fontFamily": "flanker",
-            "fontSize": "36px",
-            "color": "#FFF59F",
-            "wordWrapWidth": 800,
-            "wordWrapUseAdvanced": true
-        },
-        {
             "type": "Image",
             "id": "cde6acdc-dac2-43db-b1ef-029234f77970",
             "label": "imgLines",
@@ -115,23 +78,6 @@
             "x": 435,
             "y": 266,
             "visible": false
-        },
-        {
-            "type": "Text",
-            "id": "09567754-1618-4ce4-9f35-076563cd5b04",
-            "label": "txtScatter",
-            "scope": "CLASS",
-            "x": 435,
-            "y": 293,
-            "scaleX": 0.5,
-            "scaleY": 0.5,
-            "originX": 0.5,
-            "originY": 0.5,
-            "visible": false,
-            "text": "IDS_SCATTER",
-            "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "44px",
-            "color": "#FFF59F"
         },
         {
             "type": "Image",
@@ -148,156 +94,161 @@
             "visible": false
         },
         {
+            "type": "Image",
+            "id": "77b17f08-a601-49fb-b1e5-5852b4db0fcb",
+            "label": "imgLines2",
+            "texture": {
+                "key": "skin_texture5_level1",
+                "frame": "A-1.png"
+            },
+            "x": 630,
+            "y": 288,
+            "scaleX": 1.2,
+            "scaleY": 1.1,
+            "visible": false
+        },
+        {
             "type": "Text",
-            "id": "a703db6b-1204-4c71-9ecf-553e33a172ab",
-            "label": "scatterX",
-            "x": 460,
-            "y": 350,
+            "id": "f24608fc-aece-45f9-9d27-0826ff57efa4",
+            "label": "txtFreeSpinsDesc",
+            "scope": "CLASS",
+            "x": 786,
+            "y": 396,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "visible": false,
-            "text": "X5\nX4\nX3",
+            "text": "IDS_BD_MOREFREESPINS",
+            "fontFamily": "flanker",
+            "fontSize": "26px",
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2,
+            "wordWrapWidth": 500,
+            "wordWrapUseAdvanced": true
+        },
+        {
+            "type": "Text",
+            "id": "09567754-1618-4ce4-9f35-076563cd5b04",
+            "label": "txtScatter",
+            "scope": "CLASS",
+            "x": 357,
+            "y": 162,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_SCATTER",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "44px"
+            "fontSize": "44px",
+            "color": "#FFF59F",
+            "stroke": "#8B4513",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "660102aa-496d-4166-8d99-951d76ab7de3",
+            "label": "txtFreeSpins",
+            "scope": "CLASS",
+            "x": 732,
+            "y": 163,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "IDS_FREESPINS_HEADER",
+            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "44px",
+            "color": "#FFF59F",
+            "stroke": "#8B4513",
+            "strokeThickness": 5
         },
         {
             "type": "Text",
             "id": "3a04f66c-8bd8-416e-9d8a-196fd42c669a",
             "label": "scatterMultiplier",
-            "x": 495,
-            "y": 350,
+            "x": 337,
+            "y": 329,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
             "originY": 0.5,
             "visible": false,
-            "text": "200\n20\n2",
+            "text": "5000\n1000\n100\n10",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "44px",
-            "color": "#FFF59F"
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 4
         },
         {
             "type": "Text",
             "id": "ae47af8a-5e9e-4e9c-8d0b-69be54096bc3",
             "label": "txtScatterDesc1",
             "scope": "CLASS",
-            "x": 435,
-            "y": 395,
+            "x": 357,
+            "y": 407,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
             "visible": false,
-            "text": "IDS_BD_WILDSCATTERBOOK",
+            "text": "IDS_BD_WILDSCATTERGOLD",
             "align": "center",
             "fontFamily": "flanker",
             "fontSize": "26px",
-            "color": "#FFF59F",
-            "wordWrapWidth": 760
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2,
+            "wordWrapWidth": 300
         },
         {
             "type": "Text",
-            "id": "0c04378a-1388-4179-b883-a18fad631389",
-            "label": "txtScatterDesc2",
-            "scope": "CLASS",
-            "x": 435,
-            "y": 446,
+            "id": "a703db6b-1204-4c71-9ecf-553e33a172ab",
+            "label": "scatterX",
+            "x": 295,
+            "y": 328,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
+            "originY": 0.5,
             "visible": false,
-            "text": "IDS_PT_SCATTER_MONEY",
-            "align": "center",
-            "fontFamily": "flanker",
-            "fontSize": "26px",
-            "color": "#FFF59F",
-            "wordWrapWidth": 760,
-            "wordWrapUseAdvanced": true
-        },
-        {
-            "type": "Image",
-            "id": "77b17f08-a601-49fb-b1e5-5852b4db0fcb",
-            "label": "imgLines2",
-            "texture": {
-                "key": "menu_texture0_level0",
-                "frame": "HB.png"
-            },
-            "x": 640,
-            "y": 348,
-            "scaleX": 0.75,
-            "scaleY": 0.75,
-            "angle": 90,
-            "visible": false
-        },
-        {
-            "type": "Image",
-            "id": "47853d3c-9593-40fe-9a58-e9f65c2fdebb",
-            "label": "kB_png",
-            "texture": {
-                "key": "menu_texture0_level0",
-                "frame": "KB.png"
-            },
-            "x": 640,
-            "y": 185,
-            "visible": false
-        },
-        {
-            "type": "Sprite",
-            "id": "bfa704c2-2500-4ef4-9a43-fc084c65ccc9",
-            "label": "animationPaytable",
-            "texture": {
-                "key": "features_texture0_level0",
-                "frame": "AB.png"
-            },
-            "x": 850,
-            "y": 212,
-            "scaleX": 0.8,
-            "scaleY": 0.8,
-            "visible": false,
-            "animationPlayMethod": 1,
-            "animationKey": "animationPaytable"
+            "text": "X5\nX4\nX3\nX2",
+            "fontFamily": "FLANKER_GRIFFO",
+            "fontSize": "44px",
+            "color": "#b60202ff",
+            "stroke": "#b60202ff",
+            "strokeThickness": 4
         },
         {
             "type": "Text",
             "id": "2f56978f-5082-49d0-aac3-fa1e7acded8d",
             "label": "txtExpandingDesc",
             "scope": "CLASS",
-            "x": 855,
-            "y": 335,
+            "x": 804,
+            "y": 326,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
             "visible": false,
             "text": "IDS_BD_EXPANDINGSYMBOL",
-            "align": "center",
             "fontFamily": "flanker",
             "fontSize": "26px",
-            "color": "#FFF59F",
-            "wordWrapWidth": 740,
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2,
+            "wordWrapWidth": 500,
             "wordWrapUseAdvanced": true
-        },
-        {
-            "type": "Image",
-            "id": "7ff4df68-eaf6-41e4-a71d-876094bed59b",
-            "label": "gB_png",
-            "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "GB.png"
-            },
-            "x": 640,
-            "y": 515,
-            "scaleX": 0.8,
-            "scaleY": 0.8,
-            "visible": false
         },
         {
             "type": "Text",
             "id": "e6b3f40f-06cc-449a-9cec-a60580da85d4",
             "label": "txtWinUp",
             "scope": "CLASS",
-            "x": 640,
-            "y": 515,
+            "x": 668,
+            "y": 481,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -305,8 +256,11 @@
             "visible": false,
             "text": "IDS_WINUPTO_COINS",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "40px",
-            "color": "#FFF59F"
+            "fontSize": "60px",
+            "color": "#FFF59F",
+            "stroke": "#8B4513",
+            "strokeThickness": 5,
+            "backgroundColor": ""
         },
         {
             "type": "Sprite",
@@ -317,11 +271,11 @@
             "hitArea.width": 49,
             "hitArea.height": 39,
             "texture": {
-                "key": "menu_texture0_level0",
+                "key": "menu_texture2_level0.png",
                 "frame": "OB.png"
             },
-            "x": 275,
-            "y": 510,
+            "x": 276,
+            "y": 483,
             "scaleX": 0.8,
             "scaleY": 0.8,
             "angle": -180
@@ -335,11 +289,11 @@
             "hitArea.width": 49,
             "hitArea.height": 39,
             "texture": {
-                "key": "menu_texture0_level0",
+                "key": "menu_texture2_level0.png",
                 "frame": "OB.png"
             },
-            "x": 309,
-            "y": 520,
+            "x": 310,
+            "y": 493,
             "scaleX": 0.8,
             "scaleY": 0.8,
             "angle": 90
@@ -353,11 +307,11 @@
             "hitArea.width": 49,
             "hitArea.height": 39,
             "texture": {
-                "key": "menu_texture0_level0",
+                "key": "menu_texture2_level0.png",
                 "frame": "OB.png"
             },
-            "x": 345,
-            "y": 510,
+            "x": 346,
+            "y": 483,
             "scaleX": 0.8,
             "scaleY": 0.8
         },
@@ -373,8 +327,8 @@
                 "key": "menu_texture0_level0",
                 "frame": "PB.png"
             },
-            "x": 290,
-            "y": 490,
+            "x": 291,
+            "y": 463,
             "scaleX": 0.8,
             "scaleY": 0.8
         },
@@ -387,13 +341,13 @@
             "hitArea.width": 15,
             "hitArea.height": 16,
             "texture": {
-                "key": "menu_texture0_level0",
+                "key": "menu_texture2_level0.png",
                 "frame": "PB.png"
             },
-            "x": 310,
-            "y": 490,
-            "scaleX": 0.8,
-            "scaleY": 0.8
+            "x": 311,
+            "y": 463,
+            "scaleX": 0.5,
+            "scaleY": 0.5
         },
         {
             "type": "Sprite",
@@ -404,13 +358,13 @@
             "hitArea.width": 15,
             "hitArea.height": 16,
             "texture": {
-                "key": "menu_texture0_level0",
+                "key": "menu_texture2_level0.png",
                 "frame": "PB.png"
             },
-            "x": 330,
-            "y": 490,
-            "scaleX": 0.8,
-            "scaleY": 0.8
+            "x": 331,
+            "y": 463,
+            "scaleX": 0.5,
+            "scaleY": 0.5
         },
         {
             "type": "Image",
@@ -418,11 +372,11 @@
             "label": "activePage",
             "scope": "CLASS",
             "texture": {
-                "key": "menu_texture0_level0",
+                "key": "menu_texture2_level0.png",
                 "frame": "QB.png"
             },
-            "x": 290,
-            "y": 490,
+            "x": 291,
+            "y": 463,
             "scaleX": 0.8,
             "scaleY": 0.8
         },
@@ -431,56 +385,50 @@
             "id": "cd202f69-bb25-4353-8b5f-4870e7f88d2c",
             "label": "fB_png",
             "texture": {
-                "key": "menu_texture0_level0",
-                "frame": "FB.png"
+                "key": "skin_texture5_level1",
+                "frame": "A-2.png"
             },
-            "x": 640,
-            "y": 247,
-            "scaleX": 0.8,
-            "scaleY": 0.8,
-            "visible": false
+            "x": 629,
+            "y": 258
         },
         {
             "type": "Image",
             "id": "3272f9c2-a02b-41ee-8255-c362b8415a48",
             "label": "wE_png",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "WE.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-86.png"
             },
-            "x": 389,
-            "y": 176,
+            "x": 453,
+            "y": 187,
             "scaleX": 0.55,
-            "scaleY": 0.55,
-            "visible": false
+            "scaleY": 0.55
         },
         {
             "type": "Image",
             "id": "26203a23-3b2c-4c1a-a423-000232e60d62",
             "label": "vE_png",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "VE.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-132.png"
             },
-            "x": 556,
-            "y": 176,
+            "x": 643,
+            "y": 185,
             "scaleX": 0.55,
-            "scaleY": 0.55,
-            "visible": false
+            "scaleY": 0.55
         },
         {
             "type": "Image",
             "id": "2008f9e4-756e-4305-8780-3350d0a048d6",
             "label": "tE_png",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "TE.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-166.png"
             },
-            "x": 727,
-            "y": 176,
+            "x": 818,
+            "y": 187,
             "scaleX": 0.55,
-            "scaleY": 0.55,
-            "visible": false
+            "scaleY": 0.55
         },
         {
             "type": "Image",
@@ -500,82 +448,91 @@
             "type": "Text",
             "id": "532e57bc-066d-4694-9ebd-17e0b26994e5",
             "label": "symbolX",
-            "x": 361,
+            "x": 429,
             "y": 313,
             "originX": 0.5,
             "originY": 0.5,
-            "visible": false,
             "text": "X5\nX4\nX3\nX2",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "24px"
+            "fontSize": "24px",
+            "color": "#b60202ff",
+            "stroke": "#b60202ff",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "7b485434-756e-4216-845d-537191e5cb75",
             "label": "symbolMultiplier",
-            "x": 416,
+            "x": 483,
             "y": 313,
             "originX": 0.5,
             "originY": 0.5,
-            "visible": false,
-            "text": "5000\n1000\n100\n10",
+            "text": "1000\n200\n50\n5",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "24px",
-            "color": "#FFF59F"
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "ecb0b4f7-e13f-4c40-bd3c-6477f8fe9817",
             "label": "symbolX_1",
-            "x": 523,
+            "x": 609,
             "y": 313,
             "originX": 0.5,
             "originY": 0.5,
-            "visible": false,
             "text": "X5\nX4\nX3\nX2",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "24px"
+            "fontSize": "24px",
+            "color": "#b60202ff",
+            "stroke": "#b60202ff",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "59f6d664-20af-4089-9343-14e09007c479",
             "label": "symbolMultiplier_1",
-            "x": 578,
+            "x": 658,
             "y": 313,
             "originX": 0.5,
             "originY": 0.5,
-            "visible": false,
-            "text": "2000\n400\n40\n5",
+            "text": "500\n100\n25\n5",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "24px",
-            "color": "#FFF59F"
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "e2240191-c8d0-41bc-ba81-f0ab485eb50f",
             "label": "symbolX_2",
-            "x": 698,
+            "x": 791,
             "y": 313,
             "originX": 0.5,
             "originY": 0.5,
-            "visible": false,
             "text": "X5\nX4\nX3\nX2",
             "fontFamily": "FLANKER_GRIFFO",
-            "fontSize": "24px"
+            "fontSize": "24px",
+            "color": "#b60202ff",
+            "stroke": "#b60202ff",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "7952c7ac-8dc9-4143-a336-a1d5a452b3f5",
             "label": "symbolMultiplier_2",
-            "x": 753,
+            "x": 841,
             "y": 313,
             "originX": 0.5,
             "originY": 0.5,
-            "visible": false,
-            "text": "750\n100\n30\n5",
+            "text": "250\n75\n15\n5",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "24px",
-            "color": "#FFF59F"
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
@@ -609,31 +566,31 @@
             "id": "30257cbc-675b-4025-8e65-a6a9dc7fe385",
             "label": "rulePaytable1",
             "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "DB.png"
+                "key": "skin_texture5_level1",
+                "frame": "A-5.png"
             },
             "x": 635,
             "y": 425,
-            "scaleX": 0.8,
-            "scaleY": 0.8,
-            "visible": false
+            "scaleX": 0.5,
+            "scaleY": 0.7
         },
         {
             "type": "Text",
             "id": "28ae7cf7-559e-45be-8a52-8de076322bb9",
             "label": "txtPage2",
             "scope": "CLASS",
-            "x": 688,
-            "y": 470,
+            "x": 654,
+            "y": 461,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
-            "visible": false,
             "text": "IDS_PT_STANDARDTEXT_MONEY",
             "align": "center",
             "fontFamily": "flanker",
             "fontSize": "30px",
-            "color": "#FFF59F",
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 1,
             "wordWrapWidth": 800,
             "wordWrapUseAdvanced": true
         },
@@ -642,78 +599,84 @@
             "id": "0c993838-117c-4ddd-b1c5-9718973677bd",
             "label": "eB_png",
             "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "EB.png"
+                "key": "skin_texture5_level1",
+                "frame": "A-3.png"
             },
-            "x": 640,
-            "y": 245,
+            "x": 637,
+            "y": 261,
             "scaleX": 0.8,
-            "scaleY": 0.8
+            "scaleY": 0.8,
+            "visible": false
         },
         {
             "type": "Image",
             "id": "97bd98a6-57b0-404a-8626-8857888545ed",
             "label": "dF_png",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "DF.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-79.png"
             },
-            "x": 325,
-            "y": 175,
+            "x": 333,
+            "y": 194,
             "scaleX": 0.55,
-            "scaleY": 0.55
+            "scaleY": 0.55,
+            "visible": false
         },
         {
             "type": "Image",
             "id": "9603d876-1bd2-4233-b192-41b23744eee2",
             "label": "dF_png_1",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "JF.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-73.png"
             },
-            "x": 485,
-            "y": 175,
+            "x": 490,
+            "y": 194,
             "scaleX": 0.55,
-            "scaleY": 0.55
+            "scaleY": 0.55,
+            "visible": false
         },
         {
             "type": "Image",
             "id": "1a93904d-3af2-4e10-814c-8fa535c16db6",
             "label": "dF_png_2",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "LF.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-70.png"
             },
-            "x": 640,
-            "y": 175,
+            "x": 634,
+            "y": 194,
             "scaleX": 0.55,
-            "scaleY": 0.55
+            "scaleY": 0.55,
+            "visible": false
         },
         {
             "type": "Image",
             "id": "0f51b376-5670-45d2-a792-a7f966358377",
             "label": "dF_png_3",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "NF.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-68.png"
             },
-            "x": 795,
-            "y": 175,
+            "x": 789,
+            "y": 194,
             "scaleX": 0.55,
-            "scaleY": 0.55
+            "scaleY": 0.55,
+            "visible": false
         },
         {
             "type": "Image",
             "id": "182f4463-72ac-4a2a-83eb-5032fc39af91",
             "label": "dF_png_4",
             "texture": {
-                "key": "skin_texture4_level0",
-                "frame": "PF.png"
+                "key": "skin_texture5_level0",
+                "frame": "A-75.png"
             },
-            "x": 950,
-            "y": 175,
+            "x": 944,
+            "y": 194,
             "scaleX": 0.55,
-            "scaleY": 0.55
+            "scaleY": 0.55,
+            "visible": false
         },
         {
             "type": "Text",
@@ -723,6 +686,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "X5\nX4\nX3",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -736,6 +700,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "150\n40\n5",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -750,6 +715,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "X5\nX4\nX3",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -763,6 +729,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "150\n40\n5",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -777,6 +744,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "X5\nX4\nX3",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -790,6 +758,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "100\n25\n5",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -804,6 +773,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "X5\nX4\nX3",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -817,6 +787,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "100\n25\n5",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -831,6 +802,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "X5\nX4\nX3",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -844,6 +816,7 @@
             "y": 310,
             "originX": 0.5,
             "originY": 0.5,
+            "visible": false,
             "text": "100\n25\n5",
             "align": "center",
             "fontFamily": "FLANKER_GRIFFO",
@@ -851,34 +824,140 @@
             "color": "#FFF59F"
         },
         {
-            "type": "Image",
-            "id": "e35261de-339d-439b-94ae-0115ad08f8be",
-            "label": "rulePaytable2",
-            "texture": {
-                "key": "menu_texture1_level0",
-                "frame": "DB.png"
-            },
-            "x": 635,
-            "y": 425,
-            "scaleX": 0.8,
-            "scaleY": 0.8
-        },
-        {
             "type": "Text",
             "id": "3cba99a8-8e93-4907-a753-64c1a4061af8",
             "label": "txtPage3",
             "scope": "CLASS",
-            "x": 688,
-            "y": 470,
+            "x": 655,
+            "y": 461,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
+            "visible": false,
             "text": "IDS_PT_STANDARDTEXT_MONEY",
             "align": "center",
             "fontFamily": "flanker",
             "fontSize": "30px",
-            "color": "#FFF59F",
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 1,
             "wordWrapWidth": 800,
+            "wordWrapUseAdvanced": true
+        },
+        {
+            "type": "Image",
+            "id": "90512ed5-a3be-4fe1-a808-2aead54c42d3",
+            "label": "a_41_png",
+            "texture": {
+                "key": "skin_texture5_level1",
+                "frame": "A-41.png"
+            },
+            "x": 640,
+            "y": 102,
+            "scaleX": 0.76,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "b7560abd-2553-44fd-91bd-6c4d63c52d19",
+            "label": "rulePaytable",
+            "texture": {
+                "key": "skin_texture5_level1",
+                "frame": "A-5.png"
+            },
+            "x": 635,
+            "y": 425,
+            "scaleX": 0.5,
+            "scaleY": 0.7,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "eafe1d61-9a66-4b05-ab4d-5fda12cc8282",
+            "label": "a_67_png",
+            "texture": {
+                "key": "skin_texture5_level0",
+                "frame": "A-67.png"
+            },
+            "x": 356,
+            "y": 225,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "ba583c18-5f6a-4abd-b185-fbe1c657f3cf",
+            "label": "a_69_png",
+            "texture": {
+                "key": "skin_texture5_level0",
+                "frame": "A-69.png"
+            },
+            "x": 620,
+            "y": 221,
+            "scaleX": 0.45,
+            "scaleY": 0.45,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "fe2dc02e-098b-4e43-80c6-53360e69f2bd",
+            "label": "a_69_png_1",
+            "texture": {
+                "key": "skin_texture5_level0",
+                "frame": "A-69.png"
+            },
+            "x": 738,
+            "y": 221,
+            "scaleX": 0.45,
+            "scaleY": 0.45,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "859afa1f-e0ee-4dc5-95a4-e56c9765c5c6",
+            "label": "a_69_png_2",
+            "texture": {
+                "key": "skin_texture5_level0",
+                "frame": "A-69.png"
+            },
+            "x": 850,
+            "y": 220,
+            "scaleX": 0.45,
+            "scaleY": 0.45,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "405703ef-6856-4d1e-a282-6945358ef9ed",
+            "label": "a_72_png",
+            "texture": {
+                "key": "skin_texture5_level0",
+                "frame": "A-72.png"
+            },
+            "x": 621,
+            "y": 366,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "visible": false
+        },
+        {
+            "type": "Text",
+            "id": "01072a5d-e96d-440c-a7af-b887fcd08262",
+            "label": "txtExpandingDesc_1",
+            "scope": "CLASS",
+            "x": 739,
+            "y": 269,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "originX": 0.5,
+            "visible": false,
+            "text": "IDS_BD_TRIGGERFREESPINS",
+            "fontFamily": "flanker",
+            "fontSize": "26px",
+            "color": "#8B4513",
+            "stroke": "#8B4513",
+            "strokeThickness": 2,
             "wordWrapUseAdvanced": true
         }
     ],
@@ -896,12 +975,8 @@
             "objectIds": [
                 "660102aa-496d-4166-8d99-951d76ab7de3",
                 "e6b3f40f-06cc-449a-9cec-a60580da85d4",
-                "7ff4df68-eaf6-41e4-a71d-876094bed59b",
                 "2f56978f-5082-49d0-aac3-fa1e7acded8d",
-                "bfa704c2-2500-4ef4-9a43-fc084c65ccc9",
-                "47853d3c-9593-40fe-9a58-e9f65c2fdebb",
                 "77b17f08-a601-49fb-b1e5-5852b4db0fcb",
-                "0c04378a-1388-4179-b883-a18fad631389",
                 "ae47af8a-5e9e-4e9c-8d0b-69be54096bc3",
                 "3a04f66c-8bd8-416e-9d8a-196fd42c669a",
                 "a703db6b-1204-4c71-9ecf-553e33a172ab",
@@ -911,7 +986,13 @@
                 "f24608fc-aece-45f9-9d27-0826ff57efa4",
                 "e94ed4ff-53a1-4756-86d3-cbc605be42b0",
                 "a65c6442-5eaf-4bff-99b9-25d1778bd554",
-                "e50b635e-c5b4-4fa2-b0cd-df564c3f62ff"
+                "e50b635e-c5b4-4fa2-b0cd-df564c3f62ff",
+                "ba583c18-5f6a-4abd-b185-fbe1c657f3cf",
+                "405703ef-6856-4d1e-a282-6945358ef9ed",
+                "01072a5d-e96d-440c-a7af-b887fcd08262",
+                "eafe1d61-9a66-4b05-ab4d-5fda12cc8282",
+                "fe2dc02e-098b-4e43-80c6-53360e69f2bd",
+                "859afa1f-e0ee-4dc5-95a4-e56c9765c5c6"
             ]
         },
         {
@@ -921,15 +1002,12 @@
                 "cd202f69-bb25-4353-8b5f-4870e7f88d2c",
                 "28ae7cf7-559e-45be-8a52-8de076322bb9",
                 "30257cbc-675b-4025-8e65-a6a9dc7fe385",
-                "811c4ec9-4883-46f1-92d1-951b3741139c",
-                "e3303ed5-bbd0-4242-8d1f-c1e295299a9d",
                 "7952c7ac-8dc9-4143-a336-a1d5a452b3f5",
                 "e2240191-c8d0-41bc-ba81-f0ab485eb50f",
                 "59f6d664-20af-4089-9343-14e09007c479",
                 "ecb0b4f7-e13f-4c40-bd3c-6477f8fe9817",
                 "7b485434-756e-4216-845d-537191e5cb75",
                 "532e57bc-066d-4694-9ebd-17e0b26994e5",
-                "697273ed-411a-4715-a5ba-df9536ac1918",
                 "2008f9e4-756e-4305-8780-3350d0a048d6",
                 "26203a23-3b2c-4c1a-a423-000232e60d62",
                 "3272f9c2-a02b-41ee-8255-c362b8415a48"
@@ -956,7 +1034,8 @@
                 "1a93904d-3af2-4e10-814c-8fa535c16db6",
                 "9603d876-1bd2-4233-b192-41b23744eee2",
                 "97bd98a6-57b0-404a-8626-8857888545ed",
-                "0c993838-117c-4ddd-b1c5-9718973677bd"
+                "0c993838-117c-4ddd-b1c5-9718973677bd",
+                "b7560abd-2553-44fd-91bd-6c4d63c52d19"
             ]
         }
     ]

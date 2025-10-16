@@ -24,7 +24,7 @@ export default class Button extends Phaser.GameObjects.Container {
 		txtButton.scaleY = 0.5;
 		txtButton.setOrigin(0.5, 0.5);
 		txtButton.text = "New text";
-		txtButton.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "44px" });
+		txtButton.setStyle({ "fontFamily": "FLANKER_GRIFFO", "fontSize": "35px" });
 		this.add(txtButton);
 
 		this.btnButton = btnButton;

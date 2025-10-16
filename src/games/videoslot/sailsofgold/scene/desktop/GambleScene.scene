@@ -17,8 +17,8 @@
             "id": "60a7cead-2c35-4bc0-85ad-c0d9cc6ea5ec",
             "label": "aF_png",
             "texture": {
-                "key": "skin_texture3_level0",
-                "frame": "AF.png"
+                "key": "skin_texture5_level3",
+                "frame": "A-71.png"
             },
             "x": 640,
             "y": 360,
@@ -30,8 +30,8 @@
             "id": "1a3d6867-2cf1-4aa0-8a9e-55a2666dc6f7",
             "label": "txtInformation",
             "scope": "CLASS",
-            "x": 640,
-            "y": 210,
+            "x": 641,
+            "y": 197,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -39,15 +39,16 @@
             "text": "IDS_VP_BONUS2",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "44px",
-            "color": "#FFF59F"
+            "color": "#FFF59F",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "db44f06f-137b-43df-b515-356b8c98329d",
             "label": "txtColorpays",
             "scope": "CLASS",
-            "x": 420,
-            "y": 250,
+            "x": 409,
+            "y": 239,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -55,15 +56,16 @@
             "text": "IDS_COLORPAYS",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "36px",
-            "color": "#FFF59F"
+            "color": "#8B4513",
+            "strokeThickness": 1
         },
         {
             "type": "Text",
             "id": "39dc73bc-47ad-417b-928a-6bceb2cf5be4",
             "label": "txtSuitpays",
             "scope": "CLASS",
-            "x": 865,
-            "y": 249,
+            "x": 869,
+            "y": 236,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -71,15 +73,16 @@
             "text": "IDS_SUITPAYS",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "36px",
-            "color": "#FFF59F"
+            "color": "#8B4513",
+            "strokeThickness": 1
         },
         {
             "type": "Text",
             "id": "191b43f8-8367-41ab-824b-87f24c21ee25",
             "label": "txtColorpaysValue",
             "scope": "CLASS",
-            "x": 420,
-            "y": 290,
+            "x": 402,
+            "y": 280,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -87,15 +90,16 @@
             "text": "0",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "48px",
-            "color": "#FFF59F"
+            "color": "#FFF59F",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
             "id": "60e1658a-d31a-4223-8dde-4d73af64b539",
             "label": "txtSuitpaysValue",
             "scope": "CLASS",
-            "x": 865,
-            "y": 290,
+            "x": 888,
+            "y": 280,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originX": 0.5,
@@ -103,7 +107,8 @@
             "text": "0",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "48px",
-            "color": "#FFF59F"
+            "color": "#FFF59F",
+            "strokeThickness": 2
         },
         {
             "type": "Text",
@@ -111,14 +116,15 @@
             "label": "txtPrevCard",
             "scope": "CLASS",
             "x": 392,
-            "y": 508,
+            "y": 526,
             "scaleX": 0.5,
             "scaleY": 0.5,
             "originY": 0.5,
             "text": "IDS_PREVIOUSCARDS",
             "fontFamily": "FLANKER_GRIFFO",
             "fontSize": "40px",
-            "color": "#FFF59F"
+            "color": "#FFF59F",
+            "strokeThickness": 2
         },
         {
             "type": "Sprite",
@@ -132,7 +138,7 @@
                 "key": "skin_texture3_level0",
                 "frame": "II.png"
             },
-            "x": 420,
+            "x": 403,
             "y": 360,
             "scaleX": 0.8,
             "scaleY": 0.8
@@ -142,7 +148,7 @@
             "id": "fa4e1a15-4dfb-4b37-8686-6b6d1110c64c",
             "label": "txtRed",
             "scope": "CLASS",
-            "x": 420,
+            "x": 403,
             "y": 360,
             "scaleX": 0.5,
             "scaleY": 0.5,
@@ -165,7 +171,7 @@
                 "key": "skin_texture3_level0",
                 "frame": "GI.png"
             },
-            "x": 420,
+            "x": 403,
             "y": 435,
             "scaleX": 0.8,
             "scaleY": 0.8
@@ -175,7 +181,7 @@
             "id": "1af7bce4-93e7-4e62-a8fd-f5494ddf11e6",
             "label": "txtBlack",
             "scope": "CLASS",
-            "x": 420,
+            "x": 403,
             "y": 435,
             "scaleX": 0.5,
             "scaleY": 0.5,
@@ -192,8 +198,8 @@
             "label": "cardReveal",
             "scope": "CLASS",
             "texture": {
-                "key": "skin_texture3_level0",
-                "frame": "PG.png"
+                "key": "skin_texture5_level3",
+                "frame": "A-21.png"
             },
             "x": 640,
             "y": 360,
@@ -212,8 +218,8 @@
                 "key": "skin_texture3_level0",
                 "frame": "OG.png"
             },
-            "x": 830,
-            "y": 360,
+            "x": 852,
+            "y": 355,
             "scaleX": 0.8,
             "scaleY": 0.8
         },
@@ -229,8 +235,8 @@
                 "key": "skin_texture3_level0",
                 "frame": "NG.png"
             },
-            "x": 900,
-            "y": 360,
+            "x": 932,
+            "y": 355,
             "scaleX": 0.8,
             "scaleY": 0.8
         },
@@ -246,7 +252,7 @@
                 "key": "skin_texture3_level0",
                 "frame": "MG.png"
             },
-            "x": 830,
+            "x": 852,
             "y": 430,
             "scaleX": 0.8,
             "scaleY": 0.8
@@ -263,7 +269,7 @@
                 "key": "skin_texture3_level0",
                 "frame": "LG.png"
             },
-            "x": 900,
+            "x": 932,
             "y": 430,
             "scaleX": 0.8,
             "scaleY": 0.8

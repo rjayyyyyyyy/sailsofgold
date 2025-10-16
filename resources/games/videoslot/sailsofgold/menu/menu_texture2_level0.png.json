@@ -1,0 +1,84 @@
+{"frames": {
+
+"AB.png":
+{
+	"frame": {"x":635,"y":1,"w":242,"h":399},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":242,"h":399},
+	"sourceSize": {"w":242,"h":399}
+},
+"CB.png":
+{
+	"frame": {"x":123,"y":1,"w":111,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":111,"h":62},
+	"sourceSize": {"w":111,"h":62}
+},
+"EB.png":
+{
+	"frame": {"x":1,"y":402,"w":648,"h":215},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":648,"h":215},
+	"sourceSize": {"w":648,"h":215}
+},
+"FB.png":
+{
+	"frame": {"x":236,"y":1,"w":183,"h":335},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":183,"h":335},
+	"sourceSize": {"w":183,"h":335}
+},
+"HB.png":
+{
+	"frame": {"x":421,"y":1,"w":212,"h":354},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":354},
+	"sourceSize": {"w":212,"h":354}
+},
+"IB.png":
+{
+	"frame": {"x":1,"y":619,"w":648,"h":177},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":648,"h":177},
+	"sourceSize": {"w":648,"h":177}
+},
+"OB.png":
+{
+	"frame": {"x":64,"y":1,"w":57,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":40},
+	"sourceSize": {"w":57,"h":40}
+},
+"PB.png":
+{
+	"frame": {"x":26,"y":1,"w":36,"h":36},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":36},
+	"sourceSize": {"w":36,"h":36}
+},
+"QB.png":
+{
+	"frame": {"x":1,"y":1,"w":23,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":22},
+	"sourceSize": {"w":23,"h":22}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "menu_texture2_level0.png.png",
+	"format": "RGBA8888",
+	"size": {"w":878,"h":797},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e133491c1756ead359b6f9c47ba1af2c:fe9dd7f7bb803d3819f3262ae8d23766:b785e6f5fb26d5ba39a99041f1773971$"
+}
+}

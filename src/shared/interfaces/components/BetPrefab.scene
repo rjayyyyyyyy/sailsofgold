@@ -25,7 +25,7 @@
                     "label": "bgBet",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "menu_texture0_level0",
+                        "key": "menu_texture2_level0.png",
                         "frame": "CB.png"
                     },
                     "x": 85

@@ -24,8 +24,8 @@
                     "id": "bba79277-cf4e-4f41-b027-ea34875f1684",
                     "label": "symbol_0",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "PF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-75.png"
                     },
                     "x": -942,
                     "y": 53
@@ -35,8 +35,8 @@
                     "id": "b6434e42-f2b7-46ba-be76-129ad8f44d31",
                     "label": "symbol_1",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "NF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-85.png"
                     },
                     "x": -933,
                     "y": 245
@@ -46,8 +46,8 @@
                     "id": "d83d337f-3bf3-4cd8-b870-2570aab5f7f3",
                     "label": "symbol_2",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "LF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-70.png"
                     },
                     "x": -944,
                     "y": 422
@@ -57,8 +57,8 @@
                     "id": "c3e7e577-3832-4766-8448-e1987cad24f6",
                     "label": "symbol_3",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "JF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-73.png"
                     },
                     "x": -952,
                     "y": 602
@@ -68,8 +68,8 @@
                     "id": "0d338d63-0b7e-4515-8f4d-0e41168603b3",
                     "label": "symbol_4",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "DF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-79.png"
                     },
                     "x": -958,
                     "y": 776
@@ -79,8 +79,8 @@
                     "id": "10184e44-47e9-4db3-8f67-aaa1b4961fe5",
                     "label": "symbol_5",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "SE.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-67.png"
                     },
                     "x": -956,
                     "y": 978
@@ -90,8 +90,8 @@
                     "id": "6ea9350b-6c83-4944-b823-a0689379629d",
                     "label": "symbol_6",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "TE.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-9.png"
                     },
                     "x": -957,
                     "y": 1209
@@ -101,8 +101,8 @@
                     "id": "2d54400c-50f2-42c4-8aca-97e8bf2d3554",
                     "label": "symbol_7",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "VE.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-28.png"
                     },
                     "x": -956,
                     "y": 1444
@@ -112,8 +112,8 @@
                     "id": "1d55a944-d567-4c66-8c57-cda3269470a2",
                     "label": "symbol_8",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "WE.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-19.png"
                     },
                     "x": -959,
                     "y": 1648
@@ -123,8 +123,8 @@
                     "id": "06d1df8a-a6ae-46a2-ab8a-0720b7834842",
                     "label": "symbol_9",
                     "texture": {
-                        "key": "skin_texture4_level0",
-                        "frame": "XE.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-69.png"
                     },
                     "x": -952,
                     "y": 1873
@@ -134,8 +134,8 @@
                     "id": "08c29491-093f-4549-b848-6f70de9854c3",
                     "label": "win_symbol_0",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "OF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-7.png"
                     },
                     "x": -376,
                     "y": 72
@@ -145,8 +145,8 @@
                     "id": "c150f33f-e897-4bbd-8ec3-1201b9dba819",
                     "label": "win_symbol_1",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "MF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-68.png"
                     },
                     "x": -376,
                     "y": 252
@@ -156,8 +156,8 @@
                     "id": "db5560d1-abb3-4182-86bb-3c4db0458dff",
                     "label": "win_symbol_2",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "KF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-4.png"
                     },
                     "x": -380,
                     "y": 435
@@ -185,8 +185,8 @@
                     "id": "4fe86cd2-a028-40f2-a4a5-ba148fc10cee",
                     "label": "win_symbol_3",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "IF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-8.png"
                     },
                     "x": -381,
                     "y": 602
@@ -196,8 +196,8 @@
                     "id": "a6e1dcaa-9fdf-44de-a44c-57cb14c63162",
                     "label": "win_symbol_4",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "CF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-3.png"
                     },
                     "x": -377,
                     "y": 778
@@ -207,8 +207,8 @@
                     "id": "025f5c8b-b5a1-4a4e-b6ee-a8bc046d1ca4",
                     "label": "win_symbol_5",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "TF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-5.png"
                     },
                     "x": -389,
                     "y": 993
@@ -218,8 +218,8 @@
                     "id": "02c8afdb-ac63-4b26-8a51-909c31e02772",
                     "label": "win_symbol_6",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "VF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-166.png"
                     },
                     "x": -376,
                     "y": 1200
@@ -229,8 +229,8 @@
                     "id": "b1fc6779-8275-4b01-a854-5867ec1cce83",
                     "label": "win_symbol_7",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "ZF.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-132.png"
                     },
                     "x": -373,
                     "y": 1429
@@ -240,8 +240,8 @@
                     "id": "10fb9893-060c-449f-8110-8838bbdfff36",
                     "label": "win_symbol_8",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "BG.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-86.png"
                     },
                     "x": -383,
                     "y": 1643
@@ -251,8 +251,8 @@
                     "id": "04bc4b57-8a87-4131-83ee-87cf58d377d6",
                     "label": "win_symbol_9",
                     "texture": {
-                        "key": "skin_texture2_level0",
-                        "frame": "FG.png"
+                        "key": "skin_texture5_level2",
+                        "frame": "A-197.png"
                     },
                     "x": -377,
                     "y": 1860

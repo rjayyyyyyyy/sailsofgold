@@ -1,0 +1,83 @@
+{
+  "frames": {
+    "BB.png": {
+      "frame": { "x": 913, "y": 0, "w": 622, "h": 63 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 622, "h": 63 },
+      "sourceSize": { "w": 622, "h": 63 }
+    },
+    "CB.png": {
+      "frame": { "x": 723, "y": 0, "w": 190, "h": 67 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 190, "h": 67 },
+      "sourceSize": { "w": 190, "h": 67 }
+    },
+    "DB.png": {
+      "frame": { "x": 0, "y": 715, "w": 1091, "h": 57 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 1, "y": 20, "w": 1091, "h": 57 },
+      "sourceSize": { "w": 1100, "h": 77 }
+    },
+    "EB.png": {
+      "frame": { "x": 0, "y": 80, "w": 951, "h": 360 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 7, "y": 0, "w": 951, "h": 360 },
+      "sourceSize": { "w": 965, "h": 360 }
+    },
+    "NB.png": {
+      "frame": { "x": 536, "y": 0, "w": 187, "h": 48 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 187, "h": 48 },
+      "sourceSize": { "w": 187, "h": 48 }
+    },
+    "RB.png": {
+      "frame": { "x": 216, "y": 0, "w": 158, "h": 57 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 5, "w": 158, "h": 57 },
+      "sourceSize": { "w": 162, "h": 67 }
+    },
+    "SB.png": {
+      "frame": { "x": 374, "y": 0, "w": 162, "h": 80 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 5, "w": 162, "h": 80 },
+      "sourceSize": { "w": 162, "h": 90 }
+    },
+    "TB.png": {
+      "frame": { "x": 33, "y": 0, "w": 34, "h": 51 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 51 },
+      "sourceSize": { "w": 34, "h": 51 }
+    },
+    "VB.png": {
+      "frame": { "x": 0, "y": 0, "w": 33, "h": 51 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 33, "h": 51 },
+      "sourceSize": { "w": 33, "h": 51 }
+    },
+    "WB.png": {
+      "frame": { "x": 67, "y": 0, "w": 149, "h": 75 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 3, "w": 149, "h": 75 },
+      "sourceSize": { "w": 149, "h": 81 }
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "menu_texture1_level0.png",
+    "format": "RGBA8888",
+    "size": { "w": 2021, "h": 772 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:6151162525c3c1ad9a4cf6594111dab0:2354b24c074578d55021b07d32b16cc8:7fe5a696bac1d03df4a1cda90585611c$"
+  }
+}
