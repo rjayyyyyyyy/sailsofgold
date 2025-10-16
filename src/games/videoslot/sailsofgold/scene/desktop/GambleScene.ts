@@ -401,20 +401,25 @@ export default class GambleScene extends Phaser.Scene {
       this.btnSpade.disableInteractive();
     });
     this.cardReveal.on("animationcomplete", () => {
+      const cardValueScale = {
+        largeCard: 0.7,
+        smallCard: 0.4,
+        asCard: 1,
+      };
       switch (this.gameState.winCard.get()) {
         case CardValue.Clubs:
           console.log("clubs");
           this.largeCard = this.add
-            .sprite(660, 405, "skin_texture3_level0", "KI.png")
-            .setScale(0.5)
+            .sprite(660, 405, "skin_texture5_level3", "A-104.png")
+            .setScale(cardValueScale.largeCard)
             .setDepth(2);
           this.smallCard = this.add
-            .sprite(600, 335, "skin_texture3_level0", "KI.png")
-            .setScale(0.2)
+            .sprite(600, 335, "skin_texture5_level3", "A-104.png")
+            .setScale(cardValueScale.smallCard)
             .setDepth(2);
           this.asCard = this.add
-            .sprite(600, 300, "skin_texture3_level0", "OI.png")
-            .setScale(0.8)
+            .sprite(600, 300, "skin_texture5_level3", "A-4.png")
+            .setScale(cardValueScale.asCard)
             .setDepth(2);
           this.prevCard = "MG.png";
           break;
@@ -422,16 +427,16 @@ export default class GambleScene extends Phaser.Scene {
         case CardValue.Diamonds:
           console.log("diamonds");
           this.largeCard = this.add
-            .sprite(660, 405, "skin_texture3_level0", "LI.png")
-            .setScale(0.5)
+            .sprite(660, 405, "skin_texture5_level3", "A-84.png")
+            .setScale(cardValueScale.largeCard)
             .setDepth(2);
           this.smallCard = this.add
-            .sprite(600, 335, "skin_texture3_level0", "LI.png")
-            .setScale(0.2)
+            .sprite(600, 335, "skin_texture5_level3", "A-84.png")
+            .setScale(cardValueScale.smallCard)
             .setDepth(2);
           this.asCard = this.add
-            .sprite(600, 300, "skin_texture3_level0", "PI.png")
-            .setScale(0.8)
+            .sprite(600, 300, "skin_texture5_level3", "A-105.png")
+            .setScale(cardValueScale.asCard)
             .setDepth(2);
           this.prevCard = "NG.png";
           break;
@@ -439,16 +444,16 @@ export default class GambleScene extends Phaser.Scene {
         case CardValue.Hearts:
           console.log("hearts");
           this.largeCard = this.add
-            .sprite(660, 405, "skin_texture3_level0", "NI.png")
-            .setScale(0.5)
+            .sprite(660, 405, "skin_texture5_level3", "A-80.png")
+            .setScale(cardValueScale.largeCard)
             .setDepth(2);
           this.smallCard = this.add
-            .sprite(600, 335, "skin_texture3_level0", "NI.png")
-            .setScale(0.2)
+            .sprite(600, 335, "skin_texture5_level3", "A-80.png")
+            .setScale(cardValueScale.smallCard)
             .setDepth(2);
           this.asCard = this.add
-            .sprite(600, 300, "skin_texture3_level0", "PI.png")
-            .setScale(0.8)
+            .sprite(600, 300, "skin_texture5_level3", "A-105.png")
+            .setScale(cardValueScale.asCard)
             .setDepth(2);
           this.prevCard = "OG.png";
           break;
@@ -456,16 +461,16 @@ export default class GambleScene extends Phaser.Scene {
         case CardValue.Spades:
           console.log("spades");
           this.largeCard = this.add
-            .sprite(660, 405, "skin_texture3_level0", "MI.png")
-            .setScale(0.5)
+            .sprite(660, 405, "skin_texture5_level3", "A-6.png")
+            .setScale(cardValueScale.largeCard)
             .setDepth(2);
           this.smallCard = this.add
-            .sprite(600, 355, "skin_texture3_level0", "MI.png")
-            .setScale(0.2)
+            .sprite(600, 355, "skin_texture5_level3", "A-6.png")
+            .setScale(cardValueScale.smallCard)
             .setDepth(2);
           this.asCard = this.add
-            .sprite(600, 300, "skin_texture3_level0", "OI.png")
-            .setScale(0.8)
+            .sprite(600, 300, "skin_texture5_level3", "A-4.png")
+            .setScale(cardValueScale.asCard)
             .setDepth(2);
           this.prevCard = "LG.png";
           break;
@@ -483,7 +488,7 @@ export default class GambleScene extends Phaser.Scene {
           this.prevWinCard[prevCardCount] = this.add
             .sprite(
               610 + prevCardCount * 35,
-              508,
+              526,
               "skin_texture3_level0",
               this.gameState.prevWinCard[i]
             )
