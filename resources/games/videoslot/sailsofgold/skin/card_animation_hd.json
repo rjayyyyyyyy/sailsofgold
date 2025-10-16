@@ -5,86 +5,68 @@
             "type": "frame",
             "frames": [
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "PG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-17.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "QG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-16.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "RG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-15.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "SG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-13.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "TG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-12.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "UG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-10.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "VG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-11.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "WG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-14.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "XG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-2.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "YG.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-22.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "skin_texture3_level0",
-                    "frame": "ZG.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "skin_texture3_level0",
-                    "frame": "AH.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "skin_texture3_level0",
-                    "frame": "BH.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "skin_texture3_level0",
-                    "frame": "CH.png",
+                    "key": "skin_texture5_level3",
+                    "frame": "A-25.png",
                     "duration": 0,
                     "keyframe": false
                 }
